@@ -183,3 +183,97 @@ function initGalleryModal() {
 
 // Initialize gallery modal when DOM is loaded
 document.addEventListener('DOMContentLoaded', initGalleryModal);
+
+// Created By Card Interactive Features
+document.addEventListener('DOMContentLoaded', function() {
+    const createdByCard = document.querySelector('.created-by-card');
+    const heartIcon = document.querySelector('.heart-icon');
+    const techItems = document.querySelectorAll('.tech-item');
+    
+    if (createdByCard) {
+        // Click effect with confetti-like animation
+        createdByCard.addEventListener('click', function() {
+            // Create temporary sparkle effect
+            for (let i = 0; i < 6; i++) {
+                createSparkle(this);
+            }
+            
+            // Temporary scale animation
+            this.style.transform = 'translateY(-5px) scale(0.95)';
+            setTimeout(() => {
+                this.style.transform = 'translateY(-5px) scale(1.05)';
+            }, 100);
+        });
+        
+        // Double click for special effect
+        createdByCard.addEventListener('dblclick', function() {
+            // Rainbow heart effect
+            heartIcon.style.animation = 'none';
+            heartIcon.style.background = 'linear-gradient(45deg, #ff6b6b, #4ecdc4, #45b7d1, #96ceb4, #feca57)';
+            heartIcon.style.webkitBackgroundClip = 'text';
+            heartIcon.style.webkitTextFillColor = 'transparent';
+            heartIcon.style.backgroundClip = 'text';
+            
+            setTimeout(() => {
+                heartIcon.style.background = 'none';
+                heartIcon.style.webkitTextFillColor = 'initial';
+                heartIcon.style.animation = 'heartbeat 2s ease-in-out infinite';
+            }, 2000);
+        });
+        
+        // Tech stack hover effects
+        techItems.forEach((item, index) => {
+            item.addEventListener('mouseenter', function() {
+                this.style.animationDelay = `${index * 0.1}s`;
+                this.style.animation = 'techGlow 0.6s ease forwards';
+            });
+            
+            item.addEventListener('mouseleave', function() {
+                this.style.animation = 'none';
+            });
+        });
+    }
+    
+    function createSparkle(parent) {
+        const sparkle = document.createElement('div');
+        sparkle.className = 'sparkle';
+        sparkle.style.cssText = `
+            position: absolute;
+            width: 4px;
+            height: 4px;
+            background: var(--primary-color);
+            border-radius: 50%;
+            pointer-events: none;
+            z-index: 1000;
+        `;
+        
+        const rect = parent.getBoundingClientRect();
+        const x = Math.random() * rect.width;
+        const y = Math.random() * rect.height;
+        
+        sparkle.style.left = x + 'px';
+        sparkle.style.top = y + 'px';
+        
+        parent.appendChild(sparkle);
+        
+        // Animate sparkle
+        sparkle.animate([
+            { 
+                transform: 'translate(0, 0) scale(0)', 
+                opacity: 1 
+            },
+            { 
+                transform: `translate(${(Math.random() - 0.5) * 50}px, ${(Math.random() - 0.5) * 50}px) scale(1)`, 
+                opacity: 0.8,
+                offset: 0.5
+            },
+            { 
+                transform: `translate(${(Math.random() - 0.5) * 100}px, ${(Math.random() - 0.5) * 100}px) scale(0)`, 
+                opacity: 0 
+            }
+        ], {
+            duration: 800,
+            easing: 'cubic-bezier(0.4, 0, 0.2, 1)'
+        }).onfinish = () => sparkle.remove();
+    }
+});
