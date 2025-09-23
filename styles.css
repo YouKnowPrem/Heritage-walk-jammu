@@ -668,6 +668,57 @@ section h2::after {
     pointer-events: none;
 }
 
+/* Credits Line Section */
+.credits-line-section {
+    background: linear-gradient(135deg,
+            rgba(250, 247, 242, 0.95) 0%,
+            rgba(210, 180, 140, 0.2) 50%,
+            rgba(250, 247, 242, 0.95) 100%);
+    padding: 1.5rem 0;
+    border-top: 1px solid var(--border-color);
+    position: relative;
+    overflow: hidden;
+}
+
+.credits-line-section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="credits-pattern" x="0" y="0" width="25" height="25" patternUnits="userSpaceOnUse"><circle cx="12.5" cy="12.5" r="1" fill="%23B8860B" opacity="0.08"/></pattern></defs><rect width="100" height="100" fill="url(%23credits-pattern)"/></svg>');
+    pointer-events: none;
+}
+
+.credits-line-text {
+    font-family: var(--font-heading);
+    font-size: 2.8rem;
+    font-weight: 400;
+    text-align: left;
+    margin: 0;
+    position: relative;
+    z-index: 2;
+    background: linear-gradient(135deg,
+            var(--primary-color) 0%,
+            var(--accent-color) 40%,
+            var(--royal-gold) 80%,
+            var(--royal-burgundy) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    opacity: 0.85;
+    transition: all 0.4s ease;
+    letter-spacing: 1.2px;
+    text-shadow: 0 3px 6px rgba(139, 69, 19, 0.15);
+}
+
+.credits-line-text:hover {
+    opacity: 1;
+    transform: translateY(-3px);
+    letter-spacing: 1.8px;
+}
+
 /* Made By Section */
 .made-by-section {
     background: linear-gradient(135deg,
@@ -675,7 +726,6 @@ section h2::after {
             rgba(210, 180, 140, 0.3) 50%,
             rgba(250, 247, 242, 0.9) 100%);
     padding: 2rem 0;
-    border-top: 1px solid var(--border-color);
     position: relative;
     overflow: hidden;
 }
@@ -693,7 +743,7 @@ section h2::after {
 
 .made-by-text {
     font-family: var(--font-heading);
-    font-size: 2.5rem;
+    font-size: 2.2rem;
     font-weight: 400;
     text-align: left;
     margin: 0;
@@ -706,22 +756,101 @@ section h2::after {
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
-    opacity: 0.8;
+    opacity: 0.75;
     transition: all 0.4s ease;
-    letter-spacing: 1px;
+    letter-spacing: 0.8px;
     text-shadow: 0 2px 4px rgba(139, 69, 19, 0.1);
 }
 
 .made-by-text:hover {
-    opacity: 1;
+    opacity: 0.9;
     transform: translateY(-2px);
-    letter-spacing: 1.5px;
+    letter-spacing: 1.2px;
 }
 
 
 
-/* Responsive Design */
-@media (max-width: 768px) {
+/* Laptop/Desktop Optimization (1024px and up) */
+@media (min-width: 1024px) {
+    .container {
+        max-width: 1400px;
+    }
+    
+    .hero h1 {
+        font-size: 3.5rem;
+    }
+    
+    .hero-subtitle {
+        font-size: 1.4rem;
+    }
+    
+    section h2 {
+        font-size: 3rem;
+    }
+    
+    .gallery-grid {
+        grid-template-columns: repeat(3, 1fr);
+        gap: 2.5rem;
+    }
+    
+    .sponsors-grid {
+        grid-template-columns: repeat(5, 1fr);
+        gap: 2.5rem;
+    }
+    
+    .credits-line-text {
+        font-size: 3.2rem;
+    }
+    
+    .made-by-text {
+        font-size: 2.6rem;
+    }
+    
+    .event-content {
+        gap: 4rem;
+    }
+    
+    .sponsors-category {
+        padding: 4rem;
+    }
+}
+
+/* Tablet Optimization (768px to 1023px) */
+@media (min-width: 768px) and (max-width: 1023px) {
+    .hero h1 {
+        font-size: 2.8rem;
+    }
+    
+    .hero-subtitle {
+        font-size: 1.2rem;
+    }
+    
+    .gallery-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 2rem;
+    }
+    
+    .sponsors-grid {
+        grid-template-columns: repeat(3, 1fr);
+        gap: 2rem;
+    }
+    
+    .credits-line-text {
+        font-size: 2.4rem;
+    }
+    
+    .made-by-text {
+        font-size: 2rem;
+    }
+    
+    .competition-content {
+        grid-template-columns: 1fr 1fr;
+        gap: 2rem;
+    }
+}
+
+/* Mobile Optimization (up to 767px) */
+@media (max-width: 767px) {
     .hamburger {
         display: flex;
     }
@@ -731,42 +860,64 @@ section h2::after {
         left: -100%;
         top: 70px;
         flex-direction: column;
-        background-color: var(--background-light);
+        background: linear-gradient(135deg, var(--background-light) 0%, rgba(250, 247, 242, 0.98) 100%);
         width: 100%;
         text-align: center;
         transition: 0.3s;
-        box-shadow: 0 10px 27px rgba(0, 0, 0, 0.05);
+        box-shadow: var(--royal-shadow);
         padding: 2rem 0;
+        backdrop-filter: blur(10px);
+        border-bottom: 2px solid var(--royal-border);
     }
 
     .nav-menu.active {
         left: 0;
     }
 
+    .hero {
+        padding: 100px 0 60px;
+    }
+
     .hero h1 {
         font-size: 2.2rem;
+        line-height: 1.2;
     }
 
     .hero-subtitle {
         font-size: 1.1rem;
     }
 
+    .hero-description {
+        text-align: center;
+    }
+
+    section {
+        padding: 3rem 0;
+    }
+
+    section h2 {
+        font-size: 2.2rem;
+        margin-bottom: 1.5rem;
+    }
+
     .competition-content {
         grid-template-columns: 1fr;
         text-align: center;
+        gap: 2rem;
     }
 
     .event-content {
         grid-template-columns: 1fr;
+        gap: 2rem;
     }
 
     .sponsors-grid {
-        grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+        grid-template-columns: 1fr;
         gap: 1.5rem;
     }
 
     .sponsors-category {
-        padding: 2rem;
+        padding: 2rem 1.5rem;
         margin-bottom: 3rem;
     }
 
@@ -781,41 +932,7 @@ section h2::after {
 
     .gallery-grid {
         grid-template-columns: 1fr;
-    }
-}
-
-@media (max-width: 480px) {
-    :root {
-        --section-padding: 2rem 0;
-    }
-
-    .hero {
-        padding: 100px 0 60px;
-    }
-
-    .hero h1 {
-        font-size: 1.8rem;
-    }
-
-    section h2 {
-        font-size: 2rem;
-    }
-
-    .made-by-section {
-        padding: 1.5rem 0;
-    }
-
-    .made-by-text {
-        font-size: 2rem;
-        text-align: center;
-    }
-
-    .sponsors-grid {
-        grid-template-columns: 1fr;
-    }
-
-    .sponsors-category {
-        padding: 1.5rem;
+        gap: 1.5rem;
     }
 
     .event-details,
@@ -826,5 +943,188 @@ section h2::after {
 
     .map-placeholder {
         font-size: 1rem;
+        padding: 2rem 1rem;
+    }
+
+    .credits-line-text {
+        font-size: 2rem;
+        text-align: center;
+        letter-spacing: 0.8px;
+    }
+
+    .made-by-text {
+        font-size: 1.6rem;
+        text-align: center;
+        letter-spacing: 0.5px;
+    }
+
+    .credits-line-section {
+        padding: 1.2rem 0;
+    }
+
+    .made-by-section {
+        padding: 1.5rem 0;
+    }
+}
+
+/* Small Mobile Optimization (up to 480px) */
+@media (max-width: 480px) {
+    :root {
+        --section-padding: 2rem 0;
+    }
+
+    .container {
+        padding: 0 0.8rem;
+    }
+
+    .hero {
+        padding: 90px 0 50px;
+    }
+
+    .hero h1 {
+        font-size: 1.8rem;
+        line-height: 1.1;
+    }
+
+    .hero-subtitle {
+        font-size: 1rem;
+    }
+
+    .hero-description p {
+        font-size: 1rem;
+    }
+
+    section {
+        padding: 2.5rem 0;
+    }
+
+    section h2 {
+        font-size: 1.8rem;
+    }
+
+    .cta-button {
+        padding: 0.8rem 1.5rem;
+        font-size: 0.9rem;
+    }
+
+    .sponsors-category {
+        padding: 1.5rem 1rem;
+        margin-bottom: 2rem;
+    }
+
+    .sponsors-category h3 {
+        font-size: 1.5rem;
+    }
+
+    .sponsors-description {
+        font-size: 1rem;
+        padding: 1rem;
+    }
+
+    .sponsor-placeholder {
+        padding: 1.5rem 0.8rem;
+        min-height: 100px;
+        font-size: 0.9rem;
+    }
+
+    .event-details,
+    .event-highlights {
+        padding: 1.2rem;
+        border-radius: 12px;
+    }
+
+    .event-item {
+        padding: 0.8rem;
+        margin-bottom: 1rem;
+    }
+
+    .highlights-list li {
+        padding: 0.6rem;
+        padding-left: 1.8rem;
+        font-size: 0.95rem;
+    }
+
+    .map-placeholder {
+        font-size: 0.9rem;
+        padding: 1.5rem 0.8rem;
+    }
+
+    .map-note {
+        font-size: 0.8rem;
+    }
+
+    .credits-line-text {
+        font-size: 1.6rem;
+        text-align: center;
+        letter-spacing: 0.5px;
+    }
+
+    .made-by-text {
+        font-size: 1.3rem;
+        text-align: center;
+        letter-spacing: 0.3px;
+    }
+
+    .credits-line-section {
+        padding: 1rem 0;
+    }
+
+    .made-by-section {
+        padding: 1.2rem 0;
+    }
+
+    .gallery-item img {
+        height: 200px;
+    }
+
+    .competition-text h3 {
+        font-size: 1.5rem;
+    }
+
+    .competition-button {
+        padding: 0.8rem 1.5rem;
+        font-size: 1rem;
+    }
+
+    .nav-container {
+        padding: 0 0.8rem;
+    }
+
+    .nav-logo h2 {
+        font-size: 1.3rem;
+    }
+}
+
+/* Extra Small Mobile (up to 360px) */
+@media (max-width: 360px) {
+    .hero h1 {
+        font-size: 1.6rem;
+    }
+
+    .credits-line-text {
+        font-size: 1.4rem;
+    }
+
+    .made-by-text {
+        font-size: 1.1rem;
+    }
+
+    section h2 {
+        font-size: 1.6rem;
+    }
+
+    .sponsors-category h3 {
+        font-size: 1.3rem;
+    }
+
+    .event-details,
+    .event-highlights {
+        padding: 1rem;
+    }
+
+    .sponsor-placeholder {
+        padding: 1.2rem 0.6rem;
+        min-height: 80px;
+        font-size: 0.8rem;
     }
 }
