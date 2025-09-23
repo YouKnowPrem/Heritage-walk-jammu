@@ -731,43 +731,43 @@ section h2::after {
     .container {
         max-width: 1400px;
     }
-    
+
     .hero h1 {
         font-size: 3.5rem;
     }
-    
+
     .hero-subtitle {
         font-size: 1.4rem;
     }
-    
+
     section h2 {
         font-size: 3rem;
     }
-    
+
     .gallery-grid {
         grid-template-columns: repeat(3, 1fr);
         gap: 2.5rem;
     }
-    
+
     .sponsors-grid {
         grid-template-columns: repeat(5, 1fr);
         gap: 2.5rem;
     }
-    
+
     .made-by-text {
         font-size: 10rem;
         width: 70%;
     }
-    
+
     .made-by-section {
         padding: 10rem 0;
         min-height: 70vh;
     }
-    
+
     .event-content {
         gap: 4rem;
     }
-    
+
     .sponsors-category {
         padding: 4rem;
     }
@@ -778,31 +778,31 @@ section h2::after {
     .hero h1 {
         font-size: 2.8rem;
     }
-    
+
     .hero-subtitle {
         font-size: 1.2rem;
     }
-    
+
     .gallery-grid {
         grid-template-columns: repeat(2, 1fr);
         gap: 2rem;
     }
-    
+
     .sponsors-grid {
         grid-template-columns: repeat(3, 1fr);
         gap: 2rem;
     }
-    
+
     .made-by-text {
         font-size: 6rem;
         width: 80%;
     }
-    
+
     .made-by-section {
         padding: 6rem 0;
         min-height: 50vh;
     }
-    
+
     .competition-content {
         grid-template-columns: 1fr 1fr;
         gap: 2rem;
@@ -1071,4 +1071,48 @@ section h2::after {
         min-height: 80px;
         font-size: 0.8rem;
     }
+}
+/* Heri
+tage Wave Animation */
+@keyframes heritageWave {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+/* Fade In Animation for Sections */
+@keyframes fadeInOut {
+    0% { opacity: 0; transform: translate(-50%, -50%) scale(0.8); }
+    20% { opacity: 1; transform: translate(-50%, -50%) scale(1); }
+    80% { opacity: 1; transform: translate(-50%, -50%) scale(1); }
+    100% { opacity: 0; transform: translate(-50%, -50%) scale(0.8); }
+}
+
+/* Device-specific Classes */
+.mobile-device .gallery-item:hover {
+    transform: none;
+}
+
+.mobile-device .sponsor-placeholder:hover {
+    transform: none;
+}
+
+.desktop-device .made-by-text {
+    cursor: pointer;
+}
+
+.tablet-device .competition-content {
+    gap: 2.5rem;
+}
+
+/* Initial state for scroll animations */
+section, .made-by-section {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+section.visible, .made-by-section.visible {
+    opacity: 1;
+    transform: translateY(0);
 }
