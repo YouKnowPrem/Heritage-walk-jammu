@@ -32,37 +32,7 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     });
 });
 
-// Contact Form Handling
-document.getElementById('contact-form').addEventListener('submit', function (e) {
-    e.preventDefault();
 
-    // Get form data
-    const formData = new FormData(this);
-    const name = formData.get('name');
-    const email = formData.get('email');
-    const subject = formData.get('subject');
-    const message = formData.get('message');
-
-    // Basic validation
-    if (!name || !email || !message) {
-        alert('Please fill in all required fields.');
-        return;
-    }
-
-    // Email validation
-    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-    if (!emailRegex.test(email)) {
-        alert('Please enter a valid email address.');
-        return;
-    }
-
-    // Simulate form submission (replace with actual form handling)
-    alert('Thank you for your message! We will get back to you soon.');
-    this.reset();
-
-    // In a real implementation, you would send this data to your server
-    // or use a service like Formspree, Netlify Forms, or EmailJS
-});
 
 // Lazy Loading for Gallery Images
 function lazyLoadImages() {
