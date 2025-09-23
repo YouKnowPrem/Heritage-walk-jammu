@@ -674,11 +674,11 @@ section h2::after {
             rgba(250, 247, 242, 0.95) 0%,
             rgba(210, 180, 140, 0.15) 50%,
             rgba(250, 247, 242, 0.95) 100%);
-    padding: 8rem 0;
+    padding: 6rem 0;
     border-top: 1px solid var(--border-color);
     position: relative;
     overflow: hidden;
-    min-height: 60vh;
+    min-height: 50vh;
     display: flex;
     align-items: center;
 }
@@ -696,32 +696,38 @@ section h2::after {
 
 .made-by-text {
     font-family: var(--font-heading);
-    font-size: 8rem;
-    font-weight: 600;
+    font-size: 5.5rem;
+    font-weight: 500;
     text-align: left;
     margin: 0;
     position: relative;
     z-index: 2;
-    width: 60%;
+    width: 65%;
     background: linear-gradient(135deg,
-            var(--primary-color) 0%,
-            var(--accent-color) 30%,
-            var(--royal-gold) 70%,
-            var(--primary-color) 100%);
+            rgba(139, 69, 19, 0.9) 0%,
+            rgba(205, 133, 63, 0.8) 20%,
+            rgba(255, 215, 0, 0.9) 40%,
+            rgba(184, 134, 11, 0.8) 60%,
+            rgba(139, 69, 19, 0.7) 80%,
+            rgba(128, 0, 32, 0.8) 100%);
+    background-size: 200% 200%;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
-    opacity: 0.9;
-    transition: all 0.4s ease;
-    letter-spacing: 2px;
-    line-height: 1.1;
-    text-shadow: 0 4px 8px rgba(139, 69, 19, 0.2);
+    opacity: 0.85;
+    transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+    letter-spacing: 1.5px;
+    line-height: 1.2;
+    text-shadow: 0 3px 6px rgba(139, 69, 19, 0.15);
+    animation: gradientShift 8s ease-in-out infinite;
 }
 
 .made-by-text:hover {
     opacity: 1;
-    transform: translateY(-5px);
-    letter-spacing: 3px;
+    transform: translateY(-3px);
+    letter-spacing: 2px;
+    background-size: 250% 250%;
+    animation-duration: 4s;
 }
 
 
@@ -755,13 +761,14 @@ section h2::after {
     }
 
     .made-by-text {
-        font-size: 10rem;
-        width: 70%;
+        font-size: 6.5rem;
+        width: 75%;
+        letter-spacing: 2px;
     }
 
     .made-by-section {
-        padding: 10rem 0;
-        min-height: 70vh;
+        padding: 7rem 0;
+        min-height: 55vh;
     }
 
     .event-content {
@@ -794,13 +801,14 @@ section h2::after {
     }
 
     .made-by-text {
-        font-size: 6rem;
-        width: 80%;
+        font-size: 4.5rem;
+        width: 85%;
+        letter-spacing: 1.5px;
     }
 
     .made-by-section {
-        padding: 6rem 0;
-        min-height: 50vh;
+        padding: 5rem 0;
+        min-height: 45vh;
     }
 
     .competition-content {
@@ -1072,20 +1080,44 @@ section h2::after {
         font-size: 0.8rem;
     }
 }
+
 /* Heri
 tage Wave Animation */
 @keyframes heritageWave {
-    0% { background-position: 0% 50%; }
-    50% { background-position: 100% 50%; }
-    100% { background-position: 0% 50%; }
+    0% {
+        background-position: 0% 50%;
+    }
+
+    50% {
+        background-position: 100% 50%;
+    }
+
+    100% {
+        background-position: 0% 50%;
+    }
 }
 
 /* Fade In Animation for Sections */
 @keyframes fadeInOut {
-    0% { opacity: 0; transform: translate(-50%, -50%) scale(0.8); }
-    20% { opacity: 1; transform: translate(-50%, -50%) scale(1); }
-    80% { opacity: 1; transform: translate(-50%, -50%) scale(1); }
-    100% { opacity: 0; transform: translate(-50%, -50%) scale(0.8); }
+    0% {
+        opacity: 0;
+        transform: translate(-50%, -50%) scale(0.8);
+    }
+
+    20% {
+        opacity: 1;
+        transform: translate(-50%, -50%) scale(1);
+    }
+
+    80% {
+        opacity: 1;
+        transform: translate(-50%, -50%) scale(1);
+    }
+
+    100% {
+        opacity: 0;
+        transform: translate(-50%, -50%) scale(0.8);
+    }
 }
 
 /* Device-specific Classes */
@@ -1106,13 +1138,44 @@ tage Wave Animation */
 }
 
 /* Initial state for scroll animations */
-section, .made-by-section {
+section,
+.made-by-section {
     opacity: 0;
     transform: translateY(20px);
     transition: opacity 0.6s ease, transform 0.6s ease;
 }
 
-section.visible, .made-by-section.visible {
+section.visible,
+.made-by-section.visible {
     opacity: 1;
     transform: translateY(0);
+}
+
+/* 
+Gradient Shift Animation */
+@keyframes gradientShift {
+    0% {
+        background-position: 0% 50%;
+        opacity: 0.85;
+    }
+
+    25% {
+        background-position: 100% 50%;
+        opacity: 0.9;
+    }
+
+    50% {
+        background-position: 200% 50%;
+        opacity: 0.95;
+    }
+
+    75% {
+        background-position: 100% 50%;
+        opacity: 0.9;
+    }
+
+    100% {
+        background-position: 0% 50%;
+        opacity: 0.85;
+    }
 }
