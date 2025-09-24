@@ -43,16 +43,19 @@ function triggerHeroAnimations() {
     });
 }
 
-// Automatic Carousel for Previous Walks
+// Enhanced Automatic Carousel for Previous Walks
 function initializeCarousel() {
     const track = document.getElementById('carousel-track');
     const items = document.querySelectorAll('.carousel-item');
     const prevBtn = document.getElementById('prev-btn');
     const nextBtn = document.getElementById('next-btn');
     const indicatorsContainer = document.getElementById('carousel-indicators');
-    
+
+    if (!track || items.length === 0) return; // Safety check
+
     let currentIndex = 0;
     let autoSlideInterval;
+    let isTransitioning = false;
 
     // Create indicators
     items.forEach((_, index) => {
@@ -65,22 +68,33 @@ function initializeCarousel() {
 
     const indicators = document.querySelectorAll('.indicator');
 
-    // Update carousel display
-    function updateCarousel() {
+    // Update carousel display with smooth transition
+    function updateCarousel(instant = false) {
+        if (isTransitioning && !instant) return;
+
+        isTransitioning = true;
+
         // Hide all items
         items.forEach(item => item.classList.remove('active'));
         indicators.forEach(indicator => indicator.classList.remove('active'));
-        
-        // Show current item
-        items[currentIndex].classList.add('active');
-        indicators[currentIndex].classList.add('active');
-        
-        // Move track
-        track.style.transform = `translateX(-${currentIndex * 100}%)`;
+
+        // Show current item with fade effect
+        setTimeout(() => {
+            items[currentIndex].classList.add('active');
+            indicators[currentIndex].classList.add('active');
+
+            // Move track
+            track.style.transform = `translateX(-${currentIndex * 100}%)`;
+
+            setTimeout(() => {
+                isTransitioning = false;
+            }, 500);
+        }, instant ? 0 : 50);
     }
 
     // Go to specific slide
     function goToSlide(index) {
+        if (index === currentIndex || isTransitioning) return;
         currentIndex = index;
         updateCarousel();
         resetAutoSlide();
@@ -88,19 +102,21 @@ function initializeCarousel() {
 
     // Next slide
     function nextSlide() {
+        if (isTransitioning) return;
         currentIndex = (currentIndex + 1) % items.length;
         updateCarousel();
     }
 
     // Previous slide
     function prevSlide() {
+        if (isTransitioning) return;
         currentIndex = (currentIndex - 1 + items.length) % items.length;
         updateCarousel();
     }
 
     // Auto slide functionality
     function startAutoSlide() {
-        autoSlideInterval = setInterval(nextSlide, 4000); // Change slide every 4 seconds
+        autoSlideInterval = setInterval(nextSlide, 5000); // Change slide every 5 seconds
     }
 
     function stopAutoSlide() {
@@ -109,7 +125,7 @@ function initializeCarousel() {
 
     function resetAutoSlide() {
         stopAutoSlide();
-        startAutoSlide();
+        setTimeout(startAutoSlide, 1000); // Restart after 1 second
     }
 
     // Event listeners
@@ -128,25 +144,31 @@ function initializeCarousel() {
     carouselContainer.addEventListener('mouseenter', stopAutoSlide);
     carouselContainer.addEventListener('mouseleave', startAutoSlide);
 
-    // Touch/swipe support for mobile
+    // Enhanced touch/swipe support for mobile
     let startX = 0;
     let endX = 0;
+    let startY = 0;
+    let endY = 0;
 
     carouselContainer.addEventListener('touchstart', (e) => {
         startX = e.touches[0].clientX;
+        startY = e.touches[0].clientY;
     });
 
     carouselContainer.addEventListener('touchend', (e) => {
         endX = e.changedTouches[0].clientX;
+        endY = e.changedTouches[0].clientY;
         handleSwipe();
     });
 
     function handleSwipe() {
         const swipeThreshold = 50;
-        const diff = startX - endX;
+        const diffX = startX - endX;
+        const diffY = Math.abs(startY - endY);
 
-        if (Math.abs(diff) > swipeThreshold) {
-            if (diff > 0) {
+        // Only handle horizontal swipes (ignore vertical scrolling)
+        if (Math.abs(diffX) > swipeThreshold && diffY < 100) {
+            if (diffX > 0) {
                 nextSlide(); // Swipe left - next slide
             } else {
                 prevSlide(); // Swipe right - previous slide
@@ -155,11 +177,24 @@ function initializeCarousel() {
         }
     }
 
-    // Start auto-slide
-    startAutoSlide();
+    // Keyboard navigation
+    document.addEventListener('keydown', (e) => {
+        if (e.key === 'ArrowLeft') {
+            prevSlide();
+            resetAutoSlide();
+        } else if (e.key === 'ArrowRight') {
+            nextSlide();
+            resetAutoSlide();
+        }
+    });
 
-    // Initialize first slide
-    updateCarousel();
+    // Initialize carousel
+    updateCarousel(true);
+
+    // Start auto-slide after a short delay
+    setTimeout(startAutoSlide, 2000);
+
+    console.log(`Heritage carousel initialized with ${items.length} photos`);
 }
 
 // Mobile Navigation Toggle
