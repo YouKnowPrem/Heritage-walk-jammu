@@ -168,23 +168,23 @@
                 <h2>Heritage Gallery</h2>
                 <p class="section-subtitle">Glimpses of Mubarak Mandi and Old City Jammu</p>
                 <div class="gallery-grid" id="gallery-grid">
-                    <!-- Gallery images will be loaded here -->
+                    <!-- Real heritage photos -->
                     <div class="gallery-item">
-                        <img src="images/placeholder-1.jpg" alt="Mubarak Mandi Palace Complex" loading="lazy">
+                        <img src="images/mubarak-mandi-architecture.jpg" alt="Mubarak Mandi Palace Complex" loading="lazy" onerror="this.src='data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNDAwIiBoZWlnaHQ9IjMwMCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48cmVjdCB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiBmaWxsPSIjOEI0NTEzIi8+PHRleHQgeD0iNTAlIiB5PSI0NSUiIGZvbnQtZmFtaWx5PSJBcmlhbCIgZm9udC1zaXplPSIxOCIgZmlsbD0id2hpdGUiIHRleHQtYW5jaG9yPSJtaWRkbGUiPvCfj5s8L3RleHQ+PHRleHQgeD0iNTAlIiB5PSI1NSUiIGZvbnQtZmFtaWx5PSJBcmlhbCIgZm9udC1zaXplPSIxNCIgZmlsbD0id2hpdGUiIHRleHQtYW5jaG9yPSJtaWRkbGUiPk11YmFyYWsgTWFuZGk8L3RleHQ+PC9zdmc+';">
                         <div class="gallery-overlay">
                             <p>Mubarak Mandi Palace Complex</p>
                         </div>
                     </div>
                     <div class="gallery-item">
-                        <img src="images/placeholder-2.jpg" alt="Old City Jammu Street View" loading="lazy">
+                        <img src="images/architectural-ceiling.jpg" alt="Intricate Architectural Ceiling" loading="lazy" onerror="this.src='data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNDAwIiBoZWlnaHQ9IjMwMCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48cmVjdCB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiBmaWxsPSIjQ0Q4NTNGIi8+PHRleHQgeD0iNTAlIiB5PSI0NSUiIGZvbnQtZmFtaWx5PSJBcmlhbCIgZm9udC1zaXplPSIxOCIgZmlsbD0id2hpdGUiIHRleHQtYW5jaG9yPSJtaWRkbGUiPvCfjqg8L3RleHQ+PHRleHQgeD0iNTAlIiB5PSI1NSUiIGZvbnQtZmFtaWx5PSJBcmlhbCIgZm9udC1zaXplPSIxNCIgZmlsbD0id2hpdGUiIHRleHQtYW5jaG9yPSJtaWRkbGUiPkFyY2hpdGVjdHVyYWwgQ2VpbGluZzwvdGV4dD48L3N2Zz4=';">
                         <div class="gallery-overlay">
-                            <p>Old City Jammu</p>
+                            <p>Architectural Ceiling Artwork</p>
                         </div>
                     </div>
                     <div class="gallery-item">
-                        <img src="images/placeholder-3.jpg" alt="Traditional Architecture Detail" loading="lazy">
+                        <img src="images/temple-group-photo.jpg" alt="Heritage Walk Group Photo" loading="lazy" onerror="this.src='data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNDAwIiBoZWlnaHQ9IjMwMCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48cmVjdCB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiBmaWxsPSIjRDJCNDhDIi8+PHRleHQgeD0iNTAlIiB5PSI0NSUiIGZvbnQtZmFtaWx5PSJBcmlhbCIgZm9udC1zaXplPSIxOCIgZmlsbD0iIzJGMUIxNCIgdGV4dC1hbmNob3I9Im1pZGRsZSI+8J+RpTwvdGV4dD48dGV4dCB4PSI1MCUiIHk9IjU1JSIgZm9udC1mYW1pbHk9IkFyaWFsIiBmb250LXNpemU9IjE0IiBmaWxsPSIjMkYxQjE0IiB0ZXh0LWFuY2hvcj0ibWlkZGxlIj5IZXJpdGFnZSBXYWxrIEdyb3VwPC90ZXh0Pjwvc3ZnPg==';">
                         <div class="gallery-overlay">
-                            <p>Traditional Architecture</p>
+                            <p>Heritage Walk Participants</p>
                         </div>
                     </div>
                 </div>
@@ -314,7 +314,11 @@
                     <h3>Heritage Walk Route Map</h3>
                     <p class="map-description">Follow our carefully curated route through Old Jammu City, covering historic temples, traditional bazaars, and architectural marvels</p>
                     <div class="map-frame-container">
-                        <img src="images/heritage-walk-map.jpg" alt="Heritage Walk - Old Jammu City Route Map" class="heritage-map">
+                        <img src="images/heritage-walk-map.jpg" alt="Heritage Walk - Old Jammu City Route Map" class="heritage-map" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                        <div class="map-fallback" style="display: none;">
+                            <p>Heritage Walk Route Map</p>
+                            <span>Please save the map image as 'heritage-walk-map.jpg' in the images folder</span>
+                        </div>
                         <div class="map-highlights">
                             <div class="map-point">
                                 <span class="point-marker">A</span>
