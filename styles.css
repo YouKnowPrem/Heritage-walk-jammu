@@ -925,6 +925,30 @@ section h2::after {
     border-radius: 17px;
 }
 
+.map-fallback {
+    width: 100%;
+    aspect-ratio: 16/9;
+    background: linear-gradient(135deg, var(--secondary-color), var(--background-light));
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    border-radius: 17px;
+    border: 2px dashed var(--primary-color);
+    color: var(--primary-color);
+    font-weight: 600;
+    font-size: 1.1rem;
+    text-align: center;
+    padding: 2rem;
+}
+
+.map-fallback span {
+    font-size: 0.9rem;
+    margin-top: 0.5rem;
+    opacity: 0.7;
+    font-style: italic;
+}
+
 .map-highlights {
     position: absolute;
     top: 20px;
