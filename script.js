@@ -1,3 +1,30 @@
+// Heritage Loading Animation
+document.addEventListener('DOMContentLoaded', function () {
+    const loader = document.getElementById('heritage-loader');
+    
+    // Simulate loading time with heritage elements
+    setTimeout(() => {
+        loader.classList.add('fade-out');
+        setTimeout(() => {
+            loader.style.display = 'none';
+            // Trigger entrance animations
+            document.body.classList.add('loaded');
+            animateOnLoad();
+        }, 800);
+    }, 2500);
+});
+
+// Fast entrance animations
+function animateOnLoad() {
+    const sections = document.querySelectorAll('section, .made-by-section');
+    sections.forEach((section, index) => {
+        setTimeout(() => {
+            section.style.animation = 'fastFadeIn 0.6s ease forwards';
+            section.style.opacity = '1';
+        }, index * 100);
+    });
+}
+
 // Mobile Navigation Toggle
 document.addEventListener('DOMContentLoaded', function () {
     const hamburger = document.querySelector('.hamburger');
@@ -154,53 +181,61 @@ function initGalleryModal() {
 // Initialize gallery modal when DOM is loaded
 document.addEventListener('DOMContentLoaded', initGalleryModal);
 
-// Made By Section Interactive Effects
+// Enhanced Made By Section with Heritage Animations
 document.addEventListener('DOMContentLoaded', function () {
     const madeByText = document.querySelector('.made-by-text');
 
     if (madeByText) {
-        // Add click effect with heritage-inspired animation
-        madeByText.addEventListener('click', function () {
-            // Create heritage sparkle effect
-            for (let i = 0; i < 8; i++) {
-                createHeritageSparkle(this);
+        // Fast click effect with heritage sparkles
+        madeByText.addEventListener('click', function (e) {
+            // Create multiple heritage sparkles
+            for (let i = 0; i < 12; i++) {
+                createFastHeritageSparkle(this, e);
             }
 
-            // Temporary pulse effect
-            this.style.transform = 'translateY(-5px) scale(0.98)';
+            // Quick pulse effect
+            this.style.transform = 'scale(0.95)';
             setTimeout(() => {
-                this.style.transform = 'translateY(-5px) scale(1)';
-            }, 150);
+                this.style.transform = 'scale(1)';
+            }, 100);
+
+            // Heritage sound effect (visual feedback)
+            createHeritageRipple(e.clientX, e.clientY);
         });
 
-        // Double click for special heritage effect
-        madeByText.addEventListener('dblclick', function () {
-            // Heritage color wave effect
-            this.style.background = 'linear-gradient(135deg, #FF6B35, #F7931E, #FFD700, #8B4513, #CD853F)';
-            this.style.webkitBackgroundClip = 'text';
-            this.style.webkitTextFillColor = 'transparent';
-            this.style.backgroundClip = 'text';
-            this.style.animation = 'heritageWave 2s ease-in-out';
-
-            setTimeout(() => {
-                this.style.background = 'linear-gradient(135deg, var(--primary-color) 0%, var(--accent-color) 30%, var(--royal-gold) 70%, var(--primary-color) 100%)';
-                this.style.animation = 'none';
-            }, 2000);
+        // Double click for Jammu palace animation
+        madeByText.addEventListener('dblclick', function (e) {
+            createJammuPalaceAnimation(e.clientX, e.clientY);
+            
+            // Special heritage wave effect
+            const lines = this.querySelectorAll('.line-1, .line-2');
+            lines.forEach((line, index) => {
+                setTimeout(() => {
+                    line.style.animation = 'heritageWave 1.5s ease-in-out';
+                    setTimeout(() => {
+                        line.style.animation = 'fastGradientShift 4s ease-in-out infinite';
+                    }, 1500);
+                }, index * 200);
+            });
         });
     }
 
-    function createHeritageSparkle(parent) {
+    function createFastHeritageSparkle(parent, event) {
         const sparkle = document.createElement('div');
-        sparkle.className = 'heritage-sparkle';
+        sparkle.className = 'fast-heritage-sparkle';
+        
+        const symbols = ['◆', '♦', '✦', '✧', '⬟', '⬢'];
+        const randomSymbol = symbols[Math.floor(Math.random() * symbols.length)];
+        
+        sparkle.innerHTML = randomSymbol;
         sparkle.style.cssText = `
             position: absolute;
-            width: 6px;
-            height: 6px;
-            background: var(--royal-gold);
-            border-radius: 50%;
+            font-size: ${Math.random() * 12 + 8}px;
+            color: #FFD700;
             pointer-events: none;
             z-index: 1000;
-            box-shadow: 0 0 10px var(--royal-gold);
+            text-shadow: 0 0 10px #FFD700;
+            font-weight: bold;
         `;
 
         const rect = parent.getBoundingClientRect();
@@ -212,28 +247,90 @@ document.addEventListener('DOMContentLoaded', function () {
 
         parent.appendChild(sparkle);
 
-        // Animate heritage sparkle
+        // Fast sparkle animation
         sparkle.animate([
             {
-                transform: 'translate(0, 0) scale(0)',
-                opacity: 1,
-                boxShadow: '0 0 10px var(--royal-gold)'
+                transform: 'translate(0, 0) scale(0) rotate(0deg)',
+                opacity: 1
             },
             {
-                transform: `translate(${(Math.random() - 0.5) * 60}px, ${(Math.random() - 0.5) * 60}px) scale(1)`,
-                opacity: 0.9,
-                boxShadow: '0 0 20px var(--royal-gold)',
-                offset: 0.5
+                transform: `translate(${(Math.random() - 0.5) * 80}px, ${(Math.random() - 0.5) * 80}px) scale(1.2) rotate(180deg)`,
+                opacity: 0.8,
+                offset: 0.3
             },
             {
-                transform: `translate(${(Math.random() - 0.5) * 120}px, ${(Math.random() - 0.5) * 120}px) scale(0)`,
-                opacity: 0,
-                boxShadow: '0 0 5px var(--royal-gold)'
+                transform: `translate(${(Math.random() - 0.5) * 150}px, ${(Math.random() - 0.5) * 150}px) scale(0) rotate(360deg)`,
+                opacity: 0
             }
         ], {
-            duration: 1200,
-            easing: 'cubic-bezier(0.4, 0, 0.2, 1)'
+            duration: 800,
+            easing: 'cubic-bezier(0.25, 0.46, 0.45, 0.94)'
         }).onfinish = () => sparkle.remove();
+    }
+
+    function createHeritageRipple(x, y) {
+        const ripple = document.createElement('div');
+        ripple.style.cssText = `
+            position: fixed;
+            left: ${x}px;
+            top: ${y}px;
+            width: 20px;
+            height: 20px;
+            border: 2px solid #FFD700;
+            border-radius: 50%;
+            transform: translate(-50%, -50%);
+            pointer-events: none;
+            z-index: 1000;
+        `;
+
+        document.body.appendChild(ripple);
+
+        ripple.animate([
+            { transform: 'translate(-50%, -50%) scale(0)', opacity: 1 },
+            { transform: 'translate(-50%, -50%) scale(3)', opacity: 0 }
+        ], {
+            duration: 600,
+            easing: 'ease-out'
+        }).onfinish = () => ripple.remove();
+    }
+
+    function createJammuPalaceAnimation(x, y) {
+        const palace = document.createElement('div');
+        palace.innerHTML = '🏛️';
+        palace.style.cssText = `
+            position: fixed;
+            left: ${x}px;
+            top: ${y}px;
+            font-size: 2rem;
+            transform: translate(-50%, -50%);
+            pointer-events: none;
+            z-index: 1000;
+            filter: drop-shadow(0 0 10px #FFD700);
+        `;
+
+        document.body.appendChild(palace);
+
+        palace.animate([
+            { 
+                transform: 'translate(-50%, -50%) scale(0) rotate(0deg)', 
+                opacity: 1,
+                filter: 'drop-shadow(0 0 10px #FFD700)'
+            },
+            { 
+                transform: 'translate(-50%, -50%) scale(1.5) rotate(180deg)', 
+                opacity: 0.8,
+                filter: 'drop-shadow(0 0 20px #FFD700)',
+                offset: 0.5
+            },
+            { 
+                transform: 'translate(-50%, -50%) scale(0) rotate(360deg)', 
+                opacity: 0,
+                filter: 'drop-shadow(0 0 5px #FFD700)'
+            }
+        ], {
+            duration: 2000,
+            easing: 'cubic-bezier(0.68, -0.55, 0.265, 1.55)'
+        }).onfinish = () => palace.remove();
     }
 });
 
@@ -267,29 +364,41 @@ document.addEventListener('DOMContentLoaded', function () {
     });
 });
 
-// Scroll-based Animations for Heritage Elements
-window.addEventListener('scroll', function () {
-    const scrolled = window.pageYOffset;
-    const rate = scrolled * -0.5;
+// Fast Scroll-based Animations with Heritage Elements
+let ticking = false;
 
-    // Parallax effect for heritage patterns
+function updateScrollAnimations() {
+    const scrolled = window.pageYOffset;
+    const rate = scrolled * -0.3;
+
+    // Optimized parallax effect
     const heroSection = document.querySelector('.hero');
     if (heroSection) {
-        heroSection.style.backgroundPosition = `center ${rate}px`;
+        heroSection.style.transform = `translateY(${rate}px)`;
     }
 
-    // Fade in effect for sections
+    // Fast fade in effect for sections
     const sections = document.querySelectorAll('section, .made-by-section');
     sections.forEach(section => {
         const sectionTop = section.offsetTop;
-        const sectionHeight = section.offsetHeight;
         const windowHeight = window.innerHeight;
 
-        if (scrolled > sectionTop - windowHeight + 100) {
-            section.style.opacity = '1';
-            section.style.transform = 'translateY(0)';
+        if (scrolled > sectionTop - windowHeight + 50) {
+            if (!section.classList.contains('animated')) {
+                section.style.animation = 'fastFadeIn 0.5s ease forwards';
+                section.classList.add('animated');
+            }
         }
     });
+
+    ticking = false;
+}
+
+window.addEventListener('scroll', function () {
+    if (!ticking) {
+        requestAnimationFrame(updateScrollAnimations);
+        ticking = true;
+    }
 });
 
 // Device-specific Optimizations
@@ -366,7 +475,7 @@ document.addEventListener('DOMContentLoaded', function () {
     });
 });
 
-// Heritage-themed Easter Eggs
+// Heritage-themed Easter Eggs and Performance Optimizations
 document.addEventListener('DOMContentLoaded', function () {
     let clickCount = 0;
     const madeByText = document.querySelector('.made-by-text');
@@ -375,35 +484,98 @@ document.addEventListener('DOMContentLoaded', function () {
         madeByText.addEventListener('click', function () {
             clickCount++;
 
-            // Special effect after 5 clicks
-            if (clickCount === 5) {
-                // Show heritage message
-                const message = document.createElement('div');
-                message.innerHTML = '🏛️ Preserving Jammu\'s Heritage! 🏛️';
-                message.style.cssText = `
-                    position: fixed;
-                    top: 50%;
-                    left: 50%;
-                    transform: translate(-50%, -50%);
-                    background: linear-gradient(135deg, var(--royal-gold), var(--primary-color));
-                    color: white;
-                    padding: 2rem;
-                    border-radius: 15px;
-                    font-size: 1.5rem;
-                    font-family: var(--font-heading);
-                    z-index: 3000;
-                    box-shadow: 0 10px 30px rgba(0,0,0,0.3);
-                    animation: fadeInOut 3s ease-in-out;
-                `;
-
-                document.body.appendChild(message);
-
-                setTimeout(() => {
-                    message.remove();
-                    clickCount = 0;
-                }, 3000);
+            // Special heritage celebration after 3 clicks
+            if (clickCount === 3) {
+                createHeritageFireworks();
+                showHeritageMessage();
+                clickCount = 0;
             }
         });
     }
+
+    function createHeritageFireworks() {
+        const colors = ['#FFD700', '#CD853F', '#8B4513', '#FF6B35', '#F7931E'];
+        
+        for (let i = 0; i < 20; i++) {
+            setTimeout(() => {
+                const firework = document.createElement('div');
+                firework.innerHTML = ['🏛️', '✨', '🎆', '⭐', '💫'][Math.floor(Math.random() * 5)];
+                firework.style.cssText = `
+                    position: fixed;
+                    left: ${Math.random() * window.innerWidth}px;
+                    top: ${Math.random() * window.innerHeight}px;
+                    font-size: ${Math.random() * 20 + 15}px;
+                    pointer-events: none;
+                    z-index: 3000;
+                    filter: drop-shadow(0 0 10px ${colors[Math.floor(Math.random() * colors.length)]});
+                `;
+
+                document.body.appendChild(firework);
+
+                firework.animate([
+                    { transform: 'scale(0) rotate(0deg)', opacity: 1 },
+                    { transform: 'scale(1.5) rotate(180deg)', opacity: 0.8, offset: 0.3 },
+                    { transform: 'scale(0) rotate(360deg)', opacity: 0 }
+                ], {
+                    duration: 1500,
+                    easing: 'cubic-bezier(0.25, 0.46, 0.45, 0.94)'
+                }).onfinish = () => firework.remove();
+            }, i * 100);
+        }
+    }
+
+    function showHeritageMessage() {
+        const messages = [
+            '🏛️ Jammu Heritage Lives On! 🏛️',
+            '✨ Mubarak Mandi Forever! ✨',
+            '🎆 Old City Jammu Pride! 🎆',
+            '⭐ Heritage Walks Rock! ⭐'
+        ];
+        
+        const message = document.createElement('div');
+        message.innerHTML = messages[Math.floor(Math.random() * messages.length)];
+        message.style.cssText = `
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background: linear-gradient(135deg, #FFD700, #8B4513, #CD853F);
+            color: white;
+            padding: 2rem 3rem;
+            border-radius: 20px;
+            font-size: 1.8rem;
+            font-family: var(--font-heading);
+            z-index: 3000;
+            box-shadow: 0 15px 40px rgba(0,0,0,0.4);
+            border: 3px solid #FFD700;
+            text-align: center;
+            font-weight: 600;
+            text-shadow: 0 2px 4px rgba(0,0,0,0.5);
+        `;
+
+        document.body.appendChild(message);
+
+        message.animate([
+            { transform: 'translate(-50%, -50%) scale(0)', opacity: 0 },
+            { transform: 'translate(-50%, -50%) scale(1.1)', opacity: 1, offset: 0.1 },
+            { transform: 'translate(-50%, -50%) scale(1)', opacity: 1, offset: 0.9 },
+            { transform: 'translate(-50%, -50%) scale(0)', opacity: 0 }
+        ], {
+            duration: 3000,
+            easing: 'cubic-bezier(0.68, -0.55, 0.265, 1.55)'
+        }).onfinish = () => message.remove();
+    }
 });
+
+// Performance optimization for mobile devices
+if (window.innerWidth <= 768) {
+    // Reduce animation complexity on mobile
+    document.documentElement.style.setProperty('--animation-duration', '0.2s');
+    
+    // Disable some heavy animations on mobile
+    const heavyAnimations = document.querySelectorAll('.gallery-item, .sponsor-placeholder');
+    heavyAnimations.forEach(element => {
+        element.style.transition = 'transform 0.15s ease, box-shadow 0.15s ease';
+    });
+}
 
