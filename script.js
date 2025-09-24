@@ -1,8 +1,8 @@
-// Heritage Loading Animation
+// Modern Heritage Loading Animation
 document.addEventListener('DOMContentLoaded', function () {
     const loader = document.getElementById('heritage-loader');
-    
-    // Simulate loading time with heritage elements
+
+    // Faster loading time
     setTimeout(() => {
         loader.classList.add('fade-out');
         setTimeout(() => {
@@ -10,8 +10,8 @@ document.addEventListener('DOMContentLoaded', function () {
             // Trigger entrance animations
             document.body.classList.add('loaded');
             animateOnLoad();
-        }, 800);
-    }, 2500);
+        }, 600);
+    }, 1500);
 });
 
 // Fast entrance animations
@@ -181,163 +181,16 @@ function initGalleryModal() {
 // Initialize gallery modal when DOM is loaded
 document.addEventListener('DOMContentLoaded', initGalleryModal);
 
-// Enhanced Made By Section with Heritage Animations
+// Simple Made By Section (no animations)
 document.addEventListener('DOMContentLoaded', function () {
-    const madeByText = document.querySelector('.made-by-text');
-
-    if (madeByText) {
-        // Fast click effect with heritage sparkles
-        madeByText.addEventListener('click', function (e) {
-            // Create multiple heritage sparkles
-            for (let i = 0; i < 12; i++) {
-                createFastHeritageSparkle(this, e);
-            }
-
-            // Quick pulse effect
-            this.style.transform = 'scale(0.95)';
-            setTimeout(() => {
-                this.style.transform = 'scale(1)';
-            }, 100);
-
-            // Heritage sound effect (visual feedback)
-            createHeritageRipple(e.clientX, e.clientY);
-        });
-
-        // Double click for Jammu palace animation
-        madeByText.addEventListener('dblclick', function (e) {
-            createJammuPalaceAnimation(e.clientX, e.clientY);
-            
-            // Special heritage wave effect
-            const lines = this.querySelectorAll('.line-1, .line-2');
-            lines.forEach((line, index) => {
-                setTimeout(() => {
-                    line.style.animation = 'heritageWave 1.5s ease-in-out';
-                    setTimeout(() => {
-                        line.style.animation = 'fastGradientShift 4s ease-in-out infinite';
-                    }, 1500);
-                }, index * 200);
-            });
-        });
-    }
-
-    function createFastHeritageSparkle(parent, event) {
-        const sparkle = document.createElement('div');
-        sparkle.className = 'fast-heritage-sparkle';
-        
-        const symbols = ['◆', '♦', '✦', '✧', '⬟', '⬢'];
-        const randomSymbol = symbols[Math.floor(Math.random() * symbols.length)];
-        
-        sparkle.innerHTML = randomSymbol;
-        sparkle.style.cssText = `
-            position: absolute;
-            font-size: ${Math.random() * 12 + 8}px;
-            color: #FFD700;
-            pointer-events: none;
-            z-index: 1000;
-            text-shadow: 0 0 10px #FFD700;
-            font-weight: bold;
-        `;
-
-        const rect = parent.getBoundingClientRect();
-        const x = Math.random() * rect.width;
-        const y = Math.random() * rect.height;
-
-        sparkle.style.left = x + 'px';
-        sparkle.style.top = y + 'px';
-
-        parent.appendChild(sparkle);
-
-        // Fast sparkle animation
-        sparkle.animate([
-            {
-                transform: 'translate(0, 0) scale(0) rotate(0deg)',
-                opacity: 1
-            },
-            {
-                transform: `translate(${(Math.random() - 0.5) * 80}px, ${(Math.random() - 0.5) * 80}px) scale(1.2) rotate(180deg)`,
-                opacity: 0.8,
-                offset: 0.3
-            },
-            {
-                transform: `translate(${(Math.random() - 0.5) * 150}px, ${(Math.random() - 0.5) * 150}px) scale(0) rotate(360deg)`,
-                opacity: 0
-            }
-        ], {
-            duration: 800,
-            easing: 'cubic-bezier(0.25, 0.46, 0.45, 0.94)'
-        }).onfinish = () => sparkle.remove();
-    }
-
-    function createHeritageRipple(x, y) {
-        const ripple = document.createElement('div');
-        ripple.style.cssText = `
-            position: fixed;
-            left: ${x}px;
-            top: ${y}px;
-            width: 20px;
-            height: 20px;
-            border: 2px solid #FFD700;
-            border-radius: 50%;
-            transform: translate(-50%, -50%);
-            pointer-events: none;
-            z-index: 1000;
-        `;
-
-        document.body.appendChild(ripple);
-
-        ripple.animate([
-            { transform: 'translate(-50%, -50%) scale(0)', opacity: 1 },
-            { transform: 'translate(-50%, -50%) scale(3)', opacity: 0 }
-        ], {
-            duration: 600,
-            easing: 'ease-out'
-        }).onfinish = () => ripple.remove();
-    }
-
-    function createJammuPalaceAnimation(x, y) {
-        const palace = document.createElement('div');
-        palace.innerHTML = '🏛️';
-        palace.style.cssText = `
-            position: fixed;
-            left: ${x}px;
-            top: ${y}px;
-            font-size: 2rem;
-            transform: translate(-50%, -50%);
-            pointer-events: none;
-            z-index: 1000;
-            filter: drop-shadow(0 0 10px #FFD700);
-        `;
-
-        document.body.appendChild(palace);
-
-        palace.animate([
-            { 
-                transform: 'translate(-50%, -50%) scale(0) rotate(0deg)', 
-                opacity: 1,
-                filter: 'drop-shadow(0 0 10px #FFD700)'
-            },
-            { 
-                transform: 'translate(-50%, -50%) scale(1.5) rotate(180deg)', 
-                opacity: 0.8,
-                filter: 'drop-shadow(0 0 20px #FFD700)',
-                offset: 0.5
-            },
-            { 
-                transform: 'translate(-50%, -50%) scale(0) rotate(360deg)', 
-                opacity: 0,
-                filter: 'drop-shadow(0 0 5px #FFD700)'
-            }
-        ], {
-            duration: 2000,
-            easing: 'cubic-bezier(0.68, -0.55, 0.265, 1.55)'
-        }).onfinish = () => palace.remove();
-    }
+    // Made by section is now simple with no interactive animations
+    console.log('Made by section loaded - simple version');
 });
 
 // Mobile Touch Optimizations
 document.addEventListener('DOMContentLoaded', function () {
-    // Improve touch interactions for mobile
-    const touchElements = document.querySelectorAll('.gallery-item, .sponsor-placeholder, .made-by-text');
+    // Improve touch interactions for mobile (excluding made-by-text)
+    const touchElements = document.querySelectorAll('.gallery-item, .sponsor-placeholder');
 
     touchElements.forEach(element => {
         element.addEventListener('touchstart', function () {
@@ -475,103 +328,17 @@ document.addEventListener('DOMContentLoaded', function () {
     });
 });
 
-// Heritage-themed Easter Eggs and Performance Optimizations
+// Performance Optimizations Only
 document.addEventListener('DOMContentLoaded', function () {
-    let clickCount = 0;
-    const madeByText = document.querySelector('.made-by-text');
-
-    if (madeByText) {
-        madeByText.addEventListener('click', function () {
-            clickCount++;
-
-            // Special heritage celebration after 3 clicks
-            if (clickCount === 3) {
-                createHeritageFireworks();
-                showHeritageMessage();
-                clickCount = 0;
-            }
-        });
-    }
-
-    function createHeritageFireworks() {
-        const colors = ['#FFD700', '#CD853F', '#8B4513', '#FF6B35', '#F7931E'];
-        
-        for (let i = 0; i < 20; i++) {
-            setTimeout(() => {
-                const firework = document.createElement('div');
-                firework.innerHTML = ['🏛️', '✨', '🎆', '⭐', '💫'][Math.floor(Math.random() * 5)];
-                firework.style.cssText = `
-                    position: fixed;
-                    left: ${Math.random() * window.innerWidth}px;
-                    top: ${Math.random() * window.innerHeight}px;
-                    font-size: ${Math.random() * 20 + 15}px;
-                    pointer-events: none;
-                    z-index: 3000;
-                    filter: drop-shadow(0 0 10px ${colors[Math.floor(Math.random() * colors.length)]});
-                `;
-
-                document.body.appendChild(firework);
-
-                firework.animate([
-                    { transform: 'scale(0) rotate(0deg)', opacity: 1 },
-                    { transform: 'scale(1.5) rotate(180deg)', opacity: 0.8, offset: 0.3 },
-                    { transform: 'scale(0) rotate(360deg)', opacity: 0 }
-                ], {
-                    duration: 1500,
-                    easing: 'cubic-bezier(0.25, 0.46, 0.45, 0.94)'
-                }).onfinish = () => firework.remove();
-            }, i * 100);
-        }
-    }
-
-    function showHeritageMessage() {
-        const messages = [
-            '🏛️ Jammu Heritage Lives On! 🏛️',
-            '✨ Mubarak Mandi Forever! ✨',
-            '🎆 Old City Jammu Pride! 🎆',
-            '⭐ Heritage Walks Rock! ⭐'
-        ];
-        
-        const message = document.createElement('div');
-        message.innerHTML = messages[Math.floor(Math.random() * messages.length)];
-        message.style.cssText = `
-            position: fixed;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            background: linear-gradient(135deg, #FFD700, #8B4513, #CD853F);
-            color: white;
-            padding: 2rem 3rem;
-            border-radius: 20px;
-            font-size: 1.8rem;
-            font-family: var(--font-heading);
-            z-index: 3000;
-            box-shadow: 0 15px 40px rgba(0,0,0,0.4);
-            border: 3px solid #FFD700;
-            text-align: center;
-            font-weight: 600;
-            text-shadow: 0 2px 4px rgba(0,0,0,0.5);
-        `;
-
-        document.body.appendChild(message);
-
-        message.animate([
-            { transform: 'translate(-50%, -50%) scale(0)', opacity: 0 },
-            { transform: 'translate(-50%, -50%) scale(1.1)', opacity: 1, offset: 0.1 },
-            { transform: 'translate(-50%, -50%) scale(1)', opacity: 1, offset: 0.9 },
-            { transform: 'translate(-50%, -50%) scale(0)', opacity: 0 }
-        ], {
-            duration: 3000,
-            easing: 'cubic-bezier(0.68, -0.55, 0.265, 1.55)'
-        }).onfinish = () => message.remove();
-    }
+    // No easter eggs or animations for made-by section
+    console.log('Performance optimizations loaded');
 });
 
 // Performance optimization for mobile devices
 if (window.innerWidth <= 768) {
     // Reduce animation complexity on mobile
     document.documentElement.style.setProperty('--animation-duration', '0.2s');
-    
+
     // Disable some heavy animations on mobile
     const heavyAnimations = document.querySelectorAll('.gallery-item, .sponsor-placeholder');
     heavyAnimations.forEach(element => {
