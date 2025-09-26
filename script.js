@@ -1,18 +1,37 @@
-// Fast Heritage Loading Animation
+// Advanced Heritage Loading Animation
 document.addEventListener('DOMContentLoaded', function () {
     const loader = document.getElementById('heritage-loader');
-
-    // Very fast loading time for better performance
-    setTimeout(() => {
-        loader.classList.add('fade-out');
-        setTimeout(() => {
-            loader.style.display = 'none';
-            // Trigger entrance animations
-            document.body.classList.add('loaded');
-            animateOnLoad();
-            initializeCarousel();
-        }, 500);
-    }, 1000);
+    const progressCounter = document.getElementById('progress-counter');
+    const progressBar = document.querySelector('.progress-bar');
+    
+    let progress = 0;
+    const progressInterval = setInterval(() => {
+        progress += Math.random() * 15 + 5; // Random increment between 5-20
+        if (progress > 100) progress = 100;
+        
+        progressCounter.textContent = Math.floor(progress);
+        
+        // Update progress bar
+        const circumference = 2 * Math.PI * 50; // radius = 50
+        const offset = circumference - (progress / 100) * circumference;
+        progressBar.style.strokeDashoffset = offset;
+        
+        if (progress >= 100) {
+            clearInterval(progressInterval);
+            
+            // Complete loading animation
+            setTimeout(() => {
+                loader.classList.add('fade-out');
+                setTimeout(() => {
+                    loader.style.display = 'none';
+                    // Trigger entrance animations
+                    document.body.classList.add('loaded');
+                    animateOnLoad();
+                    initializeCarousel();
+                }, 800);
+            }, 500);
+        }
+    }, 100);
 });
 
 // Enhanced entrance animations
