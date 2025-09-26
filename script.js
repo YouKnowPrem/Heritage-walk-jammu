@@ -257,7 +257,7 @@ function lazyLoadImages() {
     const images = document.querySelectorAll('img[loading="lazy"]');
 
     if ('IntersectionObserver' in window) {
-        const imageObserver = new IntersectionObserver((entries, observer) => {
+        const imageObserver = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
                     const img = entry.target;
@@ -266,6 +266,9 @@ function lazyLoadImages() {
                     imageObserver.unobserve(img);
                 }
             });
+        }, {
+            rootMargin: '50px 0px',
+            threshold: 0.1
         });
 
         images.forEach(img => imageObserver.observe(img));
@@ -409,16 +412,18 @@ document.addEventListener('DOMContentLoaded', function () {
 });
 
 // Fast Scroll-based Animations with Heritage Elements
-let ticking = false;
+let scrollTicking = false;
 
 function updateScrollAnimations() {
-    const scrolled = window.pageYOffset;
+    const scrolled = window.scrollY; // Fixed deprecated pageYOffset
     const rate = scrolled * -0.3;
 
-    // Optimized parallax effect
-    const heroSection = document.querySelector('.hero');
-    if (heroSection) {
-        heroSection.style.transform = `translateY(${rate}px)`;
+    // Optimized parallax effect (disabled on mobile for performance)
+    if (window.innerWidth > 768) {
+        const heroSection = document.querySelector('.hero');
+        if (heroSection) {
+            heroSection.style.transform = `translateY(${rate}px)`;
+        }
     }
 
     // Fast fade in effect for sections
@@ -435,15 +440,15 @@ function updateScrollAnimations() {
         }
     });
 
-    ticking = false;
+    scrollTicking = false;
 }
 
 window.addEventListener('scroll', function () {
-    if (!ticking) {
+    if (!scrollTicking) {
         requestAnimationFrame(updateScrollAnimations);
-        ticking = true;
+        scrollTicking = true;
     }
-});
+}, { passive: true });
 
 // Device-specific Optimizations
 document.addEventListener('DOMContentLoaded', function () {
@@ -482,41 +487,49 @@ document.addEventListener('DOMContentLoaded', function () {
 
 // Performance Optimization
 document.addEventListener('DOMContentLoaded', function () {
-    // Preload critical images
-    const criticalImages = [
-        'images/placeholder-1.jpg',
-        'images/placeholder-2.jpg',
-        'images/placeholder-3.jpg'
-    ];
+    // Preload critical images only on desktop
+    if (window.innerWidth > 768) {
+        const criticalImages = [
+            'images/mubarak-mandi-architecture.jpg',
+            'images/temple-group-photo.jpg',
+            'images/architectural-ceiling.jpg'
+        ];
 
-    criticalImages.forEach(src => {
-        const img = new Image();
-        img.src = src;
-    });
+        criticalImages.forEach(src => {
+            const img = new Image();
+            img.src = src;
+        });
+    }
 
-    // Optimize scroll performance
-    let ticking = false;
+    // Optimize scroll performance with throttling
+    let navbarTicking = false;
+    let lastScrollY = 0;
 
     function updateScrollEffects() {
-        // Update navbar and other scroll effects here
-        const navbar = document.querySelector('.navbar');
-        if (window.scrollY > 50) {
-            navbar.style.backgroundColor = 'rgba(250, 247, 242, 0.95)';
-            navbar.style.backdropFilter = 'blur(10px)';
-        } else {
-            navbar.style.backgroundColor = 'var(--background-light)';
-            navbar.style.backdropFilter = 'none';
+        const currentScrollY = window.scrollY;
+        
+        // Only update if scroll position changed significantly
+        if (Math.abs(currentScrollY - lastScrollY) > 5) {
+            const navbar = document.querySelector('.navbar');
+            if (currentScrollY > 50) {
+                navbar.style.backgroundColor = 'rgba(250, 247, 242, 0.95)';
+                navbar.style.backdropFilter = 'blur(10px)';
+            } else {
+                navbar.style.backgroundColor = 'var(--background-light)';
+                navbar.style.backdropFilter = 'none';
+            }
+            lastScrollY = currentScrollY;
         }
 
-        ticking = false;
+        navbarTicking = false;
     }
 
     window.addEventListener('scroll', function () {
-        if (!ticking) {
+        if (!navbarTicking) {
             requestAnimationFrame(updateScrollEffects);
-            ticking = true;
+            navbarTicking = true;
         }
-    });
+    }, { passive: true });
 });
 
 // Performance Optimizations Only
@@ -537,3 +550,203 @@ if (window.innerWidth <= 768) {
     });
 }
 
+// Mobile-Specific Optimizations
+document.addEventListener('DOMContentLoaded', function () {
+    const isMobile = window.innerWidth <= 768;
+    const isTablet = window.innerWidth > 768 && window.innerWidth <= 1024;
+    
+    // Disable heavy animations on mobile for better performance
+    if (isMobile) {
+        document.body.classList.add('mobile-device');
+        
+        // Reduce animation complexity
+        const style = document.createElement('style');
+        style.textContent = `
+            .floating-heritage-icon,
+            .particle {
+                animation-duration: 4s !important;
+            }
+            .glitch-text::before,
+            .glitch-text::after {
+                display: none !important;
+            }
+            .hero {
+                background-attachment: scroll !important;
+            }
+        `;
+        document.head.appendChild(style);
+        
+        // Optimize touch interactions
+        const touchElements = document.querySelectorAll('.gallery-item, .sponsor-placeholder, .enhanced-cta');
+        touchElements.forEach(element => {
+            element.addEventListener('touchstart', function() {
+                this.style.transform = 'scale(0.95)';
+            }, { passive: true });
+            
+            element.addEventListener('touchend', function() {
+                setTimeout(() => {
+                    this.style.transform = '';
+                }, 150);
+            }, { passive: true });
+        });
+        
+        // Mobile team cards - disable 3D flip for better UX
+        const teamCards = document.querySelectorAll('.team-card');
+        teamCards.forEach(card => {
+            card.addEventListener('click', function() {
+                const cardBack = this.querySelector('.card-back');
+                const cardFront = this.querySelector('.card-front');
+                
+                if (cardBack.style.display === 'block') {
+                    cardBack.style.display = 'none';
+                    cardFront.style.display = 'flex';
+                } else {
+                    cardBack.style.display = 'block';
+                    cardFront.style.display = 'none';
+                }
+            });
+        });
+        
+    } else if (isTablet) {
+        document.body.classList.add('tablet-device');
+    } else {
+        document.body.classList.add('desktop-device');
+    }
+});
+
+// Optimized Resize Handler
+let resizeTimeout;
+window.addEventListener('resize', function() {
+    clearTimeout(resizeTimeout);
+    resizeTimeout = setTimeout(function() {
+        // Reinitialize carousel on resize
+        const track = document.getElementById('carousel-track');
+        if (track) {
+            const currentIndex = Array.from(document.querySelectorAll('.carousel-item')).findIndex(item => 
+                item.classList.contains('active')
+            );
+            track.style.transform = `translateX(-${currentIndex * 100}%)`;
+        }
+        
+        // Update mobile/desktop optimizations
+        const isMobile = window.innerWidth <= 768;
+        if (isMobile && !document.body.classList.contains('mobile-device')) {
+            location.reload(); // Reload to apply mobile optimizations
+        } else if (!isMobile && document.body.classList.contains('mobile-device')) {
+            location.reload(); // Reload to apply desktop optimizations
+        }
+    }, 250);
+}, { passive: true });
+
+// Enhanced Error Handling
+window.addEventListener('error', function(e) {
+    console.warn('Heritage site error:', e.error);
+    // Graceful degradation - continue without breaking
+});
+
+// Service Worker Registration for Better Performance (Optional)
+if ('serviceWorker' in navigator && window.location.protocol === 'https:') {
+    window.addEventListener('load', function() {
+        navigator.serviceWorker.register('/sw.js').then(function(registration) {
+            console.log('SW registered: ', registration);
+        }).catch(function(registrationError) {
+            console.log('SW registration failed: ', registrationError);
+        });
+    });
+}
+
+// Intersection Observer for Animations (Performance Optimized)
+document.addEventListener('DOMContentLoaded', function() {
+    if ('IntersectionObserver' in window) {
+        const animationObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('animate-in');
+                    animationObserver.unobserve(entry.target);
+                }
+            });
+        }, {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        });
+
+        // Observe sections for animation
+        const sections = document.querySelectorAll('section:not(.hero)');
+        sections.forEach(section => {
+            animationObserver.observe(section);
+        });
+    }
+});
+
+// Memory Management
+window.addEventListener('beforeunload', function() {
+    // Clean up intervals and observers
+    const intervals = window.setInterval(function(){}, Number.MAX_SAFE_INTEGER);
+    for (let i = 1; i < intervals; i++) {
+        window.clearInterval(i);
+    }
+});
+
+// Keyboard Navigation Enhancement
+document.addEventListener('keydown', function(e) {
+    // Skip to main content
+    if (e.altKey && e.key === 'm') {
+        e.preventDefault();
+        document.querySelector('main').focus();
+    }
+    
+    // Navigate carousel with arrow keys when focused
+    if (document.activeElement.closest('.carousel-container')) {
+        if (e.key === 'ArrowLeft') {
+            e.preventDefault();
+            document.getElementById('prev-btn').click();
+        } else if (e.key === 'ArrowRight') {
+            e.preventDefault();
+            document.getElementById('next-btn').click();
+        }
+    }
+});
+
+// Accessibility Improvements
+document.addEventListener('DOMContentLoaded', function() {
+    // Add ARIA labels to interactive elements
+    const carouselBtns = document.querySelectorAll('.carousel-btn');
+    carouselBtns.forEach((btn, index) => {
+        btn.setAttribute('aria-label', index === 0 ? 'Previous slide' : 'Next slide');
+    });
+    
+    // Add role attributes
+    const carousel = document.querySelector('.carousel-container');
+    if (carousel) {
+        carousel.setAttribute('role', 'region');
+        carousel.setAttribute('aria-label', 'Heritage walks photo carousel');
+    }
+    
+    // Improve focus management
+    const focusableElements = document.querySelectorAll('a, button, input, textarea, select, [tabindex]:not([tabindex="-1"])');
+    focusableElements.forEach(element => {
+        element.addEventListener('focus', function() {
+            this.style.outline = '2px solid var(--royal-gold)';
+            this.style.outlineOffset = '2px';
+        });
+        
+        element.addEventListener('blur', function() {
+            this.style.outline = '';
+            this.style.outlineOffset = '';
+        });
+    });
+});
+
+// Performance Monitoring (Development Only)
+if (window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1') {
+    window.addEventListener('load', function() {
+        setTimeout(() => {
+            const perfData = performance.getEntriesByType('navigation')[0];
+            console.log('Page Load Performance:', {
+                'DOM Content Loaded': perfData.domContentLoadedEventEnd - perfData.domContentLoadedEventStart,
+                'Load Complete': perfData.loadEventEnd - perfData.loadEventStart,
+                'Total Load Time': perfData.loadEventEnd - perfData.fetchStart
+            });
+        }, 0);
+    });
+}
