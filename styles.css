@@ -118,12 +118,17 @@ body {
 /* Enhanced Hero Section with Creative Animations */
 .hero {
     padding: 120px 0 80px;
-    background: linear-gradient(135deg,
-            var(--background-light) 0%,
-            rgba(210, 180, 140, 0.3) 30%,
-            rgba(255, 215, 0, 0.1) 50%,
-            rgba(210, 180, 140, 0.3) 70%,
-            var(--background-light) 100%);
+    background:
+        linear-gradient(135deg,
+            rgba(47, 27, 20, 0.8) 0%,
+            rgba(139, 69, 19, 0.7) 30%,
+            rgba(255, 215, 0, 0.4) 50%,
+            rgba(139, 69, 19, 0.7) 70%,
+            rgba(47, 27, 20, 0.8) 100%),
+        url('images/mubarak-mandi-wide.jpg');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
     text-align: center;
     position: relative;
     overflow: hidden;
@@ -139,7 +144,8 @@ body {
     left: 0;
     right: 0;
     bottom: 0;
-    background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="heritage-pattern" x="0" y="0" width="50" height="50" patternUnits="userSpaceOnUse"><g fill="%23B8860B" opacity="0.04"><path d="M25,10 Q30,15 25,20 Q20,15 25,10"/><circle cx="25" cy="35" r="3"/><rect x="20" y="40" width="10" height="2" rx="1"/></g></pattern></defs><rect width="100" height="100" fill="url(%23heritage-pattern)"/></svg>');
+    background: rgba(47, 27, 20, 0.2);
+    backdrop-filter: blur(0.5px);
     pointer-events: none;
 }
 
@@ -204,10 +210,11 @@ body {
 .hero-title {
     font-family: var(--font-heading);
     font-size: 3.5rem;
-    color: var(--primary-color);
+    color: var(--text-light);
     margin-bottom: 1rem;
     font-weight: 600;
     line-height: 1.2;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
 }
 
 .hero-title .word {
@@ -259,10 +266,12 @@ body {
 
 .hero-subtitle {
     font-size: 1.4rem;
-    color: var(--text-dark);
+    color: var(--text-light);
     margin-bottom: 2rem;
     font-weight: 300;
     line-height: 1.6;
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.6);
+    opacity: 0.95;
 }
 
 .hero-description {
@@ -274,28 +283,48 @@ body {
     margin-bottom: 1rem;
     font-size: 1.1rem;
     line-height: 1.7;
+    color: var(--text-light);
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+    opacity: 0.9;
 }
 
-/* Enhanced CTA Button */
+/* Enhanced CTA Buttons */
 .hero-cta-container {
     margin-top: 3rem;
+}
+
+.cta-buttons-group {
+    display: flex;
+    gap: 1.5rem;
+    justify-content: center;
+    flex-wrap: wrap;
 }
 
 .enhanced-cta {
     display: inline-flex;
     align-items: center;
     gap: 0.5rem;
-    background: linear-gradient(135deg, var(--primary-color), var(--accent-color));
     color: var(--text-light);
-    padding: 1.2rem 2.5rem;
+    padding: 1.2rem 2rem;
     text-decoration: none;
     border-radius: 50px;
     font-weight: 600;
-    font-size: 1.1rem;
+    font-size: 1rem;
     transition: all 0.3s ease;
-    box-shadow: 0 8px 25px rgba(139, 69, 19, 0.3);
     position: relative;
     overflow: hidden;
+    min-width: 200px;
+    justify-content: center;
+}
+
+.primary-walk {
+    background: linear-gradient(135deg, var(--primary-color), var(--accent-color));
+    box-shadow: 0 8px 25px rgba(139, 69, 19, 0.3);
+}
+
+.secondary-walk {
+    background: linear-gradient(135deg, var(--royal-burgundy), var(--royal-gold));
+    box-shadow: 0 8px 25px rgba(128, 0, 32, 0.3);
 }
 
 .enhanced-cta::before {
@@ -314,8 +343,15 @@ body {
 }
 
 .enhanced-cta:hover {
-    transform: translateY(-3px);
+    transform: translateY(-3px) scale(1.05);
+}
+
+.primary-walk:hover {
     box-shadow: 0 12px 35px rgba(139, 69, 19, 0.4);
+}
+
+.secondary-walk:hover {
+    box-shadow: 0 12px 35px rgba(128, 0, 32, 0.4);
 }
 
 .cta-icon {
@@ -324,7 +360,7 @@ body {
 }
 
 .enhanced-cta:hover .cta-icon {
-    transform: translateX(5px);
+    transform: scale(1.2);
 }
 
 /* Previous Walks Carousel Section */
@@ -1035,14 +1071,14 @@ section h2::after {
     height: 100%;
     background: linear-gradient(135deg,
             var(--background-light) 0%,
-            rgba(210, 180, 140, 0.1) 50%,
+            rgba(210, 180, 140, 0.2) 50%,
             var(--background-light) 100%);
     display: flex;
     justify-content: center;
     align-items: center;
     z-index: 9999;
     opacity: 1;
-    transition: opacity 0.6s ease, visibility 0.6s ease;
+    transition: opacity 0.5s ease, visibility 0.5s ease;
 }
 
 .heritage-loader.fade-out {
@@ -1850,5 +1886,250 @@ section.animated,
     100% {
         background-position: 0% 50%;
         transform: scale(1);
+    }
+}
+
+/* Te
+am Section */
+.team-section {
+    background: linear-gradient(135deg,
+            var(--background-light) 0%,
+            rgba(210, 180, 140, 0.1) 50%,
+            var(--background-light) 100%);
+    padding: 5rem 0;
+    position: relative;
+}
+
+.team-section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: url('images/architectural-ceiling.jpg');
+    background-size: cover;
+    background-position: center;
+    opacity: 0.05;
+    pointer-events: none;
+}
+
+.team-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 2rem;
+    margin-top: 3rem;
+    position: relative;
+    z-index: 2;
+}
+
+.team-member {
+    background: rgba(255, 255, 255, 0.9);
+    padding: 2rem 1.5rem;
+    border-radius: 20px;
+    text-align: center;
+    box-shadow: 0 8px 25px rgba(139, 69, 19, 0.1);
+    border: 2px solid var(--royal-border);
+    transition: all 0.3s ease;
+    backdrop-filter: blur(10px);
+}
+
+.team-member:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 40px rgba(139, 69, 19, 0.2);
+    border-color: var(--royal-gold);
+}
+
+.member-avatar {
+    width: 80px;
+    height: 80px;
+    background: linear-gradient(135deg, var(--royal-gold), var(--primary-color));
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 2rem;
+    font-weight: bold;
+    color: white;
+    margin: 0 auto 1rem;
+    box-shadow: 0 4px 15px rgba(139, 69, 19, 0.3);
+}
+
+.team-member h3 {
+    font-family: var(--font-heading);
+    font-size: 1.5rem;
+    color: var(--primary-color);
+    margin-bottom: 0.5rem;
+}
+
+.team-member p {
+    color: var(--accent-color);
+    font-weight: 500;
+    font-size: 0.9rem;
+}
+
+/* Local Sponsors Section */
+.local-sponsors-section {
+    background: linear-gradient(135deg,
+            var(--background-light) 0%,
+            rgba(210, 180, 140, 0.1) 50%,
+            var(--background-light) 100%);
+    padding: 4rem 0;
+}
+
+.sponsors-intro {
+    max-width: 800px;
+    margin: 0 auto 3rem;
+    text-align: center;
+    font-size: 1.1rem;
+    line-height: 1.7;
+    color: var(--text-dark);
+    padding: 1.5rem;
+    background: rgba(255, 255, 255, 0.7);
+    border-radius: 15px;
+    border-left: 4px solid var(--royal-gold);
+}
+
+.local-sponsors-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1.5rem;
+}
+
+/* National Sponsors Section */
+.national-sponsors-section {
+    background: linear-gradient(135deg,
+            var(--background-dark) 0%,
+            var(--royal-burgundy) 50%,
+            var(--background-dark) 100%);
+    padding: 5rem 0;
+    color: var(--text-light);
+    position: relative;
+}
+
+.national-sponsors-section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: url('images/mubarak-mandi-wide.jpg');
+    background-size: cover;
+    background-position: center;
+    opacity: 0.1;
+    pointer-events: none;
+}
+
+.national-sponsors-block {
+    position: relative;
+    z-index: 2;
+    background: rgba(0, 0, 0, 0.6);
+    padding: 3rem;
+    border-radius: 20px;
+    backdrop-filter: blur(10px);
+    border: 2px solid var(--royal-gold);
+}
+
+.national-sponsors-block h2 {
+    color: var(--text-light);
+    text-align: center;
+    margin-bottom: 1.5rem;
+}
+
+.national-sponsors-description {
+    max-width: 700px;
+    margin: 0 auto 2.5rem;
+    text-align: center;
+    font-size: 1.1rem;
+    line-height: 1.7;
+    color: var(--text-light);
+    opacity: 0.9;
+}
+
+.national-sponsors-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 2rem;
+}
+
+/* Updated Sponsor Placeholders */
+.sponsor-placeholder {
+    background: linear-gradient(135deg, rgba(255, 215, 0, 0.1), rgba(255, 255, 255, 0.9));
+    border: 2px solid var(--royal-border);
+    border-radius: 15px;
+    padding: 2rem 1rem;
+    text-align: center;
+    font-weight: 600;
+    color: var(--primary-color);
+    min-height: 120px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.national-sponsors-grid .sponsor-placeholder {
+    background: linear-gradient(135deg, rgba(255, 215, 0, 0.2), rgba(255, 255, 255, 0.1));
+    border-color: var(--royal-gold);
+    color: var(--text-light);
+}
+
+.sponsor-placeholder:hover {
+    transform: translateY(-5px) scale(1.02);
+    box-shadow: 0 10px 30px rgba(139, 69, 19, 0.2);
+}
+
+.national-sponsors-grid .sponsor-placeholder:hover {
+    box-shadow: 0 10px 30px rgba(255, 215, 0, 0.3);
+}
+
+/* Mobile Responsive Updates */
+@media (max-width: 768px) {
+    .cta-buttons-group {
+        flex-direction: column;
+        align-items: center;
+        gap: 1rem;
+    }
+
+    .enhanced-cta {
+        min-width: 250px;
+    }
+
+    .team-grid {
+        grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+        gap: 1.5rem;
+    }
+
+    .team-member {
+        padding: 1.5rem 1rem;
+    }
+
+    .member-avatar {
+        width: 60px;
+        height: 60px;
+        font-size: 1.5rem;
+    }
+
+    .national-sponsors-block {
+        padding: 2rem 1.5rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .enhanced-cta {
+        min-width: 200px;
+        padding: 1rem 1.5rem;
+        font-size: 0.9rem;
+    }
+
+    .team-member h3 {
+        font-size: 1.3rem;
+    }
+
+    .team-member p {
+        font-size: 0.8rem;
     }
 }
