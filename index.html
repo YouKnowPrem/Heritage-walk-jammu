@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Heritage Jammu - Mubarak Mandi & Old City, Jammu</title>
+    <title>Heritage Walks - Mubarak Mandi & Old City Jammu</title>
     <meta name="description"
         content="Explore the rich heritage of Mubarak Mandi and Old City Jammu through guided heritage walks and cultural symposium.">
     <link rel="stylesheet" href="styles.css">
@@ -16,18 +16,25 @@
 </head>
 
 <body>
-    <!-- Modern Heritage Loading Animation -->
+    <!-- Heritage Loading Animation -->
     <div id="heritage-loader" class="heritage-loader">
         <div class="loader-content">
-            <div class="modern-logo">
-                <div class="heritage-icon">🏛️</div>
-                <h2>Heritage</h2>
-                <p>Jammu</p>
+            <div class="heritage-monument">
+                <div class="monument-base"></div>
+                <div class="monument-pillars">
+                    <div class="pillar"></div>
+                    <div class="pillar"></div>
+                    <div class="pillar"></div>
+                    <div class="pillar"></div>
+                </div>
+                <div class="monument-dome"></div>
             </div>
-            <div class="loading-dots">
-                <div class="dot"></div>
-                <div class="dot"></div>
-                <div class="dot"></div>
+            <div class="loading-text">
+                <h2>Heritage Walks Jammu</h2>
+                <p>Loading your heritage journey...</p>
+            </div>
+            <div class="loading-progress-line">
+                <div class="progress-fill"></div>
             </div>
         </div>
     </div>
@@ -35,14 +42,14 @@
     <nav class="navbar">
         <div class="nav-container">
             <div class="nav-logo">
-                <h2>Heritage Jammu</h2>
+                <h2>Heritage Walks Jammu</h2>
             </div>
             <ul class="nav-menu">
                 <li><a href="#home">Home</a></li>
                 <li><a href="#gallery">Gallery</a></li>
                 <li><a href="#competition">Competition</a></li>
                 <li><a href="#sponsors">Sponsors</a></li>
-                <li><a href="#contact">Information</a></li>
+                <li><a href="#contact">Contact</a></li>
             </ul>
             <div class="hamburger">
                 <span></span>
@@ -87,10 +94,16 @@
                 </div>
                 
                 <div class="hero-cta-container animated-text" data-delay="2s">
-                    <a href="#contact" class="cta-button enhanced-cta">
-                        <span class="cta-text">Join a Heritage Walk</span>
-                        <span class="cta-icon">→</span>
-                    </a>
+                    <div class="cta-buttons-group">
+                        <a href="https://forms.google.com/mubarak-mandi-walk" target="_blank" class="cta-button enhanced-cta primary-walk">
+                            <span class="cta-text">Mubarak Mandi Walk</span>
+                            <span class="cta-icon">🏛️</span>
+                        </a>
+                        <a href="https://forms.google.com/old-city-walk" target="_blank" class="cta-button enhanced-cta secondary-walk">
+                            <span class="cta-text">Old City Walk</span>
+                            <span class="cta-icon">🏘️</span>
+                        </a>
+                    </div>
                 </div>
             </div>
         </section>
@@ -216,48 +229,71 @@
             </div>
         </section>
 
-        <!-- Sponsors Section -->
-        <section id="sponsors" class="sponsors-section">
+        <!-- Local Sponsors Section -->
+        <section id="sponsors" class="sponsors-section local-sponsors-section">
             <div class="container">
-                <h2>Our Sponsors</h2>
+                <h2>Our Local Sponsors</h2>
+                <p class="sponsors-intro">
+                    Our local sponsors are the backbone of this initiative, deeply rooted in Jammu's community and passionate about preserving our regional heritage. Their unwavering support makes our heritage walks authentic and meaningful experiences.
+                </p>
+                <div class="sponsors-grid local-sponsors-grid">
+                    <div class="sponsor-placeholder">Local Sponsor 1</div>
+                    <div class="sponsor-placeholder">Local Sponsor 2</div>
+                    <div class="sponsor-placeholder">Local Sponsor 3</div>
+                    <div class="sponsor-placeholder">Local Sponsor 4</div>
+                    <div class="sponsor-placeholder">Local Sponsor 5</div>
+                </div>
+            </div>
+        </section>
 
-                <!-- National Sponsors -->
-                <div class="sponsors-category">
-                    <h3>National Sponsors</h3>
-                    <p class="sponsors-description">
-                        We extend our heartfelt gratitude to our esteemed national sponsors who have recognized the
-                        importance of preserving India's cultural heritage. Their generous support enables us to conduct
-                        comprehensive heritage walks and educational symposiums that reach audiences across the country.
-                        These organizations share our vision of making heritage accessible to all and ensuring that the
-                        stories of our past continue to inspire future generations.
+        <!-- Organizing Committee Section -->
+        <section id="team" class="team-section">
+            <div class="container">
+                <h2>Organizing Committee</h2>
+                <p class="section-subtitle">Meet the passionate team behind Heritage Walks Jammu</p>
+                <div class="team-grid">
+                    <div class="team-member">
+                        <div class="member-avatar">A</div>
+                        <h3>Anupamma</h3>
+                        <p>Heritage Coordinator</p>
+                    </div>
+                    <div class="team-member">
+                        <div class="member-avatar">P</div>
+                        <h3>Prem</h3>
+                        <p>Technical Lead</p>
+                    </div>
+                    <div class="team-member">
+                        <div class="member-avatar">J</div>
+                        <h3>Jayita</h3>
+                        <p>Cultural Researcher</p>
+                    </div>
+                    <div class="team-member">
+                        <div class="member-avatar">S</div>
+                        <h3>Sabreena</h3>
+                        <p>Community Outreach</p>
+                    </div>
+                    <div class="team-member">
+                        <div class="member-avatar">S</div>
+                        <h3>Shivam</h3>
+                        <p>Event Coordinator</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- National Sponsors Section -->
+        <section id="national-sponsors" class="national-sponsors-section">
+            <div class="container">
+                <div class="national-sponsors-block">
+                    <h2>National Level Sponsors</h2>
+                    <p class="national-sponsors-description">
+                        We extend our heartfelt gratitude to our esteemed national sponsors who have recognized the importance of preserving India's cultural heritage. Their generous support enables us to conduct comprehensive heritage walks that reach audiences across the country.
                     </p>
-                    <div class="sponsors-grid" id="national-sponsors">
-                        <!-- National sponsor logos will be added here -->
+                    <div class="sponsors-grid national-sponsors-grid">
                         <div class="sponsor-placeholder">National Sponsor 1</div>
                         <div class="sponsor-placeholder">National Sponsor 2</div>
                         <div class="sponsor-placeholder">National Sponsor 3</div>
                         <div class="sponsor-placeholder">National Sponsor 4</div>
-                        <div class="sponsor-placeholder">National Sponsor 5</div>
-                    </div>
-                </div>
-
-                <!-- Local Sponsors -->
-                <div class="sponsors-category">
-                    <h3>Local Sponsors</h3>
-                    <p class="sponsors-description">
-                        Our local sponsors are the backbone of this initiative, deeply rooted in Jammu's community and
-                        passionate about preserving our regional heritage. These local businesses, cultural
-                        organizations, and community leaders understand the unique value of Mubarak Mandi and Old City
-                        Jammu. Their unwavering support and intimate knowledge of local history make our heritage walks
-                        authentic and meaningful experiences for every participant.
-                    </p>
-                    <div class="sponsors-grid" id="local-sponsors">
-                        <!-- Local sponsor logos will be added here -->
-                        <div class="sponsor-placeholder">Local Sponsor 1</div>
-                        <div class="sponsor-placeholder">Local Sponsor 2</div>
-                        <div class="sponsor-placeholder">Local Sponsor 3</div>
-                        <div class="sponsor-placeholder">Local Sponsor 4</div>
-                        <div class="sponsor-placeholder">Local Sponsor 5</div>
                     </div>
                 </div>
             </div>
@@ -283,10 +319,10 @@
                             <span class="event-venue">Venue: Kala Kendra</span>
                         </div>
                         <div class="event-item">
-                            <strong>Group Size:</strong> Not Limited 
+                            <strong>Group Size:</strong> Limited to 25 participants per walk
                         </div>
                         <div class="event-item">
-                            <strong>Registration:</strong> Registration required
+                            <strong>Registration:</strong> Advance booking required
                         </div>
                         <div class="event-item">
                             <strong>Contact:</strong> <a href="mailto:heritage@jammuwalk.com">heritage@jammuwalk.com</a>
@@ -380,7 +416,7 @@
 
     <footer class="footer">
         <div class="container">
-            <p>&copy; 2025 Heritage Jammu. Preserving history, celebrating culture.</p>
+            <p>&copy; 2025 HeritageJammu. Preserving history, celebrating culture.</p>
         </div>
     </footer>
 
@@ -388,5 +424,3 @@
 </body>
 
 </html>
-
-
