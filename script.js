@@ -1,8 +1,8 @@
-// Modern Heritage Loading Animation
+// Fast Heritage Loading Animation
 document.addEventListener('DOMContentLoaded', function () {
     const loader = document.getElementById('heritage-loader');
 
-    // Faster loading time
+    // Very fast loading time for better performance
     setTimeout(() => {
         loader.classList.add('fade-out');
         setTimeout(() => {
@@ -11,8 +11,8 @@ document.addEventListener('DOMContentLoaded', function () {
             document.body.classList.add('loaded');
             animateOnLoad();
             initializeCarousel();
-        }, 600);
-    }, 1500);
+        }, 500);
+    }, 1000);
 });
 
 // Enhanced entrance animations
