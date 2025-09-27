@@ -60,14 +60,13 @@ body.loading {
     padding: var(--container-padding);
 }
 
-/* Mandala Loading Screen (Point 1: Solid Color) */
+/* Mandala Loading Screen (Solid Color) */
 .mandala-loading-screen {
     position: fixed;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
-    /* Changed to solid dark color */
     background: var(--dark-brown); 
     display: flex;
     align-items: center;
@@ -661,7 +660,7 @@ body.loading {
     margin: 0 auto;
 }
 
-/* Walks Section (Background remains --soft-beige) */
+/* Walks Section (Background --soft-beige) */
 .walks-section {
     padding: var(--section-padding);
     background: var(--soft-beige);
@@ -846,10 +845,10 @@ body.loading {
     color: var(--text-dark);
 }
 
-/* About Section (New background - Point 1) */
+/* About Section (Background soft-beige) */
 .about-section {
     padding: var(--section-padding);
-    background: var(--soft-beige); /* Changed to soft-beige */
+    background: var(--soft-beige); 
 }
 
 .about-content {
@@ -909,10 +908,10 @@ body.loading {
     font-size: 0.9rem;
 }
 
-/* Sponsors Section (New background - Point 1) */
+/* Sponsors Section (Background white) */
 .sponsors-section {
     padding: var(--section-padding);
-    background: white; /* Changed to white */
+    background: white; 
 }
 
 .sponsors-content {
@@ -965,10 +964,10 @@ body.loading {
     opacity: 0.7;
 }
 
-/* Team Section (New background - Point 1) */
+/* Team Section (Background soft-beige) */
 .team-section {
     padding: var(--section-padding);
-    background: var(--soft-beige); /* Changed to soft-beige */
+    background: var(--soft-beige); 
 }
 
 .team-grid {
@@ -1031,25 +1030,21 @@ body.loading {
     opacity: 0.8;
 }
 
-/* Footer (Simplified) */
-.footer {
-    background: var(--dark-brown);
-    color: var(--text-light);
-    padding: 1rem 0 1rem; 
-    border-top: 10px solid var(--primary-gold); /* Footer separation */
-}
+/* Footer Distinction and Made By Styling */
 
-/* Made By Section (Full Block & Bigger Text) */
-.made-by-section.full-block {
-    padding: 3rem 0; /* Increased vertical space */
-    background: var(--dark-brown); 
+/* NEW: Made By Section (Independent Block) */
+.made-by-break-section {
+    background: var(--primary-gold); /* Solid Gold Color for separation */
+    color: var(--dark-brown); /* Dark text on gold */
     width: 100%;
-    margin-left: auto;
-    margin-right: auto;
-    text-align: left; 
+    padding: 3rem 0; /* Increased vertical space */
+    text-align: left;
+    /* Clean flow: no borders */
+    border-top: none;
+    border-bottom: none;
 }
 
-.made-by-section.full-block .container {
+.made-by-break-section .container {
     padding: var(--container-padding);
 }
 
@@ -1057,22 +1052,21 @@ body.loading {
     font-family: var(--font-heading);
     font-size: 2.2rem; /* Increased font size */
     font-weight: 500;
-    padding: 1rem 0; 
-    display: inline;
-    color: var(--text-light);
-}
-
-/* Glass effect removal - simplified style for left alignment */
-.made-by-section.full-block h2 {
     padding: 0;
-    background: none;
-    backdrop-filter: none;
-    border: none;
-    box-shadow: none;
+    display: inline;
+    color: var(--dark-brown); 
 }
 
 .italic-text {
     font-style: italic;
+}
+
+/* Footer (Simplified) */
+.footer {
+    background: var(--dark-brown);
+    color: var(--text-light);
+    padding: 1rem 0 1rem; 
+    border-top: none; /* Ensuring no line here */
 }
 
 .footer-bottom {
@@ -1224,8 +1218,7 @@ body.loading {
     }
     
     /* Ensure Left Alignment on desktop for Made By */
-    .made-by-section.full-block {
+    .made-by-break-section {
         text-align: left; 
     }
 }
-
