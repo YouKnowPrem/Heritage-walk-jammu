@@ -1,18 +1,45 @@
-// Fast Heritage Loading Animation
+// Modern Heritage Loading Animation with Progress Counter
 document.addEventListener('DOMContentLoaded', function () {
     const loader = document.getElementById('heritage-loader');
+    const progressCounter = document.getElementById('progress-counter');
+    const progressBar = document.querySelector('.progress-bar');
 
-    // Very fast loading time for better performance
-    setTimeout(() => {
-        loader.classList.add('fade-out');
-        setTimeout(() => {
-            loader.style.display = 'none';
-            // Trigger entrance animations
-            document.body.classList.add('loaded');
-            animateOnLoad();
-            initializeCarousel();
-        }, 500);
-    }, 1000);
+    if (!loader || !progressCounter || !progressBar) {
+        console.warn('Loading elements not found');
+        return;
+    }
+
+    let progress = 0;
+    const progressInterval = setInterval(() => {
+        // Random increment between 8-18 for more dynamic loading
+        progress += Math.random() * 10 + 8;
+        if (progress > 100) progress = 100;
+
+        // Update counter with smooth animation
+        progressCounter.textContent = Math.floor(progress);
+
+        // Update circular progress bar
+        const circumference = 2 * Math.PI * 50; // radius = 50
+        const offset = circumference - (progress / 100) * circumference;
+        progressBar.style.strokeDashoffset = offset;
+
+        // Complete loading when progress reaches 100%
+        if (progress >= 100) {
+            clearInterval(progressInterval);
+
+            // Add completion effects
+            setTimeout(() => {
+                loader.classList.add('fade-out');
+                setTimeout(() => {
+                    loader.style.display = 'none';
+                    // Trigger entrance animations
+                    document.body.classList.add('loaded');
+                    animateOnLoad();
+                    initializeCarousel();
+                }, 800);
+            }, 600);
+        }
+    }, 120); // Slightly faster updates for smoother animation
 });
 
 // Enhanced entrance animations
