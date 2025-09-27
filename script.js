@@ -131,8 +131,7 @@ function updateActiveLink() {
             link.classList.add('active');
         }
     });
-}// Sc
-roll Effects and Animations
+}// Scroll Effects and Animations
 function initScrollEffects() {
     // Smooth scroll for anchor links
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
