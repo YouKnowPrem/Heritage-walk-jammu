@@ -47,6 +47,11 @@ body {
     color: var(--text-dark);
     background-color: var(--warm-cream);
     overflow-x: hidden;
+    overflow-y: auto;
+}
+
+body.loading {
+    overflow: hidden;
 }
 
 .container {
