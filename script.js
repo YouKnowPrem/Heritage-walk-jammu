@@ -1,14 +1,19 @@
 // Heritage Walks Jammu - Main JavaScript
+console.log('Script loaded successfully');
+
 document.addEventListener('DOMContentLoaded', function () {
+    console.log('DOM loaded, initializing website');
     initializeWebsite();
 });
 
 function initializeWebsite() {
-    handleLoading();
+    console.log('Initializing website...');
+    // handleLoading(); // Temporarily disabled
     initNavigation();
     initScrollEffects();
     initAnimations();
     initFormHandling();
+    console.log('Website initialized successfully');
 }
 
 // Loading Screen
@@ -63,10 +68,17 @@ function handleLoading() {
 
 // Navigation
 function initNavigation() {
+    console.log('Initializing navigation...');
+
     const navbar = document.getElementById('navbar');
     const navToggle = document.getElementById('navToggle');
     const navMenu = document.getElementById('navMenu');
     const navLinks = document.querySelectorAll('.nav-link');
+
+    if (!navbar || !navToggle || !navMenu) {
+        console.log('Navigation elements not found, skipping navigation init');
+        return;
+    }
 
     // Mobile menu toggle
     navToggle.addEventListener('click', () => {
