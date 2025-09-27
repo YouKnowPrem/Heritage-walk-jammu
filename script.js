@@ -16,40 +16,58 @@ function initializeWebsite() {
     console.log('Website initialized successfully');
 }
 
-// Loading Screen
 // Mandala Loading Screen
 function handleMandalaLoading() {
     const loadingScreen = document.getElementById('loadingScreen');
 
     if (!loadingScreen) {
-        // If no loading screen, ensure body is not locked
+        console.log('Loading screen element not found');
         document.body.classList.remove('loading');
         return;
     }
 
-    console.log('Starting mandala loading animation...');
+    console.log('Loading screen found, starting mandala animation...');
 
-    // Add loading class to body
+    // Add loading class to body to prevent scrolling
     document.body.classList.add('loading');
 
-    // Hide loading screen after 3 seconds to enjoy the mandala animation
-    setTimeout(() => {
+    // Hide loading screen after 3 seconds
+    const hideTimer = setTimeout(() => {
         hideLoadingScreen();
     }, 3000);
 
+    // Also hide on any click/touch (for impatient users)
+    loadingScreen.addEventListener('click', () => {
+        clearTimeout(hideTimer);
+        hideLoadingScreen();
+    });
+
     function hideLoadingScreen() {
         console.log('Hiding mandala loading screen...');
+        
+        // Fade out the loading screen
+        loadingScreen.style.transition = 'opacity 0.6s ease, visibility 0.6s ease';
         loadingScreen.style.opacity = '0';
         loadingScreen.style.visibility = 'hidden';
+        
+        // Remove loading class from body to restore scrolling
         document.body.classList.remove('loading');
-
-        // Remove from DOM after transition
+        
+        // Remove from DOM after transition completes
         setTimeout(() => {
             if (loadingScreen && loadingScreen.parentNode) {
                 loadingScreen.parentNode.removeChild(loadingScreen);
                 console.log('Mandala loading screen removed from DOM');
             }
-        }, 600);
+            
+            // Remove test element after 3 seconds
+            setTimeout(() => {
+                const testElement = document.getElementById('testElement');
+                if (testElement) {
+                    testElement.remove();
+                }
+            }, 3000);
+        }, 700);
     }
 }
 
@@ -335,18 +353,22 @@ if (document.readyState === 'loading') {
     initializeWebsite();
 }
 
-// Emergency fallback to hide mandala loading screen
+// Emergency fallback to ensure loading screen always disappears
 setTimeout(() => {
     const loadingScreen = document.getElementById('loadingScreen');
-    if (loadingScreen && (loadingScreen.style.opacity !== '0' && loadingScreen.style.visibility !== 'hidden')) {
-        console.log('Emergency fallback: hiding mandala loading screen');
+    if (loadingScreen && loadingScreen.parentNode) {
+        console.log('Emergency fallback: forcing mandala loading screen to hide');
+        loadingScreen.style.transition = 'opacity 0.3s ease';
         loadingScreen.style.opacity = '0';
         loadingScreen.style.visibility = 'hidden';
+        loadingScreen.style.display = 'none';
         document.body.classList.remove('loading');
+        
         setTimeout(() => {
             if (loadingScreen && loadingScreen.parentNode) {
                 loadingScreen.parentNode.removeChild(loadingScreen);
+                console.log('Emergency fallback: mandala loading screen removed');
             }
-        }, 600);
+        }, 400);
     }
-}, 4000); // 4 second emergency fallback for mandala
+}, 5000); // 5 second absolute emergency fallback
