@@ -1034,7 +1034,7 @@ body.loading {
 
 /* NEW: Made By Section (Independent Block) */
 .made-by-break-section {
-    background: var(--primary-gold); /* Solid Gold Color for separation */
+    background: var(--text-light); /* Solid Gold Color for separation */
     color: var(--dark-brown); /* Dark text on gold */
     width: 100%;
     padding: 3rem 0; /* Increased vertical space */
@@ -1222,3 +1222,4 @@ body.loading {
         text-align: left; 
     }
 }
+
