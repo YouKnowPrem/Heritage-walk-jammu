@@ -60,77 +60,199 @@ body.loading {
     padding: var(--container-padding);
 }
 
-/* Loading Screen */
-.loading-screen {
+/* Mandala Loading Screen */
+.mandala-loading-screen {
     position: fixed;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
-    background: linear-gradient(135deg, var(--dark-brown) 0%, var(--deep-brown) 50%, var(--royal-burgundy) 100%);
+    background: linear-gradient(135deg, 
+        rgba(62, 39, 35, 0.95) 0%, 
+        rgba(139, 69, 19, 0.9) 30%,
+        rgba(212, 175, 55, 0.1) 50%,
+        rgba(139, 69, 19, 0.9) 70%,
+        rgba(62, 39, 35, 0.95) 100%);
     display: flex;
     align-items: center;
     justify-content: center;
     z-index: 9999;
     opacity: 1;
     visibility: visible;
-    transition: opacity 0.5s ease, visibility 0.5s ease;
+    transition: opacity 0.6s ease, visibility 0.6s ease;
 }
 
-.loading-container {
+.mandala-container {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Decorative Frame */
+.mandala-frame {
+    position: absolute;
+    width: 350px;
+    height: 350px;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    pointer-events: none;
+}
+
+.frame-corner {
+    position: absolute;
+    width: 40px;
+    height: 40px;
+    border: 3px solid var(--primary-gold);
+}
+
+.frame-corner.top-left {
+    top: -20px;
+    left: -20px;
+    border-right: none;
+    border-bottom: none;
+    border-radius: 8px 0 0 0;
+}
+
+.frame-corner.top-right {
+    top: -20px;
+    right: -20px;
+    border-left: none;
+    border-bottom: none;
+    border-radius: 0 8px 0 0;
+}
+
+.frame-corner.bottom-left {
+    bottom: -20px;
+    left: -20px;
+    border-right: none;
+    border-top: none;
+    border-radius: 0 0 0 8px;
+}
+
+.frame-corner.bottom-right {
+    bottom: -20px;
+    right: -20px;
+    border-left: none;
+    border-top: none;
+    border-radius: 0 0 8px 0;
+}
+
+.frame-border {
+    position: absolute;
+    background: linear-gradient(90deg, 
+        transparent 0%, 
+        var(--primary-gold) 20%, 
+        var(--primary-gold) 80%, 
+        transparent 100%);
+}
+
+.frame-border.top,
+.frame-border.bottom {
+    height: 2px;
+    width: 280px;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.frame-border.top { top: -20px; }
+.frame-border.bottom { bottom: -20px; }
+
+.frame-border.left,
+.frame-border.right {
+    width: 2px;
+    height: 280px;
+    top: 50%;
+    transform: translateY(-50%);
+    background: linear-gradient(180deg, 
+        transparent 0%, 
+        var(--primary-gold) 20%, 
+        var(--primary-gold) 80%, 
+        transparent 100%);
+}
+
+.frame-border.left { left: -20px; }
+.frame-border.right { right: -20px; }
+
+/* Rotating Mandala */
+.mandala-loader {
+    position: relative;
+    width: 200px;
+    height: 200px;
+    margin-bottom: 2rem;
+}
+
+.mandala-circle {
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    overflow: hidden;
+    position: relative;
+    animation: mandalaRotate 8s linear infinite;
+    box-shadow: 
+        0 0 30px rgba(212, 175, 55, 0.4),
+        inset 0 0 30px rgba(212, 175, 55, 0.2);
+}
+
+.mandala-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 50%;
+}
+
+.mandala-glow {
+    position: absolute;
+    top: -10px;
+    left: -10px;
+    right: -10px;
+    bottom: -10px;
+    border-radius: 50%;
+    background: conic-gradient(
+        from 0deg,
+        transparent 0deg,
+        rgba(212, 175, 55, 0.3) 90deg,
+        transparent 180deg,
+        rgba(212, 175, 55, 0.3) 270deg,
+        transparent 360deg
+    );
+    animation: mandalaGlow 4s linear infinite;
+    z-index: -1;
+}
+
+@keyframes mandalaRotate {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+}
+
+@keyframes mandalaGlow {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(-360deg); }
+}
+
+/* Loading Content */
+.loading-content {
     text-align: center;
     color: var(--text-light);
 }
 
-.heritage-logo {
-    margin-bottom: 2rem;
-}
-
-.logo-icon {
-    font-size: 4rem;
-    margin-bottom: 1rem;
-    animation: logoFloat 2s ease-in-out infinite;
-}
-
-.logo-text {
+.loading-title {
     font-family: var(--font-heading);
-    font-size: 2.5rem;
+    font-size: 2.2rem;
     font-weight: 600;
     color: var(--primary-gold);
     margin-bottom: 0.5rem;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
 }
 
-.logo-subtitle {
-    font-size: 1.2rem;
+.loading-subtitle {
+    font-size: 1.1rem;
     color: var(--warm-cream);
     opacity: 0.8;
-    letter-spacing: 2px;
-}
-
-.loading-progress {
-    margin: 2rem 0;
-}
-
-.progress-bar {
-    width: 200px;
-    height: 4px;
-    background: rgba(255, 255, 255, 0.2);
-    border-radius: 2px;
-    margin: 0 auto 1rem;
-    overflow: hidden;
-}
-
-.progress-fill {
-    height: 100%;
-    background: linear-gradient(90deg, var(--primary-gold), var(--light-gold));
-    border-radius: 2px;
-    animation: progressFill 3s ease-in-out infinite;
-}
-
-.progress-text {
-    font-size: 0.9rem;
-    color: var(--warm-cream);
-    opacity: 0.7;
+    margin-bottom: 2rem;
+    letter-spacing: 1px;
 }
 
 .loading-dots {
@@ -144,53 +266,22 @@ body.loading {
     height: 8px;
     background: var(--primary-gold);
     border-radius: 50%;
-    animation: dotBounce 1.4s ease-in-out infinite both;
+    animation: dotPulse 1.5s ease-in-out infinite both;
+    box-shadow: 0 0 10px rgba(212, 175, 55, 0.5);
 }
 
-.loading-dots span:nth-child(1) {
-    animation-delay: -0.32s;
-}
+.loading-dots span:nth-child(1) { animation-delay: -0.3s; }
+.loading-dots span:nth-child(2) { animation-delay: -0.15s; }
+.loading-dots span:nth-child(3) { animation-delay: 0s; }
 
-.loading-dots span:nth-child(2) {
-    animation-delay: -0.16s;
-}
-
-@keyframes logoFloat {
-
-    0%,
-    100% {
-        transform: translateY(0px);
+@keyframes dotPulse {
+    0%, 80%, 100% { 
+        transform: scale(0.8); 
+        opacity: 0.5;
     }
-
-    50% {
-        transform: translateY(-10px);
-    }
-}
-
-@keyframes progressFill {
-    0% {
-        width: 0%;
-    }
-
-    50% {
-        width: 70%;
-    }
-
-    100% {
-        width: 100%;
-    }
-}
-
-@keyframes dotBounce {
-
-    0%,
-    80%,
-    100% {
-        transform: scale(0);
-    }
-
-    40% {
-        transform: scale(1);
+    40% { 
+        transform: scale(1.2); 
+        opacity: 1;
     }
 }
 
