@@ -2133,3 +2133,587 @@ am Section */
         font-size: 0.8rem;
     }
 }
+
+e ft: -100%;
+top: 70px;
+flex-direction: column;
+background: linear-gradient(135deg, var(--background-light) 0%, rgba(250, 247, 242, 0.98) 100%);
+width: 100%;
+text-align: center;
+transition: 0.3s;
+box-shadow: var(--royal-shadow);
+backdrop-filter: blur(15px);
+border-top: 2px solid var(--royal-border);
+z-index: 999;
+padding: 2rem 0;
+}
+
+.nav-menu.active {
+    left: 0;
+}
+
+.nav-menu li {
+    margin: 1rem 0;
+}
+
+.nav-menu a {
+    font-size: 1.2rem;
+    padding: 1rem;
+    display: block;
+    border-radius: 10px;
+    margin: 0 1rem;
+    transition: all 0.3s ease;
+}
+
+.nav-menu a:hover {
+    background: rgba(139, 69, 19, 0.1);
+    transform: translateX(5px);
+}
+
+.hamburger.active span:nth-child(2) {
+    opacity: 0;
+}
+
+.hamburger.active span:nth-child(1) {
+    transform: translateY(8px) rotate(45deg);
+}
+
+.hamburger.active span:nth-child(3) {
+    transform: translateY(-8px) rotate(-45deg);
+}
+
+/* Mobile Hero Optimizations */
+.hero {
+    padding: 100px 0 60px;
+    background-attachment: scroll;
+    min-height: 90vh;
+}
+
+.hero-title {
+    font-size: 2.5rem;
+    line-height: 1.1;
+}
+
+.hero-subtitle {
+    font-size: 1.1rem;
+    margin-bottom: 1.5rem;
+}
+
+.hero-description {
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+.hero-description p {
+    font-size: 1rem;
+    line-height: 1.6;
+}
+
+.cta-buttons-group {
+    flex-direction: column;
+    gap: 1rem;
+    align-items: center;
+}
+
+.enhanced-cta {
+    width: 100%;
+    max-width: 280px;
+    padding: 1rem 1.5rem;
+    font-size: 0.95rem;
+}
+
+/* Mobile Carousel Optimizations */
+.carousel-item img {
+    height: 300px;
+}
+
+.carousel-caption {
+    padding: 1.5rem;
+}
+
+.carousel-caption h3 {
+    font-size: 1.4rem;
+}
+
+.carousel-caption p {
+    font-size: 0.95rem;
+}
+
+.carousel-controls {
+    gap: 1rem;
+    margin-top: 1.5rem;
+}
+
+.carousel-btn {
+    width: 40px;
+    height: 40px;
+    font-size: 1.2rem;
+}
+
+/* Mobile Gallery Optimizations */
+.gallery-grid {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+}
+
+.gallery-item img {
+    height: 200px;
+}
+
+/* Mobile Competition Section */
+.competition-content {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+}
+
+.competition-text h3 {
+    font-size: 1.5rem;
+}
+
+/* Mobile Event Section */
+.event-content {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+}
+
+.event-details,
+.event-highlights {
+    padding: 2rem;
+}
+
+/* Mobile Sponsors */
+.sponsors-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1rem;
+}
+
+.sponsor-placeholder {
+    padding: 1.5rem 1rem;
+    min-height: 120px;
+    font-size: 0.9rem;
+}
+
+/* Mobile Typography */
+section h2 {
+    font-size: 2rem;
+}
+
+.section-subtitle {
+    font-size: 1rem;
+    padding: 0 1rem;
+}
+
+/* Mobile Made By Section */
+.made-by-text {
+    font-size: 3rem;
+    letter-spacing: 0.8px;
+    max-width: 100%;
+    text-align: center;
+    align-items: center;
+}
+
+.made-by-section {
+    padding: 4rem 0;
+    min-height: 40vh;
+}
+
+/* Mobile Team Section */
+.team-grid {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+}
+
+.team-member {
+    padding: 1.5rem;
+}
+
+.member-avatar {
+    width: 60px;
+    height: 60px;
+    font-size: 1.5rem;
+}
+}
+
+/* Team Section Styles */
+.team-section {
+    background: linear-gradient(135deg, var(--background-light) 0%, rgba(210, 180, 140, 0.1) 100%);
+    position: relative;
+}
+
+.team-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
+    margin-top: 2rem;
+}
+
+.team-member {
+    background: rgba(255, 255, 255, 0.8);
+    border-radius: 15px;
+    padding: 2rem;
+    text-align: center;
+    box-shadow: var(--royal-shadow);
+    border: 2px solid var(--royal-border);
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.team-member::before {
+    content: '';
+    position: absolute;
+    top: -2px;
+    left: -2px;
+    right: -2px;
+    bottom: -2px;
+    background: var(--gold-gradient);
+    border-radius: 15px;
+    z-index: -1;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.team-member:hover {
+    transform: translateY(-8px) scale(1.02);
+    box-shadow: 0 15px 40px rgba(139, 69, 19, 0.25);
+}
+
+.team-member:hover::before {
+    opacity: 1;
+}
+
+.member-avatar {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    background: var(--gold-gradient);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 2rem;
+    font-weight: 700;
+    color: white;
+    margin: 0 auto 1.5rem;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+    border: 3px solid var(--royal-border);
+}
+
+.team-member h3 {
+    font-family: var(--font-heading);
+    font-size: 1.5rem;
+    color: var(--primary-color);
+    margin-bottom: 0.5rem;
+}
+
+.team-member p {
+    color: var(--text-dark);
+    font-weight: 500;
+    opacity: 0.8;
+}
+
+/* Heritage Monument Loading Animation */
+.heritage-monument {
+    width: 120px;
+    height: 120px;
+    margin: 0 auto 2rem;
+    position: relative;
+    animation: monumentFloat 3s ease-in-out infinite;
+}
+
+.monument-base {
+    width: 100%;
+    height: 20px;
+    background: var(--primary-color);
+    border-radius: 10px;
+    position: absolute;
+    bottom: 0;
+    animation: baseGlow 2s ease-in-out infinite alternate;
+}
+
+.monument-pillars {
+    display: flex;
+    justify-content: space-between;
+    position: absolute;
+    bottom: 20px;
+    width: 80%;
+    left: 10%;
+    height: 60px;
+}
+
+.pillar {
+    width: 15px;
+    background: linear-gradient(to top, var(--accent-color), var(--royal-gold));
+    border-radius: 2px;
+    animation: pillarGrow 2s ease-in-out infinite;
+}
+
+.pillar:nth-child(1) {
+    animation-delay: 0s;
+}
+
+.pillar:nth-child(2) {
+    animation-delay: 0.2s;
+}
+
+.pillar:nth-child(3) {
+    animation-delay: 0.4s;
+}
+
+.pillar:nth-child(4) {
+    animation-delay: 0.6s;
+}
+
+.monument-dome {
+    width: 60px;
+    height: 30px;
+    background: var(--royal-gold);
+    border-radius: 50% 50% 50% 50% / 60% 60% 40% 40%;
+    position: absolute;
+    top: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+    animation: domeShine 3s ease-in-out infinite;
+}
+
+@keyframes monumentFloat {
+
+    0%,
+    100% {
+        transform: translateY(0px);
+    }
+
+    50% {
+        transform: translateY(-10px);
+    }
+}
+
+@keyframes baseGlow {
+    0% {
+        box-shadow: 0 0 10px rgba(139, 69, 19, 0.5);
+    }
+
+    100% {
+        box-shadow: 0 0 20px rgba(255, 215, 0, 0.8);
+    }
+}
+
+@keyframes pillarGrow {
+
+    0%,
+    100% {
+        transform: scaleY(1);
+    }
+
+    50% {
+        transform: scaleY(1.1);
+    }
+}
+
+@keyframes domeShine {
+
+    0%,
+    100% {
+        opacity: 0.8;
+    }
+
+    50% {
+        opacity: 1;
+        box-shadow: 0 0 15px rgba(255, 215, 0, 0.6);
+    }
+}
+
+.loading-text h2 {
+    font-family: var(--font-heading);
+    font-size: 2rem;
+    color: var(--primary-color);
+    margin-bottom: 0.5rem;
+}
+
+.loading-text p {
+    color: var(--accent-color);
+    font-size: 1rem;
+    margin-bottom: 2rem;
+}
+
+.loading-progress-line {
+    width: 200px;
+    height: 4px;
+    background: rgba(139, 69, 19, 0.2);
+    border-radius: 2px;
+    margin: 0 auto;
+    overflow: hidden;
+}
+
+.progress-fill {
+    height: 100%;
+    background: var(--gold-gradient);
+    border-radius: 2px;
+    animation: progressFill 2s ease-in-out infinite;
+}
+
+@keyframes progressFill {
+    0% {
+        width: 0%;
+    }
+
+    50% {
+        width: 70%;
+    }
+
+    100% {
+        width: 100%;
+    }
+}
+
+/* Missing Animation Keyframes */
+@keyframes fastFadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes heritageSparkle {
+    0% {
+        opacity: 0;
+        transform: scale(0) rotate(0deg);
+    }
+
+    50% {
+        opacity: 1;
+        transform: scale(1) rotate(180deg);
+    }
+
+    100% {
+        opacity: 0;
+        transform: scale(0) rotate(360deg);
+    }
+}
+
+/* Sponsors Intro Styles */
+.sponsors-intro {
+    max-width: 900px;
+    margin: 0 auto 2.5rem;
+    text-align: center;
+    font-size: 1.1rem;
+    line-height: 1.8;
+    color: var(--text-dark);
+    padding: 1.5rem;
+    background: rgba(139, 69, 19, 0.05);
+    border-radius: 15px;
+    border-left: 4px solid var(--royal-gold);
+}
+
+/* National Sponsors Section */
+.national-sponsors-section {
+    background: linear-gradient(135deg, var(--secondary-color) 0%, rgba(210, 180, 140, 0.8) 50%, var(--secondary-color) 100%);
+    position: relative;
+}
+
+.national-sponsors-block {
+    background: rgba(255, 255, 255, 0.6);
+    border-radius: 20px;
+    padding: 3rem;
+    border: 2px solid var(--royal-border);
+    box-shadow: var(--royal-shadow);
+    backdrop-filter: blur(10px);
+}
+
+.national-sponsors-description {
+    max-width: 900px;
+    margin: 0 auto 2.5rem;
+    text-align: center;
+    font-size: 1.1rem;
+    line-height: 1.8;
+    color: var(--text-dark);
+    padding: 1.5rem;
+    background: rgba(139, 69, 19, 0.05);
+    border-radius: 15px;
+    border-left: 4px solid var(--royal-gold);
+}
+
+/* Performance Optimizations */
+* {
+    -webkit-tap-highlight-color: transparent;
+}
+
+.heritage-loader,
+.navbar,
+.hero {
+    will-change: transform, opacity;
+}
+
+.gallery-item,
+.sponsor-placeholder,
+.team-member {
+    will-change: transform;
+}
+
+/* Smooth Scrolling */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Focus Styles for Accessibility */
+.nav-menu a:focus,
+.enhanced-cta:focus,
+.carousel-btn:focus,
+.competition-button:focus {
+    outline: 3px solid var(--royal-gold);
+    outline-offset: 2px;
+}
+
+/* Final Mobile Polish */
+@media (max-width: 480px) {
+    .container {
+        padding: 0 0.5rem;
+    }
+
+    .hero-content {
+        padding: 0 0.5rem;
+    }
+
+    .nav-logo h2 {
+        font-size: 1.1rem;
+    }
+
+    .hero-title {
+        font-size: 2.2rem;
+    }
+
+    .enhanced-cta {
+        font-size: 0.9rem;
+        padding: 0.9rem 1.3rem;
+    }
+
+    .carousel-caption {
+        padding: 1rem;
+    }
+
+    .carousel-caption h3 {
+        font-size: 1.2rem;
+    }
+
+    .carousel-caption p {
+        font-size: 0.85rem;
+    }
+
+    .event-details,
+    .event-highlights {
+        padding: 1.5rem;
+    }
+
+    .sponsors-grid {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+    }
+
+    .made-by-text {
+        font-size: 2.5rem;
+    }
+}
