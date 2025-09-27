@@ -16,25 +16,51 @@
 </head>
 
 <body>
-    <!-- Heritage Loading Animation -->
-    <div id="heritage-loader" class="heritage-loader">
-        <div class="loader-content">
-            <div class="heritage-monument">
-                <div class="monument-base"></div>
-                <div class="monument-pillars">
-                    <div class="pillar"></div>
-                    <div class="pillar"></div>
-                    <div class="pillar"></div>
-                    <div class="pillar"></div>
+    <!-- Modern Heritage Loading Screen -->
+    <div id="heritage-loader" class="modern-heritage-loader">
+        <div class="loader-background">
+            <!-- Animated Background Particles -->
+            <div class="heritage-particles">
+                <div class="particle"></div>
+                <div class="particle"></div>
+                <div class="particle"></div>
+                <div class="particle"></div>
+                <div class="particle"></div>
+                <div class="particle"></div>
+                <div class="particle"></div>
+                <div class="particle"></div>
+            </div>
+            
+            <!-- Rotating Heritage Logo -->
+            <div class="heritage-logo-container">
+                <div class="heritage-logo">
+                    <div class="logo-ring outer-ring"></div>
+                    <div class="logo-ring middle-ring"></div>
+                    <div class="logo-ring inner-ring"></div>
+                    <div class="logo-center">
+                        <span class="heritage-symbol">🏛️</span>
+                    </div>
                 </div>
-                <div class="monument-dome"></div>
             </div>
-            <div class="loading-text">
-                <h2>Heritage Walks Jammu</h2>
-                <p>Loading your heritage journey...</p>
+            
+            <!-- Glitch Text Effect -->
+            <div class="glitch-text-container">
+                <h1 class="glitch-text" data-text="HERITAGE WALKS">HERITAGE WALKS</h1>
+                <h2 class="location-text">JAMMU</h2>
             </div>
-            <div class="loading-progress-line">
-                <div class="progress-fill"></div>
+            
+            <!-- Progress Counter with Circle -->
+            <div class="progress-container">
+                <div class="progress-circle">
+                    <svg class="progress-svg" width="120" height="120">
+                        <circle class="progress-bg" cx="60" cy="60" r="50"></circle>
+                        <circle class="progress-bar" cx="60" cy="60" r="50"></circle>
+                    </svg>
+                    <div class="progress-text">
+                        <span id="progress-counter">0</span>%
+                    </div>
+                </div>
+                <p class="loading-subtitle">Discovering Jammu's Rich Heritage...</p>
             </div>
         </div>
     </div>
