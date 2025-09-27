@@ -15,42 +15,46 @@ function initializeWebsite() {
 function handleLoading() {
     const loadingScreen = document.getElementById('loadingScreen');
     const progressFill = document.querySelector('.progress-fill');
-    
-    if (!loadingScreen) return;
-    
-    // Set initial body overflow
-    document.body.style.overflow = 'hidden';
-    
+
+    if (!loadingScreen) {
+        // If no loading screen, ensure body is not locked
+        document.body.classList.remove('loading');
+        return;
+    }
+
+    // Add loading class to body
+    document.body.classList.add('loading');
+
     // Simulate loading progress
     let progress = 0;
     const loadingInterval = setInterval(() => {
-        progress += Math.random() * 20;
+        progress += Math.random() * 25;
         if (progress > 100) progress = 100;
-        
+
         if (progressFill) {
             progressFill.style.width = progress + '%';
         }
-        
+
         if (progress >= 100) {
             clearInterval(loadingInterval);
             hideLoadingScreen();
         }
-    }, 150);
-    
-    // Ensure loading screen disappears after max 2.5 seconds
+    }, 100);
+
+    // Ensure loading screen disappears after max 2 seconds
     setTimeout(() => {
         clearInterval(loadingInterval);
         hideLoadingScreen();
-    }, 2500);
-    
+    }, 2000);
+
     function hideLoadingScreen() {
         loadingScreen.style.opacity = '0';
         loadingScreen.style.visibility = 'hidden';
-        document.body.style.overflow = 'visible';
-        
+        document.body.classList.remove('loading');
+
         // Remove from DOM after transition
         setTimeout(() => {
-            if (loadingScreen.parentNode) {
+            if (loadingScreen && loadingScreen.parentNode) {
                 loadingScreen.parentNode.removeChild(loadingScreen);
             }
         }, 500);
@@ -330,19 +334,20 @@ if (document.readyState === 'loading') {
     document.addEventListener('DOMContentLoaded', initializeWebsite);
 } else {
     initializeWebsite();
-}//
- Emergency fallback to hide loading screen
+}
+
+// Emergency fallback to hide loading screen
 setTimeout(() => {
     const loadingScreen = document.getElementById('loadingScreen');
-    if (loadingScreen && loadingScreen.style.opacity !== '0') {
+    if (loadingScreen && (loadingScreen.style.opacity !== '0' && loadingScreen.style.visibility !== 'hidden')) {
         console.log('Emergency fallback: hiding loading screen');
         loadingScreen.style.opacity = '0';
         loadingScreen.style.visibility = 'hidden';
-        document.body.style.overflow = 'visible';
+        document.body.classList.remove('loading');
         setTimeout(() => {
-            if (loadingScreen.parentNode) {
+            if (loadingScreen && loadingScreen.parentNode) {
                 loadingScreen.parentNode.removeChild(loadingScreen);
             }
         }, 500);
     }
-}, 3000); // 3 second emergency fallback
+}, 2500); // 2.5 second emergency fallback
