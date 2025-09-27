@@ -238,7 +238,7 @@ function lazyLoadImages() {
     const images = document.querySelectorAll('img[loading="lazy"]');
 
     if ('IntersectionObserver' in window) {
-        const imageObserver = new IntersectionObserver((entries, observer) => {
+        const imageObserver = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
                     const img = entry.target;
@@ -393,7 +393,7 @@ document.addEventListener('DOMContentLoaded', function () {
 let ticking = false;
 
 function updateScrollAnimations() {
-    const scrolled = window.pageYOffset;
+    const scrolled = window.scrollY;
     const rate = scrolled * -0.3;
 
     // Optimized parallax effect
