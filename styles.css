@@ -86,7 +86,7 @@ body.loading {
     justify-content: center;
 }
 
-/* Decorative Frame (Kept the same for visual effect) */
+/* Decorative Frame */
 .mandala-frame {
     position: absolute;
     width: 350px;
@@ -661,7 +661,7 @@ body.loading {
     margin: 0 auto;
 }
 
-/* Walks Section */
+/* Walks Section (Background remains --soft-beige) */
 .walks-section {
     padding: var(--section-padding);
     background: var(--soft-beige);
@@ -797,7 +797,7 @@ body.loading {
     transform: translateY(-2px);
 }
 
-/* Map Section Styling (Moved to end) */
+/* Map Section Styling */
 .walk-map-section {
     background: var(--warm-cream);
     padding: 2rem;
@@ -837,7 +837,7 @@ body.loading {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
     gap: 0.5rem;
-    /* Map Key Fix (Point 2) */
+    /* Map Key Fix (Removed bold stars) */
     font-weight: 500; 
 }
 
@@ -846,10 +846,10 @@ body.loading {
     color: var(--text-dark);
 }
 
-/* About Section */
+/* About Section (New background - Point 1) */
 .about-section {
     padding: var(--section-padding);
-    background: white;
+    background: var(--soft-beige); /* Changed to soft-beige */
 }
 
 .about-content {
@@ -909,10 +909,66 @@ body.loading {
     font-size: 0.9rem;
 }
 
-/* Team Section (Moved in HTML, kept original styling) */
+/* Sponsors Section (New background - Point 1) */
+.sponsors-section {
+    padding: var(--section-padding);
+    background: white; /* Changed to white */
+}
+
+.sponsors-content {
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+.sponsor-category {
+    margin-bottom: 3rem;
+}
+
+.sponsor-category h3 {
+    font-family: var(--font-heading);
+    font-size: 1.8rem;
+    color: var(--deep-brown);
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+.sponsors-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 1.5rem;
+    justify-items: center;
+}
+
+.sponsor-card {
+    width: 150px;
+    height: 100px;
+    background: var(--soft-beige); /* Changed background */
+    border: 1px solid var(--primary-gold);
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all var(--transition-medium);
+    /* Premium Border Effect */
+    box-shadow: 0 0 0 3px var(--deep-brown), var(--shadow-medium); 
+}
+
+.sponsor-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 0 0 3px var(--primary-gold), var(--shadow-heavy);
+    border-color: var(--deep-brown);
+}
+
+.sponsor-placeholder {
+    color: var(--deep-brown);
+    font-weight: 600;
+    opacity: 0.7;
+}
+
+/* Team Section (New background - Point 1) */
 .team-section {
     padding: var(--section-padding);
-    background: var(--soft-beige);
+    background: var(--soft-beige); /* Changed to soft-beige */
 }
 
 .team-grid {
@@ -975,95 +1031,38 @@ body.loading {
     opacity: 0.8;
 }
 
-/* Sponsors Section */
-.sponsors-section {
-    padding: var(--section-padding);
-    background: white;
-}
-
-.sponsors-content {
-    max-width: 1000px;
-    margin: 0 auto;
-}
-
-.sponsor-category {
-    margin-bottom: 3rem;
-}
-
-.sponsor-category h3 {
-    font-family: var(--font-heading);
-    font-size: 1.8rem;
-    color: var(--deep-brown);
-    text-align: center;
-    margin-bottom: 2rem;
-}
-
-.sponsors-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-    gap: 1.5rem;
-    justify-items: center;
-}
-
-.sponsor-card {
-    width: 150px;
-    height: 100px;
-    background: var(--soft-beige); /* Changed background */
-    border: 1px solid var(--primary-gold);
-    border-radius: 10px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    transition: all var(--transition-medium);
-    /* Premium Border Effect */
-    box-shadow: 0 0 0 3px var(--deep-brown), var(--shadow-medium); 
-}
-
-.sponsor-card:hover {
-    transform: translateY(-3px);
-    box-shadow: 0 0 0 3px var(--primary-gold), var(--shadow-heavy);
-    border-color: var(--deep-brown);
-}
-
-.sponsor-placeholder {
-    color: var(--deep-brown);
-    font-weight: 600;
-    opacity: 0.7;
-}
-
 /* Footer (Simplified) */
 .footer {
     background: var(--dark-brown);
     color: var(--text-light);
     padding: 1rem 0 1rem; 
+    border-top: 10px solid var(--primary-gold); /* Footer separation */
 }
 
-/* Made By Section (Full Block & Bigger Text - Point 3 & 4) */
+/* Made By Section (Full Block & Bigger Text) */
 .made-by-section.full-block {
-    padding: 2rem 0; /* Bigger vertical space */
-    background: var(--dark-brown); /* Match footer background */
+    padding: 3rem 0; /* Increased vertical space */
+    background: var(--dark-brown); 
     width: 100%;
     margin-left: auto;
     margin-right: auto;
-    /* Aligned to the Left (Point 4) */
     text-align: left; 
 }
 
 .made-by-section.full-block .container {
-    /* Override container padding for full width block */
     padding: var(--container-padding);
 }
 
 .made-by-text {
     font-family: var(--font-heading);
-    font-size: 1.8rem; /* Bigger font size */
+    font-size: 2.2rem; /* Increased font size */
     font-weight: 500;
-    padding: 1rem 0; /* Removed side padding, using container padding */
+    padding: 1rem 0; 
     display: inline;
     color: var(--text-light);
 }
 
-/* Glass effect removal (Point 4) - simplified style for left alignment */
+/* Glass effect removal - simplified style for left alignment */
 .made-by-section.full-block h2 {
     padding: 0;
     background: none;
