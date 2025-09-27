@@ -60,19 +60,15 @@ body.loading {
     padding: var(--container-padding);
 }
 
-/* Mandala Loading Screen */
+/* Mandala Loading Screen (Point 1: Solid Color) */
 .mandala-loading-screen {
     position: fixed;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
-    background: linear-gradient(135deg, 
-        rgba(62, 39, 35, 0.95) 0%, 
-        rgba(139, 69, 19, 0.9) 30%,
-        rgba(212, 175, 55, 0.1) 50%,
-        rgba(139, 69, 19, 0.9) 70%,
-        rgba(62, 39, 35, 0.95) 100%);
+    /* Changed to solid dark color */
+    background: var(--dark-brown); 
     display: flex;
     align-items: center;
     justify-content: center;
@@ -90,7 +86,7 @@ body.loading {
     justify-content: center;
 }
 
-/* Decorative Frame */
+/* Decorative Frame (Kept the same for visual effect) */
 .mandala-frame {
     position: absolute;
     width: 350px;
@@ -676,7 +672,7 @@ body.loading {
     grid-template-columns: repeat(auto-fit, minmax(500px, 1fr));
     gap: 3rem;
     max-width: 1100px;
-    margin: 0 auto 5rem; /* Added margin for map section */
+    margin: 0 auto 5rem; 
 }
 
 .walk-card {
@@ -801,7 +797,7 @@ body.loading {
     transform: translateY(-2px);
 }
 
-/* Map Section Styling */
+/* Map Section Styling (Moved to end) */
 .walk-map-section {
     background: var(--warm-cream);
     padding: 2rem;
@@ -841,6 +837,8 @@ body.loading {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
     gap: 0.5rem;
+    /* Map Key Fix (Point 2) */
+    font-weight: 500; 
 }
 
 .map-key li {
@@ -911,7 +909,7 @@ body.loading {
     font-size: 0.9rem;
 }
 
-/* Team Section */
+/* Team Section (Moved in HTML, kept original styling) */
 .team-section {
     padding: var(--section-padding);
     background: var(--soft-beige);
@@ -919,7 +917,6 @@ body.loading {
 
 .team-grid {
     display: grid;
-    /* Adjusted for 6 members */
     grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); 
     gap: 2rem;
     max-width: 1000px;
@@ -978,7 +975,7 @@ body.loading {
     opacity: 0.8;
 }
 
-/* Sponsors Section (Better Look) */
+/* Sponsors Section */
 .sponsors-section {
     padding: var(--section-padding);
     background: white;
@@ -1034,8 +1031,6 @@ body.loading {
     opacity: 0.7;
 }
 
-/* Contact Section (REMOVED) */
-
 /* Footer (Simplified) */
 .footer {
     background: var(--dark-brown);
@@ -1043,27 +1038,42 @@ body.loading {
     padding: 1rem 0 1rem; 
 }
 
-/* Made By Section (Full Block & Bigger Text) */
+/* Made By Section (Full Block & Bigger Text - Point 3 & 4) */
 .made-by-section.full-block {
     padding: 2rem 0; /* Bigger vertical space */
-    text-align: center;
     background: var(--dark-brown); /* Match footer background */
+    width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+    /* Aligned to the Left (Point 4) */
+    text-align: left; 
+}
+
+.made-by-section.full-block .container {
+    /* Override container padding for full width block */
+    padding: var(--container-padding);
 }
 
 .made-by-text {
     font-family: var(--font-heading);
     font-size: 1.8rem; /* Bigger font size */
     font-weight: 500;
-    padding: 1rem 2rem;
-    border-radius: 12px;
-    /* Transparent Glass Gradient Effect */
-    background: rgba(255, 255, 255, 0.05);
-    backdrop-filter: blur(5px);
-    border: 1px solid rgba(255, 255, 255, 0.2);
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
-    display: inline-block;
+    padding: 1rem 0; /* Removed side padding, using container padding */
+    display: inline;
     color: var(--text-light);
-    background-image: linear-gradient(135deg, rgba(255,255,255,0.1) 0%, rgba(255,255,255,0) 100%);
+}
+
+/* Glass effect removal (Point 4) - simplified style for left alignment */
+.made-by-section.full-block h2 {
+    padding: 0;
+    background: none;
+    backdrop-filter: none;
+    border: none;
+    box-shadow: none;
+}
+
+.italic-text {
+    font-style: italic;
 }
 
 .footer-bottom {
@@ -1212,5 +1222,10 @@ body.loading {
 @media (min-width: 769px) {
     .map-key ul {
         grid-template-columns: repeat(2, 1fr);
+    }
+    
+    /* Ensure Left Alignment on desktop for Made By */
+    .made-by-section.full-block {
+        text-align: left; 
     }
 }
