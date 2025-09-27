@@ -15,30 +15,46 @@ function initializeWebsite() {
 function handleLoading() {
     const loadingScreen = document.getElementById('loadingScreen');
     const progressFill = document.querySelector('.progress-fill');
-
+    
+    if (!loadingScreen) return;
+    
+    // Set initial body overflow
+    document.body.style.overflow = 'hidden';
+    
     // Simulate loading progress
     let progress = 0;
     const loadingInterval = setInterval(() => {
-        progress += Math.random() * 15;
+        progress += Math.random() * 20;
         if (progress > 100) progress = 100;
-
-        progressFill.style.width = progress + '%';
-
+        
+        if (progressFill) {
+            progressFill.style.width = progress + '%';
+        }
+        
         if (progress >= 100) {
             clearInterval(loadingInterval);
-            setTimeout(() => {
-                loadingScreen.classList.add('hidden');
-                document.body.style.overflow = 'visible';
-            }, 500);
+            hideLoadingScreen();
         }
-    }, 200);
-
-    // Ensure loading screen disappears after max 4 seconds
+    }, 150);
+    
+    // Ensure loading screen disappears after max 2.5 seconds
     setTimeout(() => {
         clearInterval(loadingInterval);
-        loadingScreen.classList.add('hidden');
+        hideLoadingScreen();
+    }, 2500);
+    
+    function hideLoadingScreen() {
+        loadingScreen.style.opacity = '0';
+        loadingScreen.style.visibility = 'hidden';
         document.body.style.overflow = 'visible';
-    }, 4000);
+        
+        // Remove from DOM after transition
+        setTimeout(() => {
+            if (loadingScreen.parentNode) {
+                loadingScreen.parentNode.removeChild(loadingScreen);
+            }
+        }, 500);
+    }
 }
 
 // Navigation
@@ -314,4 +330,19 @@ if (document.readyState === 'loading') {
     document.addEventListener('DOMContentLoaded', initializeWebsite);
 } else {
     initializeWebsite();
-}
+}//
+ Emergency fallback to hide loading screen
+setTimeout(() => {
+    const loadingScreen = document.getElementById('loadingScreen');
+    if (loadingScreen && loadingScreen.style.opacity !== '0') {
+        console.log('Emergency fallback: hiding loading screen');
+        loadingScreen.style.opacity = '0';
+        loadingScreen.style.visibility = 'hidden';
+        document.body.style.overflow = 'visible';
+        setTimeout(() => {
+            if (loadingScreen.parentNode) {
+                loadingScreen.parentNode.removeChild(loadingScreen);
+            }
+        }, 500);
+    }
+}, 3000); // 3 second emergency fallback
