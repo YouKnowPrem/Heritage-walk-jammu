@@ -1,83 +1,65 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Heritage Walks - Mubarak Mandi & Old City Jammu</title>
-    <meta name="description"
-        content="Explore the rich heritage of Mubarak Mandi and Old City Jammu through guided heritage walks and cultural symposium.">
-    <link rel="stylesheet" href="styles.css">
+    <title>Heritage Walks Jammu - Discover Living History</title>
+    <meta name="description" content="Join guided heritage walks through Jammu's historic Mubarak Mandi Palace and Old City. Experience centuries of Dogra dynasty history and vibrant culture.">
+    
+    <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link
-        href="https://fonts.googleapis.com/css2?family=Crimson+Text:ital,wght@0,400;0,600;1,400&family=Inter:wght@300;400;500&display=swap"
-        rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Styles -->
+    <link rel="stylesheet" href="styles.css">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="favicon.ico">
 </head>
-
 <body>
-    <!-- Modern Heritage Loading Screen -->
-    <div id="heritage-loader" class="modern-heritage-loader">
-        <div class="loader-background">
-            <!-- Animated Background Particles -->
-            <div class="heritage-particles">
-                <div class="particle"></div>
-                <div class="particle"></div>
-                <div class="particle"></div>
-                <div class="particle"></div>
-                <div class="particle"></div>
-                <div class="particle"></div>
-                <div class="particle"></div>
-                <div class="particle"></div>
+    <!-- Loading Screen -->
+    <div id="loadingScreen" class="loading-screen">
+        <div class="loading-container">
+            <div class="heritage-logo">
+                <div class="logo-icon">🏛️</div>
+                <div class="logo-text">Heritage Walks</div>
+                <div class="logo-subtitle">Jammu</div>
             </div>
             
-            <!-- Rotating Heritage Logo -->
-            <div class="heritage-logo-container">
-                <div class="heritage-logo">
-                    <div class="logo-ring outer-ring"></div>
-                    <div class="logo-ring middle-ring"></div>
-                    <div class="logo-ring inner-ring"></div>
-                    <div class="logo-center">
-                        <span class="heritage-symbol">🏛️</span>
-                    </div>
+            <div class="loading-progress">
+                <div class="progress-bar">
+                    <div class="progress-fill"></div>
                 </div>
+                <div class="progress-text">Loading Heritage...</div>
             </div>
             
-            <!-- Glitch Text Effect -->
-            <div class="glitch-text-container">
-                <h1 class="glitch-text" data-text="HERITAGE WALKS">HERITAGE WALKS</h1>
-                <h2 class="location-text">JAMMU</h2>
-            </div>
-            
-            <!-- Progress Counter with Circle -->
-            <div class="progress-container">
-                <div class="progress-circle">
-                    <svg class="progress-svg" width="120" height="120">
-                        <circle class="progress-bg" cx="60" cy="60" r="50"></circle>
-                        <circle class="progress-bar" cx="60" cy="60" r="50"></circle>
-                    </svg>
-                    <div class="progress-text">
-                        <span id="progress-counter">0</span>%
-                    </div>
-                </div>
-                <p class="loading-subtitle">Discovering Jammu's Rich Heritage...</p>
+            <div class="loading-dots">
+                <span></span>
+                <span></span>
+                <span></span>
             </div>
         </div>
     </div>
 
-    <nav class="navbar">
+    <!-- Navigation -->
+    <nav class="navbar" id="navbar">
         <div class="nav-container">
-            <div class="nav-logo">
-                <h2>Heritage Walks Jammu</h2>
+            <div class="nav-brand">
+                <span class="brand-icon">🏛️</span>
+                <span class="brand-text">Heritage Walks Jammu</span>
             </div>
-            <ul class="nav-menu">
-                <li><a href="#home">Home</a></li>
-                <li><a href="#gallery">Gallery</a></li>
-                <li><a href="#competition">Competition</a></li>
-                <li><a href="#sponsors">Sponsors</a></li>
-                <li><a href="#contact">Contact</a></li>
+            
+            <ul class="nav-menu" id="navMenu">
+                <li><a href="#home" class="nav-link">Home</a></li>
+                <li><a href="#walks" class="nav-link">Walks</a></li>
+                <li><a href="#about" class="nav-link">About</a></li>
+                <li><a href="#team" class="nav-link">Team</a></li>
+                <li><a href="#sponsors" class="nav-link">Sponsors</a></li>
+                <li><a href="#contact" class="nav-link">Contact</a></li>
             </ul>
-            <div class="hamburger">
+            
+            <div class="nav-toggle" id="navToggle">
                 <span></span>
                 <span></span>
                 <span></span>
@@ -85,513 +67,420 @@
         </div>
     </nav>
 
-    <main>
-        <!-- Dynamic Modern Hero Section -->
-        <section id="home" class="dynamic-hero">
-            <!-- Parallax Background Layers -->
-            <div class="hero-parallax-bg">
-                <div class="parallax-layer layer-1" data-speed="0.2"></div>
-                <div class="parallax-layer layer-2" data-speed="0.5"></div>
-                <div class="parallax-layer layer-3" data-speed="0.8"></div>
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="hero-background">
+            <div class="hero-overlay"></div>
+            <div class="floating-elements">
+                <div class="float-item" data-speed="2">🏛️</div>
+                <div class="float-item" data-speed="3">🕌</div>
+                <div class="float-item" data-speed="1.5">🏺</div>
+                <div class="float-item" data-speed="2.5">📿</div>
+                <div class="float-item" data-speed="1.8">🎭</div>
             </div>
-            
-            <!-- Animated Particles System -->
-            <div class="particles-container">
-                <canvas id="heroParticles" class="particles-canvas"></canvas>
-            </div>
-            
-            <!-- Floating Heritage Elements -->
-            <div class="heritage-elements">
-                <div class="heritage-float" data-float="slow">
-                    <div class="heritage-icon palace">🏛️</div>
-                </div>
-                <div class="heritage-float" data-float="medium">
-                    <div class="heritage-icon mosque">🕌</div>
-                </div>
-                <div class="heritage-float" data-float="fast">
-                    <div class="heritage-icon artifact">🏺</div>
-                </div>
-                <div class="heritage-float" data-float="slow">
-                    <div class="heritage-icon culture">📿</div>
-                </div>
-                <div class="heritage-float" data-float="medium">
-                    <div class="heritage-icon art">🎭</div>
-                </div>
-            </div>
-            
-            <!-- Dynamic Content Container -->
-            <div class="hero-content-wrapper">
-                <div class="hero-content-inner">
-                    <!-- Animated Title with Morphing Effect -->
-                    <div class="hero-title-section">
-                        <div class="title-backdrop"></div>
-                        <h1 class="morphing-title">
-                            <span class="title-line line-1">
-                                <span class="letter" data-letter="D">D</span>
-                                <span class="letter" data-letter="i">i</span>
-                                <span class="letter" data-letter="s">s</span>
-                                <span class="letter" data-letter="c">c</span>
-                                <span class="letter" data-letter="o">o</span>
-                                <span class="letter" data-letter="v">v</span>
-                                <span class="letter" data-letter="e">e</span>
-                                <span class="letter" data-letter="r">r</span>
-                            </span>
-                            <span class="title-line line-2">
-                                <span class="letter" data-letter="J">J</span>
-                                <span class="letter" data-letter="a">a</span>
-                                <span class="letter" data-letter="m">m</span>
-                                <span class="letter" data-letter="m">m</span>
-                                <span class="letter" data-letter="u">u</span>
-                                <span class="letter" data-letter="'">&#39;</span>
-                                <span class="letter" data-letter="s">s</span>
-                            </span>
-                            <span class="title-line line-3">
-                                <span class="letter" data-letter="L">L</span>
-                                <span class="letter" data-letter="i">i</span>
-                                <span class="letter" data-letter="v">v</span>
-                                <span class="letter" data-letter="i">i</span>
-                                <span class="letter" data-letter="n">n</span>
-                                <span class="letter" data-letter="g">g</span>
-                            </span>
-                            <span class="title-line line-4">
-                                <span class="letter" data-letter="H">H</span>
-                                <span class="letter" data-letter="e">e</span>
-                                <span class="letter" data-letter="r">r</span>
-                                <span class="letter" data-letter="i">i</span>
-                                <span class="letter" data-letter="t">t</span>
-                                <span class="letter" data-letter="a">a</span>
-                                <span class="letter" data-letter="g">g</span>
-                                <span class="letter" data-letter="e">e</span>
-                            </span>
-                        </h1>
-                        <div class="title-glow-effect"></div>
-                    </div>
-                    
-                    <!-- Typewriter Subtitle -->
-                    <div class="hero-subtitle-container">
-                        <p class="typewriter-text">
-                            <span class="typewriter-content"></span>
-                            <span class="cursor">|</span>
-                        </p>
-                    </div>
-                    
-                    <!-- Expandable Description -->
-                    <div class="hero-description-modern">
-                        <div class="description-preview">
-                            <p>Experience centuries of history, architecture, and culture...</p>
-                            <button class="expand-btn" aria-label="Read more">
-                                <span class="expand-text">Read More</span>
-                                <span class="expand-icon">↓</span>
-                            </button>
-                        </div>
-                        <div class="description-full">
-                            <p>Experience centuries of history, architecture, and culture as we explore the magnificent Mubarak Mandi - once the royal residence of the Dogra dynasty - and wander through the bustling lanes of Old City with its traditional markets, ancient temples, and timeless stories.</p>
-                            <p>Our heritage walks combine historical insights with cultural immersion, followed by an engaging symposium featuring local historians, architects, and cultural experts.</p>
-                            <button class="collapse-btn" aria-label="Read less">
-                                <span class="collapse-text">Read Less</span>
-                                <span class="collapse-icon">↑</span>
-                            </button>
-                        </div>
-                    </div>
-                    
-                    <!-- Interactive CTA Buttons -->
-                    <div class="hero-cta-modern">
-                        <div class="cta-grid">
-                            <a href="https://forms.google.com/mubarak-mandi-walk" target="_blank" class="modern-cta-btn primary-walk">
-                                <div class="btn-bg-effect"></div>
-                                <div class="btn-content">
-                                    <span class="btn-icon">🏛️</span>
-                                    <span class="btn-text">Mubarak Mandi Walk</span>
-                                    <span class="btn-subtitle">Royal Palace Complex</span>
-                                </div>
-                                <div class="btn-hover-effect"></div>
-                            </a>
-                            <a href="https://forms.google.com/old-city-walk" target="_blank" class="modern-cta-btn secondary-walk">
-                                <div class="btn-bg-effect"></div>
-                                <div class="btn-content">
-                                    <span class="btn-icon">🏘️</span>
-                                    <span class="btn-text">Old City Walk</span>
-                                    <span class="btn-subtitle">Historic Markets & Temples</span>
-                                </div>
-                                <div class="btn-hover-effect"></div>
-                            </a>
-                        </div>
-                    </div>
-                    
-                    <!-- Scroll Indicator -->
-                    <div class="scroll-indicator">
-                        <div class="scroll-text">Explore Heritage</div>
-                        <div class="scroll-arrow">
-                            <div class="arrow-line"></div>
-                            <div class="arrow-head"></div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            
-            <!-- Dynamic Stats Counter -->
-            <div class="hero-stats">
-                <div class="stat-item">
-                    <div class="stat-number" data-target="500">0</div>
-                    <div class="stat-label">Heritage Explorers</div>
-                </div>
-                <div class="stat-item">
-                    <div class="stat-number" data-target="25">0</div>
-                    <div class="stat-label">Walks Conducted</div>
-                </div>
-                <div class="stat-item">
-                    <div class="stat-number" data-target="12">0</div>
-                    <div class="stat-label">Historic Sites</div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Previous Walks Carousel Section -->
-        <section id="previous-walks" class="carousel-section">
-            <div class="container">
-                <h2>Previous Heritage Walks</h2>
-                <p class="section-subtitle">Memories from our past heritage exploration journeys</p>
-                
-                <div class="carousel-container">
-                    <div class="carousel-wrapper">
-                        <div class="carousel-track" id="carousel-track">
-                            <!-- Real photos from previous heritage walks -->
-                            <div class="carousel-item active">
-                                <img src="images/temple-group-photo.jpg" alt="Heritage Walk Group at Temple" loading="lazy">
-                                <div class="carousel-caption">
-                                    <h3>Temple Heritage Walk</h3>
-                                    <p>Group photo at the beautiful temple complex with traditional checkered flooring</p>
-                                </div>
-                            </div>
-                            <div class="carousel-item">
-                                <img src="images/mubarak-mandi-architecture.jpg" alt="Mubarak Mandi Palace Architecture" loading="lazy">
-                                <div class="carousel-caption">
-                                    <h3>Mubarak Mandi Palace Architecture</h3>
-                                    <p>Marvel at the stunning Dogra architecture with intricate arches, domes, and ornate details of the royal palace</p>
-                                </div>
-                            </div>
-                            <div class="carousel-item">
-                                <img src="images/architectural-ceiling.jpg" alt="Intricate Architectural Ceiling Details" loading="lazy">
-                                <div class="carousel-caption">
-                                    <h3>Architectural Masterpiece</h3>
-                                    <p>Discover the exquisite ceiling artwork and geometric patterns showcasing traditional craftsmanship</p>
-                                </div>
-                            </div>
-                            <div class="carousel-item">
-                                <img src="images/temple-guide-session.jpg" alt="Heritage Guide Explaining Temple History" loading="lazy">
-                                <div class="carousel-caption">
-                                    <h3>Heritage Guide Session</h3>
-                                    <p>Our expert guide sharing fascinating stories about temple architecture and history</p>
-                                </div>
-                            </div>
-                            <div class="carousel-item">
-                                <img src="images/pahalgam-walk.jpg" alt="Heritage Walk at Pahalgam Area" loading="lazy">
-                                <div class="carousel-caption">
-                                    <h3>Old City Heritage Walk</h3>
-                                    <p>Exploring the historic Pahalgam area and traditional architecture of old Jammu</p>
-                                </div>
-                            </div>
-                            <div class="carousel-item">
-                                <img src="images/heritage-presentation.jpg" alt="Heritage Presentation Session" loading="lazy">
-                                <div class="carousel-caption">
-                                    <h3>Heritage Presentation</h3>
-                                    <p>Interactive session with visual presentations about Jammu's architectural heritage</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <!-- Carousel Controls -->
-                    <div class="carousel-controls">
-                        <button class="carousel-btn prev-btn" id="prev-btn">‹</button>
-                        <div class="carousel-indicators" id="carousel-indicators">
-                            <!-- Indicators will be generated by JavaScript -->
-                        </div>
-                        <button class="carousel-btn next-btn" id="next-btn">›</button>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Gallery Section -->
-        <section id="gallery" class="gallery-section">
-            <div class="container">
-                <h2>Heritage Gallery</h2>
-                <p class="section-subtitle">Glimpses of Mubarak Mandi and Old City Jammu</p>
-                <div class="gallery-grid" id="gallery-grid">
-                    <!-- Real heritage photos -->
-                    <div class="gallery-item">
-                        <img src="images/mubarak-mandi-architecture.jpg" alt="Mubarak Mandi Palace Complex" loading="lazy" onerror="this.src='data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNDAwIiBoZWlnaHQ9IjMwMCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48cmVjdCB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiBmaWxsPSIjOEI0NTEzIi8+PHRleHQgeD0iNTAlIiB5PSI0NSUiIGZvbnQtZmFtaWx5PSJBcmlhbCIgZm9udC1zaXplPSIxOCIgZmlsbD0id2hpdGUiIHRleHQtYW5jaG9yPSJtaWRkbGUiPvCfj5s8L3RleHQ+PHRleHQgeD0iNTAlIiB5PSI1NSUiIGZvbnQtZmFtaWx5PSJBcmlhbCIgZm9udC1zaXplPSIxNCIgZmlsbD0id2hpdGUiIHRleHQtYW5jaG9yPSJtaWRkbGUiPk11YmFyYWsgTWFuZGk8L3RleHQ+PC9zdmc+';">
-                        <div class="gallery-overlay">
-                            <p>Mubarak Mandi Palace Complex</p>
-                        </div>
-                    </div>
-                    <div class="gallery-item">
-                        <img src="images/architectural-ceiling.jpg" alt="Intricate Architectural Ceiling" loading="lazy" onerror="this.src='data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNDAwIiBoZWlnaHQ9IjMwMCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48cmVjdCB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiBmaWxsPSIjQ0Q4NTNGIi8+PHRleHQgeD0iNTAlIiB5PSI0NSUiIGZvbnQtZmFtaWx5PSJBcmlhbCIgZm9udC1zaXplPSIxOCIgZmlsbD0id2hpdGUiIHRleHQtYW5jaG9yPSJtaWRkbGUiPvCfjqg8L3RleHQ+PHRleHQgeD0iNTAlIiB5PSI1NSUiIGZvbnQtZmFtaWx5PSJBcmlhbCIgZm9udC1zaXplPSIxNCIgZmlsbD0id2hpdGUiIHRleHQtYW5jaG9yPSJtaWRkbGUiPkFyY2hpdGVjdHVyYWwgQ2VpbGluZzwvdGV4dD48L3N2Zz4=';">
-                        <div class="gallery-overlay">
-                            <p>Architectural Ceiling Artwork</p>
-                        </div>
-                    </div>
-                    <div class="gallery-item">
-                        <img src="images/temple-group-photo.jpg" alt="Heritage Walk Group Photo" loading="lazy" onerror="this.src='data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNDAwIiBoZWlnaHQ9IjMwMCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48cmVjdCB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiBmaWxsPSIjRDJCNDhDIi8+PHRleHQgeD0iNTAlIiB5PSI0NSUiIGZvbnQtZmFtaWx5PSJBcmlhbCIgZm9udC1zaXplPSIxOCIgZmlsbD0iIzJGMUIxNCIgdGV4dC1hbmNob3I9Im1pZGRsZSI+8J+RpTwvdGV4dD48dGV4dCB4PSI1MCUiIHk9IjU1JSIgZm9udC1mYW1pbHk9IkFyaWFsIiBmb250LXNpemU9IjE0IiBmaWxsPSIjMkYxQjE0IiB0ZXh0LWFuY2hvcj0ibWlkZGxlIj5IZXJpdGFnZSBXYWxrIEdyb3VwPC90ZXh0Pjwvc3ZnPg==';">
-                        <div class="gallery-overlay">
-                            <p>Heritage Walk Participants</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-        <!-- Photography Competition Section -->
-        <section id="competition" class="competition-section">
-            <div class="container">
-                <h2>Photography Competition</h2>
-                <div class="competition-content">
-                    <div class="competition-text">
-                        <h3>Capture Jammu's Heritage</h3>
-                        <p>Showcase the beauty and historical significance of Mubarak Mandi and Old City through your
-                            lens. We invite photographers of all levels to participate in our heritage photography
-                            competition.</p>
-                        <ul class="competition-details">
-                            <li><strong>Theme:</strong> Heritage architecture, street life, and cultural moments</li>
-                            <li><strong>Categories:</strong> Professional & Amateur</li>
-                            <li><strong>Prizes:</strong> Cash awards and exhibition opportunities</li>
-                            <li><strong>Deadline:</strong> Submit your entries by the specified date</li>
-                        </ul>
-                    </div>
-                    <div class="competition-cta">
-                        <a href="https://forms.google.com/your-form-link" target="_blank"
-                            class="competition-button">Submit Your Entry</a>
-                        <p class="form-note">Click to open submission form</p>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Local Sponsors Section -->
-        <section id="sponsors" class="sponsors-section local-sponsors-section">
-            <div class="container">
-                <h2>Our Local Sponsors</h2>
-                <p class="sponsors-intro">
-                    Our local sponsors are the backbone of this initiative, deeply rooted in Jammu's community and passionate about preserving our regional heritage. Their unwavering support makes our heritage walks authentic and meaningful experiences.
-                </p>
-                <div class="sponsors-logo-grid">
-                    <!-- Top row - 3 sponsors -->
-                    <div class="sponsor-row top-row">
-                        <div class="sponsor-logo-placeholder">
-                            <div class="logo-content">LOGO</div>
-                        </div>
-                        <div class="sponsor-logo-placeholder">
-                            <div class="logo-content">LOGO</div>
-                        </div>
-                        <div class="sponsor-logo-placeholder">
-                            <div class="logo-content">LOGO</div>
-                        </div>
-                    </div>
-                    <!-- Bottom row - 2 sponsors -->
-                    <div class="sponsor-row bottom-row">
-                        <div class="sponsor-logo-placeholder">
-                            <div class="logo-content">LOGO</div>
-                        </div>
-                        <div class="sponsor-logo-placeholder">
-                            <div class="logo-content">LOGO</div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Organizing Committee Section -->
-        <section id="team" class="team-section">
-            <div class="container">
-                <h2>Organizing Committee</h2>
-                <p class="section-subtitle">Meet the passionate team behind Heritage Walks Jammu</p>
-                <div class="team-grid">
-                    <div class="team-member">
-                        <div class="member-avatar">A</div>
-                        <h3>Anupamma</h3>
-                        <p>Heritage Coordinator</p>
-                    </div>
-                    <div class="team-member">
-                        <div class="member-avatar">P</div>
-                        <h3>Prem</h3>
-                        <p>Technical Lead</p>
-                    </div>
-                    <div class="team-member">
-                        <div class="member-avatar">J</div>
-                        <h3>Jayita</h3>
-                        <p>Cultural Researcher</p>
-                    </div>
-                    <div class="team-member">
-                        <div class="member-avatar">S</div>
-                        <h3>Sabreena</h3>
-                        <p>Community Outreach</p>
-                    </div>
-                    <div class="team-member">
-                        <div class="member-avatar">S</div>
-                        <h3>Shivam</h3>
-                        <p>Event Coordinator</p>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- National Sponsors Section -->
-        <section id="national-sponsors" class="national-sponsors-section">
-            <div class="container">
-                <div class="national-sponsors-block">
-                    <h2>National Level Sponsors</h2>
-                    <p class="national-sponsors-description">
-                        We extend our heartfelt gratitude to our esteemed national sponsors who have recognized the importance of preserving India's cultural heritage. Their generous support enables us to conduct comprehensive heritage walks that reach audiences across the country.
-                    </p>
-                    <div class="sponsors-logo-grid national-grid">
-                        <!-- Top row - 3 sponsors -->
-                        <div class="sponsor-row top-row">
-                            <div class="sponsor-logo-placeholder">
-                                <div class="logo-content">LOGO</div>
-                            </div>
-                            <div class="sponsor-logo-placeholder">
-                                <div class="logo-content">LOGO</div>
-                            </div>
-                            <div class="sponsor-logo-placeholder">
-                                <div class="logo-content">LOGO</div>
-                            </div>
-                        </div>
-                        <!-- Bottom row - 2 sponsors -->
-                        <div class="sponsor-row bottom-row">
-                            <div class="sponsor-logo-placeholder">
-                                <div class="logo-content">LOGO</div>
-                            </div>
-                            <div class="sponsor-logo-placeholder">
-                                <div class="logo-content">LOGO</div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Event Information Section -->
-        <section id="contact" class="event-info-section">
-            <div class="container">
-                <h2>Event Information</h2>
-                <div class="event-content">
-                    <div class="event-details">
-                        <h3>Heritage Walk Schedule</h3>
-                        <div class="event-item special-event">
-                            <strong>11 September 2024:</strong> Mubarak Mandi Palace Walk
-                            <span class="event-time">10:00 AM</span>
-                        </div>
-                        <div class="event-item special-event">
-                            <strong>12 September 2024:</strong> Old City Heritage Walk
-                            <span class="event-time">10:00 AM</span>
-                        </div>
-                        <div class="event-item exhibition-item">
-                            <strong>Photography Exhibition:</strong> 11 September 2024, 4:00 PM onwards
-                            <span class="event-venue">Venue: Kala Kendra</span>
-                        </div>
-                        <div class="event-item">
-                            <strong>Group Size:</strong> Limited to 25 participants per walk
-                        </div>
-                        <div class="event-item">
-                            <strong>Registration:</strong> Advance booking required
-                        </div>
-                        <div class="event-item">
-                            <strong>Contact:</strong> <a href="mailto:heritage@jammuwalk.com">heritage@jammuwalk.com</a>
-                            | <a href="tel:+91-XXXXXXXXXX">+91-XXXXXXXXXX</a>
-                        </div>
-                    </div>
-
-                    <div class="event-highlights">
-                        <h3>What to Expect</h3>
-                        <ul class="highlights-list">
-                            <li>Guided tour of Mubarak Mandi Palace Complex</li>
-                            <li>Exploration of Old City's traditional markets and temples</li>
-                            <li>Stories and legends from local historians</li>
-                            <li>Architectural insights and cultural significance</li>
-                            <li>Interactive symposium with heritage experts</li>
-                            <li>Traditional refreshments and local delicacies</li>
-                            <li>Photography opportunities at historic locations</li>
-                            <li>Souvenir heritage booklet for participants</li>
-                        </ul>
-                    </div>
-                </div>
-
-                <!-- Heritage Walk Route Map Section -->
-                <div class="map-frame-section">
-                    <h3>Heritage Walk Route Map</h3>
-                    <p class="map-description">Follow our carefully curated route through Old Jammu City, covering historic temples, traditional bazaars, and architectural marvels</p>
-                    <div class="map-frame-container">
-                        <img src="images/heritage-walk-map.jpg" alt="Heritage Walk - Old Jammu City Route Map" class="heritage-map" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
-                        <div class="map-fallback" style="display: none;">
-                            <p>Heritage Walk Route Map</p>
-                            <span>Please save the map image as 'heritage-walk-map.jpg' in the images folder</span>
-                        </div>
-                        <div class="map-highlights">
-                            <div class="map-point">
-                                <span class="point-marker">A</span>
-                                <span class="point-name">Purani Mandi</span>
-                            </div>
-                            <div class="map-point">
-                                <span class="point-marker">B</span>
-                                <span class="point-name">Ram Mandir</span>
-                            </div>
-                            <div class="map-point">
-                                <span class="point-marker">C</span>
-                                <span class="point-name">Radha Krishan Mandir</span>
-                            </div>
-                            <div class="map-point">
-                                <span class="point-marker">D</span>
-                                <span class="point-name">Peer Mitha</span>
-                            </div>
-                            <div class="map-point">
-                                <span class="point-marker">E</span>
-                                <span class="point-name">Lakhdatta Bazaar</span>
-                            </div>
-                            <div class="map-point">
-                                <span class="point-marker">F</span>
-                                <span class="point-name">Kanak Mandi</span>
-                            </div>
-                            <div class="map-point">
-                                <span class="point-marker">G</span>
-                                <span class="point-name">Rajinder Bazaar</span>
-                            </div>
-                            <div class="map-point">
-                                <span class="point-marker">H</span>
-                                <span class="point-name">Khatikan Talab</span>
-                            </div>
-                            <div class="map-point">
-                                <span class="point-marker">I</span>
-                                <span class="point-name">Panchvaktra Mandir</span>
-                            </div>
-                            <div class="map-point">
-                                <span class="point-marker">J</span>
-                                <span class="point-name">Raghunath Mandir</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-    </main>
-
-    <!-- Made By Section -->
-    <div class="made-by-section">
-        <div class="container">
-            <h1 class="made-by-text">
-                <span class="line-1">Made by 💖</span>
-                <span class="line-2">In Jammu</span>
-                <span class="line-3">By Prem</span>
-            </h1>
         </div>
-    </div>
+        
+        <div class="hero-content">
+            <div class="hero-text">
+                <h1 class="hero-title">
+                    <span class="title-line">Discover Jammu's</span>
+                    <span class="title-line highlight">Living Heritage</span>
+                </h1>
+                
+                <p class="hero-subtitle">
+                    Join guided heritage walks through the historic Mubarak Mandi Palace Complex 
+                    and the vibrant Old City of Jammu
+                </p>
+                
+                <div class="hero-description">
+                    <p>Experience centuries of history, architecture, and culture as we explore the magnificent 
+                    Mubarak Mandi - once the royal residence of the Dogra dynasty - and wander through the 
+                    bustling lanes of Old City with its traditional markets, ancient temples, and timeless stories.</p>
+                </div>
+            </div>
+            
+            <div class="hero-actions">
+                <a href="https://forms.google.com/mubarak-mandi-walk" target="_blank" class="cta-button primary">
+                    <span class="btn-icon">🏛️</span>
+                    <span class="btn-text">Mubarak Mandi Walk</span>
+                    <span class="btn-subtitle">Royal Palace Complex</span>
+                </a>
+                
+                <a href="https://forms.google.com/old-city-walk" target="_blank" class="cta-button secondary">
+                    <span class="btn-icon">🏘️</span>
+                    <span class="btn-text">Old City Walk</span>
+                    <span class="btn-subtitle">Historic Markets & Temples</span>
+                </a>
+            </div>
+        </div>
+        
+        <div class="scroll-indicator">
+            <div class="scroll-text">Explore More</div>
+            <div class="scroll-arrow"></div>
+        </div>
+    </section>
 
+    <!-- Heritage Walks Section -->
+    <section id="walks" class="walks-section">
+        <div class="container">
+            <div class="section-header">
+                <h2>Heritage Walk Experiences</h2>
+                <p>Choose your journey through Jammu's rich cultural landscape</p>
+            </div>
+            
+            <div class="walks-grid">
+                <div class="walk-card mubarak-mandi">
+                    <div class="card-image">
+                        <img src="images/mubarak-mandi-architecture.jpg" alt="Mubarak Mandi Palace" loading="lazy">
+                        <div class="card-overlay">
+                            <div class="overlay-content">
+                                <h3>Mubarak Mandi Palace Complex</h3>
+                                <p>Explore the magnificent royal residence of the Dogra dynasty</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="card-content">
+                        <div class="card-header">
+                            <h3>Mubarak Mandi Walk</h3>
+                            <span class="duration">3 Hours</span>
+                        </div>
+                        
+                        <div class="highlights">
+                            <h4>Highlights</h4>
+                            <ul>
+                                <li>Royal Dogra Architecture</li>
+                                <li>Palace Museums & Galleries</li>
+                                <li>Historical Artifacts</li>
+                                <li>Panoramic City Views</li>
+                            </ul>
+                        </div>
+                        
+                        <a href="https://forms.google.com/mubarak-mandi-walk" target="_blank" class="walk-btn">
+                            Join This Walk
+                        </a>
+                    </div>
+                </div>
+                
+                <div class="walk-card old-city">
+                    <div class="card-image">
+                        <img src="images/temple-group-photo.jpg" alt="Old City Temple" loading="lazy">
+                        <div class="card-overlay">
+                            <div class="overlay-content">
+                                <h3>Old City Cultural Journey</h3>
+                                <p>Immerse yourself in the vibrant life of historic Jammu</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="card-content">
+                        <div class="card-header">
+                            <h3>Old City Walk</h3>
+                            <span class="duration">2.5 Hours</span>
+                        </div>
+                        
+                        <div class="highlights">
+                            <h4>Highlights</h4>
+                            <ul>
+                                <li>Traditional Markets</li>
+                                <li>Ancient Temples</li>
+                                <li>Local Crafts & Culture</li>
+                                <li>Street Food Experience</li>
+                            </ul>
+                        </div>
+                        
+                        <a href="https://forms.google.com/old-city-walk" target="_blank" class="walk-btn">
+                            Join This Walk
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="about-section">
+        <div class="container">
+            <div class="about-content">
+                <div class="about-text">
+                    <h2>About Heritage Walks Jammu</h2>
+                    <p class="lead">We are passionate storytellers dedicated to preserving and sharing 
+                    the rich cultural heritage of Jammu through immersive walking experiences.</p>
+                    
+                    <div class="about-details">
+                        <p>Our heritage walks combine historical insights with cultural immersion, 
+                        followed by engaging symposiums featuring local historians, architects, and 
+                        cultural experts. Each walk is carefully curated to provide authentic experiences 
+                        that connect visitors with the living history of Jammu.</p>
+                        
+                        <p>From the majestic Mubarak Mandi Palace Complex to the bustling lanes of 
+                        the Old City, we guide you through centuries of Dogra dynasty history, 
+                        architectural marvels, and vibrant cultural traditions that continue to 
+                        thrive today.</p>
+                    </div>
+                    
+
+                </div>
+                
+                <div class="about-image">
+                    <img src="images/mubarak-mandi-wide.jpg" alt="Heritage Walk Group" loading="lazy">
+                    <div class="image-caption">
+                        <p>Exploring the architectural wonders of Mubarak Mandi Palace</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Team Section -->
+    <section id="team" class="team-section">
+        <div class="container">
+            <div class="section-header">
+                <h2>Our Heritage Team</h2>
+                <p>Meet the passionate experts behind Heritage Walks Jammu</p>
+            </div>
+            
+            <div class="team-grid">
+                <div class="team-member">
+                    <div class="member-card">
+                        <div class="member-avatar">
+                            <span class="avatar-letter">A</span>
+                        </div>
+                        <div class="member-info">
+                            <h3>Anupamma</h3>
+                            <p class="role">Heritage Coordinator</p>
+                            <p class="description">Leading heritage preservation initiatives and coordinating cultural programs across the Jammu region.</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="team-member">
+                    <div class="member-card">
+                        <div class="member-avatar">
+                            <span class="avatar-letter">P</span>
+                        </div>
+                        <div class="member-info">
+                            <h3>Prem</h3>
+                            <p class="role">Technical Lead</p>
+                            <p class="description">Developing innovative digital solutions to showcase Jammu's heritage through modern technology.</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="team-member">
+                    <div class="member-card">
+                        <div class="member-avatar">
+                            <span class="avatar-letter">J</span>
+                        </div>
+                        <div class="member-info">
+                            <h3>Jayita</h3>
+                            <p class="role">Cultural Researcher</p>
+                            <p class="description">Researching and documenting the rich cultural heritage and historical significance of Jammu's architectural marvels.</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="team-member">
+                    <div class="member-card">
+                        <div class="member-avatar">
+                            <span class="avatar-letter">S</span>
+                        </div>
+                        <div class="member-info">
+                            <h3>Sabreena</h3>
+                            <p class="role">Community Outreach</p>
+                            <p class="description">Building bridges between communities and fostering local engagement in heritage preservation.</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="team-member">
+                    <div class="member-card">
+                        <div class="member-avatar">
+                            <span class="avatar-letter">S</span>
+                        </div>
+                        <div class="member-info">
+                            <h3>Shivam</h3>
+                            <p class="role">Event Coordinator</p>
+                            <p class="description">Orchestrating memorable heritage events and ensuring seamless execution of cultural programs.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sponsors Section -->
+    <section id="sponsors" class="sponsors-section">
+        <div class="container">
+            <div class="section-header">
+                <h2>Our Supporters</h2>
+                <p>Proudly supported by organizations committed to heritage preservation</p>
+            </div>
+            
+            <div class="sponsors-content">
+                <div class="sponsor-category">
+                    <h3>Local Sponsors</h3>
+                    <div class="sponsors-grid">
+                        <div class="sponsor-card">
+                            <div class="sponsor-placeholder">LOGO</div>
+                        </div>
+                        <div class="sponsor-card">
+                            <div class="sponsor-placeholder">LOGO</div>
+                        </div>
+                        <div class="sponsor-card">
+                            <div class="sponsor-placeholder">LOGO</div>
+                        </div>
+                        <div class="sponsor-card">
+                            <div class="sponsor-placeholder">LOGO</div>
+                        </div>
+                        <div class="sponsor-card">
+                            <div class="sponsor-placeholder">LOGO</div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="sponsor-category">
+                    <h3>National Sponsors</h3>
+                    <div class="sponsors-grid">
+                        <div class="sponsor-card">
+                            <div class="sponsor-placeholder">LOGO</div>
+                        </div>
+                        <div class="sponsor-card">
+                            <div class="sponsor-placeholder">LOGO</div>
+                        </div>
+                        <div class="sponsor-card">
+                            <div class="sponsor-placeholder">LOGO</div>
+                        </div>
+                        <div class="sponsor-card">
+                            <div class="sponsor-placeholder">LOGO</div>
+                        </div>
+                        <div class="sponsor-card">
+                            <div class="sponsor-placeholder">LOGO</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact-section">
+        <div class="container">
+            <div class="contact-content">
+                <div class="contact-info">
+                    <h2>Get In Touch</h2>
+                    <p>Ready to explore Jammu's heritage? Contact us to learn more about our walks and upcoming events.</p>
+                    
+                    <div class="contact-details">
+                        <div class="contact-item">
+                            <span class="contact-icon">📧</span>
+                            <div>
+                                <h4>Email</h4>
+                                <p>heritage@jammuwalk.com</p>
+                            </div>
+                        </div>
+                        
+                        <div class="contact-item">
+                            <span class="contact-icon">📱</span>
+                            <div>
+                                <h4>Phone</h4>
+                                <p>+91 XXX XXX XXXX</p>
+                            </div>
+                        </div>
+                        
+                        <div class="contact-item">
+                            <span class="contact-icon">📍</span>
+                            <div>
+                                <h4>Location</h4>
+                                <p>Jammu, Jammu & Kashmir, India</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="contact-form">
+                    <form id="contactForm">
+                        <div class="form-group">
+                            <input type="text" id="name" name="name" placeholder="Your Name" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <input type="email" id="email" name="email" placeholder="Your Email" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <select id="interest" name="interest" required>
+                                <option value="">Select Your Interest</option>
+                                <option value="mubarak-mandi">Mubarak Mandi Walk</option>
+                                <option value="old-city">Old City Walk</option>
+                                <option value="both">Both Walks</option>
+                                <option value="group">Group Booking</option>
+                            </select>
+                        </div>
+                        
+                        <div class="form-group">
+                            <textarea id="message" name="message" placeholder="Your Message" rows="4"></textarea>
+                        </div>
+                        
+                        <button type="submit" class="submit-btn">Send Message</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
     <footer class="footer">
         <div class="container">
-            <p>&copy; 2025 HeritageJammu. Preserving history, celebrating culture.</p>
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <div class="brand-logo">
+                        <span class="brand-icon">🏛️</span>
+                        <span class="brand-name">Heritage Walks Jammu</span>
+                    </div>
+                    <p>Preserving and sharing Jammu's rich cultural heritage through immersive walking experiences.</p>
+                </div>
+                
+                <div class="footer-links">
+                    <div class="link-group">
+                        <h4>Quick Links</h4>
+                        <ul>
+                            <li><a href="#home">Home</a></li>
+                            <li><a href="#walks">Heritage Walks</a></li>
+                            <li><a href="#about">About Us</a></li>
+                            <li><a href="#team">Our Team</a></li>
+                        </ul>
+                    </div>
+                    
+                    <div class="link-group">
+                        <h4>Walks</h4>
+                        <ul>
+                            <li><a href="https://forms.google.com/mubarak-mandi-walk" target="_blank">Mubarak Mandi</a></li>
+                            <li><a href="https://forms.google.com/old-city-walk" target="_blank">Old City</a></li>
+                            <li><a href="#contact">Group Bookings</a></li>
+                            <li><a href="#contact">Private Tours</a></li>
+                        </ul>
+                    </div>
+                    
+                    <div class="link-group">
+                        <h4>Connect</h4>
+                        <ul>
+                            <li><a href="#contact">Contact Us</a></li>
+                            <li><a href="#sponsors">Sponsors</a></li>
+                            <li><a href="mailto:heritage@jammuwalk.com">Email</a></li>
+                            <li><a href="tel:+91XXXXXXXXX">Phone</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2024 Heritage Walks Jammu. All rights reserved. | Preserving culture, one step at a time.</p>
+            </div>
         </div>
     </footer>
 
+    <!-- Scripts -->
     <script src="script.js"></script>
 </body>
-
 </html>
