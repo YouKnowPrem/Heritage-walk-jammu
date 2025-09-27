@@ -8,7 +8,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
 function initializeWebsite() {
     console.log('Initializing website...');
-    // handleLoading(); // Temporarily disabled
+    handleMandalaLoading();
     initNavigation();
     initScrollEffects();
     initAnimations();
@@ -17,9 +17,9 @@ function initializeWebsite() {
 }
 
 // Loading Screen
-function handleLoading() {
+// Mandala Loading Screen
+function handleMandalaLoading() {
     const loadingScreen = document.getElementById('loadingScreen');
-    const progressFill = document.querySelector('.progress-fill');
 
     if (!loadingScreen) {
         // If no loading screen, ensure body is not locked
@@ -27,32 +27,18 @@ function handleLoading() {
         return;
     }
 
+    console.log('Starting mandala loading animation...');
+
     // Add loading class to body
     document.body.classList.add('loading');
 
-    // Simulate loading progress
-    let progress = 0;
-    const loadingInterval = setInterval(() => {
-        progress += Math.random() * 25;
-        if (progress > 100) progress = 100;
-
-        if (progressFill) {
-            progressFill.style.width = progress + '%';
-        }
-
-        if (progress >= 100) {
-            clearInterval(loadingInterval);
-            hideLoadingScreen();
-        }
-    }, 100);
-
-    // Ensure loading screen disappears after max 2 seconds
+    // Hide loading screen after 3 seconds to enjoy the mandala animation
     setTimeout(() => {
-        clearInterval(loadingInterval);
         hideLoadingScreen();
-    }, 2000);
+    }, 3000);
 
     function hideLoadingScreen() {
+        console.log('Hiding mandala loading screen...');
         loadingScreen.style.opacity = '0';
         loadingScreen.style.visibility = 'hidden';
         document.body.classList.remove('loading');
@@ -61,8 +47,9 @@ function handleLoading() {
         setTimeout(() => {
             if (loadingScreen && loadingScreen.parentNode) {
                 loadingScreen.parentNode.removeChild(loadingScreen);
+                console.log('Mandala loading screen removed from DOM');
             }
-        }, 500);
+        }, 600);
     }
 }
 
@@ -348,11 +335,11 @@ if (document.readyState === 'loading') {
     initializeWebsite();
 }
 
-// Emergency fallback to hide loading screen
+// Emergency fallback to hide mandala loading screen
 setTimeout(() => {
     const loadingScreen = document.getElementById('loadingScreen');
     if (loadingScreen && (loadingScreen.style.opacity !== '0' && loadingScreen.style.visibility !== 'hidden')) {
-        console.log('Emergency fallback: hiding loading screen');
+        console.log('Emergency fallback: hiding mandala loading screen');
         loadingScreen.style.opacity = '0';
         loadingScreen.style.visibility = 'hidden';
         document.body.classList.remove('loading');
@@ -360,6 +347,6 @@ setTimeout(() => {
             if (loadingScreen && loadingScreen.parentNode) {
                 loadingScreen.parentNode.removeChild(loadingScreen);
             }
-        }, 500);
+        }, 600);
     }
-}, 2500); // 2.5 second emergency fallback
+}, 4000); // 4 second emergency fallback for mandala
