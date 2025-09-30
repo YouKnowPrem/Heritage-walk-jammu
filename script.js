@@ -16,7 +16,7 @@ function initializeWebsite() {
     initAnimations();
     initFormHandling();
     initHistoryCarousel(); 
-    initBackgroundMusic(); // Music function now empty/non-functional
+    initBackgroundMusic(); 
     console.log('Website initialized successfully');
 }
 
@@ -180,7 +180,7 @@ function initAnimations() {
 
     // Apply fade animation to cards and sections 
     const animatedElements = document.querySelectorAll(
-        '.walk-card, .team-member, .higher-expert, .info-block-content, .dogri-slogan-section'
+        '.walk-card, .team-member, .higher-expert, .info-block-content, .dogri-slogan-section, .prem-credit-block'
     );
     animatedElements.forEach(el => {
         el.style.opacity = '0';
