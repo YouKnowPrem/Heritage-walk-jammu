@@ -1,4 +1,6 @@
-// Heritage Walks Jammu - Main JavaScript
+// =======================================================
+// HERITAGE WALKS JAMMU - MAIN JAVASCRIPT
+// =======================================================
 console.log('Script loaded successfully');
 
 document.addEventListener('DOMContentLoaded', function () {
@@ -13,10 +15,14 @@ function initializeWebsite() {
     initScrollEffects();
     initAnimations();
     initFormHandling();
+    initHistoryCarousel(); // NEW: Initialize the History Carousel
+    initBackgroundMusic(); // NEW: Initialize Background Music
     console.log('Website initialized successfully');
 }
 
-// Mandala Loading Screen (Optimized Timing)
+// =======================================================
+// 1. MANDALA LOADING SCREEN
+// =======================================================
 function handleMandalaLoading() {
     const loadingScreen = document.getElementById('loadingScreen');
 
@@ -62,7 +68,9 @@ function handleMandalaLoading() {
     }
 }
 
-// Navigation
+// =======================================================
+// 2. NAVIGATION
+// =======================================================
 function initNavigation() {
     console.log('Initializing navigation...');
 
@@ -110,7 +118,8 @@ function updateActiveLink() {
 
     let currentSection = '';
     sections.forEach(section => {
-        const sectionTop = section.offsetTop - 100;
+        // Adjust offset for fixed header height (70px + a buffer)
+        const sectionTop = section.offsetTop - 100; 
         if (window.scrollY >= sectionTop) {
             currentSection = section.getAttribute('id');
         }
@@ -124,7 +133,9 @@ function updateActiveLink() {
     });
 }
 
-// Scroll Effects and Animations
+// =======================================================
+// 3. SCROLL EFFECTS (Smooth Scroll)
+// =======================================================
 function initScrollEffects() {
     // Smooth scroll for anchor links
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
@@ -132,20 +143,24 @@ function initScrollEffects() {
             e.preventDefault();
             const target = document.querySelector(this.getAttribute('href'));
             if (target) {
-                target.scrollIntoView({
-                    behavior: 'smooth',
-                    block: 'start'
+                // Determine offset for fixed header
+                const offset = 70; 
+                const elementPosition = target.getBoundingClientRect().top;
+                const offsetPosition = elementPosition + window.pageYOffset - offset;
+
+                window.scrollTo({
+                    top: offsetPosition,
+                    behavior: 'smooth'
                 });
             }
         });
     });
-    // Scroll indicator logic was removed based on user request.
 }
 
-// Animations and Intersection Observer
+// =======================================================
+// 4. ANIMATIONS AND INTERSECTION OBSERVER
+// =======================================================
 function initAnimations() {
-
-
     // Fade in animation for sections
     const observerOptions = {
         threshold: 0.1,
@@ -157,21 +172,25 @@ function initAnimations() {
             if (entry.isIntersecting) {
                 entry.target.style.opacity = '1';
                 entry.target.style.transform = 'translateY(0)';
+                fadeObserver.unobserve(entry.target); // Stop observing once animated
             }
         });
     }, observerOptions);
 
-    // Apply fade animation to cards and sections
-    const animatedElements = document.querySelectorAll('.walk-card, .team-member, .sponsor-card');
+    // Apply fade animation to cards and sections (added higher-expert)
+    const animatedElements = document.querySelectorAll('.walk-card, .team-member, .higher-expert, .info-block-content');
     animatedElements.forEach(el => {
         el.style.opacity = '0';
         el.style.transform = 'translateY(30px)';
-        el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+        el.style.transition = 'opacity 0.7s ease-out, transform 0.7s ease-out'; // Smoother transition
         fadeObserver.observe(el);
     });
 }
 
-// Form Handling (Re-included the original form handler)
+// =======================================================
+// 5. FORM HANDLING (Contact Form)
+// =======================================================
+// Note: Form is not present in the new HTML, but the function is kept for completeness.
 function initFormHandling() {
     const contactForm = document.getElementById('contactForm');
 
@@ -206,8 +225,117 @@ function initFormHandling() {
     }
 }
 
-// Notification System
+// =======================================================
+// 6. NEW: HISTORY CAROUSEL IMPLEMENTATION
+// =======================================================
+function initHistoryCarousel() {
+    const carouselInner = document.getElementById('historyCarousel');
+    const slides = carouselInner ? carouselInner.querySelectorAll('.carousel-slide') : [];
+    const prevButton = document.querySelector('.history-carousel-wrapper .prev');
+    const nextButton = document.querySelector('.history-carousel-wrapper .next');
+    let currentIndex = 0;
+    const slideInterval = 8000; // 8 seconds per slide
+    let autoRotate;
+
+    if (!carouselInner || slides.length === 0) return;
+
+    function updateCarousel() {
+        carouselInner.style.transform = `translateX(-${currentIndex * 100}%)`;
+    }
+
+    function goToNext() {
+        currentIndex = (currentIndex + 1) % slides.length;
+        updateCarousel();
+    }
+
+    function goToPrev() {
+        currentIndex = (currentIndex - 1 + slides.length) % slides.length;
+        updateCarousel();
+    }
+
+    function startAutoRotate() {
+        // Clear any existing timer
+        clearInterval(autoRotate); 
+        autoRotate = setInterval(goToNext, slideInterval);
+    }
+    
+    // Manual navigation logic
+    if (nextButton) nextButton.addEventListener('click', () => {
+        goToNext();
+        startAutoRotate(); // Restart timer after manual interaction
+    });
+    if (prevButton) prevButton.addEventListener('click', () => {
+        goToPrev();
+        startAutoRotate(); // Restart timer after manual interaction
+    });
+
+    // Start auto-rotation on page load
+    startAutoRotate();
+    console.log('History carousel initialized.');
+}
+
+// =======================================================
+// 7. NEW: BACKGROUND MUSIC IMPLEMENTATION
+// =======================================================
+function initBackgroundMusic() {
+    const music = document.getElementById('backgroundMusic');
+    const toggleButton = document.getElementById('musicToggle');
+    
+    if (!music || !toggleButton) {
+        console.log('Music elements not found, skipping music init');
+        return;
+    }
+    
+    music.volume = 0.3; // Set a reasonable volume
+    let isMuted = true;
+
+    function toggleMusic() {
+        if (isMuted) {
+            music.play().then(() => {
+                isMuted = false;
+                toggleButton.textContent = '🔊';
+                toggleButton.classList.remove('muted');
+            }).catch(error => {
+                // Autoplay was blocked, user needs to click the button
+                console.warn('Autoplay prevented. User needs interaction to start music.', error);
+                isMuted = true; // Keep muted state if play fails
+            });
+        } else {
+            music.pause();
+            isMuted = true;
+            toggleButton.textContent = '🔇';
+            toggleButton.classList.add('muted');
+        }
+    }
+
+    // Attempt to play music only after a user interaction (e.g., clicking anywhere)
+    document.body.addEventListener('click', function attemptPlay() {
+        if (music.paused && isMuted) {
+            // Only try to unmute and play if the button is in the 'muted' state 
+            // and the user is clicking the body for the first time.
+            toggleMusic();
+            document.body.removeEventListener('click', attemptPlay);
+        }
+    }, { once: true });
+
+
+    toggleButton.addEventListener('click', (e) => {
+        e.stopPropagation(); // Prevent body click event from firing immediately after button click
+        toggleMusic();
+    });
+
+    // Initialize button state
+    toggleButton.textContent = '🔇';
+    toggleButton.classList.add('muted');
+    console.log('Background music initialized. Starting muted.');
+}
+
+
+// =======================================================
+// 8. UTILITY AND PERFORMANCE FUNCTIONS
+// =======================================================
 function showNotification(message, type = 'info') {
+    // ... (Notification system remains the same)
     // Remove existing notifications
     const existingNotification = document.querySelector('.notification');
     if (existingNotification) {
@@ -263,7 +391,6 @@ function showNotification(message, type = 'info') {
     }, 5000);
 }
 
-// Utility Functions
 function debounce(func, wait) {
     let timeout;
     return function executedFunction(...args) {
@@ -276,9 +403,9 @@ function debounce(func, wait) {
     };
 }
 
-// Performance optimizations
+// Performance optimizations (Throttling scroll events)
 window.addEventListener('scroll', debounce(() => {
-    // Throttled scroll events
+    // Add any throttled scroll events here if needed later
 }, 16), { passive: true });
 
 // Lazy loading for images
@@ -304,9 +431,8 @@ window.addEventListener('error', function (e) {
     console.error('JavaScript error:', e.error);
 });
 
-// Accessibility improvements
+// Accessibility improvements (Escape key closes mobile menu)
 document.addEventListener('keydown', function (e) {
-    // Escape key closes mobile menu
     if (e.key === 'Escape') {
         const navMenu = document.getElementById('navMenu');
         const navToggle = document.getElementById('navToggle');
