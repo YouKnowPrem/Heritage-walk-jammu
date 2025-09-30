@@ -13,6 +13,7 @@ function initializeWebsite() {
     initScrollEffects();
     initAnimations();
     initFormHandling();
+    initMarquee(); // NEW: Initialize the Marquee
     console.log('Website initialized successfully');
 }
 
@@ -140,27 +141,26 @@ function initScrollEffects() {
         });
     });
 
-    // Scroll indicator
-    const scrollIndicator = document.querySelector('.scroll-indicator');
-    if (scrollIndicator) {
-        scrollIndicator.addEventListener('click', () => {
-            const walksSection = document.getElementById('walks');
-            if (walksSection) {
-                walksSection.scrollIntoView({ behavior: 'smooth' });
-            }
-        });
+    // NOTE: Scroll indicator logic removed as per user request
+}
+
+// NEW: Marquee Initialization
+function initMarquee() {
+    console.log('Initializing marquees...');
+    
+    const marquee1 = document.getElementById('marquee1');
+    const marquee2 = document.getElementById('marquee2');
+
+    const duplicateContent = (marquee) => {
+        if (marquee) {
+            // Duplicate the content multiple times to ensure continuous flow
+            const content = marquee.innerHTML;
+            marquee.innerHTML = content + content + content;
+        }
     }
 
-    // Hide scroll indicator when scrolling
-    window.addEventListener('scroll', () => {
-        if (scrollIndicator) {
-            if (window.scrollY > 100) {
-                scrollIndicator.style.opacity = '0';
-            } else {
-                scrollIndicator.style.opacity = '1';
-            }
-        }
-    });
+    duplicateContent(marquee1);
+    duplicateContent(marquee2);
 }
 
 // Animations and Intersection Observer
