@@ -15,8 +15,8 @@ function initializeWebsite() {
     initScrollEffects();
     initAnimations();
     initFormHandling();
-    initHistoryCarousel(); // NEW: Initialize the History Carousel
-    initBackgroundMusic(); // NEW: Initialize Background Music
+    initHistoryCarousel(); 
+    initBackgroundMusic(); // Music function now empty/non-functional
     console.log('Website initialized successfully');
 }
 
@@ -127,6 +127,7 @@ function updateActiveLink() {
 
     navLinks.forEach(link => {
         link.classList.remove('active');
+        // Check both href="#id" and href="#dogri-slogan"
         if (link.getAttribute('href') === `#${currentSection}`) {
             link.classList.add('active');
         }
@@ -177,8 +178,10 @@ function initAnimations() {
         });
     }, observerOptions);
 
-    // Apply fade animation to cards and sections (added higher-expert)
-    const animatedElements = document.querySelectorAll('.walk-card, .team-member, .higher-expert, .info-block-content');
+    // Apply fade animation to cards and sections 
+    const animatedElements = document.querySelectorAll(
+        '.walk-card, .team-member, .higher-expert, .info-block-content, .dogri-slogan-section'
+    );
     animatedElements.forEach(el => {
         el.style.opacity = '0';
         el.style.transform = 'translateY(30px)';
@@ -188,45 +191,14 @@ function initAnimations() {
 }
 
 // =======================================================
-// 5. FORM HANDLING (Contact Form)
+// 5. FORM HANDLING (Contact Form - kept for completeness)
 // =======================================================
-// Note: Form is not present in the new HTML, but the function is kept for completeness.
 function initFormHandling() {
-    const contactForm = document.getElementById('contactForm');
-
-    if (contactForm) {
-        contactForm.addEventListener('submit', function (e) {
-            e.preventDefault();
-
-            // Get form data
-            const formData = new FormData(this);
-            const data = Object.fromEntries(formData);
-
-            // Simple validation
-            if (!data.name || !data.email || !data.interest) {
-                showNotification('Please fill in all required fields.', 'error');
-                return;
-            }
-
-            // Simulate form submission
-            const submitBtn = this.querySelector('.submit-btn');
-            const originalText = submitBtn.textContent;
-
-            submitBtn.textContent = 'Sending...';
-            submitBtn.disabled = true;
-
-            setTimeout(() => {
-                showNotification('Thank you! Your message has been sent successfully.', 'success');
-                this.reset();
-                submitBtn.textContent = originalText;
-                submitBtn.disabled = false;
-            }, 2000);
-        });
-    }
+    // Logic removed as form is not present, but function kept to prevent errors.
 }
 
 // =======================================================
-// 6. NEW: HISTORY CAROUSEL IMPLEMENTATION
+// 6. HISTORY CAROUSEL IMPLEMENTATION (Updated for 4 slides)
 // =======================================================
 function initHistoryCarousel() {
     const carouselInner = document.getElementById('historyCarousel');
@@ -275,67 +247,29 @@ function initHistoryCarousel() {
 }
 
 // =======================================================
-// 7. NEW: BACKGROUND MUSIC IMPLEMENTATION
+// 7. BACKGROUND MUSIC IMPLEMENTATION (Non-functional)
 // =======================================================
 function initBackgroundMusic() {
     const music = document.getElementById('backgroundMusic');
     const toggleButton = document.getElementById('musicToggle');
     
     if (!music || !toggleButton) {
-        console.log('Music elements not found, skipping music init');
         return;
     }
     
-    music.volume = 0.3; // Set a reasonable volume
-    let isMuted = true;
-
-    function toggleMusic() {
-        if (isMuted) {
-            music.play().then(() => {
-                isMuted = false;
-                toggleButton.textContent = '🔊';
-                toggleButton.classList.remove('muted');
-            }).catch(error => {
-                // Autoplay was blocked, user needs to click the button
-                console.warn('Autoplay prevented. User needs interaction to start music.', error);
-                isMuted = true; // Keep muted state if play fails
-            });
-        } else {
-            music.pause();
-            isMuted = true;
-            toggleButton.textContent = '🔇';
-            toggleButton.classList.add('muted');
-        }
-    }
-
-    // Attempt to play music only after a user interaction (e.g., clicking anywhere)
-    document.body.addEventListener('click', function attemptPlay() {
-        if (music.paused && isMuted) {
-            // Only try to unmute and play if the button is in the 'muted' state 
-            // and the user is clicking the body for the first time.
-            toggleMusic();
-            document.body.removeEventListener('click', attemptPlay);
-        }
-    }, { once: true });
-
-
-    toggleButton.addEventListener('click', (e) => {
-        e.stopPropagation(); // Prevent body click event from firing immediately after button click
-        toggleMusic();
-    });
-
-    // Initialize button state
+    // Logic removed as requested. Button remains visible but has no function.
     toggleButton.textContent = '🔇';
-    toggleButton.classList.add('muted');
-    console.log('Background music initialized. Starting muted.');
+    toggleButton.addEventListener('click', () => {
+        console.log("Music functionality is currently disabled.");
+    });
 }
 
 
 // =======================================================
-// 8. UTILITY AND PERFORMANCE FUNCTIONS
+// 8. UTILITY AND PERFORMANCE FUNCTIONS (Kept as is)
 // =======================================================
 function showNotification(message, type = 'info') {
-    // ... (Notification system remains the same)
+    // Logic remains the same
     // Remove existing notifications
     const existingNotification = document.querySelector('.notification');
     if (existingNotification) {
