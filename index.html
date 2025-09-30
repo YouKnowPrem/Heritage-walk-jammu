@@ -4,16 +4,15 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Jammu Heritage Walks 2025 - Discover Living History</title>
+    <title>Jammu Heritage Walks 2025 - Riverine Memory</title>
     <meta name="description"
         content="Join guided heritage walks through Jammu's historic Mubarak Mandi Palace and Old City for the 2025 event. Experience centuries of Dogra dynasty history and vibrant culture.">
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link
-        href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap"
+        href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Inter:wght@300;400;500;600;700&family=Poppins:wght@400;500;600;700&display=swap"
         rel="stylesheet">
-
     <link rel="stylesheet" href="styles.css">
 
     <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='0.9em' font-size='90'%3E%F0%9F%8F%9B%EF%B8%8F%3C/text%3E%3C/svg%3E">
@@ -41,8 +40,8 @@
             </div>
 
             <div class="loading-content">
-                <h2 class="loading-title">Jammu Heritage 2025</h2>
-                <p class="loading-subtitle">Discovering Sacred Traditions</p>
+                <h2 class="loading-title">Historic Cities Series 2025</h2>
+                <p class="loading-subtitle">Jammu Edition</p>
                 <div class="loading-dots">
                     <span></span>
                     <span></span>
@@ -61,9 +60,9 @@
 
             <ul class="nav-menu" id="navMenu">
                 <li><a href="#home" class="nav-link">Home</a></li>
+                <li><a href="#history" class="nav-link">History</a></li>
                 <li><a href="#walks" class="nav-link">Walks</a></li>
-                <li><a href="#about" class="nav-link">About</a></li>
-                <li><a href="#sponsors" class="nav-link">Sponsors</a></li>
+                <li><a href="#contest" class="nav-link">Contest</a></li>
                 <li><a href="#team" class="nav-link">Team</a></li>
             </ul>
 
@@ -74,6 +73,14 @@
             </div>
         </div>
     </nav>
+
+    <button id="musicToggle" class="music-toggle" aria-label="Toggle background music">
+        🔊
+    </button>
+    
+    <audio id="backgroundMusic" loop preload="auto">
+        Your browser does not support the audio element.
+    </audio>
 
     <section id="home" class="hero">
         <div class="hero-background" 
@@ -153,6 +160,56 @@
         </div>
     </section>
 
+    <section id="history" class="history-section">
+        <div class="container">
+            <div class="section-header">
+                <h2>Jammu's History and Heritage</h2>
+                <p>A brief journey through the timeline of the Dogra capital.</p>
+            </div>
+
+            <div class="history-carousel-wrapper">
+                <div class="carousel-inner" id="historyCarousel">
+                    
+                    <div class="carousel-slide">
+                        <div class="slide-image">
+                            <img src="images/mubarak-mandi-wide.jpg" alt="Mubarak Mandi Palace" loading="lazy">
+                        </div>
+                        <div class="slide-content">
+                            <h3>The Dogra Dynasty</h3>
+                            <p>Jammu's history is inextricably linked to the Dogra dynasty, which consolidated its power under Maharaja Gulab Singh in the 19th century. The magnificent **Mubarak Mandi Palace Complex**, a blend of Rajasthani, Mughal, and European styles, served as the principal seat of the Dogra rulers for over 150 years. This architectural evolution narrates a story of changing political landscapes and artistic influences in the region.</p>
+                            <a href="#" class="read-more-link">Read More ➡️</a>
+                        </div>
+                    </div>
+
+                    <div class="carousel-slide">
+                        <div class="slide-image">
+                            <img src="images/temple-group-photo.jpg" alt="Raghunath Temple" loading="lazy">
+                        </div>
+                        <div class="slide-content">
+                            <h3>Temples and Urban Fabric</h3>
+                            <p>The Old City is the spiritual heart of Jammu, famed as the **City of Temples**. The Raghunath Temple, a complex of several temples dedicated to various Hindu deities, is a landmark achievement built by Maharaja Gulab Singh and his son. The narrow, winding lanes (galis) of the Old City reflect the traditional urban planning that centered around community, trade, and temples, preserving a timeless way of life.</p>
+                            <a href="#" class="read-more-link">Read More ➡️</a>
+                        </div>
+                    </div>
+
+                    <div class="carousel-slide">
+                        <div class="slide-image">
+                            <img src="images/Old jammu map.jpg" alt="Old Map of Jammu" loading="lazy">
+                        </div>
+                        <div class="slide-content">
+                            <h3>The Riverine Memory</h3>
+                            <p>The **River Tawi**, often considered the lifeblood of Jammu, runs alongside the city and has profoundly shaped its geography and culture. The river, believed to be the daughter of Surya (Sun God), is central to the city's spiritual identity. The early settlements and the subsequent palace complex were strategically built overlooking the river, linking the royal narrative with the sacred geography of the region.</p>
+                            <a href="#" class="read-more-link">Read More ➡️</a>
+                        </div>
+                    </div>
+
+                </div>
+                <button class="carousel-nav prev" aria-label="Previous Slide">←</button>
+                <button class="carousel-nav next" aria-label="Next Slide">→</button>
+            </div>
+        </div>
+    </section>
+
     <section id="walks" class="walks-section">
         <div class="container">
             <div class="section-header">
@@ -178,6 +235,12 @@
                             <span class="duration">3 Hours</span>
                         </div>
 
+                        <div class="walk-info-detail">
+                            <p><strong>Start:</strong> Central Courtyard, Mubarak Mandi</p>
+                            <p><strong>End:</strong> Dogra Art Museum</p>
+                            <p><strong>Date & Time:</strong> 11 Oct 2025, 10:00 AM</p>
+                        </div>
+                        
                         <div class="highlights">
                             <h4>Highlights</h4>
                             <ul>
@@ -211,6 +274,12 @@
                             <span class="duration">3 Hours</span>
                         </div>
 
+                        <div class="walk-info-detail">
+                            <p><strong>Start:</strong> Purani Mandi</p>
+                            <p><strong>End:</strong> Raghunath Mandir</p>
+                            <p><strong>Date & Time:</strong> 11 Oct 2025, 10:00 AM</p>
+                        </div>
+
                         <div class="highlights">
                             <h4>Highlights</h4>
                             <ul>
@@ -230,89 +299,75 @@
         </div>
     </section>
 
-    <section id="about" class="about-section">
+    <section id="map-section" class="walks-section">
         <div class="container">
-            <div class="about-content">
-                <div class="about-text">
-                    <h2>About Heritage Walks Jammu</h2>
-                    <p class="lead">We are passionate storytellers dedicated to preserving and sharing
-                        the rich cultural heritage of Jammu through immersive walking experiences.</p>
-
-                    <div class="about-details">
-                        <p>Our heritage walks combine historical insights with cultural immersion,
-                            followed by engaging symposiums featuring local historians, architects, and
-                            cultural experts. Each walk is carefully curated to provide authentic experiences
-                            that connect visitors with the living history of Jammu.</p>
-
-                        <p>From the majestic Mubarak Mandi Palace Complex to the bustling lanes of
-                            the Old City, we guide you through centuries of Dogra dynasty history,
-                            architectural marvels, and vibrant cultural traditions that continue to
-                            thrive today.</p>
-                    </div>
+            <div class="walk-map-section">
+                <div class="section-header map-header">
+                    <h2>Old City Heritage Walk Route Map</h2>
                 </div>
-
-                <div class="about-image">
-                    <img src="images/mubarak-mandi-wide.jpg" alt="Heritage Walk Group" loading="lazy">
-                    <div class="image-caption">
-                        <p>Exploring the architectural wonders of Mubarak Mandi Palace</p>
+                <div class="map-container">
+                    <img src="images/heritage-walk-map.jpg" alt="Heritage Walk Old City Route Map" class="walk-route-map" loading="lazy">
+                    <div class="map-key">
+                        <h4>Key Markings on the Route:</h4>
+                        <ul>
+                            <li>A: Purani Mandi (Starting Point)</li>
+                            <li>B: Ram Mandir</li>
+                            <li>C: Radha Krishan Mandir</li>
+                            <li>D: Peer Mitha</li>
+                            <li>E: Lakhdatta Bazaar</li>
+                            <li>F: Kanak Mandi</li>
+                            <li>G: Rajinder Bazaar</li>
+                            <li>H: Khatikan Talab</li>
+                            <li>I: Panchvaktra Mandir</li>
+                            <li>J: Raghunath Mandir (Ending Point)</li>
+                        </ul>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <section id="sponsors" class="sponsors-section">
+    <section id="contest" class="about-section">
         <div class="container">
-            <div class="section-header">
-                <h2>Our Supporters</h2>
-                <p>Proudly supported by organizations committed to heritage preservation</p>
-            </div>
+            <div class="about-content">
+                <div class="about-text">
+                    <h2>Heritage Photography Contest 📸</h2>
+                    <p class="lead">Capture the 'Riverine Memory' and 'Plural Heritage' of Jammu.</p>
 
-            <div class="sponsors-content">
-                <div class="sponsor-category">
-                    <h3>Local Sponsors</h3>
-                    <div class="sponsors-grid">
-                        <div class="sponsor-card">
-                            <div class="sponsor-placeholder">LOGO</div>
-                        </div>
-                        <div class="sponsor-card">
-                            <div class="sponsor-placeholder">LOGO</div>
-                        </div>
-                        <div class="sponsor-card">
-                            <div class="sponsor-placeholder">LOGO</div>
-                        </div>
-                        <div class="sponsor-card">
-                            <div class="sponsor-placeholder">LOGO</div>
-                        </div>
-                        <div class="sponsor-card">
-                            <div class="sponsor-placeholder">LOGO</div>
-                        </div>
+                    <div class="about-details">
+                        <p>We invite passionate photographers to participate in our contest. Share your unique perspective on the city's historical sites, architectural details, cultural narratives, and the life surrounding the River Tawi. This is your chance to contribute to the visual documentation of Jammu's rich heritage.</p>
+
+                        <p>The top entries will be featured in our 2026 calendar and showcased in a special exhibition, connecting your artistry with the city's cultural preservation efforts.</p>
+                        
+                        <a href="Gform Link" target="_blank" class="walk-btn contest-btn">
+                            Register & Submit Your Entries
+                        </a>
                     </div>
                 </div>
 
-                <div class="sponsor-category">
-                    <h3>National Sponsors</h3>
-                    <div class="sponsors-grid">
-                        <div class="sponsor-card">
-                            <img src="images/heritopolis-removebg-preview.jpg" alt="Heritopolis Logo" 
-                                style="max-width: 90%; max-height: 80%; padding: 5px;">
-                        </div>
-                        <div class="sponsor-card">
-                            <img src="images/NIUA.jpg" alt="National Institute of Urban Affairs (NIUA) Logo" 
-                                style="max-width: 90%; max-height: 80%; padding: 5px;">
-                        </div>
-                        <div class="sponsor-card">
-                            <img src="images/dronah_foundation_logo-removebg-preview.jpg" alt="Dronah Foundation Logo" 
-                                style="max-width: 95%; max-height: 95%; padding: 5px;">
-                        </div>
-                        <div class="sponsor-card">
-                            <img src="images/Icomos_India_new-removebg-preview.jpg" alt="ICOMOS India Logo" 
-                                style="max-width: 90%; max-height: 80%; padding: 5px;">
-                        </div>
-                        <div class="sponsor-card">
-                            <img src="images/altrim-removebg-preview.jpg" alt="Altrim Publishers Logo" 
-                                style="max-width: 90%; max-height: 80%; padding: 5px;">
-                        </div>
+                <div class="about-image">
+                    <img src="images/mubarak-mandi-wide.jpg" alt="Photography Contest" loading="lazy">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="info" class="sponsors-section">
+        <div class="container">
+            <div class="section-header">
+                <h2>The Jammu Heritage Initiative</h2>
+                <p>Committed to research, documentation, and community-led preservation.</p>
+            </div>
+            <div class="about-content info-block-content">
+                <div class="about-image">
+                    <img src="images/mubarak-mandi-architecture.jpg" alt="Dogra Heritage" loading="lazy">
+                </div>
+                <div class="about-text">
+                    <p class="lead">Our mission extends beyond walks. We aim to establish a digital archive and a platform for continuous dialogue.</p>
+                    <div class="about-details">
+                        <p>This initiative serves as a crucial platform for urban planners, historians, and local citizens to collaboratively engage with the restoration and future planning of Jammu's core heritage zones, specifically the Mubarak Mandi and Old City areas. We believe that informed community participation is key to sustainable heritage preservation.</p>
+
+                        <p>Future projects include heritage education workshops for local schools and the publication of a comprehensive digital map detailing all heritage structures in the city.</p>
                     </div>
                 </div>
             </div>
@@ -327,6 +382,45 @@
             </div>
 
             <div class="team-grid">
+                <div class="team-member higher-expert">
+                    <div class="member-card">
+                        <div class="member-avatar" style="background: var(--royal-burgundy);">
+                            <span class="avatar-letter">M</span>
+                        </div>
+                        <div class="member-info">
+                            <h3>Mrinalini Atrey</h3>
+                            <p class="role">Heritage Architect / Advisor</p>
+                            <p class="description">Specializing in Dogra architectural restoration and sustainable heritage practices.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="team-member higher-expert">
+                    <div class="member-card">
+                        <div class="member-avatar" style="background: var(--royal-burgundy);">
+                            <span class="avatar-letter">K</span>
+                        </div>
+                        <div class="member-info">
+                            <h3>Kushagra</h3>
+                            <p class="role">Urban Planner / Strategist</p>
+                            <p class="description">Focusing on integrating heritage zones into modern urban development frameworks.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="team-member higher-expert">
+                    <div class="member-card">
+                        <div class="member-avatar" style="background: var(--royal-burgundy);">
+                            <span class="avatar-letter">A</span>
+                        </div>
+                        <div class="member-info">
+                            <h3>Aatika Fareed</h3>
+                            <p class="role">Cultural Historian / Curator</p>
+                            <p class="description">Curating narrative research on plural heritage and community life in Old Jammu.</p>
+                        </div>
+                    </div>
+                </div>
+                
                 <div class="team-member">
                     <div class="member-card">
                         <div class="member-avatar">
@@ -413,43 +507,41 @@
         </div>
     </section>
 
-    <section id="map-section" class="walks-section">
+    <section class="dogri-slogan-section">
         <div class="container">
-            <div class="walk-map-section">
-                <div class="section-header map-header">
-                    <h2>Old City Heritage Walk Route Map</h2>
-                </div>
-                <div class="map-container">
-                    <img src="images/heritage-walk-map.jpg" alt="Heritage Walk Old City Route Map" class="walk-route-map" loading="lazy">
-                    <div class="map-key">
-                        <h4>Key Markings on the Route:</h4>
-                        <ul>
-                            <li>A: Purani Mandi (Starting Point)</li>
-                            <li>B: Ram Mandir</li>
-                            <li>C: Radha Krishan Mandir</li>
-                            <li>D: Peer Mitha</li>
-                            <li>E: Lakhdatta Bazaar</li>
-                            <li>F: Kanak Mandi</li>
-                            <li>G: Rajinder Bazaar</li>
-                            <li>H: Khatikan Talab</li>
-                            <li>I: Panchvaktra Mandir</li>
-                            <li>J: Raghunath Mandir (Ending Point)</li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section class="made-by-break-section">
-        <div class="container">
-            <h1 class="made-by-text">Made by 💖<br><span class="italic-text">In Jammu</span><br>By Prem</h1>
+            <h1 class="dogri-slogan">
+                <span class="dogri-phrase">खन्ड मीठे, लूग डोगरे</span>
+            </h1>
+            <p class="creative-credit">
+                This digital heritage experience was meticulously crafted by 
+                <a href="YOUR_GITHUB_REPO_LINK" target="_blank" class="prem-link">Prem</a>, turning lines of code into a map of memory.
+            </p>
         </div>
     </section>
 
 
     <footer class="footer">
         <div class="container">
+            <div class="national-sponsors-footer">
+                <p>In Collaboration with National Partners:</p>
+                <div class="footer-sponsors-grid">
+                    <div class="sponsor-logo">
+                        <img src="images/heritopolis-removebg-preview.jpg" alt="Heritopolis Logo">
+                    </div>
+                    <div class="sponsor-logo">
+                        <img src="images/NIUA.jpg" alt="NIUA Logo">
+                    </div>
+                    <div class="sponsor-logo">
+                        <img src="images/dronah_foundation_logo-removebg-preview.jpg" alt="Dronah Foundation Logo">
+                    </div>
+                    <div class="sponsor-logo">
+                        <img src="images/Icomos_India_new-removebg-preview.jpg" alt="ICOMOS India Logo">
+                    </div>
+                    <div class="sponsor-logo">
+                        <img src="images/altrim-removebg-preview.jpg" alt="Altrim Publishers Logo">
+                    </div>
+                </div>
+            </div>
             <div class="footer-bottom">
                 <p class="slogan-credit">Preserving culture, one step at a time. | &copy; 2025 Heritage Walks Jammu. All rights reserved.</p>
             </div>
