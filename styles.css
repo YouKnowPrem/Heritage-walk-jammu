@@ -21,7 +21,8 @@
     /* Typography */
     --font-heading: 'Playfair Display', serif;
     --font-body: 'Inter', sans-serif;
-    --font-dogri: 'Poppins', sans-serif; /* Poppins for Dogri/Multilingual compatibility */
+    --font-dogri: 'Poppins', sans-serif; 
+    --font-kalam: 'Kalam', cursive; /* NEW: Added Kalam font variable */
 
     /* Spacing */
     --section-padding: 5rem 0;
@@ -1070,16 +1071,24 @@ body.loading {
 }
 
 .dogri-slogan {
-    font-family: var(--font-dogri);
-    font-size: 3rem;
+    font-family: var(--font-kalam); /* Applied Kalam font */
+    font-size: 3.5rem; /* Increased size for impact */
     font-weight: 700;
     margin-bottom: 1.5rem;
     color: var(--primary-gold);
     text-shadow: 0 0 10px rgba(212, 175, 55, 0.4);
+    line-height: 1.2;
 }
 
-.dogri-phrase {
+.dogri-phrase, .english-phrase {
     display: block;
+    padding: 0.2rem 0;
+}
+
+.english-phrase {
+    font-size: 1.8rem; /* Smaller English phrase */
+    color: var(--warm-cream);
+    opacity: 0.9;
 }
 
 .creative-credit {
@@ -1214,10 +1223,6 @@ body.loading {
         left: 0;
     }
 
-    .nav-toggle {
-        display: flex;
-    }
-
     .nav-toggle.active span:nth-child(1) {
         transform: rotate(45deg) translate(5px, 5px);
     }
@@ -1264,7 +1269,11 @@ body.loading {
     }
     
     .dogri-slogan {
-        font-size: 2rem;
+        font-size: 2.5rem; /* Reduced size for better fit on small screens */
+    }
+    
+    .english-phrase {
+        font-size: 1.4rem;
     }
 
     .creative-credit {
