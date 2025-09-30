@@ -21,8 +21,7 @@
     /* Typography */
     --font-heading: 'Playfair Display', serif;
     --font-body: 'Inter', sans-serif;
-    --font-dogri: 'Poppins', sans-serif; 
-    --font-kalam: 'Kalam', cursive; /* NEW: Added Kalam font variable */
+    --font-kalam: 'Kalam', cursive; 
 
     /* Spacing */
     --section-padding: 5rem 0;
@@ -62,13 +61,13 @@ body.loading {
     padding: var(--container-padding);
 }
 
-/* 1. MANDALA LOADING SCREEN */
+/* 1. MANDALA LOADING SCREEN (Fixed and squared) */
 .mandala-loading-screen {
     position: fixed;
     top: 0;
     left: 0;
-    width: 100%;
-    height: 100%;
+    width: 100vw; 
+    height: 100vh;
     background: var(--dark-brown); 
     display: flex;
     align-items: center;
@@ -87,11 +86,10 @@ body.loading {
     justify-content: center;
 }
 
-/* Decorative Frame */
+/* Decorative Frame adjustments */
 .mandala-frame {
-    position: absolute;
-    width: 350px;
-    height: 350px;
+    width: 300px; 
+    height: 300px;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
@@ -100,85 +98,51 @@ body.loading {
 
 .frame-corner {
     position: absolute;
-    width: 40px;
-    height: 40px;
-    border: 3px solid var(--primary-gold);
+    width: 30px;
+    height: 30px;
+    border: 2px solid var(--primary-gold);
 }
 
-.frame-corner.top-left {
-    top: -20px;
-    left: -20px;
-    border-right: none;
-    border-bottom: none;
-    border-radius: 8px 0 0 0;
-}
-
-.frame-corner.top-right {
-    top: -20px;
-    right: -20px;
-    border-left: none;
-    border-bottom: none;
-    border-radius: 0 8px 0 0;
-}
-
-.frame-corner.bottom-left {
-    bottom: -20px;
-    left: -20px;
-    border-right: none;
-    border-top: none;
-    border-radius: 0 0 0 8px;
-}
-
-.frame-corner.bottom-right {
-    bottom: -20px;
-    right: -20px;
-    border-left: none;
-    border-top: none;
-    border-radius: 0 0 8px 0;
-}
+.frame-corner.top-left { top: -15px; left: -15px; border-right: none; border-bottom: none; border-radius: 8px 0 0 0; }
+.frame-corner.top-right { top: -15px; right: -15px; border-left: none; border-bottom: none; border-radius: 0 8px 0 0; }
+.frame-corner.bottom-left { bottom: -15px; left: -15px; border-right: none; border-top: none; border-radius: 0 0 0 8px; }
+.frame-corner.bottom-right { bottom: -15px; right: -15px; border-left: none; border-top: none; border-radius: 0 0 8px 0; }
 
 .frame-border {
     position: absolute;
-    background: linear-gradient(90deg, 
-        transparent 0%, 
-        var(--primary-gold) 20%, 
-        var(--primary-gold) 80%, 
-        transparent 100%);
+    background: linear-gradient(90deg, transparent 0%, var(--primary-gold) 20%, var(--primary-gold) 80%, transparent 100%);
 }
 
 .frame-border.top,
 .frame-border.bottom {
     height: 2px;
-    width: 280px;
+    width: 240px;
     left: 50%;
     transform: translateX(-50%);
 }
 
-.frame-border.top { top: -20px; }
-.frame-border.bottom { bottom: -20px; }
+.frame-border.top { top: -15px; }
+.frame-border.bottom { bottom: -15px; }
 
 .frame-border.left,
 .frame-border.right {
     width: 2px;
-    height: 280px;
+    height: 240px;
     top: 50%;
     transform: translateY(-50%);
-    background: linear-gradient(180deg, 
-        transparent 0%, 
-        var(--primary-gold) 20%, 
-        var(--primary-gold) 80%, 
-        transparent 100%);
+    background: linear-gradient(180deg, transparent 0%, var(--primary-gold) 20%, var(--primary-gold) 80%, transparent 100%);
 }
 
-.frame-border.left { left: -20px; }
-.frame-border.right { right: -20px; }
+.frame-border.left { left: -15px; }
+.frame-border.right { right: -15px; }
+
 
 /* Rotating Mandala */
 .mandala-loader {
     position: relative;
-    width: 200px;
-    height: 200px;
-    margin-bottom: 2rem;
+    width: 150px;
+    height: 150px;
+    margin-bottom: 1.5rem;
 }
 
 .mandala-circle {
@@ -188,9 +152,7 @@ body.loading {
     overflow: hidden;
     position: relative;
     animation: mandalaRotate 8s linear infinite;
-    box-shadow: 
-        0 0 30px rgba(212, 175, 55, 0.4),
-        inset 0 0 30px rgba(212, 175, 55, 0.2);
+    box-shadow: 0 0 30px rgba(212, 175, 55, 0.4), inset 0 0 30px rgba(212, 175, 55, 0.2);
 }
 
 .mandala-image {
@@ -282,13 +244,12 @@ body.loading {
     }
 }
 
-/* 2. NAVIGATION (Sticky Glass Transparent Header) */
+/* 2. NAVIGATION */
 .navbar {
     position: fixed;
     top: 0;
     left: 0;
     width: 100%;
-    /* Glass Effect */
     background: rgba(255, 255, 255, 0.1); 
     backdrop-filter: blur(10px);
     border-bottom: 1px solid rgba(212, 175, 55, 0.5); 
@@ -297,7 +258,7 @@ body.loading {
 }
 
 .navbar.scrolled {
-    background: rgba(255, 255, 255, 0.95); /* Less transparent on scroll */
+    background: rgba(255, 255, 255, 0.95); 
     box-shadow: var(--shadow-medium);
 }
 
@@ -379,7 +340,7 @@ body.loading {
     transition: all var(--transition-medium);
 }
 
-/* 3. BACKGROUND MUSIC TOGGLE */
+/* 3. BACKGROUND MUSIC TOGGLE (Non-functional style) */
 .music-toggle {
     position: fixed;
     top: 90px;
@@ -387,7 +348,7 @@ body.loading {
     width: 40px;
     height: 40px;
     border-radius: 50%;
-    background: rgba(212, 175, 55, 0.8);
+    background: rgba(139, 69, 19, 0.8); 
     color: white;
     border: none;
     cursor: pointer;
@@ -401,10 +362,10 @@ body.loading {
 }
 
 .music-toggle:hover {
-    background: var(--primary-gold);
+    background: var(--dark-brown);
 }
 
-/* 4. HERO SECTION */
+/* 4. HERO SECTION (Redesigned Text) */
 .hero {
     min-height: 100vh;
     display: flex;
@@ -420,7 +381,6 @@ body.loading {
     left: 0;
     width: 100%;
     height: 100%;
-    /* BG IMAGE AND OVERLAY HANDLED INLINE IN HTML */
     background-size: cover !important;
     background-position: center !important;
     z-index: -2;
@@ -479,25 +439,26 @@ body.loading {
     margin-bottom: 3rem;
 }
 
-.hero-title {
+.hero-title.statement-style {
     font-family: var(--font-heading);
-    font-size: 4rem;
-    font-weight: 700;
-    line-height: 1.2;
-    margin-bottom: 1.5rem;
-    text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.7); /* Stronger shadow for map BG */
+    font-size: 5rem; 
+    font-weight: 900; 
+    line-height: 1.05;
+    margin-bottom: 1rem;
+    text-shadow: 0 0 15px rgba(0, 0, 0, 0.8), 2px 2px 0px var(--royal-burgundy); 
+    text-transform: uppercase;
+    letter-spacing: 2px;
 }
 
-.title-line {
-    display: block;
-}
-
-.highlight {
+.highlight-statement {
     color: var(--primary-gold);
-    font-weight: 800; /* Increased weight for appeal */
-    text-shadow: 0 0 10px rgba(255, 215, 0, 0.6); /* Subtle gold glow */
-    position: relative;
-    /* Removed ::after underline animation */
+    text-shadow: 0 0 15px rgba(255, 215, 0, 0.8);
+    display: inline-block;
+    padding-bottom: 0.2em;
+}
+
+.hide-on-mobile {
+    display: block;
 }
 
 .hero-subtitle {
@@ -577,14 +538,13 @@ body.loading {
     opacity: 0.6;
 }
 
-/* Marquee Animation */
 @keyframes marquee-scroll {
     0% { transform: translateX(0); }
-    100% { transform: translateX(-50%); } /* Scrolls 50% to repeat the content */
+    100% { transform: translateX(-50%); } 
 }
 
 
-/* 6. HISTORY CAROUSEL SECTION */
+/* 6. HISTORY CAROUSEL SECTION (Increased Height) */
 .history-section {
     padding: var(--section-padding);
     background: var(--soft-beige);
@@ -601,7 +561,7 @@ body.loading {
 
 .carousel-inner {
     display: flex;
-    transition: transform 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94); /* Smooth animation */
+    transition: transform 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94); 
 }
 
 .carousel-slide {
@@ -611,11 +571,12 @@ body.loading {
     background: white;
     flex-shrink: 0;
     overflow: hidden;
+    height: 450px; 
 }
 
 .slide-image {
     flex: 1;
-    height: 400px;
+    height: 100%;
     overflow: hidden;
 }
 
@@ -790,7 +751,6 @@ body.loading {
     font-weight: 500;
 }
 
-/* New Walk Info Details */
 .walk-info-detail {
     margin-bottom: 1.5rem;
     border-left: 3px solid var(--accent-orange);
@@ -846,7 +806,7 @@ body.loading {
     transform: translateY(-2px);
 }
 
-/* 8. MAP SECTION STYLING (Same as original) */
+/* 8. MAP SECTION STYLING */
 .walk-map-section {
     background: var(--warm-cream);
     padding: 2rem;
@@ -861,7 +821,7 @@ body.loading {
 
 .map-container {
     display: grid;
-    grid-template-columns: 1fr; /* Stack on mobile */
+    grid-template-columns: 1fr; 
     gap: 2rem;
     align-items: center;
 }
@@ -894,24 +854,24 @@ body.loading {
     color: var(--text-dark);
 }
 
-/* 9. PHOTOGRAPHY CONTEST SECTION (Replaces About) */
-.about-section {
+/* 10. JAMMU HERITAGE INFO BLOCK */
+.sponsors-section {
     padding: var(--section-padding);
-    background: white; /* Changed BG to white for contrast */
+    background: var(--soft-beige); 
 }
 
-.about-content {
-    display: grid;
+.info-block-content {
     grid-template-columns: 1fr 1fr;
     gap: 4rem;
-    align-items: center;
+    direction: ltr; 
 }
 
-.about-text h2 {
-    font-family: var(--font-heading);
-    font-size: 2.5rem;
-    color: var(--deep-brown);
-    margin-bottom: 1.5rem;
+.info-block-content .about-image {
+    order: 2; 
+}
+
+.info-block-content .about-text {
+    order: 1; 
 }
 
 .lead {
@@ -928,50 +888,41 @@ body.loading {
     color: var(--text-dark);
 }
 
-.contest-btn {
-    max-width: 400px;
-    margin-top: 2rem;
+
+/* 12. DOGRI SLOGAN BLOCK */
+.dogri-slogan-section {
+    background: var(--dark-brown);
+    padding: 4rem 0;
+    text-align: center;
+    color: white;
+}
+
+.dogri-slogan {
+    font-family: var(--font-kalam); 
+    font-size: 3.5rem; 
+    font-weight: 700;
+    margin-bottom: 1.5rem;
+    color: var(--primary-gold);
+    text-shadow: 0 0 10px rgba(212, 175, 55, 0.4);
+    line-height: 1.2;
+}
+
+.dogri-phrase, .english-phrase {
+    display: block;
+    padding: 0.2rem 0;
+}
+
+.english-phrase {
+    font-size: 1.8rem; 
+    color: var(--warm-cream);
+    opacity: 0.9;
 }
 
 
-.about-image {
-    position: relative;
-    border-radius: 15px;
-    overflow: hidden;
-}
-
-.about-image img {
-    width: 100%;
-    border-radius: 15px;
-    box-shadow: var(--shadow-medium);
-}
-/* Removed .image-caption as requested */
-
-
-/* 10. JAMMU HERITAGE INFO BLOCK (Replaces Sponsors) */
-.sponsors-section {
-    padding: var(--section-padding);
-    background: var(--soft-beige); /* Changed BG to soft-beige */
-}
-
-.info-block-content {
-    grid-template-columns: 1fr 1fr;
-    gap: 4rem;
-    direction: ltr; /* Ensure direction is left-to-right */
-}
-
-.info-block-content .about-image {
-    order: 2; /* Image on the right for this section */
-}
-
-.info-block-content .about-text {
-    order: 1; /* Text on the left for this section */
-}
-
-/* 11. TEAM SECTION */
+/* 11. TEAM SECTION (Redesigned Cards) */
 .team-section {
     padding: var(--section-padding);
-    background: white; /* Changed BG to white for separation */
+    background: white; 
 }
 
 .team-grid {
@@ -982,51 +933,60 @@ body.loading {
     margin: 0 auto;
 }
 
+/* Core Team Members (Modern and Clean) */
 .team-member {
-    background: var(--warm-cream); /* Subtle cream background */
-    border-radius: 15px;
-    padding: 2rem;
-    text-align: center;
+    background: var(--soft-beige);
+    border-radius: 10px;
+    padding: 1.5rem;
     box-shadow: var(--shadow-light);
+    border-bottom: 5px solid var(--deep-brown);
     transition: all var(--transition-medium);
+    text-align: center;
 }
 
 .team-member:hover {
     transform: translateY(-5px);
+    border-color: var(--primary-gold);
     box-shadow: var(--shadow-medium);
 }
 
-/* Styling for Higher Experts */
+/* Styling for Higher Experts (Subtle distinction) */
 .team-member.higher-expert {
-    background: var(--royal-burgundy);
-    color: var(--text-light);
-    border: 3px solid var(--primary-gold);
-    box-shadow: 0 0 20px rgba(128, 0, 32, 0.5);
+    background: var(--warm-cream);
+    border: 1px solid var(--royal-burgundy);
+    box-shadow: 0 0 0 3px var(--primary-gold), var(--shadow-medium); 
+    transform: scale(1.05);
+    z-index: 5;
+    order: -1; /* Place experts first */
 }
 
-.team-member.higher-expert .member-info h3,
-.team-member.higher-expert .description {
-    color: var(--text-light);
+.team-member.higher-expert:hover {
+    transform: scale(1.1);
+    box-shadow: 0 0 0 5px var(--primary-gold), var(--shadow-heavy);
+}
+
+.team-member.higher-expert .member-avatar {
+    background: var(--royal-burgundy);
+    box-shadow: 0 0 10px rgba(128, 0, 32, 0.8);
 }
 
 .team-member.higher-expert .role {
-    color: var(--light-gold);
-    border-bottom: 1px solid rgba(255, 255, 255, 0.2);
-    padding-bottom: 5px;
-    margin-bottom: 1rem;
+    color: var(--royal-burgundy);
+    font-weight: 700;
 }
 
+
 .member-avatar {
-    width: 80px;
-    height: 80px;
+    width: 70px; 
+    height: 70px;
     border-radius: 50%;
-    background: linear-gradient(135deg, var(--primary-gold), var(--accent-orange));
+    background: var(--deep-brown);
     display: flex;
     align-items: center;
     justify-content: center;
-    margin: 0 auto 1.5rem;
+    margin: 0 auto 1rem;
     box-shadow: var(--shadow-light);
-    border: 3px solid white; /* Border for images later */
+    border: 3px solid var(--primary-gold);
     overflow: hidden;
 }
 
@@ -1037,7 +997,7 @@ body.loading {
 }
 
 .avatar-letter {
-    font-size: 2rem;
+    font-size: 1.8rem;
     font-weight: 700;
     color: white;
 }
@@ -1062,86 +1022,102 @@ body.loading {
     opacity: 0.8;
 }
 
-/* 12. CREATIVE BRANDING & DOGRI PHRASE SECTION */
-.dogri-slogan-section {
-    background: var(--dark-brown);
-    padding: 4rem 0;
+
+/* 9. PHOTOGRAPHY CONTEST SECTION (Image size increase) */
+.about-section {
+    padding: var(--section-padding);
+    background: white;
+}
+
+.about-content {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4rem;
+    align-items: center;
+}
+
+/* Forcing larger image container on laptops */
+@media (min-width: 992px) {
+    .about-content {
+        grid-template-columns: 2fr 3fr; /* Text left, Image right (bigger) */
+    }
+}
+
+.about-image {
+    position: relative;
+    border-radius: 15px;
+    overflow: hidden;
+}
+
+.about-image img {
+    width: 100%;
+    border-radius: 15px;
+    box-shadow: var(--shadow-medium);
+}
+
+.contest-btn {
+    max-width: 400px;
+    margin-top: 2rem;
+}
+
+/* 13. PREM CREATIVE CREDIT BLOCK */
+.prem-credit-block {
+    background: var(--primary-gold);
+    padding: 3rem 0;
     text-align: center;
-    color: white;
+    color: var(--dark-brown);
+    border-top: 1px solid rgba(0, 0, 0, 0.1);
 }
 
-.dogri-slogan {
-    font-family: var(--font-kalam); /* Applied Kalam font */
-    font-size: 3.5rem; /* Increased size for impact */
+.creative-preface {
+    font-family: var(--font-heading);
+    font-size: 1.8rem;
     font-weight: 700;
-    margin-bottom: 1.5rem;
-    color: var(--primary-gold);
-    text-shadow: 0 0 10px rgba(212, 175, 55, 0.4);
-    line-height: 1.2;
+    margin-bottom: 0.5rem;
+    color: var(--dark-brown);
 }
 
-.dogri-phrase, .english-phrase {
-    display: block;
-    padding: 0.2rem 0;
-}
-
-.english-phrase {
-    font-size: 1.8rem; /* Smaller English phrase */
-    color: var(--warm-cream);
+.creative-credit-line {
+    font-size: 1.1rem;
     opacity: 0.9;
 }
 
-.creative-credit {
-    font-size: 1.1rem;
-    font-style: italic;
-    color: var(--warm-cream);
-    opacity: 0.8;
-}
-
 .prem-link {
-    color: var(--primary-gold);
-    text-decoration: none;
+    color: var(--royal-burgundy);
+    text-decoration: underline;
     font-weight: 600;
     transition: color var(--transition-fast);
 }
 
 .prem-link:hover {
-    color: var(--light-gold);
+    color: var(--dark-brown);
 }
 
 
-/* 13. FOOTER */
+/* 14. FOOTER (Redesigned) */
 .footer {
     background: var(--dark-brown);
     color: var(--text-light);
-    padding: 2rem 0 1rem; 
-    border-top: none;
+    padding: 1rem 0; 
 }
 
 .national-sponsors-footer {
     text-align: center;
-    margin-bottom: 2rem;
-    padding-bottom: 1rem;
+    margin-bottom: 0.5rem;
+    padding-bottom: 0.5rem;
     border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-}
-
-.national-sponsors-footer p {
-    font-family: var(--font-heading);
-    font-size: 1.1rem;
-    font-weight: 500;
-    margin-bottom: 1rem;
-    color: var(--primary-gold);
 }
 
 .footer-sponsors-grid {
     display: flex;
     justify-content: center;
-    gap: 1.5rem;
+    gap: 1rem;
     flex-wrap: wrap;
+    padding: 1rem 0;
 }
 
 .sponsor-logo {
-    height: 40px;
+    height: 35px; 
     width: auto;
     display: flex;
     align-items: center;
@@ -1149,6 +1125,12 @@ body.loading {
     padding: 5px;
     background: white;
     border-radius: 5px;
+    opacity: 0.8;
+    transition: opacity var(--transition-fast);
+}
+
+.sponsor-logo:hover {
+    opacity: 1;
 }
 
 .sponsor-logo img {
@@ -1158,7 +1140,7 @@ body.loading {
 }
 
 .footer-bottom {
-    padding-top: 1rem;
+    padding-top: 0.5rem;
     text-align: center;
     opacity: 0.9;
     font-size: 0.9rem;
@@ -1174,6 +1156,7 @@ body.loading {
     /* History Carousel Tablet/Mobile Fix */
     .carousel-slide {
         flex-direction: column;
+        height: auto; 
     }
 
     .slide-image {
@@ -1188,6 +1171,7 @@ body.loading {
     /* Info Block Fix */
     .info-block-content {
         grid-template-columns: 1fr;
+        gap: 2rem;
     }
     .info-block-content .about-image {
         order: 1; 
@@ -1199,6 +1183,14 @@ body.loading {
     .about-content {
         grid-template-columns: 1fr;
         gap: 2rem;
+    }
+    
+    .about-image {
+        order: 1;
+    }
+    
+    .about-text {
+        order: 2;
     }
 }
 
@@ -1240,12 +1232,17 @@ body.loading {
         right: 80px;
     }
 
-    .hero-title {
-        font-size: 2.5rem;
+    .hero-title.statement-style {
+        font-size: 3rem;
+        letter-spacing: 1px;
     }
 
+    .hide-on-mobile {
+        display: none;
+    }
+    
     .hero-subtitle {
-        font-size: 1.2rem;
+        font-size: 1.1rem;
     }
 
     .walks-grid {
@@ -1254,10 +1251,6 @@ body.loading {
     
     .walk-card {
         margin: 0 1rem;
-    }
-    
-    .map-container {
-        grid-template-columns: 1fr;
     }
     
     .map-key ul {
@@ -1269,15 +1262,20 @@ body.loading {
     }
     
     .dogri-slogan {
-        font-size: 2.5rem; /* Reduced size for better fit on small screens */
+        font-size: 2.5rem; 
     }
     
     .english-phrase {
-        font-size: 1.4rem;
+        font-size: 1.2rem;
     }
 
-    .creative-credit {
-        font-size: 1rem;
+    .team-member.higher-expert {
+        transform: scale(1.0);
+        margin-bottom: 2rem;
+    }
+    
+    .team-member.higher-expert:hover {
+        transform: scale(1.05);
     }
 }
 
@@ -1285,9 +1283,9 @@ body.loading {
     .container {
         padding: 0 1rem;
     }
-
-    .hero-title {
-        font-size: 2rem;
+    
+    .hero-title.statement-style {
+        font-size: 2.2rem;
     }
 
     .section-header h2 {
@@ -1315,7 +1313,7 @@ body.loading {
 /* Desktop override for map layout */
 @media (min-width: 992px) {
     .map-container {
-        grid-template-columns: 3fr 2fr; /* Map gets more space on large screens */
+        grid-template-columns: 3fr 2fr; 
     }
     
     .map-key ul {
