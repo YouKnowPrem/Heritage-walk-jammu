@@ -79,8 +79,7 @@
     </button>
     
     <audio id="backgroundMusic" loop preload="auto">
-        Your browser does not support the audio element.
-    </audio>
+        </audio>
 
     <section id="home" class="hero">
         <div class="hero-background" 
@@ -97,14 +96,13 @@
 
         <div class="hero-content">
             <div class="hero-text">
-                <h1 class="hero-title">
-                    <span class="title-line">Riverine Memory,</span>
-                    <span class="title-line highlight">Plural Heritage</span>
-                    <span class="title-line">and Community Narratives</span>
+                <h1 class="hero-title statement-style">
+                    Riverine Memory,<br class="hide-on-mobile"> 
+                    <span class="highlight-statement">Plural Heritage</span>
                 </h1>
 
                 <p class="hero-subtitle">
-                    Discover Jammu's Living Heritage
+                    The Soul of Jammu: Documented Through Community Narratives.
                 </p>
 
                 <div class="hero-description">
@@ -202,6 +200,17 @@
                             <a href="#" class="read-more-link">Read More ➡️</a>
                         </div>
                     </div>
+                    
+                    <div class="carousel-slide">
+                        <div class="slide-image">
+                            <img src="images/mubarak-mandi-architecture.jpg" alt="Dogra Heritage Architecture" loading="lazy">
+                        </div>
+                        <div class="slide-content">
+                            <h3>Architectural Layers of the City</h3>
+                            <p>Beyond the palace, Jammu is characterized by a unique vernacular architecture, blending traditional mud, brick, and slate structures (Dhabs) with later influences. Walking through the Old City reveals layers of history, from the small, intricately carved windows (Jharokhas) to the robust foundation walls, each element telling a tale of resilience, climate adaptation, and the intermingling of Dogra, Punjabi, and Kashmiri styles over centuries.</p>
+                            <a href="#" class="read-more-link">Read More ➡️</a>
+                        </div>
+                    </div>
 
                 </div>
                 <button class="carousel-nav prev" aria-label="Previous Slide">←</button>
@@ -237,7 +246,6 @@
 
                         <div class="walk-info-detail">
                             <p><strong>Start:</strong> Central Courtyard, Mubarak Mandi</p>
-                            <p><strong>End:</strong> Dogra Art Museum</p>
                             <p><strong>Date & Time:</strong> 11 Oct 2025, 10:00 AM</p>
                         </div>
                         
@@ -327,31 +335,6 @@
         </div>
     </section>
 
-    <section id="contest" class="about-section">
-        <div class="container">
-            <div class="about-content">
-                <div class="about-text">
-                    <h2>Heritage Photography Contest 📸</h2>
-                    <p class="lead">Capture the 'Riverine Memory' and 'Plural Heritage' of Jammu.</p>
-
-                    <div class="about-details">
-                        <p>We invite passionate photographers to participate in our contest. Share your unique perspective on the city's historical sites, architectural details, cultural narratives, and the life surrounding the River Tawi. This is your chance to contribute to the visual documentation of Jammu's rich heritage.</p>
-
-                        <p>The top entries will be featured in our 2026 calendar and showcased in a special exhibition, connecting your artistry with the city's cultural preservation efforts.</p>
-                        
-                        <a href="Gform Link" target="_blank" class="walk-btn contest-btn">
-                            Register & Submit Your Entries
-                        </a>
-                    </div>
-                </div>
-
-                <div class="about-image">
-                    <img src="images/mubarak-mandi-wide.jpg" alt="Photography Contest" loading="lazy">
-                </div>
-            </div>
-        </div>
-    </section>
-
     <section id="info" class="sponsors-section">
         <div class="container">
             <div class="section-header">
@@ -374,6 +357,15 @@
         </div>
     </section>
     
+    <section class="dogri-slogan-section" id="dogri-slogan">
+        <div class="container">
+            <h1 class="dogri-slogan kalam-style">
+                <span class="dogri-phrase">खन्ड मीठे, लूग डोगरे</span>
+                <span class="english-phrase">Khand Meethe, Loog Dogre</span>
+            </h1>
+        </div>
+    </section>
+
     <section id="team" class="team-section">
         <div class="container">
             <div class="section-header">
@@ -507,15 +499,39 @@
         </div>
     </section>
 
-    <section class="dogri-slogan-section">
+    <section id="contest" class="about-section">
         <div class="container">
-            <h1 class="dogri-slogan kalam-style">
-                <span class="dogri-phrase">खन्ड मीठे, लूग डोगरे</span>
-                <span class="english-phrase">Khand Meethe, Loog Dogre</span>
-            </h1>
-            <p class="creative-credit">
-                This digital heritage experience was meticulously crafted by 
-                <a href="YOUR_GITHUB_REPO_LINK" target="_blank" class="prem-link">Prem</a>, turning lines of code into a map of memory.
+            <div class="about-content">
+                <div class="about-text">
+                    <h2>Heritage Photography Contest 📸</h2>
+                    <p class="lead">Capture the 'Riverine Memory' and 'Plural Heritage' of Jammu.</p>
+
+                    <div class="about-details">
+                        <p>We invite passionate photographers to participate in our contest. Share your unique perspective on the city's historical sites, architectural details, cultural narratives, and the life surrounding the River Tawi. This is your chance to contribute to the visual documentation of Jammu's rich heritage.</p>
+
+                        <p>The top entries will be featured in our 2026 calendar and showcased in a special exhibition, connecting your artistry with the city's cultural preservation efforts.</p>
+                        
+                        <a href="Gform Link" target="_blank" class="walk-btn contest-btn">
+                            Register & Submit Your Entries
+                        </a>
+                    </div>
+                </div>
+
+                <div class="about-image bigger-photo">
+                    <img src="images/mubarak-mandi-wide.jpg" alt="Photography Contest" loading="lazy">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="prem-credit-block">
+        <div class="container">
+            <h2 class="creative-preface">
+                Meticulously crafted: Transforming code into a map of memory.
+            </h2>
+            <p class="creative-credit-line">
+                Digital Experience designed and built by 
+                <a href="YOUR_GITHUB_REPO_LINK" target="_blank" class="prem-link">Prem</a>.
             </p>
         </div>
     </section>
@@ -524,7 +540,6 @@
     <footer class="footer">
         <div class="container">
             <div class="national-sponsors-footer">
-                <p>In Collaboration with National Partners:</p>
                 <div class="footer-sponsors-grid">
                     <div class="sponsor-logo">
                         <img src="images/heritopolis-removebg-preview.jpg" alt="Heritopolis Logo">
@@ -543,8 +558,9 @@
                     </div>
                 </div>
             </div>
+            
             <div class="footer-bottom">
-                <p class="slogan-credit">Preserving culture, one step at a time. | &copy; 2025 Heritage Walks Jammu. All rights reserved.</p>
+                <p class="slogan-credit">&copy; 2025 Heritage Walks Jammu. All rights reserved. | Credits to Historic Cities Jammu Team.</p>
             </div>
         </div>
     </footer>
