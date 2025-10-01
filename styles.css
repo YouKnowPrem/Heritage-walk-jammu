@@ -657,74 +657,31 @@ body.loading {
     transition: transform 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
 }
 
+/* NEW: Styles for the about-content based carousel slides */
 .carousel-slide {
     min-width: 100%;
     background: white;
     flex-shrink: 0;
     overflow: hidden;
-    height: 400px;
+    height: 500px; /* Set a fixed height for the carousel block */
+    padding: 20px; /* Padding for the slide itself */
 }
 
-.slide-content-block {
-    display: flex;
-    height: 100%;
-    align-items: center;
+.carousel-slide .slide-content.about-content {
+    /* Set height to 100% of the slide to fill it */
+    height: 100%; 
+    /* The padding is inherited from the about-content/section styles */
+    padding: 0; /* Override about-content padding if slide padding is used */
+    background: white; /* Ensure the background is white */
+    border-radius: 10px; /* Match the carousel-wrapper's rounded corners */
+    padding: 2rem; /* Add internal padding to the content block */
 }
 
-.slide-text {
-    flex: 1;
-    padding: 2.5rem;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
+.carousel-slide:hover .about-image img {
+    transform: scale(1.05); /* Reuse the hover effect for the image */
 }
 
-.slide-text h3 {
-    font-family: var(--font-heading);
-    font-size: 1.8rem;
-    color: var(--royal-burgundy);
-    margin-bottom: 1rem;
-    line-height: 1.3;
-}
-
-.slide-text p {
-    font-size: 1rem;
-    line-height: 1.6;
-    color: var(--text-dark);
-    margin-bottom: 1.5rem;
-}
-
-.slide-highlights {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 0.5rem;
-}
-
-.highlight-tag {
-    background: var(--primary-gold);
-    color: white;
-    padding: 0.3rem 0.8rem;
-    border-radius: 15px;
-    font-size: 0.8rem;
-    font-weight: 500;
-}
-
-.slide-image {
-    flex: 1;
-    height: 100%;
-    overflow: hidden;
-}
-
-.slide-image img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    transition: transform 0.5s ease;
-}
-
-.carousel-slide:hover .slide-image img {
-    transform: scale(1.05);
-}
+/* END NEW STYLES */
 
 .carousel-indicators {
     position: absolute;
@@ -1183,6 +1140,16 @@ body.loading {
     line-height: 1.3;
 }
 
+/* NEW: Style for the team member description */
+.member-description {
+    font-size: 0.9rem;
+    color: var(--text-dark);
+    opacity: 0.7;
+    margin-top: 0.5rem;
+    max-width: 150px;
+    line-height: 1.4;
+}
+
 .credits-section {
     text-align: center;
     margin-top: 3rem;
@@ -1283,29 +1250,20 @@ body.loading {
 /* ENHANCED RESPONSIVE DESIGN */
 @media (max-width: 992px) {
 
-    /* History Carousel Mobile Optimization */
+    /* History Carousel Mobile Optimization (New Styles) */
     .carousel-slide {
-        height: auto;
-        min-height: 350px;
+        height: auto; /* Allow height to adjust based on stacked content */
+        padding: 10px;
     }
+    .carousel-slide .slide-content.about-content {
+        padding: 1.5rem; 
+    }
+    .carousel-slide .about-image {
+        /* Mobile image height */
+        height: 250px; 
+    }
+    /* END New Carousel Mobile Styles */
 
-    .slide-content-block {
-        flex-direction: column;
-    }
-
-    .slide-text {
-        padding: 2rem;
-        order: 2;
-    }
-
-    .slide-image {
-        height: 200px;
-        order: 1;
-    }
-
-    .slide-text h3 {
-        font-size: 1.5rem;
-    }
 
     /* About Content alignment */
     .about-content {
@@ -1354,20 +1312,6 @@ body.loading {
 
     .hero-description {
         font-size: 1rem;
-    }
-
-    /* Carousel mobile adjustments */
-    .carousel-slide {
-        height: auto;
-        min-height: 300px;
-    }
-
-    .slide-text {
-        padding: 1.5rem;
-    }
-
-    .slide-image {
-        height: 180px;
     }
 
     /* Walks grid */
@@ -1457,17 +1401,18 @@ body.loading {
         font-size: 1.5rem;
     }
 
+    /* History Carousel Mobile Optimization (New Styles) */
     .carousel-slide {
+        height: auto;
         min-height: 280px;
     }
-
-    .slide-text {
+    .carousel-slide .slide-content.about-content {
         padding: 1rem;
     }
-
-    .slide-image {
+    .carousel-slide .about-image {
         height: 150px;
     }
+    /* END New Carousel Mobile Styles */
 
     .team-grid {
         grid-template-columns: 1fr;
