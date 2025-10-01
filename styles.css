@@ -657,38 +657,74 @@ body.loading {
     transition: transform 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
 }
 
-/* NEW: Styles for the about-content based carousel slides */
 .carousel-slide {
     min-width: 100%;
     background: white;
     flex-shrink: 0;
     overflow: hidden;
-    height: 500px;
-    /* Set a fixed height for the carousel block */
-    padding: 20px;
-    /* Padding for the slide itself */
+    height: 400px;
 }
 
-.carousel-slide .slide-content.about-content {
-    /* Set height to 100% of the slide to fill it */
+.slide-content-block {
+    display: flex;
     height: 100%;
-    /* The padding is inherited from the about-content/section styles */
-    padding: 0;
-    /* Override about-content padding if slide padding is used */
-    background: white;
-    /* Ensure the background is white */
-    border-radius: 10px;
-    /* Match the carousel-wrapper's rounded corners */
-    padding: 2rem;
-    /* Add internal padding to the content block */
+    align-items: center;
 }
 
-.carousel-slide:hover .about-image img {
+.slide-text {
+    flex: 1;
+    padding: 2.5rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.slide-text h3 {
+    font-family: var(--font-heading);
+    font-size: 1.8rem;
+    color: var(--royal-burgundy);
+    margin-bottom: 1rem;
+    line-height: 1.3;
+}
+
+.slide-text p {
+    font-size: 1rem;
+    line-height: 1.6;
+    color: var(--text-dark);
+    margin-bottom: 1.5rem;
+}
+
+.slide-highlights {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+}
+
+.highlight-tag {
+    background: var(--primary-gold);
+    color: white;
+    padding: 0.3rem 0.8rem;
+    border-radius: 15px;
+    font-size: 0.8rem;
+    font-weight: 500;
+}
+
+.slide-image {
+    flex: 1;
+    height: 100%;
+    overflow: hidden;
+}
+
+.slide-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+}
+
+.carousel-slide:hover .slide-image img {
     transform: scale(1.05);
-    /* Reuse the hover effect for the image */
 }
-
-/* END NEW STYLES */
 
 .carousel-indicators {
     position: absolute;
@@ -1011,22 +1047,12 @@ body.loading {
     box-shadow: var(--shadow-medium);
 }
 
-/* NEW: Style for the portrait image container in the Symposium section */
-.about-image.portrait-image {
-    max-height: 550px; /* Constrain height for portrait look */
-}
-.about-image.portrait-image img {
-    height: 100%;
-    object-fit: cover;
-}
-
-
 .contest-btn {
     max-width: 400px;
     margin-top: 2rem;
 }
 
-/* 10. SYMPOSIUM INFO BLOCK (Updated from JAMMU HERITAGE INFO BLOCK) */
+/* 10. JAMMU HERITAGE INFO BLOCK */
 .sponsors-section {
     padding: var(--section-padding);
     background: var(--soft-beige);
@@ -1088,20 +1114,6 @@ body.loading {
     background: linear-gradient(135deg, var(--soft-beige) 0%, var(--warm-cream) 100%);
 }
 
-.team-category-header {
-    font-family: var(--font-heading);
-    font-size: 1.6rem;
-    font-weight: 600;
-    color: var(--royal-burgundy);
-    text-align: center;
-    margin: 3rem 0 2rem;
-    border-bottom: 2px solid var(--primary-gold);
-    padding-bottom: 0.5rem;
-    max-width: 900px;
-    margin-left: auto;
-    margin-right: auto;
-}
-
 .team-grid {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
@@ -1110,72 +1122,14 @@ body.loading {
     margin: 0 auto 3rem;
 }
 
-.expert-grid {
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    max-width: 900px;
-    gap: 3rem;
-}
-
-
-/* 3x3 grid for larger screens (default participant grid) */
+/* 3x3 grid for larger screens */
 @media (min-width: 992px) {
-    .team-grid.participant-grid {
+    .team-grid {
         grid-template-columns: repeat(3, 1fr);
         max-width: 900px;
         gap: 3rem;
     }
 }
-
-
-/* NEW: Expert Card Styling (Based on the provided image) */
-.team-member.expert-card {
-    background: white;
-    padding: 2rem 1.5rem;
-    border-radius: 10px;
-    border-top: 5px solid var(--royal-burgundy);
-    box-shadow: var(--shadow-medium);
-    transition: all var(--transition-medium);
-    /* Resetting the default team-member transform */
-    transform: none; 
-}
-
-.team-member.expert-card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-}
-
-.expert-card .member-avatar {
-    width: 110px;
-    height: 110px;
-    border-width: 4px;
-    /* Use the royal burgundy color for the expert ring */
-    background: var(--royal-burgundy); 
-}
-
-.expert-card .member-name {
-    font-size: 1.5rem;
-    font-weight: 700;
-    color: var(--dark-brown);
-}
-
-.expert-card .member-title {
-    font-family: var(--font-heading);
-    font-size: 1rem;
-    font-weight: 600;
-    color: var(--accent-orange);
-    margin-bottom: 1rem;
-    display: block;
-}
-
-.expert-card .detailed-description {
-    font-size: 0.95rem;
-    color: var(--text-dark);
-    opacity: 0.9;
-    max-width: none;
-    line-height: 1.5;
-}
-/* END NEW EXPERT CARD STYLING */
-
 
 .team-member {
     display: flex;
@@ -1227,16 +1181,6 @@ body.loading {
     color: var(--deep-brown);
     margin: 0;
     line-height: 1.3;
-}
-
-/* Existing style for the team member description */
-.member-description {
-    font-size: 0.9rem;
-    color: var(--text-dark);
-    opacity: 0.7;
-    margin-top: 0.5rem;
-    max-width: 150px;
-    line-height: 1.4;
 }
 
 .credits-section {
@@ -1339,23 +1283,29 @@ body.loading {
 /* ENHANCED RESPONSIVE DESIGN */
 @media (max-width: 992px) {
 
-    /* History Carousel Mobile Optimization (New Styles) */
+    /* History Carousel Mobile Optimization */
     .carousel-slide {
         height: auto;
-        /* Allow height to adjust based on stacked content */
-        padding: 10px;
+        min-height: 350px;
     }
 
-    .carousel-slide .slide-content.about-content {
-        padding: 1.5rem;
+    .slide-content-block {
+        flex-direction: column;
     }
 
-    .carousel-slide .about-image {
-        /* Mobile image height */
-        height: 250px;
+    .slide-text {
+        padding: 2rem;
+        order: 2;
     }
-    /* END New Carousel Mobile Styles */
 
+    .slide-image {
+        height: 200px;
+        order: 1;
+    }
+
+    .slide-text h3 {
+        font-size: 1.5rem;
+    }
 
     /* About Content alignment */
     .about-content {
@@ -1371,27 +1321,11 @@ body.loading {
         order: 2;
     }
 
-    /* NEW: Symposium Portrait Image on Mobile */
-    .about-image.portrait-image {
-        max-height: 350px;
-    }
-
     /* Team grid adjustments */
     .team-grid {
         grid-template-columns: repeat(2, 1fr);
         gap: 1.5rem;
         max-width: 500px;
-    }
-
-    .expert-grid {
-        grid-template-columns: 1fr;
-        max-width: 350px;
-        /* Single column centered */
-        margin: 0 auto 3rem;
-    }
-
-    .expert-card {
-        padding: 1.5rem 1rem;
     }
 }
 
@@ -1420,6 +1354,20 @@ body.loading {
 
     .hero-description {
         font-size: 1rem;
+    }
+
+    /* Carousel mobile adjustments */
+    .carousel-slide {
+        height: auto;
+        min-height: 300px;
+    }
+
+    .slide-text {
+        padding: 1.5rem;
+    }
+
+    .slide-image {
+        height: 180px;
     }
 
     /* Walks grid */
@@ -1509,26 +1457,23 @@ body.loading {
         font-size: 1.5rem;
     }
 
-    /* History Carousel Mobile Optimization (New Styles) */
     .carousel-slide {
-        height: auto;
         min-height: 280px;
     }
 
-    .carousel-slide .slide-content.about-content {
+    .slide-text {
         padding: 1rem;
     }
 
-    .carousel-slide .about-image {
+    .slide-image {
         height: 150px;
     }
-    /* END New Carousel Mobile Styles */
 
     .team-grid {
         grid-template-columns: 1fr;
         gap: 1.5rem;
         max-width: 300px;
-    } {
+    }{
         max-width: 300px;
     }
 
