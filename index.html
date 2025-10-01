@@ -15,37 +15,29 @@
         rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
 
-    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='0.9em' font-size='90'%3E%F0%9F%8F%9B%EF%B8%8F%3C/text%3E%3C/svg%3E">
+    <link rel="icon" type="image/svg+xml"
+        href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='0.9em' font-size='90'%3E%F0%9F%8F%9B%EF%B8%8F%3C/text%3E%3C/svg%3E">
 </head>
 
 <body>
     <div id="loadingScreen" class="mandala-loading-screen">
         <div class="mandala-container">
-            <div class="mandala-frame">
-                <div class="frame-corner top-left"></div>
-                <div class="frame-corner top-right"></div>
-                <div class="frame-corner bottom-left"></div>
-                <div class="frame-corner bottom-right"></div>
-                <div class="frame-border top"></div>
-                <div class="frame-border right"></div>
-                <div class="frame-border bottom"></div>
-                <div class="frame-border left"></div>
-            </div>
-
             <div class="mandala-loader">
                 <div class="mandala-circle">
-                    <img src="images/mandala-loader.jpg" alt="Loading..." class="mandala-image">
+                    <div class="mandala-pattern">
+                        <div class="mandala-ring ring-1"></div>
+                        <div class="mandala-ring ring-2"></div>
+                        <div class="mandala-ring ring-3"></div>
+                        <div class="mandala-center">🏛️</div>
+                    </div>
                 </div>
-                <div class="mandala-glow"></div>
             </div>
 
             <div class="loading-content">
-                <h2 class="loading-title">Historic Cities Series 2025</h2>
-                <p class="loading-subtitle">Jammu Edition</p>
-                <div class="loading-dots">
-                    <span></span>
-                    <span></span>
-                    <span></span>
+                <h2 class="loading-title">Heritage Walks Jammu</h2>
+                <p class="loading-subtitle">Historic Cities Series 2025</p>
+                <div class="loading-progress">
+                    <div class="progress-bar"></div>
                 </div>
             </div>
         </div>
@@ -77,12 +69,14 @@
     <button id="musicToggle" class="music-toggle" aria-label="Toggle background music">
         🔇
     </button>
-    
+
     <audio id="backgroundMusic" loop preload="auto">
-        </audio>
+        <source src="https://www.soundjay.com/misc/sounds/temple-bell-1.mp3" type="audio/mpeg">
+        <source src="https://www.soundjay.com/misc/sounds/temple-bell-1.wav" type="audio/wav">
+    </audio>
 
     <section id="home" class="hero">
-        <div class="hero-background" 
+        <div class="hero-background"
             style="background: linear-gradient(135deg, rgba(62, 39, 35, 0.8) 0%, rgba(139, 69, 19, 0.7) 100%), url('images/Old jammu map.jpg') center/cover;">
             <div class="hero-overlay"></div>
             <div class="floating-elements">
@@ -96,23 +90,21 @@
 
         <div class="hero-content">
             <div class="hero-text">
-                <h1 class="hero-title statement-style">
-                    Riverine Memory,<br> 
-                    <span class="highlight-statement">Plural Heritage</span><br>
-                    and Community Narratives
+                <h1 class="hero-title">
+                    <span class="hero-main">Riverine Memory</span>
+                    <span class="hero-accent">Plural Heritage</span>
+                    <span class="hero-sub">Community Narratives</span>
                 </h1>
 
                 <p class="hero-subtitle">
-                    Discover Jammu's Living Heritage
+                    Discover Jammu's Living Heritage Through Guided Walks
                 </p>
 
                 <div class="hero-description">
                     <p>
-                        Join our guided heritage walks through the historic **Mubarak Mandi Palace Complex**
-                        and the vibrant **Old City of Jammu**. Experience centuries of history, architecture, and
-                        culture as we explore the magnificent Mubarak Mandi – once the royal residence of the Dogra
-                        dynasty – and wander through the bustling lanes of Old City with its traditional markets,
-                        ancient temples, and timeless stories.
+                        Experience centuries of history at the magnificent <strong>Mubarak Mandi Palace</strong>
+                        and explore the vibrant <strong>Old City</strong> with its ancient temples, traditional markets,
+                        and timeless stories.
                     </p>
                 </div>
             </div>
@@ -120,41 +112,98 @@
     </section>
 
     <section class="collaborators-marquee">
-        <div class="marquee-title">Our Esteemed Collaborators</div>
+        <div class="collaborators-border"></div>
+        <div class="marquee-title">Our Esteemed Collaborators & Partners</div>
         <div class="marquee-container speed-fast">
             <div class="marquee marquee-1">
-                <div class="marquee-item"><div class="logo-placeholder">Collaborator 1</div></div>
-                <div class="marquee-item"><div class="logo-placeholder">Collaborator 2</div></div>
-                <div class="marquee-item"><div class="logo-placeholder">Collaborator 3</div></div>
-                <div class="marquee-item"><div class="logo-placeholder">Collaborator 4</div></div>
-                <div class="marquee-item"><div class="logo-placeholder">Collaborator 5</div></div>
-                <div class="marquee-item"><div class="logo-placeholder">Collaborator 6</div></div>
-                <div class="marquee-item"><div class="logo-placeholder">Collaborator 7</div></div>
-                <div class="marquee-item"><div class="logo-placeholder">Collaborator 1</div></div>
-                <div class="marquee-item"><div class="logo-placeholder">Collaborator 2</div></div>
-                <div class="marquee-item"><div class="logo-placeholder">Collaborator 3</div></div>
-                <div class="marquee-item"><div class="logo-placeholder">Collaborator 4</div></div>
-                <div class="marquee-item"><div class="logo-placeholder">Collaborator 5</div></div>
-                <div class="marquee-item"><div class="logo-placeholder">Collaborator 6</div></div>
-                <div class="marquee-item"><div class="logo-placeholder">Collaborator 7</div></div>
+                <div class="marquee-item">
+                    <div class="logo-placeholder">Ministry of Culture</div>
+                </div>
+                <div class="marquee-item">
+                    <div class="logo-placeholder">J&K Tourism</div>
+                </div>
+                <div class="marquee-item">
+                    <div class="logo-placeholder">Jammu University</div>
+                </div>
+                <div class="marquee-item">
+                    <div class="logo-placeholder">Archaeological Survey</div>
+                </div>
+                <div class="marquee-item">
+                    <div class="logo-placeholder">Heritage Foundation</div>
+                </div>
+                <div class="marquee-item">
+                    <div class="logo-placeholder">Cultural Council</div>
+                </div>
+                <div class="marquee-item">
+                    <div class="logo-placeholder">Local Administration</div>
+                </div>
+                <div class="marquee-item">
+                    <div class="logo-placeholder">Ministry of Culture</div>
+                </div>
+                <div class="marquee-item">
+                    <div class="logo-placeholder">J&K Tourism</div>
+                </div>
+                <div class="marquee-item">
+                    <div class="logo-placeholder">Jammu University</div>
+                </div>
+                <div class="marquee-item">
+                    <div class="logo-placeholder">Archaeological Survey</div>
+                </div>
+                <div class="marquee-item">
+                    <div class="logo-placeholder">Heritage Foundation</div>
+                </div>
+                <div class="marquee-item">
+                    <div class="logo-placeholder">Cultural Council</div>
+                </div>
+                <div class="marquee-item">
+                    <div class="logo-placeholder">Local Administration</div>
+                </div>
             </div>
         </div>
         <div class="marquee-container speed-slow reverse-direction">
             <div class="marquee marquee-2">
-                <div class="marquee-item"><div class="logo-placeholder">Sponsor A</div></div>
-                <div class="marquee-item"><div class="logo-placeholder">Sponsor B</div></div>
-                <div class="marquee-item"><div class="logo-placeholder">Sponsor C</div></div>
-                <div class="marquee-item"><div class="logo-placeholder">Sponsor D</div></div>
-                <div class="marquee-item"><div class="logo-placeholder">Sponsor E</div></div>
-                <div class="marquee-item"><div class="logo-placeholder">Sponsor F</div></div>
-                <div class="marquee-item"><div class="logo-placeholder">Sponsor G</div></div>
-                <div class="marquee-item"><div class="logo-placeholder">Sponsor A</div></div>
-                <div class="marquee-item"><div class="logo-placeholder">Sponsor B</div></div>
-                <div class="marquee-item"><div class="logo-placeholder">Sponsor C</div></div>
-                <div class="marquee-item"><div class="logo-placeholder">Sponsor D</div></div>
-                <div class="marquee-item"><div class="logo-placeholder">Sponsor E</div></div>
-                <div class="marquee-item"><div class="logo-placeholder">Sponsor F</div></div>
-                <div class="marquee-item"><div class="logo-placeholder">Sponsor G</div></div>
+                <div class="marquee-item">
+                    <div class="logo-placeholder">Dogra Heritage Trust</div>
+                </div>
+                <div class="marquee-item">
+                    <div class="logo-placeholder">Jammu Chamber</div>
+                </div>
+                <div class="marquee-item">
+                    <div class="logo-placeholder">Cultural Society</div>
+                </div>
+                <div class="marquee-item">
+                    <div class="logo-placeholder">Heritage Hotels</div>
+                </div>
+                <div class="marquee-item">
+                    <div class="logo-placeholder">Local Artisans</div>
+                </div>
+                <div class="marquee-item">
+                    <div class="logo-placeholder">Photography Club</div>
+                </div>
+                <div class="marquee-item">
+                    <div class="logo-placeholder">Youth Council</div>
+                </div>
+                <div class="marquee-item">
+                    <div class="logo-placeholder">Dogra Heritage Trust</div>
+                </div>
+                <div class="marquee-item">
+                    <div class="logo-placeholder">Jammu Chamber</div>
+                </div>
+                <div class="marquee-item">
+                    <div class="logo-placeholder">Cultural Society</div>
+                </div>
+                <div class="marquee-item">
+                    <div class="logo-placeholder">Heritage Hotels</div>
+                </div>
+                <div class="marquee-item">
+                    <div class="logo-placeholder">Local Artisans</div>
+                </div>
+                <div class="marquee-item">
+                    <div class="logo-placeholder">Photography Club</div>
+                </div>
+                <div class="marquee-item">
+                    <div class="logo-placeholder">Youth Council</div>
+                </div>
             </div>
         </div>
     </section>
@@ -168,54 +217,94 @@
 
             <div class="history-carousel-wrapper">
                 <div class="carousel-inner" id="historyCarousel">
-                    
+
                     <div class="carousel-slide">
-                        <div class="slide-image">
-                            <img src="images/mubarak-mandi-wide.jpg" alt="Mubarak Mandi Palace" loading="lazy">
-                        </div>
-                        <div class="slide-content">
-                            <h3>The Dogra Dynasty</h3>
-                            <p>Jammu's history is inextricably linked to the Dogra dynasty, which consolidated its power under Maharaja Gulab Singh in the 19th century. The magnificent **Mubarak Mandi Palace Complex**, a blend of Rajasthani, Mughal, and European styles, served as the principal seat of the Dogra rulers for over 150 years. This architectural evolution narrates a story of changing political landscapes and artistic influences in the region.</p>
-                            <a href="#" class="read-more-link">Read More ➡️</a>
+                        <div class="slide-content-block">
+                            <div class="slide-text">
+                                <h3>The Dogra Dynasty Legacy</h3>
+                                <p>Jammu's history is inextricably linked to the Dogra dynasty, which consolidated its
+                                    power under Maharaja Gulab Singh in the 19th century. The magnificent Mubarak Mandi
+                                    Palace Complex served as the principal seat of the Dogra rulers for over 150 years.
+                                </p>
+                                <div class="slide-highlights">
+                                    <span class="highlight-tag">1822 - Foundation</span>
+                                    <span class="highlight-tag">Rajasthani Architecture</span>
+                                    <span class="highlight-tag">Royal Residence</span>
+                                </div>
+                            </div>
+                            <div class="slide-image">
+                                <img src="images/mubarak-mandi-wide.jpg" alt="Mubarak Mandi Palace" loading="lazy">
+                            </div>
                         </div>
                     </div>
 
                     <div class="carousel-slide">
-                        <div class="slide-image">
-                            <img src="images/temple-group-photo.jpg" alt="Raghunath Temple" loading="lazy">
-                        </div>
-                        <div class="slide-content">
-                            <h3>Temples and Urban Fabric</h3>
-                            <p>The Old City is the spiritual heart of Jammu, famed as the **City of Temples**. The Raghunath Temple, a complex of several temples dedicated to various Hindu deities, is a landmark achievement built by Maharaja Gulab Singh and his son. The narrow, winding lanes (galis) of the Old City reflect the traditional urban planning that centered around community, trade, and temples, preserving a timeless way of life.</p>
-                            <a href="#" class="read-more-link">Read More ➡️</a>
+                        <div class="slide-content-block">
+                            <div class="slide-text">
+                                <h3>City of Temples</h3>
+                                <p>The Old City is the spiritual heart of Jammu, famed as the City of Temples. The
+                                    Raghunath Temple complex, built by Maharaja Gulab Singh, represents the pinnacle of
+                                    Dogra religious architecture and devotion.</p>
+                                <div class="slide-highlights">
+                                    <span class="highlight-tag">Spiritual Center</span>
+                                    <span class="highlight-tag">Ancient Temples</span>
+                                    <span class="highlight-tag">Cultural Hub</span>
+                                </div>
+                            </div>
+                            <div class="slide-image">
+                                <img src="images/temple-group-photo.jpg" alt="Raghunath Temple" loading="lazy">
+                            </div>
                         </div>
                     </div>
 
                     <div class="carousel-slide">
-                        <div class="slide-image">
-                            <img src="images/Old jammu map.jpg" alt="Old Map of Jammu" loading="lazy">
-                        </div>
-                        <div class="slide-content">
-                            <h3>The Riverine Memory</h3>
-                            <p>The **River Tawi**, often considered the lifeblood of Jammu, runs alongside the city and has profoundly shaped its geography and culture. The river, believed to be the daughter of Surya (Sun God), is central to the city's spiritual identity. The early settlements and the subsequent palace complex were strategically built overlooking the river, linking the royal narrative with the sacred geography of the region.</p>
-                            <a href="#" class="read-more-link">Read More ➡️</a>
+                        <div class="slide-content-block">
+                            <div class="slide-text">
+                                <h3>The Sacred Tawi</h3>
+                                <p>The River Tawi, considered the lifeblood of Jammu, has profoundly shaped the city's
+                                    geography and culture. Believed to be the daughter of Surya, the river is central to
+                                    Jammu's spiritual identity and urban development.</p>
+                                <div class="slide-highlights">
+                                    <span class="highlight-tag">Sacred River</span>
+                                    <span class="highlight-tag">Urban Planning</span>
+                                    <span class="highlight-tag">Cultural Identity</span>
+                                </div>
+                            </div>
+                            <div class="slide-image">
+                                <img src="images/Old jammu map.jpg" alt="Old Map of Jammu" loading="lazy">
+                            </div>
                         </div>
                     </div>
-                    
+
                     <div class="carousel-slide">
-                        <div class="slide-image">
-                            <img src="images/mubarak-mandi-architecture.jpg" alt="Dogra Heritage Architecture" loading="lazy">
-                        </div>
-                        <div class="slide-content">
-                            <h3>Architectural Layers of the City</h3>
-                            <p>Beyond the palace, Jammu is characterized by a unique vernacular architecture, blending traditional mud, brick, and slate structures (Dhabs) with later influences. Walking through the Old City reveals layers of history, from the small, intricately carved windows (Jharokhas) to the robust foundation walls, each element telling a tale of resilience, climate adaptation, and the intermingling of Dogra, Punjabi, and Kashmiri styles over centuries.</p>
-                            <a href="#" class="read-more-link">Read More ➡️</a>
+                        <div class="slide-content-block">
+                            <div class="slide-text">
+                                <h3>Architectural Heritage</h3>
+                                <p>Jammu's unique vernacular architecture blends traditional Dogra styles with Mughal
+                                    and European influences. The intricate Jharokhas, robust foundations, and artistic
+                                    details tell stories of cultural synthesis and adaptation.</p>
+                                <div class="slide-highlights">
+                                    <span class="highlight-tag">Vernacular Style</span>
+                                    <span class="highlight-tag">Cultural Fusion</span>
+                                    <span class="highlight-tag">Artistic Details</span>
+                                </div>
+                            </div>
+                            <div class="slide-image">
+                                <img src="images/mubarak-mandi-architecture.jpg" alt="Dogra Heritage Architecture"
+                                    loading="lazy">
+                            </div>
                         </div>
                     </div>
 
                 </div>
                 <button class="carousel-nav prev" aria-label="Previous Slide">←</button>
                 <button class="carousel-nav next" aria-label="Next Slide">→</button>
+                <div class="carousel-indicators">
+                    <span class="indicator active" data-slide="0"></span>
+                    <span class="indicator" data-slide="1"></span>
+                    <span class="indicator" data-slide="2"></span>
+                    <span class="indicator" data-slide="3"></span>
+                </div>
             </div>
         </div>
     </section>
@@ -250,7 +339,7 @@
                             <p><strong>End:</strong> Mubarak Mandi</p>
                             <p><strong>Date & Time:</strong> 11 Oct 2025, 10:00 AM</p>
                         </div>
-                        
+
                         <div class="highlights">
                             <h4>Highlights</h4>
                             <ul>
@@ -316,7 +405,8 @@
                     <h2>Old City Heritage Walk Route Map</h2>
                 </div>
                 <div class="map-container">
-                    <img src="images/heritage-walk-map.jpg" alt="Heritage Walk Old City Route Map" class="walk-route-map" loading="lazy">
+                    <img src="images/heritage-walk-map.jpg" alt="Heritage Walk Old City Route Map"
+                        class="walk-route-map" loading="lazy">
                     <div class="map-key">
                         <h4>Key Markings on the Route:</h4>
                         <ul>
@@ -336,7 +426,7 @@
             </div>
         </div>
     </section>
-    
+
     <section id="contest" class="about-section">
         <div class="container">
             <div class="about-content">
@@ -345,10 +435,14 @@
                     <p class="lead">Capture the 'Riverine Memory' and 'Plural Heritage' of Jammu.</p>
 
                     <div class="about-details">
-                        <p>We invite passionate photographers to participate in our contest. Share your unique perspective on the city's historical sites, architectural details, cultural narratives, and the life surrounding the River Tawi. This is your chance to contribute to the visual documentation of Jammu's rich heritage.</p>
+                        <p>We invite passionate photographers to participate in our contest. Share your unique
+                            perspective on the city's historical sites, architectural details, cultural narratives, and
+                            the life surrounding the River Tawi. This is your chance to contribute to the visual
+                            documentation of Jammu's rich heritage.</p>
 
-                        <p>The top entries will be featured in our 2026 calendar and showcased in a special exhibition, connecting your artistry with the city's cultural preservation efforts.</p>
-                        
+                        <p>The top entries will be featured in our 2026 calendar and showcased in a special exhibition,
+                            connecting your artistry with the city's cultural preservation efforts.</p>
+
                         <a href="Gform Link" target="_blank" class="walk-btn contest-btn">
                             Register & Submit Your Entries
                         </a>
@@ -373,31 +467,19 @@
                     <img src="images/mubarak-mandi-architecture.jpg" alt="Dogra Heritage" loading="lazy">
                 </div>
                 <div class="about-text">
-                    <p class="lead">Our mission extends beyond walks. We aim to establish a digital archive and a platform for continuous dialogue.</p>
+                    <p class="lead">Our mission extends beyond walks. We aim to establish a digital archive and a
+                        platform for continuous dialogue.</p>
                     <div class="about-details">
-                        <p>This initiative serves as a crucial platform for urban planners, historians, and local citizens to collaboratively engage with the restoration and future planning of Jammu's core heritage zones, specifically the Mubarak Mandi and Old City areas. We believe that informed community participation is key to sustainable heritage preservation.</p>
+                        <p>This initiative serves as a crucial platform for urban planners, historians, and local
+                            citizens to collaboratively engage with the restoration and future planning of Jammu's core
+                            heritage zones, specifically the Mubarak Mandi and Old City areas. We believe that informed
+                            community participation is key to sustainable heritage preservation.</p>
 
-                        <p>Future projects include heritage education workshops for local schools and the publication of a comprehensive digital map detailing all heritage structures in the city.</p>
+                        <p>Future projects include heritage education workshops for local schools and the publication of
+                            a comprehensive digital map detailing all heritage structures in the city.</p>
                     </div>
                 </div>
             </div>
-        </div>
-    </section>
-    
-    <section class="dogri-slogan-section half-height" id="dogri-slogan">
-        <div class="container">
-            <h1 class="dogri-slogan kalam-style">
-                <span class="dogri-phrase">खन्ड मीठे, लूग डोगरे</span>
-                <span class="english-phrase">Khand Meethe, Loog Dogre</span>
-            </h1>
-        </div>
-    </section>
-    
-    <section class="prem-credit-block half-height">
-        <div class="container">
-            <h2 class="creative-preface signature-font">
-                Prem
-            </h2>
         </div>
     </section>
 
@@ -417,7 +499,8 @@
                         <div class="member-info">
                             <h3>Mrinalini Atrey</h3>
                             <p class="role">Heritage Architect / Advisor</p>
-                            <p class="description">Specializing in Dogra architectural restoration and sustainable heritage practices.</p>
+                            <p class="description">Specializing in Dogra architectural restoration and sustainable
+                                heritage practices.</p>
                         </div>
                     </div>
                 </div>
@@ -430,7 +513,8 @@
                         <div class="member-info">
                             <h3>Kushagra</h3>
                             <p class="role">Urban Planner / Strategist</p>
-                            <p class="description">Focusing on integrating heritage zones into modern urban development frameworks.</p>
+                            <p class="description">Focusing on integrating heritage zones into modern urban development
+                                frameworks.</p>
                         </div>
                     </div>
                 </div>
@@ -443,11 +527,12 @@
                         <div class="member-info">
                             <h3>Aatika Fareed</h3>
                             <p class="role">Cultural Historian / Curator</p>
-                            <p class="description">Curating narrative research on plural heritage and community life in Old Jammu.</p>
+                            <p class="description">Curating narrative research on plural heritage and community life in
+                                Old Jammu.</p>
                         </div>
                     </div>
                 </div>
-                
+
                 <div class="team-member">
                     <div class="member-card">
                         <div class="member-avatar">
@@ -517,16 +602,17 @@
                         </div>
                     </div>
                 </div>
-                
+
                 <div class="team-member">
                     <div class="member-card">
                         <div class="member-avatar">
                             <span class="avatar-letter">U</span>
                         </div>
                         <div class="member-info">
-                            <h3>Unknown</h3>
-                            <p class="role">Not Allocated</p>
-                            <p class="description">Awaiting details for their specialized role in the heritage initiative.</p>
+                            <h3>Siya</h3>
+                            <p class="role">Heritage Documentation</p>
+                            <p class="description">Specializing in digital archiving and documentation of Jammu's
+                                cultural heritage and historical narratives.</p>
                         </div>
                     </div>
                 </div>
@@ -534,30 +620,66 @@
         </div>
     </section>
 
-    <footer class="footer">
+    <section class="dogri-slogan-section" id="dogri-slogan">
         <div class="container">
-            <div class="national-sponsors-footer">
-                <div class="footer-sponsors-grid">
-                    <div class="sponsor-logo">
+            <h1 class="dogri-slogan kalam-style">
+                <span class="dogri-phrase">खन्ड मीठे, लूग डोगरे</span>
+                <span class="english-phrase">Khand Meethe, Loog Dogre</span>
+            </h1>
+        </div>
+    </section>
+
+    <section class="prem-credit-block">
+        <div class="container">
+            <h2 class="creative-preface signature-font">
+                Prem
+            </h2>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="footer-marquee-section">
+            <div class="footer-marquee-title">National Collaborators & Sponsors</div>
+            <div class="footer-marquee-container">
+                <div class="footer-marquee">
+                    <div class="footer-sponsor-logo">
                         <img src="images/heritopolis-removebg-preview.jpg" alt="Heritopolis Logo">
                     </div>
-                    <div class="sponsor-logo">
+                    <div class="footer-sponsor-logo">
                         <img src="images/NIUA.jpg" alt="NIUA Logo">
                     </div>
-                    <div class="sponsor-logo">
+                    <div class="footer-sponsor-logo">
                         <img src="images/dronah_foundation_logo-removebg-preview.jpg" alt="Dronah Foundation Logo">
                     </div>
-                    <div class="sponsor-logo">
+                    <div class="footer-sponsor-logo">
                         <img src="images/Icomos_India_new-removebg-preview.jpg" alt="ICOMOS India Logo">
                     </div>
-                    <div class="sponsor-logo">
+                    <div class="footer-sponsor-logo">
+                        <img src="images/altrim-removebg-preview.jpg" alt="Altrim Publishers Logo">
+                    </div>
+                    <div class="footer-sponsor-logo">
+                        <img src="images/heritopolis-removebg-preview.jpg" alt="Heritopolis Logo">
+                    </div>
+                    <div class="footer-sponsor-logo">
+                        <img src="images/NIUA.jpg" alt="NIUA Logo">
+                    </div>
+                    <div class="footer-sponsor-logo">
+                        <img src="images/dronah_foundation_logo-removebg-preview.jpg" alt="Dronah Foundation Logo">
+                    </div>
+                    <div class="footer-sponsor-logo">
+                        <img src="images/Icomos_India_new-removebg-preview.jpg" alt="ICOMOS India Logo">
+                    </div>
+                    <div class="footer-sponsor-logo">
                         <img src="images/altrim-removebg-preview.jpg" alt="Altrim Publishers Logo">
                     </div>
                 </div>
             </div>
-            
+        </div>
+
+        <div class="container">
             <div class="footer-bottom">
-                <p class="slogan-credit">&copy; 2025 Heritage Walks Jammu. All rights reserved. | Credits to Historic Cities Jammu Team.</p>
+                <p class="slogan-credit">&copy; 2025 Heritage Walks Jammu. All rights reserved. | Credits to Historic
+                    Cities Jammu Team.</p>
             </div>
         </div>
     </footer>
