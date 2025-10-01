@@ -21,7 +21,7 @@ function initializeWebsite() {
 }
 
 // =======================================================
-// 1. MANDALA LOADING SCREEN
+// 1. ENHANCED LOADING SCREEN
 // =======================================================
 function handleMandalaLoading() {
     const loadingScreen = document.getElementById('loadingScreen');
@@ -32,15 +32,15 @@ function handleMandalaLoading() {
         return;
     }
 
-    console.log('Loading screen found, starting mandala animation...');
+    console.log('Loading screen found, starting animation...');
 
     // Add loading class to body to prevent scrolling
     document.body.classList.add('loading');
 
-    // Hide loading screen after 3 seconds
+    // Hide loading screen after 2.5 seconds (faster loading)
     const hideTimer = setTimeout(() => {
         hideLoadingScreen();
-    }, 3000);
+    }, 2500);
 
     // Also hide on any click/touch (for impatient users)
     loadingScreen.addEventListener('click', () => {
@@ -49,22 +49,23 @@ function handleMandalaLoading() {
     });
 
     function hideLoadingScreen() {
-        console.log('Hiding mandala loading screen...');
+        console.log('Hiding loading screen...');
         
-        // Fade out the loading screen (CSS transition is 0.4s)
+        // Smooth fade out with improved transition
         loadingScreen.style.opacity = '0';
+        loadingScreen.style.transform = 'scale(0.95)';
         loadingScreen.style.visibility = 'hidden';
         
         // Remove loading class from body to restore scrolling
         document.body.classList.remove('loading');
         
-        // Remove from DOM after transition completes (0.4s + buffer)
+        // Remove from DOM after transition completes
         setTimeout(() => {
             if (loadingScreen && loadingScreen.parentNode) {
                 loadingScreen.parentNode.removeChild(loadingScreen);
-                console.log('Mandala loading screen removed from DOM');
+                console.log('Loading screen removed from DOM');
             }
-        }, 500);
+        }, 600);
     }
 }
 
@@ -159,35 +160,51 @@ function initScrollEffects() {
 }
 
 // =======================================================
-// 4. ANIMATIONS AND INTERSECTION OBSERVER
+// 4. ENHANCED ANIMATIONS AND INTERSECTION OBSERVER
 // =======================================================
 function initAnimations() {
-    // Fade in animation for sections
+    // Enhanced fade in animation for sections
     const observerOptions = {
-        threshold: 0.1,
-        rootMargin: '0px 0px -50px 0px'
+        threshold: 0.15,
+        rootMargin: '0px 0px -30px 0px'
     };
 
     const fadeObserver = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
             if (entry.isIntersecting) {
-                entry.target.style.opacity = '1';
-                entry.target.style.transform = 'translateY(0)';
-                fadeObserver.unobserve(entry.target); // Stop observing once animated
+                entry.target.classList.add('animate-in');
+                fadeObserver.unobserve(entry.target);
             }
         });
     }, observerOptions);
 
-    // Apply fade animation to cards and sections 
+    // Apply fade animation to various elements
     const animatedElements = document.querySelectorAll(
-        '.walk-card, .team-member, .higher-expert, .info-block-content, .dogri-slogan-section, .prem-credit-block'
+        '.walk-card, .team-member, .about-content, .carousel-slide, .section-header'
     );
-    animatedElements.forEach(el => {
+    
+    animatedElements.forEach((el, index) => {
         el.style.opacity = '0';
-        el.style.transform = 'translateY(30px)';
-        el.style.transition = 'opacity 0.7s ease-out, transform 0.7s ease-out'; // Smoother transition
+        el.style.transform = 'translateY(40px)';
+        el.style.transition = `opacity 0.8s ease-out ${index * 0.1}s, transform 0.8s ease-out ${index * 0.1}s`;
         fadeObserver.observe(el);
     });
+
+    // Staggered animation for team members
+    const teamMembers = document.querySelectorAll('.team-member');
+    teamMembers.forEach((member, index) => {
+        member.style.transitionDelay = `${index * 0.15}s`;
+    });
+
+    // Add animate-in class styles via JavaScript
+    const style = document.createElement('style');
+    style.textContent = `
+        .animate-in {
+            opacity: 1 !important;
+            transform: translateY(0) !important;
+        }
+    `;
+    document.head.appendChild(style);
 }
 
 // =======================================================
@@ -198,21 +215,28 @@ function initFormHandling() {
 }
 
 // =======================================================
-// 6. HISTORY CAROUSEL IMPLEMENTATION (Updated for 4 slides)
+// 6. ENHANCED HISTORY CAROUSEL WITH INDICATORS
 // =======================================================
 function initHistoryCarousel() {
     const carouselInner = document.getElementById('historyCarousel');
     const slides = carouselInner ? carouselInner.querySelectorAll('.carousel-slide') : [];
     const prevButton = document.querySelector('.history-carousel-wrapper .prev');
     const nextButton = document.querySelector('.history-carousel-wrapper .next');
+    const indicators = document.querySelectorAll('.carousel-indicators .indicator');
     let currentIndex = 0;
-    const slideInterval = 8000; // 8 seconds per slide
+    const slideInterval = 6000; // 6 seconds per slide
     let autoRotate;
 
     if (!carouselInner || slides.length === 0) return;
 
     function updateCarousel() {
+        // Smooth transition with transform
         carouselInner.style.transform = `translateX(-${currentIndex * 100}%)`;
+        
+        // Update indicators
+        indicators.forEach((indicator, index) => {
+            indicator.classList.toggle('active', index === currentIndex);
+        });
     }
 
     function goToNext() {
@@ -225,42 +249,121 @@ function initHistoryCarousel() {
         updateCarousel();
     }
 
+    function goToSlide(index) {
+        currentIndex = index;
+        updateCarousel();
+    }
+
     function startAutoRotate() {
-        // Clear any existing timer
         clearInterval(autoRotate); 
         autoRotate = setInterval(goToNext, slideInterval);
     }
     
-    // Manual navigation logic
+    // Manual navigation
     if (nextButton) nextButton.addEventListener('click', () => {
         goToNext();
-        startAutoRotate(); // Restart timer after manual interaction
+        startAutoRotate();
     });
+    
     if (prevButton) prevButton.addEventListener('click', () => {
         goToPrev();
-        startAutoRotate(); // Restart timer after manual interaction
+        startAutoRotate();
     });
 
-    // Start auto-rotation on page load
+    // Indicator navigation
+    indicators.forEach((indicator, index) => {
+        indicator.addEventListener('click', () => {
+            goToSlide(index);
+            startAutoRotate();
+        });
+    });
+
+    // Pause on hover
+    const carouselWrapper = document.querySelector('.history-carousel-wrapper');
+    if (carouselWrapper) {
+        carouselWrapper.addEventListener('mouseenter', () => {
+            clearInterval(autoRotate);
+        });
+        
+        carouselWrapper.addEventListener('mouseleave', () => {
+            startAutoRotate();
+        });
+    }
+
+    // Touch/swipe support for mobile
+    let startX = 0;
+    let endX = 0;
+
+    carouselInner.addEventListener('touchstart', (e) => {
+        startX = e.touches[0].clientX;
+    });
+
+    carouselInner.addEventListener('touchend', (e) => {
+        endX = e.changedTouches[0].clientX;
+        const diff = startX - endX;
+        
+        if (Math.abs(diff) > 50) { // Minimum swipe distance
+            if (diff > 0) {
+                goToNext();
+            } else {
+                goToPrev();
+            }
+            startAutoRotate();
+        }
+    });
+
+    // Initialize
+    updateCarousel();
     startAutoRotate();
-    console.log('History carousel initialized.');
+    console.log('Enhanced history carousel initialized with indicators and touch support.');
 }
 
 // =======================================================
-// 7. BACKGROUND MUSIC IMPLEMENTATION (Non-functional)
+// 7. BACKGROUND MUSIC IMPLEMENTATION
 // =======================================================
 function initBackgroundMusic() {
     const music = document.getElementById('backgroundMusic');
     const toggleButton = document.getElementById('musicToggle');
+    let isPlaying = false;
     
     if (!music || !toggleButton) {
         return;
     }
     
-    // Logic removed as requested. Button remains visible but has no function.
+    // Set initial state
+    music.volume = 0.3; // Low volume for background
     toggleButton.textContent = '🔇';
-    toggleButton.addEventListener('click', () => {
-        console.log("Music functionality is currently disabled.");
+    
+    toggleButton.addEventListener('click', async () => {
+        try {
+            if (isPlaying) {
+                music.pause();
+                toggleButton.textContent = '🔇';
+                isPlaying = false;
+                console.log('Background music paused');
+            } else {
+                await music.play();
+                toggleButton.textContent = '🔊';
+                isPlaying = true;
+                console.log('Background music playing');
+            }
+        } catch (error) {
+            console.log('Audio playback failed:', error);
+            // Fallback for browsers that require user interaction
+            toggleButton.textContent = '🔇';
+            showNotification('Click to enable background music', 'info');
+        }
+    });
+
+    // Handle audio events
+    music.addEventListener('ended', () => {
+        toggleButton.textContent = '🔇';
+        isPlaying = false;
+    });
+
+    music.addEventListener('error', () => {
+        console.log('Audio loading failed - using fallback');
+        toggleButton.style.opacity = '0.5';
     });
 }
 
@@ -399,4 +502,12 @@ setTimeout(() => {
             }
         }, 500);
     }
-}, 5000); // 5 second absolute emergency fallback
+}, 4000); // 4 second absolute emergency fallback
+
+// Performance monitoring
+if ('performance' in window) {
+    window.addEventListener('load', () => {
+        const loadTime = performance.timing.loadEventEnd - performance.timing.navigationStart;
+        console.log(`Page loaded in ${loadTime}ms`);
+    });
+}
