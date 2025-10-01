@@ -5,6 +5,39 @@
     box-sizing: border-box;
 }
 
+/* Performance optimizations */
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+}
+
+/* Smooth scrolling for all browsers */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Reduce motion for users who prefer it */
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+    }
+    
+    html {
+        scroll-behavior: auto;
+    }
+}
+
 :root {
     /* Heritage Color Palette */
     --primary-gold: #D4AF37;
@@ -62,21 +95,21 @@ body.loading {
     padding: var(--container-padding);
 }
 
-/* 1. MANDALA LOADING SCREEN (Fixed and squared) */
+/* 1. IMPROVED LOADING SCREEN */
 .mandala-loading-screen {
     position: fixed;
     top: 0;
     left: 0;
     width: 100vw; 
     height: 100vh;
-    background: var(--dark-brown); 
+    background: linear-gradient(135deg, var(--dark-brown) 0%, var(--royal-burgundy) 100%);
     display: flex;
     align-items: center;
     justify-content: center;
     z-index: 9999;
     opacity: 1;
     visibility: visible;
-    transition: opacity 0.4s ease, visibility 0.4s ease;
+    transition: opacity 0.6s ease, visibility 0.6s ease;
 }
 
 .mandala-container {
@@ -87,99 +120,68 @@ body.loading {
     justify-content: center;
 }
 
-/* Decorative Frame adjustments */
-.mandala-frame {
-    width: 300px; 
-    height: 300px;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    pointer-events: none;
-}
-
-.frame-corner {
-    position: absolute;
-    width: 30px;
-    height: 30px;
-    border: 2px solid var(--primary-gold);
-}
-
-.frame-corner.top-left { top: -15px; left: -15px; border-right: none; border-bottom: none; border-radius: 8px 0 0 0; }
-.frame-corner.top-right { top: -15px; right: -15px; border-left: none; border-bottom: none; border-radius: 0 8px 0 0; }
-.frame-corner.bottom-left { bottom: -15px; left: -15px; border-right: none; border-top: none; border-radius: 0 0 0 8px; }
-.frame-corner.bottom-right { bottom: -15px; right: -15px; border-left: none; border-top: none; border-radius: 0 0 8px 0; }
-
-.frame-border {
-    position: absolute;
-    background: linear-gradient(90deg, transparent 0%, var(--primary-gold) 20%, var(--primary-gold) 80%, transparent 100%);
-}
-
-.frame-border.top,
-.frame-border.bottom {
-    height: 2px;
-    width: 240px;
-    left: 50%;
-    transform: translateX(-50%);
-}
-
-.frame-border.top { top: -15px; }
-.frame-border.bottom { bottom: -15px; }
-
-.frame-border.left,
-.frame-border.right {
-    width: 2px;
-    height: 240px;
-    top: 50%;
-    transform: translateY(-50%);
-    background: linear-gradient(180deg, transparent 0%, var(--primary-gold) 20%, var(--primary-gold) 80%, transparent 100%);
-}
-
-.frame-border.left { left: -15px; }
-.frame-border.right { right: -15px; }
-
-
-/* Rotating Mandala */
 .mandala-loader {
     position: relative;
-    width: 150px;
-    height: 150px;
-    margin-bottom: 1.5rem;
+    width: 120px;
+    height: 120px;
+    margin-bottom: 2rem;
 }
 
 .mandala-circle {
     width: 100%;
     height: 100%;
     border-radius: 50%;
-    overflow: hidden;
     position: relative;
-    animation: mandalaRotate 8s linear infinite;
-    box-shadow: 0 0 30px rgba(212, 175, 55, 0.4), inset 0 0 30px rgba(212, 175, 55, 0.2);
+    background: rgba(212, 175, 55, 0.1);
+    border: 2px solid var(--primary-gold);
+    animation: mandalaRotate 3s linear infinite;
 }
 
-.mandala-image {
+.mandala-pattern {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
     width: 100%;
     height: 100%;
-    object-fit: cover;
-    border-radius: 50%;
 }
 
-.mandala-glow {
+.mandala-ring {
     position: absolute;
-    top: -10px;
-    left: -10px;
-    right: -10px;
-    bottom: -10px;
     border-radius: 50%;
-    background: conic-gradient(
-        from 0deg,
-        transparent 0deg,
-        rgba(212, 175, 55, 0.3) 90deg,
-        transparent 180deg,
-        rgba(212, 175, 55, 0.3) 270deg,
-        transparent 360deg
-    );
-    animation: mandalaGlow 4s linear infinite;
-    z-index: -1;
+    border: 1px solid var(--primary-gold);
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    opacity: 0.6;
+}
+
+.ring-1 {
+    width: 80%;
+    height: 80%;
+    animation: mandalaRing 2s ease-in-out infinite alternate;
+}
+
+.ring-2 {
+    width: 60%;
+    height: 60%;
+    animation: mandalaRing 2.5s ease-in-out infinite alternate-reverse;
+}
+
+.ring-3 {
+    width: 40%;
+    height: 40%;
+    animation: mandalaRing 3s ease-in-out infinite alternate;
+}
+
+.mandala-center {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 2rem;
+    color: var(--primary-gold);
+    animation: pulse 2s ease-in-out infinite;
 }
 
 @keyframes mandalaRotate {
@@ -187,9 +189,14 @@ body.loading {
     to { transform: rotate(360deg); }
 }
 
-@keyframes mandalaGlow {
-    from { transform: rotate(0deg); }
-    to { transform: rotate(-360deg); }
+@keyframes mandalaRing {
+    0% { opacity: 0.3; transform: translate(-50%, -50%) scale(0.9); }
+    100% { opacity: 0.8; transform: translate(-50%, -50%) scale(1.1); }
+}
+
+@keyframes pulse {
+    0%, 100% { transform: translate(-50%, -50%) scale(1); opacity: 1; }
+    50% { transform: translate(-50%, -50%) scale(1.2); opacity: 0.8; }
 }
 
 /* Loading Content */
@@ -200,7 +207,7 @@ body.loading {
 
 .loading-title {
     font-family: var(--font-heading);
-    font-size: 2.2rem;
+    font-size: 2rem;
     font-weight: 600;
     color: var(--primary-gold);
     margin-bottom: 0.5rem;
@@ -208,41 +215,33 @@ body.loading {
 }
 
 .loading-subtitle {
-    font-size: 1.1rem;
+    font-size: 1rem;
     color: var(--warm-cream);
     opacity: 0.8;
     margin-bottom: 2rem;
     letter-spacing: 1px;
 }
 
-.loading-dots {
-    display: flex;
-    justify-content: center;
-    gap: 0.5rem;
+.loading-progress {
+    width: 200px;
+    height: 3px;
+    background: rgba(212, 175, 55, 0.2);
+    border-radius: 2px;
+    overflow: hidden;
+    margin: 0 auto;
 }
 
-.loading-dots span {
-    width: 8px;
-    height: 8px;
-    background: var(--primary-gold);
-    border-radius: 50%;
-    animation: dotPulse 1.5s ease-in-out infinite both;
-    box-shadow: 0 0 10px rgba(212, 175, 55, 0.5);
+.progress-bar {
+    height: 100%;
+    background: linear-gradient(90deg, var(--primary-gold), var(--light-gold));
+    border-radius: 2px;
+    animation: progressLoad 2s ease-in-out infinite;
 }
 
-.loading-dots span:nth-child(1) { animation-delay: -0.3s; }
-.loading-dots span:nth-child(2) { animation-delay: -0.15s; }
-.loading-dots span:nth-child(3) { animation-delay: 0s; }
-
-@keyframes dotPulse {
-    0%, 80%, 100% { 
-        transform: scale(0.8); 
-        opacity: 0.5;
-    }
-    40% { 
-        transform: scale(1.2); 
-        opacity: 1;
-    }
+@keyframes progressLoad {
+    0% { width: 0%; }
+    50% { width: 70%; }
+    100% { width: 100%; }
 }
 
 /* 2. NAVIGATION */
@@ -440,26 +439,36 @@ body.loading {
     margin-bottom: 3rem;
 }
 
-.hero-title.statement-style {
+.hero-title {
     font-family: var(--font-heading);
-    font-size: 5rem; 
-    font-weight: 900; 
-    line-height: 1.05;
-    margin-bottom: 1rem;
-    text-shadow: 0 0 15px rgba(0, 0, 0, 0.8), 2px 2px 0px var(--royal-burgundy); 
-    text-transform: uppercase;
-    letter-spacing: 2px;
+    font-size: 3.5rem; 
+    font-weight: 700; 
+    line-height: 1.2;
+    margin-bottom: 1.5rem;
+    text-align: center;
 }
 
-.highlight-statement {
-    color: var(--primary-gold);
-    text-shadow: 0 0 15px rgba(255, 215, 0, 0.8);
-    display: inline-block;
-    padding-bottom: 0.2em;
-}
-
-.hide-on-mobile {
+.hero-main {
     display: block;
+    color: var(--text-light);
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+    margin-bottom: 0.2rem;
+}
+
+.hero-accent {
+    display: block;
+    color: var(--primary-gold);
+    text-shadow: 0 0 10px rgba(255, 215, 0, 0.6);
+    font-size: 4rem;
+    margin: 0.3rem 0;
+}
+
+.hero-sub {
+    display: block;
+    color: var(--warm-cream);
+    font-size: 2.5rem;
+    font-weight: 500;
+    opacity: 0.9;
 }
 
 .hero-subtitle {
@@ -480,20 +489,33 @@ body.loading {
     line-height: 1.7;
 }
 
-/* 5. COLLABORATORS MARQUEE */
+/* 5. ENHANCED COLLABORATORS MARQUEE */
 .collaborators-marquee {
     background: var(--warm-cream);
-    padding: 2rem 0;
+    padding: 3rem 0;
     border-bottom: 5px solid var(--primary-gold);
     overflow: hidden;
+    position: relative;
+}
+
+.collaborators-border {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 4px;
+    background: linear-gradient(90deg, var(--royal-burgundy), var(--primary-gold), var(--royal-burgundy));
 }
 
 .marquee-title {
     font-family: var(--font-heading);
     text-align: center;
-    font-size: 1.5rem;
+    font-size: 2rem;
+    font-weight: 600;
     color: var(--dark-brown);
-    margin-bottom: 1.5rem;
+    margin-bottom: 2rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
 }
 
 .marquee-container {
@@ -545,7 +567,7 @@ body.loading {
 }
 
 
-/* 6. HISTORY CAROUSEL SECTION (Increased Height) */
+/* 6. REDESIGNED HISTORY CAROUSEL */
 .history-section {
     padding: var(--section-padding);
     background: var(--soft-beige);
@@ -553,26 +575,68 @@ body.loading {
 
 .history-carousel-wrapper {
     position: relative;
-    max-width: 1000px;
+    max-width: 1100px;
     margin: 0 auto;
     overflow: hidden;
-    border-radius: 15px;
+    border-radius: 20px;
     box-shadow: var(--shadow-heavy);
 }
 
 .carousel-inner {
     display: flex;
-    transition: transform 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94); 
+    transition: transform 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94); 
 }
 
 .carousel-slide {
     min-width: 100%;
-    display: flex;
-    align-items: center;
     background: white;
     flex-shrink: 0;
     overflow: hidden;
-    height: 500px; /* Increased carousel height for visibility */
+    height: 400px;
+}
+
+.slide-content-block {
+    display: flex;
+    height: 100%;
+    align-items: center;
+}
+
+.slide-text {
+    flex: 1;
+    padding: 2.5rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.slide-text h3 {
+    font-family: var(--font-heading);
+    font-size: 1.8rem;
+    color: var(--royal-burgundy);
+    margin-bottom: 1rem;
+    line-height: 1.3;
+}
+
+.slide-text p {
+    font-size: 1rem;
+    line-height: 1.6;
+    color: var(--text-dark);
+    margin-bottom: 1.5rem;
+}
+
+.slide-highlights {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+}
+
+.highlight-tag {
+    background: var(--primary-gold);
+    color: white;
+    padding: 0.3rem 0.8rem;
+    border-radius: 15px;
+    font-size: 0.8rem;
+    font-weight: 500;
 }
 
 .slide-image {
@@ -585,18 +649,67 @@ body.loading {
     width: 100%;
     height: 100%;
     object-fit: cover;
+    transition: transform 0.5s ease;
 }
 
-.slide-content {
-    flex: 1;
-    padding: 3rem;
+.carousel-slide:hover .slide-image img {
+    transform: scale(1.05);
 }
 
-.slide-content h3 {
-    font-family: var(--font-heading);
-    font-size: 2rem;
-    color: var(--royal-burgundy);
-    margin-bottom: 1rem;
+.carousel-indicators {
+    position: absolute;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    gap: 10px;
+}
+
+.indicator {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.5);
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.indicator.active {
+    background: var(--primary-gold);
+    transform: scale(1.2);
+}
+
+/* Carousel Navigation */
+.carousel-nav {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(139, 69, 19, 0.8);
+    color: white;
+    border: none;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    font-size: 1.5rem;
+    cursor: pointer;
+    transition: all var(--transition-medium);
+    z-index: 10;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.carousel-nav:hover {
+    background: var(--royal-burgundy);
+    transform: translateY(-50%) scale(1.1);
+}
+
+.carousel-nav.prev {
+    left: 20px;
+}
+
+.carousel-nav.next {
+    right: 20px;
 }
 
 /* Section Headers */
@@ -888,109 +1001,123 @@ body.loading {
     order: 1; 
 }
 
-/* 11. DOGRI SLOGAN BLOCK (Half Height) */
+/* 11. DOGRI SLOGAN BLOCK */
 .dogri-slogan-section {
     background: var(--dark-brown);
-    min-height: 50vh; /* Set minimum height to half viewport */
+    padding: 4rem 0;
     display: flex;
     align-items: center;
     justify-content: center;
-    padding: 0; 
 }
 
 .dogri-slogan {
     font-family: var(--font-kalam); 
-    font-size: 3.5rem; 
+    font-size: 3rem; 
     font-weight: 700;
     margin: 0;
     color: var(--primary-gold);
     text-shadow: 0 0 10px rgba(212, 175, 55, 0.4);
-    line-height: 1.2;
+    line-height: 1.3;
     text-align: center;
 }
 
 .dogri-phrase, .english-phrase {
     display: block;
-    padding: 0.2rem 0;
+    padding: 0.3rem 0;
 }
 
 .english-phrase {
-    font-size: 1.8rem; 
+    font-size: 1.6rem; 
     color: var(--warm-cream);
     opacity: 0.9;
+    font-weight: 400;
 }
 
-
-/* 12. PREM CREATIVE CREDIT BLOCK (Half Height, Signature Font) */
+/* 12. PREM CREATIVE CREDIT BLOCK */
 .prem-credit-block {
     background: var(--primary-gold);
-    min-height: 50vh; /* Set minimum height to half viewport */
+    padding: 3rem 0;
     display: flex;
     align-items: center;
     justify-content: center;
-    padding: 0;
     text-align: center;
     color: var(--dark-brown);
 }
 
 .creative-preface.signature-font {
-    font-family: var(--font-signature); /* Applied signature font */
-    font-size: 5rem;
-    font-weight: 400; /* Signature fonts often look better lighter */
+    font-family: var(--font-signature);
+    font-size: 4rem;
+    font-weight: 400;
     margin: 0;
     line-height: 1;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
 }
 
 
-/* 13. TEAM SECTION (Redesigned Cards) */
+/* 13. ENHANCED TEAM SECTION */
 .team-section {
     padding: var(--section-padding);
-    background: white; 
+    background: linear-gradient(135deg, var(--soft-beige) 0%, var(--warm-cream) 100%);
 }
 
 .team-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); 
-    gap: 2rem;
-    max-width: 1000px;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); 
+    gap: 2.5rem;
+    max-width: 1200px;
     margin: 0 auto;
 }
 
-/* Core Team Members (Modern and Clean) */
+/* Core Team Members */
 .team-member {
-    background: var(--soft-beige);
-    border-radius: 10px;
-    padding: 1.5rem;
-    box-shadow: var(--shadow-light);
-    border-bottom: 5px solid var(--deep-brown);
+    background: white;
+    border-radius: 20px;
+    padding: 2rem;
+    box-shadow: var(--shadow-medium);
+    border: 1px solid rgba(212, 175, 55, 0.2);
     transition: all var(--transition-medium);
     text-align: center;
+    position: relative;
+    overflow: hidden;
+}
+
+.team-member::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 4px;
+    background: linear-gradient(90deg, var(--primary-gold), var(--deep-brown));
 }
 
 .team-member:hover {
-    transform: translateY(-5px);
-    border-color: var(--primary-gold);
-    box-shadow: var(--shadow-medium);
+    transform: translateY(-8px);
+    box-shadow: var(--shadow-heavy);
 }
 
-/* Styling for Higher Experts (Subtle distinction) */
+/* Higher Experts Styling */
 .team-member.higher-expert {
-    background: var(--warm-cream);
-    border: 1px solid var(--royal-burgundy);
-    box-shadow: 0 0 0 3px var(--primary-gold), var(--shadow-medium); 
-    transform: scale(1.05);
+    background: linear-gradient(135deg, white 0%, var(--warm-cream) 100%);
+    border: 2px solid var(--royal-burgundy);
+    transform: scale(1.02);
     z-index: 5;
     order: -1; 
 }
 
+.team-member.higher-expert::before {
+    background: linear-gradient(90deg, var(--royal-burgundy), var(--primary-gold), var(--royal-burgundy));
+    height: 6px;
+}
+
 .team-member.higher-expert:hover {
-    transform: scale(1.1);
-    box-shadow: 0 0 0 5px var(--primary-gold), var(--shadow-heavy);
+    transform: scale(1.05) translateY(-8px);
 }
 
 .team-member.higher-expert .member-avatar {
     background: var(--royal-burgundy);
-    box-shadow: 0 0 10px rgba(128, 0, 32, 0.8);
+    border: 4px solid var(--primary-gold);
+    box-shadow: 0 0 20px rgba(128, 0, 32, 0.3);
 }
 
 .team-member.higher-expert .role {
@@ -998,19 +1125,23 @@ body.loading {
     font-weight: 700;
 }
 
-
 .member-avatar {
-    width: 70px; 
-    height: 70px;
+    width: 80px; 
+    height: 80px;
     border-radius: 50%;
     background: var(--deep-brown);
     display: flex;
     align-items: center;
     justify-content: center;
-    margin: 0 auto 1rem;
+    margin: 0 auto 1.5rem;
     box-shadow: var(--shadow-light);
     border: 3px solid var(--primary-gold);
     overflow: hidden;
+    transition: all var(--transition-medium);
+}
+
+.team-member:hover .member-avatar {
+    transform: scale(1.1);
 }
 
 .member-avatar img {
@@ -1020,14 +1151,14 @@ body.loading {
 }
 
 .avatar-letter {
-    font-size: 1.8rem;
+    font-size: 2rem;
     font-weight: 700;
     color: white;
 }
 
 .member-info h3 {
     font-family: var(--font-heading);
-    font-size: 1.4rem;
+    font-size: 1.5rem;
     color: var(--deep-brown);
     margin-bottom: 0.5rem;
 }
@@ -1036,6 +1167,7 @@ body.loading {
     color: var(--primary-gold);
     font-weight: 600;
     margin-bottom: 1rem;
+    font-size: 1rem;
 }
 
 .description {
@@ -1046,91 +1178,110 @@ body.loading {
 }
 
 
-/* 14. FOOTER (Redesigned) */
+/* 14. ENHANCED FOOTER WITH MARQUEE */
 .footer {
     background: var(--dark-brown);
     color: var(--text-light);
-    padding: 1rem 0; 
+    padding: 0;
 }
 
-.national-sponsors-footer {
+.footer-marquee-section {
+    background: var(--royal-burgundy);
+    padding: 2rem 0;
+    overflow: hidden;
+    border-bottom: 3px solid var(--primary-gold);
+}
+
+.footer-marquee-title {
+    font-family: var(--font-heading);
     text-align: center;
-    margin-bottom: 0.5rem;
-    padding-bottom: 0.5rem;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: var(--primary-gold);
+    margin-bottom: 1.5rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
 }
 
-.footer-sponsors-grid {
-    display: flex;
-    justify-content: center;
-    gap: 1rem;
-    flex-wrap: wrap;
-    padding: 1rem 0;
+.footer-marquee-container {
+    width: 100%;
+    overflow: hidden;
+    white-space: nowrap;
 }
 
-.sponsor-logo {
-    height: 35px; 
+.footer-marquee {
+    display: inline-block;
+    animation: footerMarqueeScroll 30s linear infinite;
+}
+
+.footer-sponsor-logo {
+    display: inline-block;
+    height: 50px;
     width: auto;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    padding: 5px;
+    margin: 0 30px;
+    padding: 8px 15px;
     background: white;
-    border-radius: 5px;
-    opacity: 0.8;
-    transition: opacity var(--transition-fast);
+    border-radius: 8px;
+    vertical-align: middle;
+    transition: all var(--transition-fast);
 }
 
-.sponsor-logo:hover {
-    opacity: 1;
+.footer-sponsor-logo:hover {
+    transform: scale(1.05);
+    box-shadow: 0 4px 15px rgba(212, 175, 55, 0.3);
 }
 
-.sponsor-logo img {
-    max-height: 100%;
-    max-width: 100%;
+.footer-sponsor-logo img {
+    height: 100%;
+    width: auto;
     object-fit: contain;
 }
 
+@keyframes footerMarqueeScroll {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(-50%); }
+}
+
 .footer-bottom {
-    padding-top: 0.5rem;
+    padding: 1.5rem 0;
     text-align: center;
-    opacity: 0.9;
-    font-size: 0.9rem;
+    background: var(--dark-brown);
 }
 
 .slogan-credit {
     margin: 0;
+    font-size: 0.9rem;
+    opacity: 0.9;
 }
 
 
-/* Responsive Design */
+/* ENHANCED RESPONSIVE DESIGN */
 @media (max-width: 992px) {
-    /* History Carousel Tablet/Mobile Fix */
+    /* History Carousel Mobile Optimization */
     .carousel-slide {
+        height: auto;
+        min-height: 350px;
+    }
+    
+    .slide-content-block {
         flex-direction: column;
-        height: auto; 
     }
 
-    .slide-image {
-        width: 100%;
-        height: 250px;
-    }
-    
-    .slide-content {
+    .slide-text {
         padding: 2rem;
+        order: 2;
     }
     
-    /* Half height blocks become full screen height on mobile */
-    .dogri-slogan-section.half-height,
-    .prem-credit-block.half-height {
-        min-height: 80vh; 
+    .slide-image {
+        height: 200px;
+        order: 1;
     }
     
-    .creative-preface.signature-font {
-        font-size: 3.5rem;
+    .slide-text h3 {
+        font-size: 1.5rem;
     }
     
-    /* About Content (Photography) alignment */
+    /* About Content alignment */
     .about-content {
         grid-template-columns: 1fr;
         gap: 2rem;
@@ -1143,49 +1294,98 @@ body.loading {
     .about-text {
         order: 2;
     }
+    
+    /* Team grid adjustment */
+    .team-grid {
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    }
 }
 
-
 @media (max-width: 768px) {
-    .hero-title.statement-style {
-        font-size: 3rem;
-        letter-spacing: 1px;
+    /* Hero section mobile optimization */
+    .hero-title {
+        font-size: 2.5rem;
     }
-
-    .hide-on-mobile {
-        display: none;
+    
+    .hero-main {
+        font-size: 2.2rem;
+    }
+    
+    .hero-accent {
+        font-size: 3rem;
+    }
+    
+    .hero-sub {
+        font-size: 1.8rem;
     }
     
     .hero-subtitle {
         font-size: 1.1rem;
     }
+    
+    .hero-description {
+        font-size: 1rem;
+    }
 
+    /* Carousel mobile adjustments */
+    .carousel-slide {
+        height: auto;
+        min-height: 300px;
+    }
+    
+    .slide-text {
+        padding: 1.5rem;
+    }
+    
+    .slide-image {
+        height: 180px;
+    }
+
+    /* Walks grid */
     .walks-grid {
         grid-template-columns: 1fr;
+        gap: 2rem;
     }
     
+    /* Team section mobile */
     .team-grid {
-        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+        max-width: 400px;
     }
     
-    .dogri-slogan {
-        font-size: 2.5rem; 
-    }
-    
-    .english-phrase {
-        font-size: 1.2rem;
-    }
-
     .team-member.higher-expert {
         transform: scale(1.0);
-        margin-bottom: 2rem;
+        margin-bottom: 1rem;
     }
     
     .team-member.higher-expert:hover {
-        transform: scale(1.05);
+        transform: scale(1.02) translateY(-5px);
     }
     
-    /* Navigation toggle remains correct */
+    /* Slogan adjustments */
+    .dogri-slogan {
+        font-size: 2.2rem; 
+    }
+    
+    .english-phrase {
+        font-size: 1.3rem;
+    }
+    
+    .creative-preface.signature-font {
+        font-size: 3rem;
+    }
+    
+    /* Marquee title mobile */
+    .marquee-title {
+        font-size: 1.5rem;
+    }
+    
+    .footer-marquee-title {
+        font-size: 1.2rem;
+    }
+    
+    /* Navigation mobile */
     .nav-menu {
         position: fixed;
         top: 70px;
@@ -1208,16 +1408,62 @@ body.loading {
     .nav-toggle {
         display: flex;
     }
+    
+    /* Loading screen mobile */
+    .loading-title {
+        font-size: 1.5rem;
+    }
+    
+    .mandala-loader {
+        width: 100px;
+        height: 100px;
+    }
 }
 
 @media (max-width: 480px) {
-    .hero-title.statement-style {
-        font-size: 2.2rem;
+    /* Extra small screens */
+    .hero-title {
+        font-size: 2rem;
+    }
+    
+    .hero-main {
+        font-size: 1.8rem;
+    }
+    
+    .hero-accent {
+        font-size: 2.5rem;
+    }
+    
+    .hero-sub {
+        font-size: 1.5rem;
+    }
+    
+    .carousel-slide {
+        min-height: 280px;
+    }
+    
+    .slide-text {
+        padding: 1rem;
+    }
+    
+    .slide-image {
+        height: 150px;
     }
     
     .team-grid {
-        grid-template-columns: 1fr;
-        max-width: 350px;
+        max-width: 300px;
+    }
+    
+    .dogri-slogan {
+        font-size: 1.8rem;
+    }
+    
+    .english-phrase {
+        font-size: 1.1rem;
+    }
+    
+    .creative-preface.signature-font {
+        font-size: 2.5rem;
     }
 }
 
