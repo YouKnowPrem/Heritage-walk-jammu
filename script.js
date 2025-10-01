@@ -228,11 +228,6 @@ function initHistoryCarousel() {
     let autoRotate;
 
     if (!carouselInner || slides.length === 0) return;
-    
-    // IMPORTANT: Check if the number of indicators matches the number of slides
-    if (indicators.length !== slides.length) {
-        console.error('Mismatch between slides and indicators. Carousel might not function correctly.');
-    }
 
     function updateCarousel() {
         // Smooth transition with transform
@@ -337,7 +332,6 @@ function initBackgroundMusic() {
     
     // Set initial state
     music.volume = 0.3; // Low volume for background
-    // Update the button text to standard Unicode for better compatibility
     toggleButton.textContent = '🔇';
     
     toggleButton.addEventListener('click', async () => {
@@ -349,7 +343,7 @@ function initBackgroundMusic() {
                 console.log('Background music paused');
             } else {
                 await music.play();
-                toggleButton.textContent = '🔊'; // Speaker icon when playing
+                toggleButton.textContent = '🔊';
                 isPlaying = true;
                 console.log('Background music playing');
             }
