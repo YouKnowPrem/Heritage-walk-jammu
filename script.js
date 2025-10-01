@@ -224,7 +224,7 @@ function initHistoryCarousel() {
     const nextButton = document.querySelector('.history-carousel-wrapper .next');
     const indicators = document.querySelectorAll('.carousel-indicators .indicator');
     let currentIndex = 0;
-    const slideInterval = 6000; // 6 seconds per slide
+    const slideInterval = 5000; // 5 seconds per slide
     let autoRotate;
 
     if (!carouselInner || slides.length === 0) return;
