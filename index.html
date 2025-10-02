@@ -20,6 +20,22 @@
 </head>
 
 <body>
+    <!-- Script to disable context menu (right-click) for extra IP protection -->
+    <script>
+        document.addEventListener('contextmenu', event => {
+            event.preventDefault();
+            // Show a custom message instead of the default browser context menu
+            const message = "Image right-click and save functionality is disabled to protect intellectual property.";
+            
+            // Temporary visual indicator (using existing function if available, or logging)
+            if (typeof showNotification === 'function') {
+                showNotification(message, 'error');
+            } else {
+                console.warn(message);
+            }
+        });
+    </script>
+    
     <div id="loadingScreen" class="mandala-loading-screen">
         <div class="mandala-container">
             <div class="mandala-loader">
@@ -68,13 +84,10 @@
     </nav>
 
     <button id="musicToggle" class="music-toggle" aria-label="Toggle background music">
-        <!-- Using Unicode characters for speaker/mute icon -->
-        <!-- &#x1F50A; (Speaker) / &#x1F507; (Mute) -->
         🔇
     </button>
 
     <audio id="backgroundMusic" loop preload="auto">
-        <!-- Note: This URL must be externally hosted and accessible -->
         <source src="https://www.soundjay.com/misc/sounds/temple-bell-1.mp3" type="audio/mpeg">
         <source src="https://www.soundjay.com/misc/sounds/temple-bell-1.wav" type="audio/wav">
     </audio>
@@ -126,43 +139,44 @@
             <!-- Ensure the content is doubled/tripled to support infinite scrolling animation -->
             <div class="marquee marquee-1">
                 <!-- Local Collaborators: Kala Kendra, INTACH, Jammu Heritage, JSCL, IGNCA, JU -->
+                <!-- Image paths updated to point to the 'images/' folder -->
                 <div class="marquee-item">
-                    <img src="images/Kala.jpg" alt="Kala Kendra Logo" onerror="this.src='https://placehold.co/100x70/D4AF37/FFFFFF?text=Kala+Kendra'">
+                    <img src="images/Kala.jpg" alt="Kala Kendra Logo" loading="lazy" onerror="this.src='https://placehold.co/100x70/D4AF37/FFFFFF?text=Kala+Kendra'">
                 </div>
                 <div class="marquee-item">
-                    <img src="images/INTACH.jpg" alt="INTACH Logo" onerror="this.src='https://placehold.co/100x70/D4AF37/FFFFFF?text=INTACH'">
+                    <img src="images/INTACH.jpg" alt="INTACH Logo" loading="lazy" onerror="this.src='https://placehold.co/100x70/D4AF37/FFFFFF?text=INTACH'">
                 </div>
                 <div class="marquee-item">
-                    <img src="images/JH.jpg" alt="Jammu Heritage Logo" onerror="this.src='https://placehold.co/100x70/D4AF37/FFFFFF?text=Jammu+Heritage'">
+                    <img src="images/JH.jpg" alt="Jammu Heritage Logo" loading="lazy" onerror="this.src='https://placehold.co/100x70/D4AF37/FFFFFF?text=Jammu+Heritage'">
                 </div>
                 <div class="marquee-item">
-                    <img src="images/JSCL.jpg" alt="Jammu Smart City Logo" onerror="this.src='https://placehold.co/100x70/D4AF37/FFFFFF?text=JSCL'">
+                    <img src="images/JSCL.jpg" alt="Jammu Smart City Logo" loading="lazy" onerror="this.src='https://placehold.co/100x70/D4AF37/FFFFFF?text=JSCL'">
                 </div>
                 <div class="marquee-item">
-                    <img src="images/IGNCA.jpg" alt="IGNCA Logo" onerror="this.src='https://placehold.co/100x70/D4AF37/FFFFFF?text=IGNCA'">
+                    <img src="images/IGNCA.jpg" alt="IGNCA Logo" loading="lazy" onerror="this.src='https://placehold.co/100x70/D4AF37/FFFFFF?text=IGNCA'">
                 </div>
                 <div class="marquee-item">
-                    <img src="images/JU.jpg" alt="Jammu University Logo" onerror="this.src='https://placehold.co/100x70/D4AF37/FFFFFF?text=JU'">
+                    <img src="images/JU.jpg" alt="Jammu University Logo" loading="lazy" onerror="this.src='https://placehold.co/100x70/D4AF37/FFFFFF?text=JU'">
                 </div>
                 
-                <!-- Repeat set for infinite effect -->
+                <!-- Repeat set for infinite effect (paths must also be updated) -->
                 <div class="marquee-item">
-                    <img src="images/Kala.jpg" alt="Kala Kendra Logo" onerror="this.src='https://placehold.co/100x70/D4AF37/FFFFFF?text=Kala+Kendra'">
+                    <img src="images/Kala.jpg" alt="Kala Kendra Logo" loading="lazy" onerror="this.src='https://placehold.co/100x70/D4AF37/FFFFFF?text=Kala+Kendra'">
                 </div>
                 <div class="marquee-item">
-                    <img src="images/INTACH.jpg" alt="INTACH Logo" onerror="this.src='https://placehold.co/100x70/D4AF37/FFFFFF?text=INTACH'">
+                    <img src="images/INTACH.jpg" alt="INTACH Logo" loading="lazy" onerror="this.src='https://placehold.co/100x70/D4AF37/FFFFFF?text=INTACH'">
                 </div>
                 <div class="marquee-item">
-                    <img src="images/JH.jpg" alt="Jammu Heritage Logo" onerror="this.src='https://placehold.co/100x70/D4AF37/FFFFFF?text=Jammu+Heritage'">
+                    <img src="images/JH.jpg" alt="Jammu Heritage Logo" loading="lazy" onerror="this.src='https://placehold.co/100x70/D4AF37/FFFFFF?text=Jammu+Heritage'">
                 </div>
                 <div class="marquee-item">
-                    <img src="images/JSCL.jpg" alt="Jammu Smart City Logo" onerror="this.src='https://placehold.co/100x70/D4AF37/FFFFFF?text=JSCL'">
+                    <img src="images/JSCL.jpg" alt="Jammu Smart City Logo" loading="lazy" onerror="this.src='https://placehold.co/100x70/D4AF37/FFFFFF?text=JSCL'">
                 </div>
                 <div class="marquee-item">
-                    <img src="images/IGNCA.jpg" alt="IGNCA Logo" onerror="this.src='https://placehold.co/100x70/D4AF37/FFFFFF?text=IGNCA'">
+                    <img src="images/IGNCA.jpg" alt="IGNCA Logo" loading="lazy" onerror="this.src='https://placehold.co/100x70/D4AF37/FFFFFF?text=IGNCA'">
                 </div>
                 <div class="marquee-item">
-                    <img src="images/JU.jpg" alt="Jammu University Logo" onerror="this.src='https://placehold.co/100x70/D4AF37/FFFFFF?text=JU'">
+                    <img src="images/JU.jpg" alt="Jammu University Logo" loading="lazy" onerror="this.src='https://placehold.co/100x70/D4AF37/FFFFFF?text=JU'">
                 </div>
             </div>
         </div>
@@ -173,49 +187,50 @@
             <div class="marquee marquee-2">
                 <!-- National Collaborators: Altrim, Dronah, Heritopolis, ICOMOS, NIUA -->
                 <div class="marquee-item">
-                    <img src="images/altrim.jpg" alt="Altrim Publishers Logo" onerror="this.src='https://placehold.co/100x70/8B4513/FFFFFF?text=Altrim'">
+                    <img src="images/altrim.jpg" alt="Altrim Publishers Logo" loading="lazy" onerror="this.src='https://placehold.co/100x70/8B4513/FFFFFF?text=Altrim'">
                 </div>
                 <div class="marquee-item">
-                    <img src="images/dronah.jpg" alt="Dronah Foundation Logo" onerror="this.src='https://placehold.co/100x70/8B4513/FFFFFF?text=Dronah'">
+                    <img src="images/dronah.jpg" alt="Dronah Foundation Logo" loading="lazy" onerror="this.src='https://placehold.co/100x70/8B4513/FFFFFF?text=Dronah'">
                 </div>
                 <div class="marquee-item">
-                    <img src="images/heritopolis.jpg" alt="Heritopolis Logo" onerror="this.src='https://placehold.co/100x70/8B4513/FFFFFF?text=Heritopolis'">
+                    <img src="images/heritopolis.jpg" alt="Heritopolis Logo" loading="lazy" onerror="this.src='https://placehold.co/100x70/8B4513/FFFFFF?text=Heritopolis'">
                 </div>
                 <div class="marquee-item">
-                    <img src="images/Icomos.jpg" alt="ICOMOS India Logo" onerror="this.src='https://placehold.co/100x70/8B4513/FFFFFF?text=ICOMOS'">
+                    <img src="images/Icomos.jpg" alt="ICOMOS India Logo" loading="lazy" onerror="this.src='https://placehold.co/100x70/8B4513/FFFFFF?text=ICOMOS'">
                 </div>
                 <div class="marquee-item">
-                    <img src="images/NIUA.jpg" alt="NIUA Logo" onerror="this.src='https://placehold.co/100x70/8B4513/FFFFFF?text=NIUA'">
+                    <!-- Assuming NIUA image is named NIUA.jpg or similar in the images folder -->
+                    <img src="images/NIUA.jpg" alt="NIUA Logo" loading="lazy" onerror="this.src='https://placehold.co/100x70/8B4513/FFFFFF?text=NIUA'"> 
                 </div>
-                <!-- Local Collaborators -->
+                <!-- Local Collaborators: Kala Kendra, Jammu Heritage -->
                 <div class="marquee-item">
-                    <img src="images/Kala.jpg" alt="Kala Kendra Logo" onerror="this.src='https://placehold.co/100x70/D4AF37/FFFFFF?text=Kala+Kendra'">
+                    <img src="images/Kala.jpg" alt="Kala Kendra Logo" loading="lazy" onerror="this.src='https://placehold.co/100x70/D4AF37/FFFFFF?text=Kala+Kendra'">
                 </div>
                 <div class="marquee-item">
-                    <img src="images/JH.jpg" alt="Jammu Heritage Logo" onerror="this.src='https://placehold.co/100x70/D4AF37/FFFFFF?text=Jammu+Heritage'">
+                    <img src="images/JH.jpg" alt="Jammu Heritage Logo" loading="lazy" onerror="this.src='https://placehold.co/100x70/D4AF37/FFFFFF?text=Jammu+Heritage'">
                 </div>
                 
-                <!-- Repeat set for infinite effect -->
+                <!-- Repeat set for infinite effect (paths must also be updated) -->
                 <div class="marquee-item">
-                    <img src="images/altrim.jpg" alt="Altrim Publishers Logo" onerror="this.src='https://placehold.co/100x70/8B4513/FFFFFF?text=Altrim'">
+                    <img src="images/altrim.jpg" alt="Altrim Publishers Logo" loading="lazy" onerror="this.src='https://placehold.co/100x70/8B4513/FFFFFF?text=Altrim'">
                 </div>
                 <div class="marquee-item">
-                    <img src="images/dronah.jpg" alt="Dronah Foundation Logo" onerror="this.src='https://placehold.co/100x70/8B4513/FFFFFF?text=Dronah'">
+                    <img src="images/dronah.jpg" alt="Dronah Foundation Logo" loading="lazy" onerror="this.src='https://placehold.co/100x70/8B4513/FFFFFF?text=Dronah'">
                 </div>
                 <div class="marquee-item">
-                    <img src="images/heritopolis.jpg" alt="Heritopolis Logo" onerror="this.src='https://placehold.co/100x70/8B4513/FFFFFF?text=Heritopolis'">
+                    <img src="images/heritopolis.jpg" alt="Heritopolis Logo" loading="lazy" onerror="this.src='https://placehold.co/100x70/8B4513/FFFFFF?text=Heritopolis'">
                 </div>
                 <div class="marquee-item">
-                    <img src="images/Icomos.jpg" alt="ICOMOS India Logo" onerror="this.src='https://placehold.co/100x70/8B4513/FFFFFF?text=ICOMOS'">
+                    <img src="images/Icomos.jpg" alt="ICOMOS India Logo" loading="lazy" onerror="this.src='https://placehold.co/100x70/8B4513/FFFFFF?text=ICOMOS'">
                 </div>
                 <div class="marquee-item">
-                    <img src="images/NIUA.jpg" alt="NIUA Logo" onerror="this.src='https://placehold.co/100x70/8B4513/FFFFFF?text=NIUA'">
+                    <img src="images/NIUA.jpg" alt="NIUA Logo" loading="lazy" onerror="this.src='https://placehold.co/100x70/8B4513/FFFFFF?text=NIUA'">
                 </div>
                 <div class="marquee-item">
-                    <img src="images/Kala.jpg" alt="Kala Kendra Logo" onerror="this.src='https://placehold.co/100x70/D4AF37/FFFFFF?text=Kala+Kendra'">
+                    <img src="images/Kala.jpg" alt="Kala Kendra Logo" loading="lazy" onerror="this.src='https://placehold.co/100x70/D4AF37/FFFFFF?text=Kala+Kendra'">
                 </div>
                 <div class="marquee-item">
-                    <img src="images/JH.jpg" alt="Jammu Heritage Logo" onerror="this.src='https://placehold.co/100x70/D4AF37/FFFFFF?text=Jammu+Heritage'">
+                    <img src="images/JH.jpg" alt="Jammu Heritage Logo" loading="lazy" onerror="this.src='https://placehold.co/100x70/D4AF37/FFFFFF?text=Jammu+Heritage'">
                 </div>
             </div>
         </div>
@@ -713,39 +728,41 @@
             <div class="footer-marquee-title">National Collaborators & Sponsors</div>
             <div class="footer-marquee-container">
                 <!-- FOOTER MARQUEE: NATIONAL COLLABORATORS ONLY (Fast Speed) -->
+                <!-- The footer marquee also uses the infinite scrolling animation set up in CSS -->
                 <div class="footer-marquee footer-marquee-1 speed-fast">
                     <!-- National Collaborators: Altrim, Dronah, Heritopolis, ICOMOS, NIUA -->
+                    <!-- Image paths updated to point to the 'images/' folder where the files are located -->
                     <div class="footer-sponsor-logo">
-                        <img src="images/altrim.jpg" alt="Altrim Publishers Logo" onerror="this.src='https://placehold.co/100x50/FFFFFF/3E2723?text=Altrim'">
+                        <img src="images/altrim.jpg" alt="Altrim Publishers Logo" loading="lazy" onerror="this.src='https://placehold.co/100x50/FFFFFF/3E2723?text=Altrim'">
                     </div>
                     <div class="footer-sponsor-logo">
-                        <img src="images/dronah.jpg" alt="Dronah Foundation Logo" onerror="this.src='https://placehold.co/100x50/FFFFFF/3E2723?text=Dronah'">
+                        <img src="images/dronah.jpg" alt="Dronah Foundation Logo" loading="lazy" onerror="this.src='https://placehold.co/100x50/FFFFFF/3E2723?text=Dronah'">
                     </div>
                     <div class="footer-sponsor-logo">
-                        <img src="images/heritopolis.jpg" alt="Heritopolis Logo" onerror="this.src='https://placehold.co/100x50/FFFFFF/3E2723?text=Heritopolis'">
+                        <img src="images/heritopolis.jpg" alt="Heritopolis Logo" loading="lazy" onerror="this.src='https://placehold.co/100x50/FFFFFF/3E2723?text=Heritopolis'">
                     </div>
                     <div class="footer-sponsor-logo">
-                        <img src="images/Icomos.jpg" alt="ICOMOS India Logo" onerror="this.src='https://placehold.co/100x50/FFFFFF/3E2723?text=ICOMOS'">
+                        <img src="images/Icomos.jpg" alt="ICOMOS India Logo" loading="lazy" onerror="this.src='https://placehold.co/100x50/FFFFFF/3E2723?text=ICOMOS'">
                     </div>
                     <div class="footer-sponsor-logo">
-                        <img src="images/images/NIUA.jpg" alt="NIUA Logo" onerror="this.src='https://placehold.co/100x50/FFFFFF/3E2723?text=NIUA'">
+                        <img src="images/NIUA.jpg" alt="NIUA Logo" loading="lazy" onerror="this.src='https://placehold.co/100x50/FFFFFF/3E2723?text=NIUA'">
                     </div>
                     
-                    <!-- Repeat set for infinite effect -->
+                    <!-- Repeat set for infinite effect (paths must also be updated) -->
                     <div class="footer-sponsor-logo">
-                        <img src="images/altrim.jpg" alt="Altrim Publishers Logo" onerror="this.src='https://placehold.co/100x50/FFFFFF/3E2723?text=Altrim'">
+                        <img src="images/altrim.jpg" alt="Altrim Publishers Logo" loading="lazy" onerror="this.src='https://placehold.co/100x50/FFFFFF/3E2723?text=Altrim'">
                     </div>
                     <div class="footer-sponsor-logo">
-                        <img src="images/dronah.jpg" alt="Dronah Foundation Logo" onerror="this.src='https://placehold.co/100x50/FFFFFF/3E2723?text=Dronah'">
+                        <img src="images/dronah.jpg" alt="Dronah Foundation Logo" loading="lazy" onerror="this.src='https://placehold.co/100x50/FFFFFF/3E2723?text=Dronah'">
                     </div>
                     <div class="footer-sponsor-logo">
-                        <img src="images/heritopolis.jpg" alt="Heritopolis Logo" onerror="this.src='https://placehold.co/100x50/FFFFFF/3E2723?text=Heritopolis'">
+                        <img src="images/heritopolis.jpg" alt="Heritopolis Logo" loading="lazy" onerror="this.src='https://placehold.co/100x50/FFFFFF/3E2723?text=Heritopolis'">
                     </div>
                     <div class="footer-sponsor-logo">
-                        <img src="images/Icomos.jpg" alt="ICOMOS India Logo" onerror="this.src='https://placehold.co/100x50/FFFFFF/3E2723?text=ICOMOS'">
+                        <img src="images/Icomos.jpg" alt="ICOMOS India Logo" loading="lazy" onerror="this.src='https://placehold.co/100x50/FFFFFF/3E2723?text=ICOMOS'">
                     </div>
                     <div class="footer-sponsor-logo">
-                        <img src="images/NIUA.jpg" alt="NIUA Logo" onerror="this.src='https://placehold.co/100x50/FFFFFF/3E2723?text=NIUA'">
+                        <img src="images/NIUA.jpg" alt="NIUA Logo" loading="lazy" onerror="this.src='https://placehold.co/100x50/FFFFFF/3E2723?text=NIUA'">
                     </div>
                 </div>
             </div>
