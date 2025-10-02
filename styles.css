@@ -11,7 +11,7 @@
 }
 
 /* Performance optimizations */
-*,
+*,\
 *::before,
 *::after {
     box-sizing: border-box;
@@ -36,6 +36,14 @@ body, .marquee-item {
     -moz-user-select: none; 
     -webkit-user-select: none;
 }
+
+/* Anti-Screenshot Filter: Apply blur filter when user attempts to print (common screenshot shortcut) */
+@media print, (min-resolution: 200dpi), (min-resolution: 78.7dpc) {
+    body {
+        filter: blur(5px) grayscale(1);
+    }
+}
+
 
 /* Smooth scrolling for all browsers */
 html {
@@ -71,10 +79,16 @@ html {
     --text-light: #FFFFFF;
     --accent-orange: #CD853F;
 
+    /* Tricolor */
+    --saffron: #FF9933;
+    --white-flag: #FFFFFF;
+    --green-flag: #138808;
+
     /* Typography */
     --font-heading: 'Playfair Display', serif;
     --font-body: 'Inter', sans-serif;
     --font-kalam: 'Kalam', cursive;
+    --font-dogra: 'Noto Serif Dogri', serif; /* New Dogra Font */
     --font-signature: 'Cedarville Cursive', cursive;
     /* For H2 signature */
 
@@ -853,7 +867,6 @@ body.loading {
 
 /* 8. MAP SECTION STYLING */
 .walk-map-section {
-    background: var(--warm-cream);
     padding: 2rem;
     border-radius: 20px;
     box-shadow: var(--shadow-medium);
@@ -899,10 +912,15 @@ body.loading {
     color: var(--text-dark);
 }
 
-/* 9. PHOTOGRAPHY CONTEST SECTION */
+/* 9. PHOTOGRAPHY CONTEST SECTION & STORYTELLING SECTION (using same base) */
 .about-section {
     padding: var(--section-padding);
+}
+.about-section:nth-child(odd) {
     background: white;
+}
+.about-section:nth-child(even) {
+    background: var(--soft-beige);
 }
 
 .about-content {
@@ -911,6 +929,30 @@ body.loading {
     gap: 4rem;
     align-items: center;
 }
+
+/* Style for Storytelling section (reversed order) */
+.storytelling-content {
+    /* Reverse the order of elements for the storytelling section */
+    grid-template-areas: "image text"; 
+}
+.storytelling-content .about-image {
+    order: 1;
+}
+.storytelling-content .about-text {
+    order: 2;
+}
+
+/* Default for Contest section (image right, text left) */
+#contest .about-content {
+    grid-template-areas: "text image";
+}
+#contest .about-image {
+    order: 2;
+}
+#contest .about-text {
+    order: 1;
+}
+
 
 .about-text h2 {
     font-family: var(--font-heading);
@@ -931,7 +973,11 @@ body.loading {
 @media (min-width: 992px) {
     .about-content {
         grid-template-columns: 2fr 3fr;
-        /* Text left, Image right (bigger) */
+        /* Default: Text 2 parts, Image 3 parts */
+    }
+    .storytelling-content {
+        grid-template-columns: 3fr 2fr;
+        /* Reversed: Image 3 parts, Text 2 parts */
     }
 }
 
@@ -1013,29 +1059,47 @@ body.loading {
 }
 
 .dogri-slogan {
-    font-family: var(--font-kalam);
-    font-size: 3rem;
+    font-family: var(--font-dogra), sans-serif;
+    font-size: 2.8rem;
     font-weight: 700;
     margin: 0;
-    color: var(--primary-gold);
-    text-shadow: 0 0 10px rgba(212, 175, 55, 0.4);
-    line-height: 1.3;
+    line-height: 1.5;
     text-align: center;
+    text-shadow: 0 0 10px rgba(255, 255, 255, 0.5); /* Text shine */
 }
 
 .dogri-phrase,
+.hindi-phrase,
 .english-phrase {
     display: block;
-    padding: 0.3rem 0;
+    padding: 0.1rem 0;
+    font-size: 2.8rem; /* Maintain consistent large size */
+    font-weight: 700;
+    transition: all 0.3s ease;
 }
 
-.english-phrase {
-    font-size: 1.6rem;
-    color: var(--warm-cream);
-    opacity: 0.9;
-    font-weight: 400;
+/* Tricolor Styling */
+.tricolor-saffron {
+    color: var(--saffron);
 }
 
+.tricolor-white {
+    color: var(--white-flag);
+    font-family: 'Inter', sans-serif; /* Using a clean font for Devanagari Hindi/English text, as Dogra font only targets Dogri script */
+}
+
+.tricolor-green {
+    color: var(--green-flag);
+    font-family: 'Inter', sans-serif;
+    font-weight: 600;
+}
+
+/* Hover Effect for Shine */
+.dogri-slogan:hover .dogri-phrase,
+.dogri-slogan:hover .hindi-phrase,
+.dogri-slogan:hover .english-phrase {
+    text-shadow: 0 0 15px var(--white-flag), 0 0 20px var(--saffron);
+}
 
 
 
@@ -1227,6 +1291,17 @@ body.loading {
 
 /* ENHANCED RESPONSIVE DESIGN */
 @media (max-width: 992px) {
+    /* About section layout change */
+    .about-content {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+    }
+    .about-image {
+        order: 1 !important; /* Forces image to be on top on mobile for all sections */
+    }
+    .about-text {
+        order: 2 !important;
+    }
 
     /* Symposium sessions mobile */
     .symposium-sessions {
@@ -1245,6 +1320,13 @@ body.loading {
         grid-template-columns: repeat(2, 1fr);
         gap: 1.5rem;
         max-width: 600px;
+    }
+
+    .dogri-slogan,
+    .dogri-phrase,
+    .hindi-phrase,
+    .english-phrase {
+        font-size: 2rem;
     }
 }
 
@@ -1295,14 +1377,12 @@ body.loading {
     }
 
     /* Slogan adjustments */
-    .dogri-slogan {
-        font-size: 2.2rem;
-    }
-
+    .dogri-slogan,
+    .dogri-phrase,
+    .hindi-phrase,
     .english-phrase {
-        font-size: 1.3rem;
+        font-size: 1.8rem;
     }
-
 
 
     /* Marquee title mobile */
@@ -1380,12 +1460,12 @@ body.loading {
         max-width: 300px;
     }
 
-    .dogri-slogan {
-        font-size: 1.8rem;
-    }
-
+    /* Slogan adjustments */
+    .dogri-slogan,
+    .dogri-phrase,
+    .hindi-phrase,
     .english-phrase {
-        font-size: 1.1rem;
+        font-size: 1.5rem;
     }
 
 
