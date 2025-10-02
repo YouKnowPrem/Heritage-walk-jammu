@@ -186,6 +186,14 @@ body.loading {
     animation: pulse 2s ease-in-out infinite;
 }
 
+.mandala-center img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    border-radius: 50%;
+    /* Ensure the image is contained nicely */
+}
+
 @keyframes mandalaRotate {
     from {
         transform: rotate(0deg);
@@ -578,9 +586,22 @@ body.loading {
     font-size: 2rem;
     font-weight: 600;
     color: var(--dark-brown);
-    margin-bottom: 2rem;
+    margin-bottom: 1rem; /* Adjusted for subtitle space */
     text-transform: uppercase;
     letter-spacing: 1px;
+}
+
+.marquee-title-sub {
+    font-family: var(--font-body);
+    text-align: center;
+    font-size: 1.1rem;
+    font-weight: 500;
+    color: var(--deep-brown);
+    margin-bottom: 1.5rem;
+    opacity: 0.7;
+}
+.marquee-title-sub.reverse-title {
+    margin-top: 2rem;
 }
 
 .marquee-container {
@@ -596,34 +617,35 @@ body.loading {
 }
 
 .marquee-container.speed-fast .marquee {
-    animation: marquee-scroll 25s linear infinite;
+    /* Animation speed adjusted slightly to accommodate more logos */
+    animation: marquee-scroll 30s linear infinite; 
 }
 
 .marquee-container.speed-slow .marquee {
-    animation: marquee-scroll 40s linear infinite;
+    animation: marquee-scroll 45s linear infinite;
 }
 
 .marquee-container.reverse-direction .marquee {
     animation-direction: reverse;
 }
 
+/* Adjustments for logo images */
 .marquee-item {
     display: inline-block;
     padding: 0 20px;
-    height: 70px;
+    height: 70px; /* Uniform height for alignment */
     line-height: 70px;
     margin: 0 15px;
     border: 1px dashed var(--deep-brown);
     border-radius: 5px;
     vertical-align: middle;
+    /* Remove placeholder style */
 }
 
-.logo-placeholder {
-    font-family: var(--font-body);
-    font-size: 0.9rem;
-    font-weight: 600;
-    color: var(--deep-brown);
-    opacity: 0.6;
+.marquee-item img {
+    height: 100%; /* Make image take full height of the item */
+    width: auto;
+    object-fit: contain;
 }
 
 @keyframes marquee-scroll {
@@ -632,7 +654,8 @@ body.loading {
     }
 
     100% {
-        transform: translateX(-50%);
+        /* This 50% must cover the length of one full set of logos */
+        transform: translateX(-50%); 
     }
 }
 
@@ -1311,7 +1334,8 @@ body.loading {
 
 .footer-marquee {
     display: inline-block;
-    animation: footerMarqueeScroll 30s linear infinite;
+    /* Use the existing marquee-scroll keyframe */
+    animation: marquee-scroll 30s linear infinite; 
 }
 
 .footer-sponsor-logo {
@@ -1336,29 +1360,6 @@ body.loading {
     width: auto;
     object-fit: contain;
 }
-
-@keyframes footerMarqueeScroll {
-    0% {
-        transform: translateX(0);
-    }
-
-    100% {
-        transform: translateX(-50%);
-    }
-}
-
-.footer-bottom {
-    padding: 1.5rem 0;
-    text-align: center;
-    background: var(--dark-brown);
-}
-
-.slogan-credit {
-    margin: 0;
-    font-size: 0.9rem;
-    opacity: 0.9;
-}
-
 
 /* ENHANCED RESPONSIVE DESIGN */
 @media (max-width: 992px) {
