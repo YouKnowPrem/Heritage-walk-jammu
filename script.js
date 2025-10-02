@@ -332,7 +332,8 @@ function initBackgroundMusic() {
     
     // Set initial state
     music.volume = 0.3; // Low volume for background
-    toggleButton.textContent = '🔇';
+    // Use the actual Unicode character for the muted state
+    toggleButton.textContent = '🔇'; 
     
     toggleButton.addEventListener('click', async () => {
         try {
@@ -343,7 +344,8 @@ function initBackgroundMusic() {
                 console.log('Background music paused');
             } else {
                 await music.play();
-                toggleButton.textContent = '🔊';
+                // Use the actual Unicode character for the playing state
+                toggleButton.textContent = '🔊'; 
                 isPlaying = true;
                 console.log('Background music playing');
             }
@@ -359,6 +361,8 @@ function initBackgroundMusic() {
     music.addEventListener('ended', () => {
         toggleButton.textContent = '🔇';
         isPlaying = false;
+        // Optionally restart music on end
+        // music.play(); 
     });
 
     music.addEventListener('error', () => {
@@ -451,7 +455,10 @@ if ('IntersectionObserver' in window) {
         entries.forEach(entry => {
             if (entry.isIntersecting) {
                 const img = entry.target;
-                img.src = img.dataset.src || img.src;
+                // Only load if the image uses data-src (lazy loading placeholder)
+                if (img.dataset.src) { 
+                    img.src = img.dataset.src;
+                }
                 img.classList.remove('lazy');
                 imageObserver.unobserve(img);
             }
