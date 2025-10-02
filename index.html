@@ -28,7 +28,8 @@
                         <div class="mandala-ring ring-1"></div>
                         <div class="mandala-ring ring-2"></div>
                         <div class="mandala-ring ring-3"></div>
-                        <div class="mandala-center"><img src="images/mandala-loader.jpg" alt="Loading..." class="mandala-image"></div>
+                        <!-- Using a placeholder image for the mandala center -->
+                        <div class="mandala-center"><img src="https://placehold.co/40x40/D4AF37/3E2723?text=%E2%9C%A6" alt="Loading..." class="mandala-image"></div>
                     </div>
                 </div>
             </div>
@@ -67,17 +68,21 @@
     </nav>
 
     <button id="musicToggle" class="music-toggle" aria-label="Toggle background music">
+        <!-- Using Unicode characters for speaker/mute icon -->
+        <!-- &#x1F50A; (Speaker) / &#x1F507; (Mute) -->
         🔇
     </button>
 
     <audio id="backgroundMusic" loop preload="auto">
+        <!-- Note: This URL must be externally hosted and accessible -->
         <source src="https://www.soundjay.com/misc/sounds/temple-bell-1.mp3" type="audio/mpeg">
         <source src="https://www.soundjay.com/misc/sounds/temple-bell-1.wav" type="audio/wav">
     </audio>
 
     <section id="home" class="hero">
+        <!-- Placeholder image URL for hero background, using relevant text for context -->
         <div class="hero-background"
-            style="background: linear-gradient(135deg, rgba(62, 39, 35, 0.8) 0%, rgba(139, 69, 19, 0.7) 100%), url('images/Old jammu map.jpg') center/cover;">
+            style="background: linear-gradient(135deg, rgba(62, 39, 35, 0.8) 0%, rgba(139, 69, 19, 0.7) 100%), url('https://placehold.co/1920x1080/8B4513/FFFFFF?text=Old+Jammu+City') center/cover;">
             <div class="hero-overlay"></div>
             <div class="floating-elements">
                 <div class="float-item" data-speed="2">🏛️</div>
@@ -114,95 +119,103 @@
     <section class="collaborators-marquee">
         <div class="collaborators-border"></div>
         <div class="marquee-title">Our Esteemed Collaborators & Partners</div>
+        
+        <!-- MARQUEE 1: LOCAL COLLABORATORS ONLY (Fast Speed) -->
+        <div class="marquee-title-sub">Local Level Partners</div>
         <div class="marquee-container speed-fast">
+            <!-- Ensure the content is doubled/tripled to support infinite scrolling animation -->
             <div class="marquee marquee-1">
+                <!-- Local Collaborators: Kala Kendra, INTACH, Jammu Heritage, JSCL, IGNCA, JU -->
                 <div class="marquee-item">
-                    <div class="logo-placeholder">Ministry of Culture</div>
+                    <img src="images/Kala.jpg" alt="Kala Kendra Logo" onerror="this.src='https://placehold.co/100x70/D4AF37/FFFFFF?text=Kala+Kendra'">
                 </div>
                 <div class="marquee-item">
-                    <div class="logo-placeholder">J&K Tourism</div>
+                    <img src="images/INTACH.jpg" alt="INTACH Logo" onerror="this.src='https://placehold.co/100x70/D4AF37/FFFFFF?text=INTACH'">
                 </div>
                 <div class="marquee-item">
-                    <div class="logo-placeholder">Jammu University</div>
+                    <img src="images/JH.jpg" alt="Jammu Heritage Logo" onerror="this.src='https://placehold.co/100x70/D4AF37/FFFFFF?text=Jammu+Heritage'">
                 </div>
                 <div class="marquee-item">
-                    <div class="logo-placeholder">Archaeological Survey</div>
+                    <img src="images/JSCL.jpg" alt="Jammu Smart City Logo" onerror="this.src='https://placehold.co/100x70/D4AF37/FFFFFF?text=JSCL'">
                 </div>
                 <div class="marquee-item">
-                    <div class="logo-placeholder">Heritage Foundation</div>
+                    <img src="images/IGNCA.jpg" alt="IGNCA Logo" onerror="this.src='https://placehold.co/100x70/D4AF37/FFFFFF?text=IGNCA'">
                 </div>
                 <div class="marquee-item">
-                    <div class="logo-placeholder">Cultural Council</div>
+                    <img src="images/JU.jpg" alt="Jammu University Logo" onerror="this.src='https://placehold.co/100x70/D4AF37/FFFFFF?text=JU'">
+                </div>
+                
+                <!-- Repeat set for infinite effect -->
+                <div class="marquee-item">
+                    <img src="images/Kala.jpg" alt="Kala Kendra Logo" onerror="this.src='https://placehold.co/100x70/D4AF37/FFFFFF?text=Kala+Kendra'">
                 </div>
                 <div class="marquee-item">
-                    <div class="logo-placeholder">Local Administration</div>
+                    <img src="images/INTACH.jpg" alt="INTACH Logo" onerror="this.src='https://placehold.co/100x70/D4AF37/FFFFFF?text=INTACH'">
                 </div>
                 <div class="marquee-item">
-                    <div class="logo-placeholder">Ministry of Culture</div>
+                    <img src="images/JH.jpg" alt="Jammu Heritage Logo" onerror="this.src='https://placehold.co/100x70/D4AF37/FFFFFF?text=Jammu+Heritage'">
                 </div>
                 <div class="marquee-item">
-                    <div class="logo-placeholder">J&K Tourism</div>
+                    <img src="images/JSCL.jpg" alt="Jammu Smart City Logo" onerror="this.src='https://placehold.co/100x70/D4AF37/FFFFFF?text=JSCL'">
                 </div>
                 <div class="marquee-item">
-                    <div class="logo-placeholder">Jammu University</div>
+                    <img src="images/IGNCA.jpg" alt="IGNCA Logo" onerror="this.src='https://placehold.co/100x70/D4AF37/FFFFFF?text=IGNCA'">
                 </div>
                 <div class="marquee-item">
-                    <div class="logo-placeholder">Archaeological Survey</div>
-                </div>
-                <div class="marquee-item">
-                    <div class="logo-placeholder">Heritage Foundation</div>
-                </div>
-                <div class="marquee-item">
-                    <div class="logo-placeholder">Cultural Council</div>
-                </div>
-                <div class="marquee-item">
-                    <div class="logo-placeholder">Local Administration</div>
+                    <img src="images/JU.jpg" alt="Jammu University Logo" onerror="this.src='https://placehold.co/100x70/D4AF37/FFFFFF?text=JU'">
                 </div>
             </div>
         </div>
+
+        <!-- MARQUEE 2: NATIONAL + LOCAL COLLABORATORS (Slower Speed, Reverse) -->
+        <div class="marquee-title-sub reverse-title">National & Local Partners</div>
         <div class="marquee-container speed-slow reverse-direction">
             <div class="marquee marquee-2">
+                <!-- National Collaborators: Altrim, Dronah, Heritopolis, ICOMOS, NIUA -->
                 <div class="marquee-item">
-                    <div class="logo-placeholder">Dogra Heritage Trust</div>
+                    <img src="images/altrim.jpg" alt="Altrim Publishers Logo" onerror="this.src='https://placehold.co/100x70/8B4513/FFFFFF?text=Altrim'">
                 </div>
                 <div class="marquee-item">
-                    <div class="logo-placeholder">Jammu Chamber</div>
+                    <img src="images/dronah.jpg" alt="Dronah Foundation Logo" onerror="this.src='https://placehold.co/100x70/8B4513/FFFFFF?text=Dronah'">
                 </div>
                 <div class="marquee-item">
-                    <div class="logo-placeholder">Cultural Society</div>
+                    <img src="images/heritopolis.jpg" alt="Heritopolis Logo" onerror="this.src='https://placehold.co/100x70/8B4513/FFFFFF?text=Heritopolis'">
                 </div>
                 <div class="marquee-item">
-                    <div class="logo-placeholder">Heritage Hotels</div>
+                    <img src="images/Icomos.jpg" alt="ICOMOS India Logo" onerror="this.src='https://placehold.co/100x70/8B4513/FFFFFF?text=ICOMOS'">
                 </div>
                 <div class="marquee-item">
-                    <div class="logo-placeholder">Local Artisans</div>
+                    <img src="images/NIUA.jpg" alt="NIUA Logo" onerror="this.src='https://placehold.co/100x70/8B4513/FFFFFF?text=NIUA'">
+                </div>
+                <!-- Local Collaborators -->
+                <div class="marquee-item">
+                    <img src="images/Kala.jpg" alt="Kala Kendra Logo" onerror="this.src='https://placehold.co/100x70/D4AF37/FFFFFF?text=Kala+Kendra'">
                 </div>
                 <div class="marquee-item">
-                    <div class="logo-placeholder">Photography Club</div>
+                    <img src="images/JH.jpg" alt="Jammu Heritage Logo" onerror="this.src='https://placehold.co/100x70/D4AF37/FFFFFF?text=Jammu+Heritage'">
+                </div>
+                
+                <!-- Repeat set for infinite effect -->
+                <div class="marquee-item">
+                    <img src="images/altrim.jpg" alt="Altrim Publishers Logo" onerror="this.src='https://placehold.co/100x70/8B4513/FFFFFF?text=Altrim'">
                 </div>
                 <div class="marquee-item">
-                    <div class="logo-placeholder">Youth Council</div>
+                    <img src="images/dronah.jpg" alt="Dronah Foundation Logo" onerror="this.src='https://placehold.co/100x70/8B4513/FFFFFF?text=Dronah'">
                 </div>
                 <div class="marquee-item">
-                    <div class="logo-placeholder">Dogra Heritage Trust</div>
+                    <img src="images/heritopolis.jpg" alt="Heritopolis Logo" onerror="this.src='https://placehold.co/100x70/8B4513/FFFFFF?text=Heritopolis'">
                 </div>
                 <div class="marquee-item">
-                    <div class="logo-placeholder">Jammu Chamber</div>
+                    <img src="images/Icomos.jpg" alt="ICOMOS India Logo" onerror="this.src='https://placehold.co/100x70/8B4513/FFFFFF?text=ICOMOS'">
                 </div>
                 <div class="marquee-item">
-                    <div class="logo-placeholder">Cultural Society</div>
+                    <img src="images/NIUA.jpg" alt="NIUA Logo" onerror="this.src='https://placehold.co/100x70/8B4513/FFFFFF?text=NIUA'">
                 </div>
                 <div class="marquee-item">
-                    <div class="logo-placeholder">Heritage Hotels</div>
+                    <img src="images/Kala.jpg" alt="Kala Kendra Logo" onerror="this.src='https://placehold.co/100x70/D4AF37/FFFFFF?text=Kala+Kendra'">
                 </div>
                 <div class="marquee-item">
-                    <div class="logo-placeholder">Local Artisans</div>
-                </div>
-                <div class="marquee-item">
-                    <div class="logo-placeholder">Photography Club</div>
-                </div>
-                <div class="marquee-item">
-                    <div class="logo-placeholder">Youth Council</div>
+                    <img src="images/JH.jpg" alt="Jammu Heritage Logo" onerror="this.src='https://placehold.co/100x70/D4AF37/FFFFFF?text=Jammu+Heritage'">
                 </div>
             </div>
         </div>
@@ -219,135 +232,151 @@
                 <div class="carousel-inner" id="historyCarousel">
 
                     <div class="carousel-slide">
-                        <div class="slide-content about-content">
-                            <div class="about-text">
-                                <h2>The Dogra Dynasty Legacy</h2>
+                        <div class="slide-content-block">
+                            <div class="slide-text">
+                                <h3>The Dogra Dynasty Legacy</h3>
                                 <p class="lead">The principal seat of the Dogra rulers for over 150 years.</p>
-                                <div class="about-details">
+                                <div class="slide-highlights">
                                     <p>Jammu's history is inextricably linked to the Dogra dynasty, which consolidated
                                         its power under Maharaja Gulab Singh in the 19th century. The magnificent
                                         **Mubarak Mandi Palace Complex** served as the principal seat of the Dogra
                                         rulers for over 150 years.</p>
-                                    <p><strong>Highlights:</strong> 1822 Foundation, Rajasthani Architecture, Royal
-                                        Residence.</p>
+                                    <p class="highlight-tag">1822 Foundation</p>
+                                    <p class="highlight-tag">Rajasthani Architecture</p>
+                                    <p class="highlight-tag">Royal Residence</p>
                                 </div>
                             </div>
-                            <div class="about-image">
-                                <img src="images/mubarak-mandi-wide.jpg" alt="Mubarak Mandi Palace" loading="lazy">
+                            <div class="slide-image">
+                                <!-- Placeholder image URL -->
+                                <img src="https://placehold.co/600x400/800020/FFFFFF?text=Mubarak+Mandi+Palace" alt="Mubarak Mandi Palace" loading="lazy">
                             </div>
                         </div>
                     </div>
 
                     <div class="carousel-slide">
-                        <div class="slide-content about-content">
-                            <div class="about-text">
-                                <h2>City of Temples</h2>
+                        <div class="slide-content-block">
+                            <div class="slide-text">
+                                <h3>City of Temples</h3>
                                 <p class="lead">The spiritual heart of Jammu, famed for its ancient temples.</p>
-                                <div class="about-details">
+                                <div class="slide-highlights">
                                     <p>The **Old City** is the spiritual heart of Jammu, famed as the City of Temples.
                                         The Raghunath Temple complex, built by Maharaja Gulab Singh, represents the
                                         pinnacle of Dogra religious architecture and devotion.</p>
-                                    <p><strong>Highlights:</strong> Spiritual Center, Ancient Temples, Cultural Hub.</p>
+                                    <p class="highlight-tag">Spiritual Center</p>
+                                    <p class="highlight-tag">Ancient Temples</p>
+                                    <p class="highlight-tag">Cultural Hub</p>
                                 </div>
                             </div>
-                            <div class="about-image">
-                                <img src="images/temple-group-photo.jpg" alt="Raghunath Temple" loading="lazy">
+                            <div class="slide-image">
+                                <!-- Placeholder image URL -->
+                                <img src="https://placehold.co/600x400/8B4513/FFFFFF?text=Raghunath+Temple" alt="Raghunath Temple" loading="lazy">
                             </div>
                         </div>
                     </div>
 
                     <div class="carousel-slide">
-                        <div class="slide-content about-content">
-                            <div class="about-text">
-                                <h2>The Sacred Tawi</h2>
+                        <div class="slide-content-block">
+                            <div class="slide-text">
+                                <h3>The Sacred Tawi</h3>
                                 <p class="lead">The lifeblood of Jammu and its core spiritual identity.</p>
-                                <div class="about-details">
+                                <div class="slide-highlights">
                                     <p>The **River Tawi**, considered the lifeblood of Jammu, has profoundly shaped the
                                         city's geography and culture. Believed to be the daughter of Surya, the river is
                                         central to Jammu's spiritual identity and urban development.</p>
-                                    <p><strong>Highlights:</strong> Sacred River, Urban Planning, Cultural Identity.</p>
+                                    <p class="highlight-tag">Sacred River</p>
+                                    <p class="highlight-tag">Urban Planning</p>
+                                    <p class="highlight-tag">Cultural Identity</p>
                                 </div>
                             </div>
-                            <div class="about-image">
-                                <img src="images/Old jammu map.jpg" alt="Old Map of Jammu" loading="lazy">
+                            <div class="slide-image">
+                                <!-- Placeholder image URL -->
+                                <img src="https://placehold.co/600x400/3E2723/FFFFFF?text=River+Tawi+View" alt="River Tawi" loading="lazy">
                             </div>
                         </div>
                     </div>
 
                     <div class="carousel-slide">
-                        <div class="slide-content about-content">
-                            <div class="about-text">
-                                <h2>Architectural Heritage</h2>
+                        <div class="slide-content-block">
+                            <div class="slide-text">
+                                <h3>Architectural Heritage</h3>
                                 <p class="lead">A blend of Dogra, Mughal, and European design.</p>
-                                <div class="about-details">
+                                <div class="slide-highlights">
                                     <p>Jammu's unique **vernacular architecture** blends traditional Dogra styles with
                                         Mughal and European influences. The intricate Jharokhas, robust foundations, and
                                         artistic details tell stories of cultural synthesis and adaptation.</p>
-                                    <p><strong>Highlights:</strong> Vernacular Style, Cultural Fusion, Artistic Details.
-                                    </p>
+                                    <p class="highlight-tag">Vernacular Style</p>
+                                    <p class="highlight-tag">Cultural Fusion</p>
+                                    <p class="highlight-tag">Artistic Details</p>
                                 </div>
                             </div>
-                            <div class="about-image">
-                                <img src="images/mubarak-mandi-architecture.jpg" alt="Dogra Heritage Architecture"
+                            <div class="slide-image">
+                                <!-- Placeholder image URL -->
+                                <img src="https://placehold.co/600x400/D4AF37/3E2723?text=Dogra+Architecture" alt="Dogra Heritage Architecture"
                                     loading="lazy">
                             </div>
                         </div>
                     </div>
 
                     <div class="carousel-slide">
-                        <div class="slide-content about-content">
-                            <div class="about-image">
-                                <img src="images/mubarak-mandi-wide.jpg" alt="Mubarak Mandi Palace Complex"
+                        <div class="slide-content-block">
+                            <div class="slide-image">
+                                <!-- Placeholder image URL -->
+                                <img src="https://placehold.co/600x400/800020/FFFFFF?text=Mubarak+Mandi+Complex" alt="Mubarak Mandi Palace Complex"
                                     loading="lazy">
                             </div>
-                            <div class="about-text">
-                                <h2>Mubarak Mandi Palace</h2>
+                            <div class="slide-text">
+                                <h3>Mubarak Mandi Palace</h3>
                                 <p class="lead">The magnificent seat of Dogra royalty.</p>
-                                <div class="about-details">
+                                <div class="slide-highlights">
                                     <p>The **Mubarak Mandi Palace Complex** stands as a testament to the grandeur of the
                                         Dogra dynasty. This architectural marvel showcases the finest examples of royal
                                         craftsmanship and design.</p>
-                                    <p><strong>Highlights:</strong> Royal Architecture, Historical Significance,
-                                        Cultural Heritage.</p>
+                                    <p class="highlight-tag">Royal Architecture</p>
+                                    <p class="highlight-tag">Historical Significance</p>
+                                    <p class="highlight-tag">Cultural Heritage</p>
                                 </div>
                             </div>
                         </div>
                     </div>
 
                     <div class="carousel-slide">
-                        <div class="slide-content about-content">
-                            <div class="about-text">
-                                <h2>Heritage Preservation</h2>
+                        <div class="slide-content-block">
+                            <div class="slide-text">
+                                <h3>Heritage Preservation</h3>
                                 <p class="lead">Safeguarding our cultural legacy for future generations.</p>
-                                <div class="about-details">
+                                <div class="slide-highlights">
                                     <p>Our commitment to **heritage preservation** ensures that the rich cultural legacy
                                         of Jammu continues to inspire and educate future generations about their roots
                                         and identity.</p>
-                                    <p><strong>Highlights:</strong> Cultural Legacy, Future Generations, Educational
-                                        Value.</p>
+                                    <p class="highlight-tag">Cultural Legacy</p>
+                                    <p class="highlight-tag">Future Generations</p>
+                                    <p class="highlight-tag">Educational Value</p>
                                 </div>
                             </div>
-                            <div class="about-image">
-                                <img src="images/mubarak-mandi-tour.jpg" alt="Heritage Tour" loading="lazy">
+                            <div class="slide-image">
+                                <!-- Placeholder image URL -->
+                                <img src="https://placehold.co/600x400/CD853F/FFFFFF?text=Heritage+Preservation" alt="Heritage Tour" loading="lazy">
                             </div>
                         </div>
                     </div>
 
                     <div class="carousel-slide">
-                        <div class="slide-content about-content">
-                            <div class="about-image">
-                                <img src="images/mubarak-mandi-architecture.jpg" alt="Architectural Details"
+                        <div class="slide-content-block">
+                            <div class="slide-image">
+                                <!-- Placeholder image URL -->
+                                <img src="https://placehold.co/600x400/D4AF37/3E2723?text=Architectural+Details" alt="Architectural Details"
                                     loading="lazy">
                             </div>
-                            <div class="about-text">
-                                <h2>Architectural Details</h2>
+                            <div class="slide-text">
+                                <h3>Architectural Details</h3>
                                 <p class="lead">Intricate craftsmanship and artistic excellence.</p>
-                                <div class="about-details">
+                                <div class="slide-highlights">
                                     <p>Every corner of **Mubarak Mandi** tells a story through its intricate
                                         architectural details, from ornate jharokhas to beautifully carved pillars that
                                         reflect the artistic excellence of Dogra craftsmen.</p>
-                                    <p><strong>Highlights:</strong> Intricate Carvings, Artistic Excellence,
-                                        Craftsmanship.</p>
+                                    <p class="highlight-tag">Intricate Carvings</p>
+                                    <p class="highlight-tag">Artistic Excellence</p>
+                                    <p class="highlight-tag">Craftsmanship</p>
                                 </div>
                             </div>
                         </div>
@@ -379,7 +408,8 @@
             <div class="walks-grid">
                 <div class="walk-card mubarak-mandi">
                     <div class="card-image">
-                        <img src="images/mubarak-mandi-architecture.jpg" alt="Mubarak Mandi Palace" loading="lazy">
+                        <!-- Placeholder image URL -->
+                        <img src="https://placehold.co/600x300/800020/FFFFFF?text=Mubarak+Mandi+Palace" alt="Mubarak Mandi Palace" loading="lazy">
                         <div class="card-overlay">
                             <div class="overlay-content">
                                 <h3>Mubarak Mandi Palace Complex</h3>
@@ -418,7 +448,8 @@
 
                 <div class="walk-card old-city">
                     <div class="card-image">
-                        <img src="images/temple-group-photo.jpg" alt="Old City Temple" loading="lazy">
+                        <!-- Placeholder image URL -->
+                        <img src="https://placehold.co/600x300/8B4513/FFFFFF?text=Old+City+Temple" alt="Old City Temple" loading="lazy">
                         <div class="card-overlay">
                             <div class="overlay-content">
                                 <h3>Old City Cultural Journey</h3>
@@ -465,7 +496,8 @@
                     <h2>Old City Heritage Walk Route Map</h2>
                 </div>
                 <div class="map-container">
-                    <img src="images/heritage-walk-map.jpg" alt="Heritage Walk Old City Route Map"
+                    <!-- Placeholder image URL for map -->
+                    <img src="https://placehold.co/800x600/D4AF37/3E2723?text=Walk+Route+Map+Placeholder" alt="Heritage Walk Old City Route Map"
                         class="walk-route-map" loading="lazy">
                     <div class="map-key">
                         <h4>Key Markings on the Route:</h4>
@@ -510,7 +542,8 @@
                 </div>
 
                 <div class="about-image bigger-photo">
-                    <img src="images/mubarak-mandi-wide.jpg" alt="Photography Contest" loading="lazy">
+                    <!-- Placeholder image URL -->
+                    <img src="https://placehold.co/600x450/800020/FFFFFF?text=Photography+Contest+Image" alt="Photography Contest" loading="lazy">
                 </div>
             </div>
         </div>
@@ -525,7 +558,8 @@
             <div class="symposium-sessions">
                 <div class="session-card">
                     <div class="session-image">
-                        <img src="images/heritage-presentation.jpg" alt="Session 1" loading="lazy">
+                        <!-- Placeholder image URL -->
+                        <img src="https://placehold.co/400x200/8B4513/FFFFFF?text=Session+I+Image" alt="Session 1" loading="lazy">
                     </div>
                     <div class="session-content">
                         <h3>Session I</h3>
@@ -536,7 +570,8 @@
 
                 <div class="session-card">
                     <div class="session-image">
-                        <img src="images/temple-guide-session.jpg" alt="Session 2" loading="lazy">
+                        <!-- Placeholder image URL -->
+                        <img src="https://placehold.co/400x200/CD853F/FFFFFF?text=Session+II+Image" alt="Session 2" loading="lazy">
                     </div>
                     <div class="session-content">
                         <h3>Session II</h3>
@@ -547,7 +582,8 @@
 
                 <div class="session-card">
                     <div class="session-image">
-                        <img src="images/temple-gathering.jpg" alt="Session 3" loading="lazy">
+                        <!-- Placeholder image URL -->
+                        <img src="https://placehold.co/400x200/D4AF37/3E2723?text=Session+III+Image" alt="Session 3" loading="lazy">
                     </div>
                     <div class="session-content">
                         <h3>Session III</h3>
@@ -604,9 +640,10 @@
             <div class="participants-section">
                 <h3 class="subsection-title">Participants</h3>
                 <div class="team-grid participants-grid">
+                    <!-- Placeholder images used for team members -->
                     <div class="team-member">
                         <div class="member-avatar">
-                            <img src="images/Anupma.jpg" alt="Anupamma">
+                            <img src="https://placehold.co/120x120/8B4513/FFFFFF?text=A" alt="Anupamma" loading="lazy">
                         </div>
                         <h3>Anupamma</h3>
                         <p class="member-description">Secretarial Incharge</p>
@@ -614,7 +651,7 @@
 
                     <div class="team-member">
                         <div class="member-avatar">
-                            <img src="images/Prem.jpg" alt="Prem">
+                            <img src="https://placehold.co/120x120/8B4513/FFFFFF?text=P" alt="Prem" loading="lazy">
                         </div>
                         <h3>Prem</h3>
                         <p class="member-description">Digital Experience Curator</p>
@@ -622,7 +659,7 @@
 
                     <div class="team-member">
                         <div class="member-avatar">
-                            <img src="images/Jayita.jpg" alt="Jayita">
+                            <img src="https://placehold.co/120x120/8B4513/FFFFFF?text=J" alt="Jayita" loading="lazy">
                         </div>
                         <h3>Jayita</h3>
                         <p class="member-description">Media & Storytelling Session Incharge</p>
@@ -630,7 +667,7 @@
 
                     <div class="team-member">
                         <div class="member-avatar">
-                            <img src="images/Sabreena.jpg" alt="Sabreena">
+                            <img src="https://placehold.co/120x120/8B4513/FFFFFF?text=S" alt="Sabreena" loading="lazy">
                         </div>
                         <h3>Sabreena</h3>
                         <p class="member-description">Photography Incharge & Creatives</p>
@@ -638,7 +675,7 @@
 
                     <div class="team-member">
                         <div class="member-avatar">
-                            <img src="images/Shivam.jpg" alt="Shivam">
+                            <img src="https://placehold.co/120x120/8B4513/FFFFFF?text=S" alt="Shivam" loading="lazy">
                         </div>
                         <h3>Shivam</h3>
                         <p class="member-description">PR & Walk Incharge</p>
@@ -646,7 +683,7 @@
 
                     <div class="team-member">
                         <div class="member-avatar">
-                            <img src="images/Siya.jpg" alt="Siya">
+                            <img src="https://placehold.co/120x120/8B4513/FFFFFF?text=S" alt="Siya" loading="lazy">
                         </div>
                         <h3>Siya</h3>
                         <p class="member-description">Exhibition incharge</p>
@@ -675,36 +712,40 @@
         <div class="footer-marquee-section">
             <div class="footer-marquee-title">National Collaborators & Sponsors</div>
             <div class="footer-marquee-container">
-                <div class="footer-marquee">
+                <!-- FOOTER MARQUEE: NATIONAL COLLABORATORS ONLY (Fast Speed) -->
+                <div class="footer-marquee footer-marquee-1 speed-fast">
+                    <!-- National Collaborators: Altrim, Dronah, Heritopolis, ICOMOS, NIUA -->
                     <div class="footer-sponsor-logo">
-                        <img src="images/heritopolis-removebg-preview.jpg" alt="Heritopolis Logo">
+                        <img src="images/altrim.jpg" alt="Altrim Publishers Logo" onerror="this.src='https://placehold.co/100x50/FFFFFF/3E2723?text=Altrim'">
                     </div>
                     <div class="footer-sponsor-logo">
-                        <img src="images/NIUA.jpg" alt="NIUA Logo">
+                        <img src="images/dronah.jpg" alt="Dronah Foundation Logo" onerror="this.src='https://placehold.co/100x50/FFFFFF/3E2723?text=Dronah'">
                     </div>
                     <div class="footer-sponsor-logo">
-                        <img src="images/dronah_foundation_logo-removebg-preview.jpg" alt="Dronah Foundation Logo">
+                        <img src="images/heritopolis.jpg" alt="Heritopolis Logo" onerror="this.src='https://placehold.co/100x50/FFFFFF/3E2723?text=Heritopolis'">
                     </div>
                     <div class="footer-sponsor-logo">
-                        <img src="images/Icomos_India_new-removebg-preview.jpg" alt="ICOMOS India Logo">
+                        <img src="images/Icomos.jpg" alt="ICOMOS India Logo" onerror="this.src='https://placehold.co/100x50/FFFFFF/3E2723?text=ICOMOS'">
                     </div>
                     <div class="footer-sponsor-logo">
-                        <img src="images/altrim-removebg-preview.jpg" alt="Altrim Publishers Logo">
+                        <img src="images/images/NIUA.jpg" alt="NIUA Logo" onerror="this.src='https://placehold.co/100x50/FFFFFF/3E2723?text=NIUA'">
+                    </div>
+                    
+                    <!-- Repeat set for infinite effect -->
+                    <div class="footer-sponsor-logo">
+                        <img src="images/altrim.jpg" alt="Altrim Publishers Logo" onerror="this.src='https://placehold.co/100x50/FFFFFF/3E2723?text=Altrim'">
                     </div>
                     <div class="footer-sponsor-logo">
-                        <img src="images/heritopolis-removebg-preview.jpg" alt="Heritopolis Logo">
+                        <img src="images/dronah.jpg" alt="Dronah Foundation Logo" onerror="this.src='https://placehold.co/100x50/FFFFFF/3E2723?text=Dronah'">
                     </div>
                     <div class="footer-sponsor-logo">
-                        <img src="images/NIUA.jpg" alt="NIUA Logo">
+                        <img src="images/heritopolis.jpg" alt="Heritopolis Logo" onerror="this.src='https://placehold.co/100x50/FFFFFF/3E2723?text=Heritopolis'">
                     </div>
                     <div class="footer-sponsor-logo">
-                        <img src="images/dronah_foundation_logo-removebg-preview.jpg" alt="Dronah Foundation Logo">
+                        <img src="images/Icomos.jpg" alt="ICOMOS India Logo" onerror="this.src='https://placehold.co/100x50/FFFFFF/3E2723?text=ICOMOS'">
                     </div>
                     <div class="footer-sponsor-logo">
-                        <img src="images/Icomos_India_new-removebg-preview.jpg" alt="ICOMOS India Logo">
-                    </div>
-                    <div class="footer-sponsor-logo">
-                        <img src="images/altrim-removebg-preview.jpg" alt="Altrim Publishers Logo">
+                        <img src="images/NIUA.jpg" alt="NIUA Logo" onerror="this.src='https://placehold.co/100x50/FFFFFF/3E2723?text=NIUA'">
                     </div>
                 </div>
             </div>
@@ -722,8 +763,3 @@
 </body>
 
 </html>
-
-
-
-
-
