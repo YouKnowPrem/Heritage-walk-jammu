@@ -11,7 +11,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link
-        href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Inter:wght@300;400;500;600;700&family=Poppins:wght@400;500;600;700&family=Kalam:wght@700&family=Cedarville+Cursive&display=swap"
+        href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Inter:wght@300;400;500;600;700&family=Poppins:wght@400;500;600;700&family=Kalam:wght@700&family=Cedarville+Cursive&family=Noto+Serif+Dogri:wght@400;700&display=swap"
         rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
 
@@ -45,7 +45,7 @@
                         <div class="mandala-ring ring-2"></div>
                         <div class="mandala-ring ring-3"></div>
                         <!-- Using a placeholder image for the mandala center -->
-                        <div class="mandala-center"><img src="https://placehold.co/40x40/D4AF37/3E2723?text=%E2%9C%A6" alt="Loading..." class="mandala-image"></div>
+                        <div class="mandala-center"><img src="https://placehold.co/40x40/D4AF37/3E2723?text=%E2%9C%A6" alt="Loading..." class="mandala-image" width="40" height="40"></div>
                     </div>
                 </div>
             </div>
@@ -69,9 +69,10 @@
 
             <ul class="nav-menu" id="navMenu">
                 <li><a href="#home" class="nav-link">Home</a></li>
-                <!-- Removed link to the history section as it is removed -->
                 <li><a href="#walks" class="nav-link">Walks</a></li>
                 <li><a href="#contest" class="nav-link">Contest</a></li>
+                <!-- New nav link for Storytelling Session -->
+                <li><a href="#storytelling" class="nav-link">Stories</a></li>
                 <li><a href="#team" class="nav-link">Team</a></li>
             </ul>
 
@@ -139,44 +140,43 @@
             <!-- Ensure the content is doubled/tripled to support infinite scrolling animation -->
             <div class="marquee marquee-1">
                 <!-- Local Collaborators: Kala Kendra, INTACH, Jammu Heritage, JSCL, IGNCA, JU -->
-                <!-- Image paths updated to point to the 'images/' folder -->
                 <div class="marquee-item">
-                    <img src="images/Kala.jpg" alt="Kala Kendra Logo" loading="lazy" onerror="this.src='https://placehold.co/100x70/D4AF37/FFFFFF?text=Kala+Kendra'">
+                    <img src="images/Kala.jpg" alt="Kala Kendra Logo" loading="lazy" width="100" height="70" onerror="this.src='https://placehold.co/100x70/D4AF37/FFFFFF?text=Kala+Kendra'">
                 </div>
                 <div class="marquee-item">
-                    <img src="images/INTACH.jpg" alt="INTACH Logo" loading="lazy" onerror="this.src='https://placehold.co/100x70/D4AF37/FFFFFF?text=INTACH'">
+                    <img src="images/INTACH.jpg" alt="INTACH Logo" loading="lazy" width="100" height="70" onerror="this.src='https://placehold.co/100x70/D4AF37/FFFFFF?text=INTACH'">
                 </div>
                 <div class="marquee-item">
-                    <img src="images/JH.jpg" alt="Jammu Heritage Logo" loading="lazy" onerror="this.src='https://placehold.co/100x70/D4AF37/FFFFFF?text=Jammu+Heritage'">
+                    <img src="images/JH.jpg" alt="Jammu Heritage Logo" loading="lazy" width="100" height="70" onerror="this.src='https://placehold.co/100x70/D4AF37/FFFFFF?text=Jammu+Heritage'">
                 </div>
                 <div class="marquee-item">
-                    <img src="images/JSCL.jpg" alt="Jammu Smart City Logo" loading="lazy" onerror="this.src='https://placehold.co/100x70/D4AF37/FFFFFF?text=JSCL'">
+                    <img src="images/JSCL.jpg" alt="Jammu Smart City Logo" loading="lazy" width="100" height="70" onerror="this.src='https://placehold.co/100x70/D4AF37/FFFFFF?text=JSCL'">
                 </div>
                 <div class="marquee-item">
-                    <img src="images/IGNCA.jpg" alt="IGNCA Logo" loading="lazy" onerror="this.src='https://placehold.co/100x70/D4AF37/FFFFFF?text=IGNCA'">
+                    <img src="images/IGNCA.jpg" alt="IGNCA Logo" loading="lazy" width="100" height="70" onerror="this.src='https://placehold.co/100x70/D4AF37/FFFFFF?text=IGNCA'">
                 </div>
                 <div class="marquee-item">
-                    <img src="images/JU.jpg" alt="Jammu University Logo" loading="lazy" onerror="this.src='https://placehold.co/100x70/D4AF37/FFFFFF?text=JU'">
+                    <img src="images/JU.jpg" alt="Jammu University Logo" loading="lazy" width="100" height="70" onerror="this.src='https://placehold.co/100x70/D4AF37/FFFFFF?text=JU'">
                 </div>
                 
                 <!-- Repeat set for infinite effect (paths must also be updated) -->
                 <div class="marquee-item">
-                    <img src="images/Kala.jpg" alt="Kala Kendra Logo" loading="lazy" onerror="this.src='https://placehold.co/100x70/D4AF37/FFFFFF?text=Kala+Kendra'">
+                    <img src="images/Kala.jpg" alt="Kala Kendra Logo" loading="lazy" width="100" height="70" onerror="this.src='https://placehold.co/100x70/D4AF37/FFFFFF?text=Kala+Kendra'">
                 </div>
                 <div class="marquee-item">
-                    <img src="images/INTACH.jpg" alt="INTACH Logo" loading="lazy" onerror="this.src='https://placehold.co/100x70/D4AF37/FFFFFF?text=INTACH'">
+                    <img src="images/INTACH.jpg" alt="INTACH Logo" loading="lazy" width="100" height="70" onerror="this.src='https://placehold.co/100x70/D4AF37/FFFFFF?text=INTACH'">
                 </div>
                 <div class="marquee-item">
-                    <img src="images/JH.jpg" alt="Jammu Heritage Logo" loading="lazy" onerror="this.src='https://placehold.co/100x70/D4AF37/FFFFFF?text=Jammu+Heritage'">
+                    <img src="images/JH.jpg" alt="Jammu Heritage Logo" loading="lazy" width="100" height="70" onerror="this.src='https://placehold.co/100x70/D4AF37/FFFFFF?text=Jammu+Heritage'">
                 </div>
                 <div class="marquee-item">
-                    <img src="images/JSCL.jpg" alt="Jammu Smart City Logo" loading="lazy" onerror="this.src='https://placehold.co/100x70/D4AF37/FFFFFF?text=JSCL'">
+                    <img src="images/JSCL.jpg" alt="Jammu Smart City Logo" loading="lazy" width="100" height="70" onerror="this.src='https://placehold.co/100x70/D4AF37/FFFFFF?text=JSCL'">
                 </div>
                 <div class="marquee-item">
-                    <img src="images/IGNCA.jpg" alt="IGNCA Logo" loading="lazy" onerror="this.src='https://placehold.co/100x70/D4AF37/FFFFFF?text=IGNCA'">
+                    <img src="images/IGNCA.jpg" alt="IGNCA Logo" loading="lazy" width="100" height="70" onerror="this.src='https://placehold.co/100x70/D4AF37/FFFFFF?text=IGNCA'">
                 </div>
                 <div class="marquee-item">
-                    <img src="images/JU.jpg" alt="Jammu University Logo" loading="lazy" onerror="this.src='https://placehold.co/100x70/D4AF37/FFFFFF?text=JU'">
+                    <img src="images/JU.jpg" alt="Jammu University Logo" loading="lazy" width="100" height="70" onerror="this.src='https://placehold.co/100x70/D4AF37/FFFFFF?text=JU'">
                 </div>
             </div>
         </div>
@@ -187,50 +187,50 @@
             <div class="marquee marquee-2">
                 <!-- National Collaborators: Altrim, Dronah, Heritopolis, ICOMOS, NIUA -->
                 <div class="marquee-item">
-                    <img src="images/altrim.jpg" alt="Altrim Publishers Logo" loading="lazy" onerror="this.src='https://placehold.co/100x70/8B4513/FFFFFF?text=Altrim'">
+                    <img src="images/altrim.jpg" alt="Altrim Publishers Logo" loading="lazy" width="100" height="70" onerror="this.src='https://placehold.co/100x70/8B4513/FFFFFF?text=Altrim'">
                 </div>
                 <div class="marquee-item">
-                    <img src="images/dronah.jpg" alt="Dronah Foundation Logo" loading="lazy" onerror="this.src='https://placehold.co/100x70/8B4513/FFFFFF?text=Dronah'">
+                    <img src="images/dronah.jpg" alt="Dronah Foundation Logo" loading="lazy" width="100" height="70" onerror="this.src='https://placehold.co/100x70/8B4513/FFFFFF?text=Dronah'">
                 </div>
                 <div class="marquee-item">
-                    <img src="images/heritopolis.jpg" alt="Heritopolis Logo" loading="lazy" onerror="this.src='https://placehold.co/100x70/8B4513/FFFFFF?text=Heritopolis'">
+                    <img src="images/heritopolis.jpg" alt="Heritopolis Logo" loading="lazy" width="100" height="70" onerror="this.src='https://placehold.co/100x70/8B4513/FFFFFF?text=Heritopolis'">
                 </div>
                 <div class="marquee-item">
-                    <img src="images/Icomos.jpg" alt="ICOMOS India Logo" loading="lazy" onerror="this.src='https://placehold.co/100x70/8B4513/FFFFFF?text=ICOMOS'">
+                    <img src="images/Icomos.jpg" alt="ICOMOS India Logo" loading="lazy" width="100" height="70" onerror="this.src='https://placehold.co/100x70/8B4513/FFFFFF?text=ICOMOS'">
                 </div>
                 <div class="marquee-item">
                     <!-- Assuming NIUA image is named NIUA.jpg or similar in the images folder -->
-                    <img src="images/NIUA.jpg" alt="NIUA Logo" loading="lazy" onerror="this.src='https://placehold.co/100x70/8B4513/FFFFFF?text=NIUA'"> 
+                    <img src="images/NIUA.jpg" alt="NIUA Logo" loading="lazy" width="100" height="70" onerror="this.src='https://placehold.co/100x70/8B4513/FFFFFF?text=NIUA'"> 
                 </div>
                 <!-- Local Collaborators: Kala Kendra, Jammu Heritage -->
                 <div class="marquee-item">
-                    <img src="images/Kala.jpg" alt="Kala Kendra Logo" loading="lazy" onerror="this.src='https://placehold.co/100x70/D4AF37/FFFFFF?text=Kala+Kendra'">
+                    <img src="images/Kala.jpg" alt="Kala Kendra Logo" loading="lazy" width="100" height="70" onerror="this.src='https://placehold.co/100x70/D4AF37/FFFFFF?text=Kala+Kendra'">
                 </div>
                 <div class="marquee-item">
-                    <img src="images/JH.jpg" alt="Jammu Heritage Logo" loading="lazy" onerror="this.src='https://placehold.co/100x70/D4AF37/FFFFFF?text=Jammu+Heritage'">
+                    <img src="images/JH.jpg" alt="Jammu Heritage Logo" loading="lazy" width="100" height="70" onerror="this.src='https://placehold.co/100x70/D4AF37/FFFFFF?text=Jammu+Heritage'">
                 </div>
                 
                 <!-- Repeat set for infinite effect (paths must also be updated) -->
                 <div class="marquee-item">
-                    <img src="images/altrim.jpg" alt="Altrim Publishers Logo" loading="lazy" onerror="this.src='https://placehold.co/100x70/8B4513/FFFFFF?text=Altrim'">
+                    <img src="images/altrim.jpg" alt="Altrim Publishers Logo" loading="lazy" width="100" height="70" onerror="this.src='https://placehold.co/100x70/8B4513/FFFFFF?text=Altrim'">
                 </div>
                 <div class="marquee-item">
-                    <img src="images/dronah.jpg" alt="Dronah Foundation Logo" loading="lazy" onerror="this.src='https://placehold.co/100x70/8B4513/FFFFFF?text=Dronah'">
+                    <img src="images/dronah.jpg" alt="Dronah Foundation Logo" loading="lazy" width="100" height="70" onerror="this.src='https://placehold.co/100x70/8B4513/FFFFFF?text=Dronah'">
                 </div>
                 <div class="marquee-item">
-                    <img src="images/heritopolis.jpg" alt="Heritopolis Logo" loading="lazy" onerror="this.src='https://placehold.co/100x70/8B4513/FFFFFF?text=Heritopolis'">
+                    <img src="images/heritopolis.jpg" alt="Heritopolis Logo" loading="lazy" width="100" height="70" onerror="this.src='https://placehold.co/100x70/8B4513/FFFFFF?text=Heritopolis'">
                 </div>
                 <div class="marquee-item">
-                    <img src="images/Icomos.jpg" alt="ICOMOS India Logo" loading="lazy" onerror="this.src='https://placehold.co/100x70/8B4513/FFFFFF?text=ICOMOS'">
+                    <img src="images/Icomos.jpg" alt="ICOMOS India Logo" loading="lazy" width="100" height="70" onerror="this.src='https://placehold.co/100x70/8B4513/FFFFFF?text=ICOMOS'">
                 </div>
                 <div class="marquee-item">
-                    <img src="images/NIUA.jpg" alt="NIUA Logo" loading="lazy" onerror="this.src='https://placehold.co/100x70/8B4513/FFFFFF?text=NIUA'">
+                    <img src="images/NIUA.jpg" alt="NIUA Logo" loading="lazy" width="100" height="70" onerror="this.src='https://placehold.co/100x70/8B4513/FFFFFF?text=NIUA'">
                 </div>
                 <div class="marquee-item">
-                    <img src="images/Kala.jpg" alt="Kala Kendra Logo" loading="lazy" onerror="this.src='https://placehold.co/100x70/D4AF37/FFFFFF?text=Kala+Kendra'">
+                    <img src="images/Kala.jpg" alt="Kala Kendra Logo" loading="lazy" width="100" height="70" onerror="this.src='https://placehold.co/100x70/D4AF37/FFFFFF?text=Kala+Kendra'">
                 </div>
                 <div class="marquee-item">
-                    <img src="images/JH.jpg" alt="Jammu Heritage Logo" loading="lazy" onerror="this.src='https://placehold.co/100x70/D4AF37/FFFFFF?text=Jammu+Heritage'">
+                    <img src="images/JH.jpg" alt="Jammu Heritage Logo" loading="lazy" width="100" height="70" onerror="this.src='https://placehold.co/100x70/D4AF37/FFFFFF?text=Jammu+Heritage'">
                 </div>
             </div>
         </div>
@@ -249,7 +249,7 @@
                 <div class="walk-card mubarak-mandi">
                     <div class="card-image">
                         <!-- Placeholder image URL -->
-                        <img src="https://placehold.co/600x300/800020/FFFFFF?text=Mubarak+Mandi+Palace" alt="Mubarak Mandi Palace" loading="lazy">
+                        <img src="https://placehold.co/600x300/800020/FFFFFF?text=Mubarak+Mandi+Palace" alt="Mubarak Mandi Palace" loading="lazy" width="600" height="300">
                         <div class="card-overlay">
                             <div class="overlay-content">
                                 <h3>Mubarak Mandi Palace Complex</h3>
@@ -289,7 +289,7 @@
                 <div class="walk-card old-city">
                     <div class="card-image">
                         <!-- Placeholder image URL -->
-                        <img src="https://placehold.co/600x300/8B4513/FFFFFF?text=Old+City+Temple" alt="Old City Temple" loading="lazy">
+                        <img src="https://placehold.co/600x300/8B4513/FFFFFF?text=Old+City+Temple" alt="Old City Temple" loading="lazy" width="600" height="300">
                         <div class="card-overlay">
                             <div class="overlay-content">
                                 <h3>Old City Cultural Journey</h3>
@@ -338,7 +338,7 @@
                 <div class="map-container">
                     <!-- Placeholder image URL for map -->
                     <img src="https://placehold.co/800x600/D4AF37/3E2723?text=Walk+Route+Map+Placeholder" alt="Heritage Walk Old City Route Map"
-                        class="walk-route-map" loading="lazy">
+                        class="walk-route-map" loading="lazy" width="800" height="600">
                     <div class="map-key">
                         <h4>Key Markings on the Route:</h4>
                         <ul>
@@ -383,11 +383,38 @@
 
                 <div class="about-image bigger-photo">
                     <!-- Placeholder image URL -->
-                    <img src="https://placehold.co/600x450/800020/FFFFFF?text=Photography+Contest+Image" alt="Photography Contest" loading="lazy">
+                    <img src="https://placehold.co/600x450/800020/FFFFFF?text=Photography+Contest+Image" alt="Photography Contest" loading="lazy" width="600" height="450">
                 </div>
             </div>
         </div>
     </section>
+
+    <!-- NEW SECTION: Storytelling Session -->
+    <section id="storytelling" class="about-section alt-background">
+        <div class="container">
+            <div class="about-content storytelling-content">
+                <div class="about-image bigger-photo">
+                    <!-- Placeholder image URL for Storytelling Session -->
+                    <img src="https://placehold.co/600x450/8B4513/FFFFFF?text=Storytelling+Session" alt="Storytelling Session" loading="lazy" width="600" height="450">
+                </div>
+                <div class="about-text">
+                    <h2>Community Storytelling Workshop 🗣️</h2>
+                    <p class="lead">Weaving the threads of lived experience into Jammu’s history.</p>
+
+                    <div class="about-details">
+                        <p>Join our workshop focused on capturing and documenting community narratives, oral histories, and personal memories associated with Jammu's landmarks and the River Tawi. This session emphasizes the intangible cultural heritage that lies within the voices of its people.</p>
+
+                        <p>Selected stories and interviews will be digitally archived and featured in our forthcoming documentary series, ensuring your family's history becomes part of the city's documented legacy.</p>
+
+                        <a href="Gform Link Storytelling" target="_blank" class="walk-btn contest-btn">
+                            Register & Share Your Story
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- END NEW SECTION: Storytelling Session -->
 
     <section id="symposium" class="sponsors-section">
         <div class="container">
@@ -474,7 +501,7 @@
                     <!-- Placeholder images used for team members -->
                     <div class="team-member">
                         <div class="member-avatar">
-                            <img src="https://placehold.co/120x120/8B4513/FFFFFF?text=A" alt="Anupamma" loading="lazy">
+                            <img src="https://placehold.co/120x120/8B4513/FFFFFF?text=A" alt="Anupamma" loading="lazy" width="120" height="120">
                         </div>
                         <h3>Anupamma</h3>
                         <p class="member-description">Secretarial Incharge</p>
@@ -482,7 +509,7 @@
 
                     <div class="team-member">
                         <div class="member-avatar">
-                            <img src="https://placehold.co/120x120/8B4513/FFFFFF?text=P" alt="Prem" loading="lazy">
+                            <img src="https://placehold.co/120x120/8B4513/FFFFFF?text=P" alt="Prem" loading="lazy" width="120" height="120">
                         </div>
                         <h3>Prem</h3>
                         <p class="member-description">Digital Experience Curator</p>
@@ -490,7 +517,7 @@
 
                     <div class="team-member">
                         <div class="member-avatar">
-                            <img src="https://placehold.co/120x120/8B4513/FFFFFF?text=J" alt="Jayita" loading="lazy">
+                            <img src="https://placehold.co/120x120/8B4513/FFFFFF?text=J" alt="Jayita" loading="lazy" width="120" height="120">
                         </div>
                         <h3>Jayita</h3>
                         <p class="member-description">Media & Storytelling Session Incharge</p>
@@ -498,7 +525,7 @@
 
                     <div class="team-member">
                         <div class="member-avatar">
-                            <img src="https://placehold.co/120x120/8B4513/FFFFFF?text=S" alt="Sabreena" loading="lazy">
+                            <img src="https://placehold.co/120x120/8B4513/FFFFFF?text=S" alt="Sabreena" loading="lazy" width="120" height="120">
                         </div>
                         <h3>Sabreena</h3>
                         <p class="member-description">Photography Incharge & Creatives</p>
@@ -506,7 +533,7 @@
 
                     <div class="team-member">
                         <div class="member-avatar">
-                            <img src="https://placehold.co/120x120/8B4513/FFFFFF?text=S" alt="Shivam" loading="lazy">
+                            <img src="https://placehold.co/120x120/8B4513/FFFFFF?text=S" alt="Shivam" loading="lazy" width="120" height="120">
                         </div>
                         <h3>Shivam</h3>
                         <p class="member-description">PR & Walk Incharge</p>
@@ -514,7 +541,7 @@
 
                     <div class="team-member">
                         <div class="member-avatar">
-                            <img src="https://placehold.co/120x120/8B4513/FFFFFF?text=S" alt="Siya" loading="lazy">
+                            <img src="https://placehold.co/120x120/8B4513/FFFFFF?text=S" alt="Siya" loading="lazy" width="120" height="120">
                         </div>
                         <h3>Siya</h3>
                         <p class="member-description">Exhibition incharge</p>
@@ -530,9 +557,19 @@
 
     <section class="dogri-slogan-section" id="dogri-slogan">
         <div class="container">
-            <h1 class="dogri-slogan kalam-style">
-                <span class="dogri-phrase">खन्ड मीठे, लोग डोगरे</span>
-                <span class="english-phrase">Khand Meethe, Log Dogre</span>
+            <h1 class="dogri-slogan">
+                <!-- Dogri (Saffron) -->
+                <span class="dogri-phrase tricolor-saffron" lang="dgo">
+                    खन्ड मीठे, लोग डोगरे
+                </span>
+                <!-- Hindi (White) -->
+                <span class="hindi-phrase tricolor-white" lang="hi">
+                    खंड मीठे, लोग डोगरे
+                </span>
+                <!-- English (Green) -->
+                <span class="english-phrase tricolor-green" lang="en">
+                    Khand Meethe, Log Dogre
+                </span>
             </h1>
         </div>
     </section>
@@ -549,36 +586,36 @@
                     <!-- National Collaborators: Altrim, Dronah, Heritopolis, ICOMOS, NIUA -->
                     <!-- Image paths updated to point to the 'images/' folder where the files are located -->
                     <div class="footer-sponsor-logo">
-                        <img src="images/altrim.jpg" alt="Altrim Publishers Logo" loading="lazy" onerror="this.src='https://placehold.co/100x50/FFFFFF/3E2723?text=Altrim'">
+                        <img src="images/altrim.jpg" alt="Altrim Publishers Logo" loading="lazy" width="100" height="50" onerror="this.src='https://placehold.co/100x50/FFFFFF/3E2723?text=Altrim'">
                     </div>
                     <div class="footer-sponsor-logo">
-                        <img src="images/dronah.jpg" alt="Dronah Foundation Logo" loading="lazy" onerror="this.src='https://placehold.co/100x50/FFFFFF/3E2723?text=Dronah'">
+                        <img src="images/dronah.jpg" alt="Dronah Foundation Logo" loading="lazy" width="100" height="50" onerror="this.src='https://placehold.co/100x50/FFFFFF/3E2723?text=Dronah'">
                     </div>
                     <div class="footer-sponsor-logo">
-                        <img src="images/heritopolis.jpg" alt="Heritopolis Logo" loading="lazy" onerror="this.src='https://placehold.co/100x50/FFFFFF/3E2723?text=Heritopolis'">
+                        <img src="images/heritopolis.jpg" alt="Heritopolis Logo" loading="lazy" width="100" height="50" onerror="this.src='https://placehold.co/100x50/FFFFFF/3E2723?text=Heritopolis'">
                     </div>
                     <div class="footer-sponsor-logo">
-                        <img src="images/Icomos.jpg" alt="ICOMOS India Logo" loading="lazy" onerror="this.src='https://placehold.co/100x50/FFFFFF/3E2723?text=ICOMOS'">
+                        <img src="images/Icomos.jpg" alt="ICOMOS India Logo" loading="lazy" width="100" height="50" onerror="this.src='https://placehold.co/100x50/FFFFFF/3E2723?text=ICOMOS'">
                     </div>
                     <div class="footer-sponsor-logo">
-                        <img src="images/NIUA.jpg" alt="NIUA Logo" loading="lazy" onerror="this.src='https://placehold.co/100x50/FFFFFF/3E2723?text=NIUA'">
+                        <img src="images/NIUA.jpg" alt="NIUA Logo" loading="lazy" width="100" height="50" onerror="this.src='https://placehold.co/100x50/FFFFFF/3E2723?text=NIUA'">
                     </div>
                     
                     <!-- Repeat set for infinite effect (paths must also be updated) -->
                     <div class="footer-sponsor-logo">
-                        <img src="images/altrim.jpg" alt="Altrim Publishers Logo" loading="lazy" onerror="this.src='https://placehold.co/100x50/FFFFFF/3E2723?text=Altrim'">
+                        <img src="images/altrim.jpg" alt="Altrim Publishers Logo" loading="lazy" width="100" height="50" onerror="this.src='https://placehold.co/100x50/FFFFFF/3E2723?text=Altrim'">
                     </div>
                     <div class="footer-sponsor-logo">
-                        <img src="images/dronah.jpg" alt="Dronah Foundation Logo" loading="lazy" onerror="this.src='https://placehold.co/100x50/FFFFFF/3E2723?text=Dronah'">
+                        <img src="images/dronah.jpg" alt="Dronah Foundation Logo" loading="lazy" width="100" height="50" onerror="this.src='https://placehold.co/100x50/FFFFFF/3E2723?text=Dronah'">
                     </div>
                     <div class="footer-sponsor-logo">
-                        <img src="images/heritopolis.jpg" alt="Heritopolis Logo" loading="lazy" onerror="this.src='https://placehold.co/100x50/FFFFFF/3E2723?text=Heritopolis'">
+                        <img src="images/heritopolis.jpg" alt="Heritopolis Logo" loading="lazy" width="100" height="50" onerror="this.src='https://placehold.co/100x50/FFFFFF/3E2723?text=Heritopolis'">
                     </div>
                     <div class="footer-sponsor-logo">
-                        <img src="images/Icomos.jpg" alt="ICOMOS India Logo" loading="lazy" onerror="this.src='https://placehold.co/100x50/FFFFFF/3E2723?text=ICOMOS'">
+                        <img src="images/Icomos.jpg" alt="ICOMOS India Logo" loading="lazy" width="100" height="50" onerror="this.src='https://placehold.co/100x50/FFFFFF/3E2723?text=ICOMOS'">
                     </div>
                     <div class="footer-sponsor-logo">
-                        <img src="images/NIUA.jpg" alt="NIUA Logo" loading="lazy" onerror="this.src='https://placehold.co/100x50/FFFFFF/3E2723?text=NIUA'">
+                        <img src="images/NIUA.jpg" alt="NIUA Logo" loading="lazy" width="100" height="50" onerror="this.src='https://placehold.co/100x50/FFFFFF/3E2723?text=NIUA'">
                     </div>
                 </div>
             </div>
