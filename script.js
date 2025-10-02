@@ -15,7 +15,7 @@ function initializeWebsite() {
     initScrollEffects();
     initAnimations();
     initFormHandling();
-    initHistoryCarousel(); 
+    // initHistoryCarousel() removed as per user request
     initBackgroundMusic(); 
     console.log('Website initialized successfully');
 }
@@ -165,7 +165,8 @@ function initScrollEffects() {
 function initAnimations() {
     // Enhanced fade in animation for sections
     const observerOptions = {
-        threshold: 0.15,
+        // Increased threshold to 0.2 to trigger animations earlier and less distracting
+        threshold: 0.2, 
         rootMargin: '0px 0px -30px 0px'
     };
 
@@ -178,22 +179,23 @@ function initAnimations() {
         });
     }, observerOptions);
 
-    // Apply fade animation to various elements
+    // Apply fade animation to key structural elements only (less distracting/fewer animations)
     const animatedElements = document.querySelectorAll(
-        '.walk-card, .team-member, .about-content, .carousel-slide, .section-header'
+        '.walk-card, .session-card, .team-member, .about-content, .section-header'
     );
     
+    // Reduce the stagger effect duration for quicker load
     animatedElements.forEach((el, index) => {
         el.style.opacity = '0';
-        el.style.transform = 'translateY(40px)';
-        el.style.transition = `opacity 0.8s ease-out ${index * 0.1}s, transform 0.8s ease-out ${index * 0.1}s`;
+        el.style.transform = 'translateY(20px)'; // Reduced movement
+        el.style.transition = `opacity 0.6s ease-out ${index * 0.05}s, transform 0.6s ease-out ${index * 0.05}s`;
         fadeObserver.observe(el);
     });
 
     // Staggered animation for team members
     const teamMembers = document.querySelectorAll('.team-member');
     teamMembers.forEach((member, index) => {
-        member.style.transitionDelay = `${index * 0.15}s`;
+        member.style.transitionDelay = `${index * 0.1}s`; // Reduced delay
     });
 
     // Add animate-in class styles via JavaScript
@@ -217,106 +219,8 @@ function initFormHandling() {
 // =======================================================
 // 6. ENHANCED HISTORY CAROUSEL WITH INDICATORS
 // =======================================================
-function initHistoryCarousel() {
-    const carouselInner = document.getElementById('historyCarousel');
-    const slides = carouselInner ? carouselInner.querySelectorAll('.carousel-slide') : [];
-    const prevButton = document.querySelector('.history-carousel-wrapper .prev');
-    const nextButton = document.querySelector('.history-carousel-wrapper .next');
-    const indicators = document.querySelectorAll('.carousel-indicators .indicator');
-    let currentIndex = 0;
-    const slideInterval = 5000; // 5 seconds per slide
-    let autoRotate;
-
-    if (!carouselInner || slides.length === 0) return;
-
-    function updateCarousel() {
-        // Smooth transition with transform
-        carouselInner.style.transform = `translateX(-${currentIndex * 100}%)`;
-        
-        // Update indicators
-        indicators.forEach((indicator, index) => {
-            indicator.classList.toggle('active', index === currentIndex);
-        });
-    }
-
-    function goToNext() {
-        currentIndex = (currentIndex + 1) % slides.length;
-        updateCarousel();
-    }
-
-    function goToPrev() {
-        currentIndex = (currentIndex - 1 + slides.length) % slides.length;
-        updateCarousel();
-    }
-
-    function goToSlide(index) {
-        currentIndex = index;
-        updateCarousel();
-    }
-
-    function startAutoRotate() {
-        clearInterval(autoRotate); 
-        autoRotate = setInterval(goToNext, slideInterval);
-    }
-    
-    // Manual navigation
-    if (nextButton) nextButton.addEventListener('click', () => {
-        goToNext();
-        startAutoRotate();
-    });
-    
-    if (prevButton) prevButton.addEventListener('click', () => {
-        goToPrev();
-        startAutoRotate();
-    });
-
-    // Indicator navigation
-    indicators.forEach((indicator, index) => {
-        indicator.addEventListener('click', () => {
-            goToSlide(index);
-            startAutoRotate();
-        });
-    });
-
-    // Pause on hover
-    const carouselWrapper = document.querySelector('.history-carousel-wrapper');
-    if (carouselWrapper) {
-        carouselWrapper.addEventListener('mouseenter', () => {
-            clearInterval(autoRotate);
-        });
-        
-        carouselWrapper.addEventListener('mouseleave', () => {
-            startAutoRotate();
-        });
-    }
-
-    // Touch/swipe support for mobile
-    let startX = 0;
-    let endX = 0;
-
-    carouselInner.addEventListener('touchstart', (e) => {
-        startX = e.touches[0].clientX;
-    });
-
-    carouselInner.addEventListener('touchend', (e) => {
-        endX = e.changedTouches[0].clientX;
-        const diff = startX - endX;
-        
-        if (Math.abs(diff) > 50) { // Minimum swipe distance
-            if (diff > 0) {
-                goToNext();
-            } else {
-                goToPrev();
-            }
-            startAutoRotate();
-        }
-    });
-
-    // Initialize
-    updateCarousel();
-    startAutoRotate();
-    console.log('Enhanced history carousel initialized with indicators and touch support.');
-}
+// The initHistoryCarousel function has been completely removed
+// as the corresponding HTML section was removed.
 
 // =======================================================
 // 7. BACKGROUND MUSIC IMPLEMENTATION
