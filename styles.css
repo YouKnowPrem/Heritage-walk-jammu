@@ -45,7 +45,7 @@ html {
 /* Reduce motion for users who prefer it */
 @media (prefers-reduced-motion: reduce) {
 
-    *,
+    *,\
     *::before,
     *::after {
         animation-duration: 0.01ms !important;
@@ -679,150 +679,8 @@ body.loading {
 }
 
 
-/* 6. REDESIGNED HISTORY CAROUSEL */
-.history-section {
-    padding: var(--section-padding);
-    background: var(--soft-beige);
-}
+/* The history section styles have been removed */
 
-.history-carousel-wrapper {
-    position: relative;
-    max-width: 1100px;
-    margin: 0 auto;
-    overflow: hidden;
-    border-radius: 20px;
-    box-shadow: var(--shadow-heavy);
-}
-
-.carousel-inner {
-    display: flex;
-    transition: transform 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-}
-
-.carousel-slide {
-    min-width: 100%;
-    background: white;
-    flex-shrink: 0;
-    overflow: hidden;
-    height: 400px;
-}
-
-.slide-content-block {
-    display: flex;
-    height: 100%;
-    align-items: center;
-}
-
-.slide-text {
-    flex: 1;
-    padding: 2.5rem;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-}
-
-.slide-text h3 {
-    font-family: var(--font-heading);
-    font-size: 1.8rem;
-    color: var(--royal-burgundy);
-    margin-bottom: 1rem;
-    line-height: 1.3;
-}
-
-.slide-text p {
-    font-size: 1rem;
-    line-height: 1.6;
-    color: var(--text-dark);
-    margin-bottom: 1.5rem;
-}
-
-.slide-highlights {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 0.5rem;
-}
-
-.highlight-tag {
-    background: var(--primary-gold);
-    color: white;
-    padding: 0.3rem 0.8rem;
-    border-radius: 15px;
-    font-size: 0.8rem;
-    font-weight: 500;
-}
-
-.slide-image {
-    flex: 1;
-    height: 100%;
-    overflow: hidden;
-}
-
-.slide-image img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    transition: transform 0.5s ease;
-}
-
-.carousel-slide:hover .slide-image img {
-    transform: scale(1.05);
-}
-
-.carousel-indicators {
-    position: absolute;
-    bottom: 20px;
-    left: 50%;
-    transform: translateX(-50%);
-    display: flex;
-    gap: 10px;
-}
-
-.indicator {
-    width: 12px;
-    height: 12px;
-    border-radius: 50%;
-    background: rgba(255, 255, 255, 0.5);
-    cursor: pointer;
-    transition: all 0.3s ease;
-}
-
-.indicator.active {
-    background: var(--primary-gold);
-    transform: scale(1.2);
-}
-
-/* Carousel Navigation */
-.carousel-nav {
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-    background: rgba(139, 69, 19, 0.8);
-    color: white;
-    border: none;
-    width: 50px;
-    height: 50px;
-    border-radius: 50%;
-    font-size: 1.5rem;
-    cursor: pointer;
-    transition: all var(--transition-medium);
-    z-index: 10;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-.carousel-nav:hover {
-    background: var(--royal-burgundy);
-    transform: translateY(-50%) scale(1.1);
-}
-
-.carousel-nav.prev {
-    left: 20px;
-}
-
-.carousel-nav.next {
-    right: 20px;
-}
 
 /* Section Headers */
 .section-header {
@@ -1121,24 +979,10 @@ body.loading {
     box-shadow: var(--shadow-heavy);
 }
 
-.session-image {
-    height: 200px;
-    overflow: hidden;
-}
-
-.session-image img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    transition: transform var(--transition-slow);
-}
-
-.session-card:hover .session-image img {
-    transform: scale(1.05);
-}
-
+/* The .session-image container is removed from HTML, keeping only the content styles */
 .session-content {
     padding: 1.5rem;
+    /* Adjusted padding for cards without image */
 }
 
 .session-content h3 {
@@ -1246,6 +1090,7 @@ body.loading {
     flex-direction: column;
     align-items: center;
     text-align: center;
+    /* Animations simplified in JS, keep CSS transition minimal */
     transition: all var(--transition-medium);
     background: white;
     padding: 1.5rem;
@@ -1383,44 +1228,6 @@ body.loading {
 /* ENHANCED RESPONSIVE DESIGN */
 @media (max-width: 992px) {
 
-    /* History Carousel Mobile Optimization */
-    .carousel-slide {
-        height: auto;
-        min-height: 350px;
-    }
-
-    .slide-content-block {
-        flex-direction: column;
-    }
-
-    .slide-text {
-        padding: 2rem;
-        order: 2;
-    }
-
-    .slide-image {
-        height: 200px;
-        order: 1;
-    }
-
-    .slide-text h3 {
-        font-size: 1.5rem;
-    }
-
-    /* About Content alignment */
-    .about-content {
-        grid-template-columns: 1fr;
-        gap: 2rem;
-    }
-
-    .about-image {
-        order: 1;
-    }
-
-    .about-text {
-        order: 2;
-    }
-
     /* Symposium sessions mobile */
     .symposium-sessions {
         grid-template-columns: 1fr;
@@ -1466,20 +1273,6 @@ body.loading {
 
     .hero-description {
         font-size: 1rem;
-    }
-
-    /* Carousel mobile adjustments */
-    .carousel-slide {
-        height: auto;
-        min-height: 300px;
-    }
-
-    .slide-text {
-        padding: 1.5rem;
-    }
-
-    .slide-image {
-        height: 180px;
     }
 
     /* Walks grid */
@@ -1573,18 +1366,6 @@ body.loading {
 
     .hero-sub {
         font-size: 1.5rem;
-    }
-
-    .carousel-slide {
-        min-height: 280px;
-    }
-
-    .slide-text {
-        padding: 1rem;
-    }
-
-    .slide-image {
-        height: 150px;
     }
 
     .experts-grid {
