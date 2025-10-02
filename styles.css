@@ -3,6 +3,11 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    /* IP Protection: Disable text selection site-wide to prevent easy copying of text/data */
+    user-select: none;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
 }
 
 /* Performance optimizations */
@@ -16,6 +21,20 @@ img {
     max-width: 100%;
     height: auto;
     display: block;
+    /* IP Protection: Disable dragging images/links/files */
+    -webkit-user-drag: none;
+    user-drag: none;
+    /* Ensure default cursor for images */
+    cursor: default !important;
+}
+
+/* Global IP Protection: Disable context menu, selection, and drag on main content elements */
+body, .marquee-item {
+    -webkit-touch-callout: none;
+    user-select: none; 
+    -ms-user-select: none; 
+    -moz-user-select: none; 
+    -webkit-user-select: none;
 }
 
 /* Smooth scrolling for all browsers */
@@ -632,14 +651,14 @@ body.loading {
 /* Adjustments for logo images */
 .marquee-item {
     display: inline-block;
-    padding: 0 20px;
+    padding: 0 15px; /* Reduced padding slightly */
     height: 70px; /* Uniform height for alignment */
     line-height: 70px;
     margin: 0 15px;
-    border: 1px dashed var(--deep-brown);
+    /* REMOVED dashed border from the first two marquees as requested */
+    border: none;
     border-radius: 5px;
     vertical-align: middle;
-    /* Remove placeholder style */
 }
 
 .marquee-item img {
