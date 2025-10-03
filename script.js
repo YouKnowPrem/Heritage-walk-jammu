@@ -16,7 +16,7 @@ function initializeWebsite() {
     initAnimations();
     initFormHandling();
     // initHistoryCarousel() removed as per user request
-    initBackgroundMusic(); 
+    // initBackgroundMusic(); // # Commented out as requested (Requirement 2)
     console.log('Website initialized successfully');
 }
 
@@ -217,14 +217,9 @@ function initFormHandling() {
 }
 
 // =======================================================
-// 6. ENHANCED HISTORY CAROUSEL WITH INDICATORS
+// 7. BACKGROUND MUSIC IMPLEMENTATION (Commented out as requested)
 // =======================================================
-// The initHistoryCarousel function has been completely removed
-// as the corresponding HTML section was removed.
-
-// =======================================================
-// 7. BACKGROUND MUSIC IMPLEMENTATION
-// =======================================================
+/*
 function initBackgroundMusic() {
     const music = document.getElementById('backgroundMusic');
     const toggleButton = document.getElementById('musicToggle');
@@ -274,10 +269,11 @@ function initBackgroundMusic() {
         toggleButton.style.opacity = '0.5';
     });
 }
+*/
 
 
 // =======================================================
-// 8. UTILITY AND PERFORMANCE FUNCTIONS (Kept as is)
+// 8. UTILITY AND PERFORMANCE FUNCTIONS
 // =======================================================
 function showNotification(message, type = 'info') {
     // Logic remains the same
