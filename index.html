@@ -34,6 +34,26 @@
                 console.warn(message);
             }
         });
+
+        // Additional IP Protection: Block common screenshot keys (Print Screen, Ctrl+Shift+I/J/C)
+        document.addEventListener('keydown', (e) => {
+            // F12 key (Developer Tools)
+            if (e.key === 'F12') {
+                e.preventDefault();
+                console.warn("Developer tools access disabled.");
+            }
+            // Ctrl+Shift+I/J/C and Cmd+Option+I/J/C (Developer Tools shortcuts)
+            if ((e.ctrlKey || e.metaKey) && e.shiftKey && ['I', 'J', 'C'].includes(e.key.toUpperCase())) {
+                e.preventDefault();
+                console.warn("Developer tools access disabled.");
+            }
+            // Print Screen / PrtScn key (Common screenshot key, highly browser-dependent but worth trying)
+            if (e.key === 'PrintScreen' || e.key === 'Snapshot') {
+                 // Note: This often cannot prevent OS-level screenshots, but can prevent some browser extensions
+                e.preventDefault(); 
+                console.warn("Screenshot functionality disabled.");
+            }
+        });
     </script>
     
     <div id="loadingScreen" class="mandala-loading-screen">
@@ -69,7 +89,6 @@
 
             <ul class="nav-menu" id="navMenu">
                 <li><a href="#home" class="nav-link">Home</a></li>
-                <!-- Removed link to the history section as it is removed -->
                 <li><a href="#walks" class="nav-link">Walks</a></li>
                 <li><a href="#contest" class="nav-link">Contest</a></li>
                 <!-- New nav link for Storytelling Session -->
@@ -86,6 +105,8 @@
         </div>
     </nav>
 
+    <!-- 
+    // START: BG Music Functionality Removed (Commented Out) as per user request (Requirement 2)
     <button id="musicToggle" class="music-toggle" aria-label="Toggle background music">
         🔇
     </button>
@@ -94,6 +115,8 @@
         <source src="https://www.soundjay.com/misc/sounds/temple-bell-1.mp3" type="audio/mpeg">
         <source src="https://www.soundjay.com/misc/sounds/temple-bell-1.wav" type="audio/wav">
     </audio>
+    // END: BG Music Functionality Removed (Commented Out)
+    -->
 
     <section id="home" class="hero">
         <!-- Placeholder image URL for hero background, using relevant text for context -->
@@ -133,7 +156,8 @@
         <div class="marquee-container speed-fast">
             <!-- Ensure the content is doubled/tripled to support infinite scrolling animation -->
             <div class="marquee marquee-1">
-                <!-- Local Collaborators: Kala Kendra, INTACH, Jammu Heritage, JSCL, IGNCA, JU -->
+                <!-- START: Marquee items updated per requirement 1: Replaced IGNCA.jpg with Kala.jpg -->
+                <!-- Local Collaborators: Kala Kendra, INTACH, Jammu Heritage, JSCL, Kala.jpg, JU -->
                 <div class="marquee-item">
                     <img src="images/Kala.jpg" alt="Kala Kendra Logo" loading="lazy" width="100" height="70" onerror="this.src='https://placehold.co/100x70/D4AF37/FFFFFF?text=Kala+Kendra'">
                 </div>
@@ -147,13 +171,13 @@
                     <img src="images/JSCL.jpg" alt="Jammu Smart City Logo" loading="lazy" width="100" height="70" onerror="this.src='https://placehold.co/100x70/D4AF37/FFFFFF?text=JSCL'">
                 </div>
                 <div class="marquee-item">
-                    <img src="images/IGNCA.jpg" alt="IGNCA Logo" loading="lazy" width="100" height="70" onerror="this.src='https://placehold.co/100x70/D4AF37/FFFFFF?text=IGNCA'">
+                    <img src="images/Kala.jpg" alt="Kala Kendra Logo" loading="lazy" width="100" height="70" onerror="this.src='https://placehold.co/100x70/D4AF37/FFFFFF?text=Kala+Kendra'">
                 </div>
                 <div class="marquee-item">
                     <img src="images/JU.jpg" alt="Jammu University Logo" loading="lazy" width="100" height="70" onerror="this.src='https://placehold.co/100x70/D4AF37/FFFFFF?text=JU'">
                 </div>
                 
-                <!-- Repeat set for infinite effect (paths must also be updated) -->
+                <!-- Repeat set for infinite effect -->
                 <div class="marquee-item">
                     <img src="images/Kala.jpg" alt="Kala Kendra Logo" loading="lazy" width="100" height="70" onerror="this.src='https://placehold.co/100x70/D4AF37/FFFFFF?text=Kala+Kendra'">
                 </div>
@@ -167,13 +191,13 @@
                     <img src="images/JSCL.jpg" alt="Jammu Smart City Logo" loading="lazy" width="100" height="70" onerror="this.src='https://placehold.co/100x70/D4AF37/FFFFFF?text=JSCL'">
                 </div>
                 <div class="marquee-item">
-                    <img src="images/IGNCA.jpg" alt="IGNCA Logo" loading="lazy" width="100" height="70" onerror="this.src='https://placehold.co/100x70/D4AF37/FFFFFF?text=IGNCA'">
+                    <img src="images/Kala.jpg" alt="Kala Kendra Logo" loading="lazy" width="100" height="70" onerror="this.src='https://placehold.co/100x70/D4AF37/FFFFFF?text=Kala+Kendra'">
                 </div>
                 <div class="marquee-item">
                     <img src="images/JU.jpg" alt="Jammu University Logo" loading="lazy" width="100" height="70" onerror="this.src='https://placehold.co/100x70/D4AF37/FFFFFF?text=JU'">
                 </div>
 
-                <!-- Repeat set for infinite effect (paths must also be updated) -->
+                <!-- Repeat set for infinite effect -->
                 <div class="marquee-item">
                     <img src="images/Kala.jpg" alt="Kala Kendra Logo" loading="lazy" width="100" height="70" onerror="this.src='https://placehold.co/100x70/D4AF37/FFFFFF?text=Kala+Kendra'">
                 </div>
@@ -187,11 +211,12 @@
                     <img src="images/JSCL.jpg" alt="Jammu Smart City Logo" loading="lazy" width="100" height="70" onerror="this.src='https://placehold.co/100x70/D4AF37/FFFFFF?text=JSCL'">
                 </div>
                 <div class="marquee-item">
-                    <img src="images/IGNCA.jpg" alt="IGNCA Logo" loading="lazy" width="100" height="70" onerror="this.src='https://placehold.co/100x70/D4AF37/FFFFFF?text=IGNCA'">
+                    <img src="images/Kala.jpg" alt="Kala Kendra Logo" loading="lazy" width="100" height="70" onerror="this.src='https://placehold.co/100x70/D4AF37/FFFFFF?text=Kala+Kendra'">
                 </div>
                 <div class="marquee-item">
                     <img src="images/JU.jpg" alt="Jammu University Logo" loading="lazy" width="100" height="70" onerror="this.src='https://placehold.co/100x70/D4AF37/FFFFFF?text=JU'">
                 </div>
+                <!-- END: Marquee items updated -->
             </div>
         </div>
 
@@ -224,7 +249,7 @@
                     <img src="images/JH_new.jpg" alt="Jammu Heritage Logo" loading="lazy" width="100" height="70" onerror="this.src='https://placehold.co/100x70/D4AF37/FFFFFF?text=Jammu+Heritage'">
                 </div>
                 
-                <!-- Repeat set for infinite effect (paths must also be updated) -->
+                <!-- Repeat set for infinite effect -->
                 <div class="marquee-item">
                     <img src="images/altrim.jpg" alt="Altrim Publishers Logo" loading="lazy" width="100" height="70" onerror="this.src='https://placehold.co/100x70/8B4513/FFFFFF?text=Altrim'">
                 </div>
@@ -247,7 +272,7 @@
                     <img src="images/JH_new.jpg" alt="Jammu Heritage Logo" loading="lazy" width="100" height="70" onerror="this.src='https://placehold.co/100x70/D4AF37/FFFFFF?text=Jammu+Heritage'">
                 </div>
 
-                <!-- Repeat set for infinite effect (paths must also be updated) -->
+                <!-- Repeat set for infinite effect -->
                 <div class="marquee-item">
                     <img src="images/altrim.jpg" alt="Altrim Publishers Logo" loading="lazy" width="100" height="70" onerror="this.src='https://placehold.co/100x70/8B4513/FFFFFF?text=Altrim'">
                 </div>
@@ -605,7 +630,6 @@
                 <span class="dogri-phrase">
                     खन्ड मीठे, लोग डोगरे
                 </span>
-                <!-- Hindi (Removed, as only two phrases were requested originally) -->
                 <!-- English (Original style) -->
                 <span class="english-phrase">
                     Khand Meethe, Log Dogre
@@ -641,7 +665,7 @@
                         <img src="images/NIUA.jpg" alt="NIUA Logo" loading="lazy" width="100" height="50" onerror="this.src='https://placehold.co/100x50/FFFFFF/3E2723?text=NIUA'">
                     </div>
                     
-                    <!-- Repeat set for infinite effect (paths must also be updated) -->
+                    <!-- Repeat set for infinite effect -->
                     <div class="footer-sponsor-logo">
                         <img src="images/altrim.jpg" alt="Altrim Publishers Logo" loading="lazy" width="100" height="50" onerror="this.src='https://placehold.co/100x50/FFFFFF/3E2723?text=Altrim'">
                     </div>
@@ -658,7 +682,7 @@
                         <img src="images/NIUA.jpg" alt="NIUA Logo" loading="lazy" width="100" height="50" onerror="this.src='https://placehold.co/100x50/FFFFFF/3E2723?text=NIUA'">
                     </div>
 
-                    <!-- Repeat set for infinite effect (paths must also be updated) -->
+                    <!-- Repeat set for infinite effect -->
                     <div class="footer-sponsor-logo">
                         <img src="images/altrim.jpg" alt="Altrim Publishers Logo" loading="lazy" width="100" height="50" onerror="this.src='https://placehold.co/100x50/FFFFFF/3E2723?text=Altrim'">
                     </div>
@@ -689,7 +713,3 @@
 </body>
 
 </html>
-
-
-
-
