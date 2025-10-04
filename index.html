@@ -20,7 +20,8 @@
 </head>
 
 <body>
-    <!-- Script to disable context menu (right-click) for extra IP protection -->
+    <!-- IP Protection Script: NOTE: Front-end measures are limited and cannot reliably block OS-level screenshots. 
+         These measures only block browser-specific tools and right-click functionality. -->
     <script>
         document.addEventListener('contextmenu', event => {
             event.preventDefault();
@@ -35,7 +36,7 @@
             }
         });
 
-        // Additional IP Protection: Block common screenshot keys (Print Screen, Ctrl+Shift+I/J/C)
+        // Additional IP Protection: Block common desktop developer/screenshot keys
         document.addEventListener('keydown', (e) => {
             // F12 key (Developer Tools)
             if (e.key === 'F12') {
@@ -47,11 +48,10 @@
                 e.preventDefault();
                 console.warn("Developer tools access disabled.");
             }
-            // Print Screen / PrtScn key (Common screenshot key, highly browser-dependent but worth trying)
+            // Print Screen / PrtScn key (Limited effectiveness, desktop only)
             if (e.key === 'PrintScreen' || e.key === 'Snapshot') {
-                 // Note: This often cannot prevent OS-level screenshots, but can prevent some browser extensions
                 e.preventDefault(); 
-                console.warn("Screenshot functionality disabled.");
+                console.warn("Screenshot functionality disabled (browser level).");
             }
         });
     </script>
@@ -743,4 +743,3 @@
 </body>
 
 </html>
-
