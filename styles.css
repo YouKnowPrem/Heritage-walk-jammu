@@ -990,10 +990,44 @@ body.loading {
     box-shadow: var(--shadow-medium);
 }
 
-.contest-btn {
-    max-width: 400px;
+/* --- START: New styles for two buttons side-by-side --- */
+
+.contest-buttons-group {
+    display: flex;
+    /* Use flex to align buttons horizontally */
+    flex-wrap: wrap; 
+    /* Allow wrapping on smaller screens */
+    gap: 1rem;
+    /* Space between buttons */
     margin-top: 2rem;
 }
+
+.contest-btn {
+    /* Reset max-width set previously, and let flex handle sizing */
+    max-width: none; 
+    /* Buttons should be half the width of their container minus the gap, on larger screens */
+    flex: 1 1 45%; 
+    /* Grow, Shrink, Base width: allows them to be roughly 50% each or 100% on small screens */
+    padding: 0.8rem 1rem;
+    /* Slightly smaller padding for two buttons */
+    font-size: 1rem;
+}
+
+/* Style for the new download button to give it a slightly different look */
+.download-btn {
+    background: var(--primary-gold);
+    color: var(--dark-brown);
+}
+
+.download-btn:hover {
+    background: var(--deep-brown);
+    color: var(--text-light);
+}
+
+/* Ensure the total width of buttons and gap doesn't exceed the container */
+
+/* --- END: New styles for two buttons side-by-side --- */
+
 
 /* 10. SYMPOSIUM SECTION */
 .sponsors-section {
@@ -1423,6 +1457,17 @@ body.loading {
         width: 100px;
         height: 100px;
     }
+
+    /* --- START: Mobile specific button alignment for contest --- */
+    .contest-buttons-group {
+        flex-direction: column; /* Stack buttons vertically on small screens */
+        gap: 1rem;
+    }
+
+    .contest-btn {
+        flex: 1 1 100%; /* Make each button full width on mobile */
+    }
+    /* --- END: Mobile specific button alignment for contest --- */
 }
 
 @media (max-width: 480px) {
