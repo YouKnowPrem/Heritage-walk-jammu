@@ -37,8 +37,8 @@ body, .marquee-item {
     -webkit-user-select: none;
 }
 
-/* Anti-Screenshot Filter: Apply blur filter when user attempts to print (common screenshot shortcut) */
-@media print, (min-resolution: 200dpi), (min-resolution: 78.7dpc) {
+/* Anti-Screenshot Filter: Apply blur filter ONLY when printing (The problematic high-DPI rules were removed) */
+@media print {
     body {
         filter: blur(5px) grayscale(1);
     }
