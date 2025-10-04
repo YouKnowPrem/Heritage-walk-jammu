@@ -544,11 +544,22 @@
                             Announcement of Winners: October 11, 2025<br>
                             Exhibition at: Kala Kendra, Bikram Chowk<br>
                             Time: 4 PM</p>
+                        
+                        <!-- START: Updated button structure for side-by-side display -->
+                        <div class="contest-buttons-group">
+                            <!-- Existing Registration/Submission Button -->
+                            <a href="https://forms.google.com/heritage-photography-contest" target="_blank"
+                                class="walk-btn contest-btn" rel="noopener noreferrer">
+                                Register & Submit Your Entries
+                            </a>
+                            <!-- NEW Download Details Button -->
+                            <a href="/documents/Photography_Contest_Details.pdf" target="_blank"
+                                class="walk-btn contest-btn download-btn" rel="noopener noreferrer" download>
+                                Download Details (PDF)
+                            </a>
+                        </div>
+                        <!-- END: Updated button structure -->
 
-                        <a href="https://forms.google.com/heritage-photography-contest" target="_blank"
-                            class="walk-btn contest-btn" rel="noopener noreferrer">
-                            Register & Submit Your Entries
-                        </a>
                     </div>
                 </div>
 
@@ -748,13 +759,12 @@
     </section>
 
 
-
+    <!-- Consolidated Footer: Kept Marquee and ONE final copyright section -->
     <footer class="footer">
         <div class="footer-marquee-section">
             <div class="footer-marquee-title">National Collaborators & Sponsors</div>
             <div class="footer-marquee-container">
                 <!-- FOOTER MARQUEE: NATIONAL COLLABORATORS ONLY (Fast Speed) -->
-                <!-- The footer marquee also uses the infinite scrolling animation set up in CSS -->
                 <div class="footer-marquee footer-marquee-1 speed-fast">
                     <!-- National Collaborators: Altrim, Dronah, Heritopolis, ICOMOS, NIUA -->
                     <!-- Image paths updated to point to the 'images/' folder where the files are located -->
@@ -825,53 +835,16 @@
                 </div>
             </div>
         </div>
-
-        <div class="container">
-            <div class="footer-bottom">
-                <p class="slogan-credit">&copy;Historic Cities Jammu Team 2025. All rights reserved.</p>
-            </div>
-        </div>
-    </footer>
-
-    <!-- Footer -->
-    <footer class="footer">
+        
+        <!-- START: Consolidated the two previous footer credit blocks into one clean footer content area -->
         <div class="footer-content">
             <div class="container">
-                <div class="footer-grid">
-                    <div class="footer-section">
-                        <h3>Contact Information</h3>
-                        <p><strong>Email:</strong> <a href="mailto:heritage@jammuwalk.org">heritage@jammuwalk.org</a>
-                        </p>
-                        <p><strong>Phone:</strong> <a href="tel:+911912345678">+91 191 234 5678</a></p>
-                        <p><strong>Address:</strong> Mubarak Mandi Palace Complex, Jammu</p>
-                    </div>
-
-                    <div class="footer-section">
-                        <h3>Quick Links</h3>
-                        <ul>
-                            <li><a href="#walks">Heritage Walks</a></li>
-                            <li><a href="#contest">Photography Contest</a></li>
-                            <li><a href="#storytelling">Community Stories</a></li>
-                            <li><a href="#symposium">Symposium</a></li>
-                        </ul>
-                    </div>
-
-                    <div class="footer-section">
-                        <h3>Follow Us</h3>
-                        <div class="social-links">
-                            <a href="#" aria-label="Facebook" class="social-link">📘</a>
-                            <a href="#" aria-label="Instagram" class="social-link">📷</a>
-                            <a href="#" aria-label="Twitter" class="social-link">🐦</a>
-                        </div>
-                        <p class="footer-note">Historic Cities Series 2025</p>
-                    </div>
-                </div>
-
                 <div class="footer-bottom">
                     <p>&copy; 2025 Heritage Walks Jammu. All rights reserved. | Preserving Heritage, Building Future</p>
                 </div>
             </div>
         </div>
+        <!-- END: Consolidated Footer -->
     </footer>
 
     <script src="script.js"></script>
