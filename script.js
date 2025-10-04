@@ -232,33 +232,33 @@ function initBackgroundMusic() {
     // Set initial state
     music.volume = 0.3; // Low volume for background
     // Use the actual Unicode character for the muted state
-    toggleButton.textContent = '🔇'; 
+    toggleButton.textContent = '這'; 
     
     toggleButton.addEventListener('click', async () => {
         try {
             if (isPlaying) {
                 music.pause();
-                toggleButton.textContent = '🔇';
+                toggleButton.textContent = '這';
                 isPlaying = false;
                 console.log('Background music paused');
             } else {
                 await music.play();
                 // Use the actual Unicode character for the playing state
-                toggleButton.textContent = '🔊'; 
+                toggleButton.textContent = '矧'; 
                 isPlaying = true;
                 console.log('Background music playing');
             }
         } catch (error) {
             console.log('Audio playback failed:', error);
             // Fallback for browsers that require user interaction
-            toggleButton.textContent = '🔇';
+            toggleButton.textContent = '這';
             showNotification('Click to enable background music', 'info');
         }
     });
 
     // Handle audio events
     music.addEventListener('ended', () => {
-        toggleButton.textContent = '🔇';
+        toggleButton.textContent = '這';
         isPlaying = false;
         // Optionally restart music on end
         // music.play(); 
