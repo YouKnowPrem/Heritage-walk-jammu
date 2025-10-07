@@ -60,7 +60,7 @@
         // Disable common developer shortcuts (basic protection)
         document.addEventListener('keydown', (e) => {
             if (e.key === 'F12' ||
-                (e.ctrlKey && e.shiftKey && ['I', 'J', 'C'].includes(e.key.toUpperCase())) ||
+                (e.ctrlKey && e.shiftKey && ['I', 'J', 'C','S'].includes(e.key.toUpperCase())) ||
                 (e.ctrlKey && e.key === 'U')) {
                 e.preventDefault();
                 console.warn("Developer tools access restricted.");
@@ -123,18 +123,20 @@
         </div>
     </nav>
 
-    <!-- 
-    // START: BG Music Functionality Removed (Commented Out) as per user request (Requirement 2)
+    <!-- START: BG Music Functionality Reintroduced with New Audio Tracks -->
     <button id="musicToggle" class="music-toggle" aria-label="Toggle background music">
-        🔇
+        <!-- Using a speaker icon (HTML entity &#128266; muted &#128263;) initially muted -->
+        &#128263;
     </button>
 
-    <audio id="backgroundMusic" loop preload="auto">
-        <source src="https://www.soundjay.com/misc/sounds/temple-bell-1.mp3" type="audio/mpeg">
-        <source src="https://www.soundjay.com/misc/sounds/temple-bell-1.wav" type="audio/wav">
+    <!-- Audio elements for the two tracks -->
+    <audio id="backgroundMusic1" preload="auto" data-track-id="1">
+        <source src="jammu-da-shahar_3rdcut.mp3" type="audio/mpeg">
     </audio>
-    // END: BG Music Functionality Removed (Commented Out)
-    -->
+    <audio id="backgroundMusic2" preload="auto" data-track-id="2">
+        <source src="jammu-da-shahar_4thcut.mp3" type="audio/mpeg">
+    </audio>
+    <!-- END: BG Music Functionality -->
 
     <section id="home" class="hero">
         <!-- Placeholder image URL for hero background, using relevant text for context -->
@@ -438,7 +440,7 @@
                             </ul>
                         </div>
 
-                        <a href="https://forms.google.com/mubarak-mandi-walk" target="_blank" class="walk-btn"
+                        <a href="https://tinyurl.com/2s4d36jm" target="_blank" class="walk-btn"
                             rel="noopener noreferrer">
                             Join This Walk
                         </a>
@@ -480,7 +482,7 @@
                             </ul>
                         </div>
 
-                        <a href="https://forms.google.com/old-city-walk" target="_blank" class="walk-btn"
+                        <a href="https://docs.google.com/forms/d/1IonUwNzxJoSxDg3RLtWHmuz9Bt9rEVBTQlmjfZgiqVM/edit"_blank" class="walk-btn"
                             rel="noopener noreferrer">
                             Join This Walk
                         </a>
@@ -548,7 +550,7 @@
                         <!-- START: Updated button structure for side-by-side display -->
                         <div class="contest-buttons-group">
                             <!-- Existing Registration/Submission Button -->
-                            <a href="https://forms.google.com/heritage-photography-contest" target="_blank"
+                            <a href="https://docs.google.com/forms/d/1VJA4dSZBt7e6N221j2vT1gKAi3P12tJUUyWIhI5NJnQ/edit" target="_blank"
                                 class="walk-btn contest-btn" rel="noopener noreferrer">
                                 Submit Your Entries
                             </a>
@@ -720,9 +722,9 @@
 
                     <div class="team-member">
                         <div class="member-avatar">
-                            <img src="images/Shivam.jpg" alt="Shivam" loading="lazy" width="120" height="120">
+                            <img src="images/Shivam.jpg" alt="Shivam Bali" loading="lazy" width="120" height="120">
                         </div>
-                        <h3>Shivam</h3>
+                        <h3>Shivam Bali</h3>
                         <p class="member-description">PR & Walk Incharge</p>
                     </div>
 
@@ -737,7 +739,7 @@
             </div>
 
             <div class="credits-section">
-                <p class="credits-text">Website Curated and Engineered by Prem</p>
+                <p class="credits-text">Website Curated and Engineered by Prem Singh</p>
                 <p class="email-text"> Contact us at: historiccitiesjammu2025@gmail.com</p>
             </div>
         </div>
@@ -840,7 +842,7 @@
         <div class="footer-content">
             <div class="container">
                 <div class="footer-bottom">
-                    <p>&copy; 2025 Heritage Walks Jammu. All rights reserved. | Preserving Heritage, Building Future</p>
+                    <p>&copy; 2025 Historic Cities Jammu Edition Team. All rights reserved.</p>
                 </div>
             </div>
         </div>
@@ -851,4 +853,3 @@
 </body>
 
 </html>
-
