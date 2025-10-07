@@ -15,8 +15,7 @@ function initializeWebsite() {
     initScrollEffects();
     initAnimations();
     initFormHandling();
-    // initHistoryCarousel() removed as per user request
-    // initBackgroundMusic(); // # Commented out as requested (Requirement 2)
+    initBackgroundMusic(); // # Re-enabled and updated
     console.log('Website initialized successfully');
 }
 
@@ -88,7 +87,7 @@ function initNavigation() {
     // Mobile menu toggle
     navToggle.addEventListener('click', () => {
         navMenu.classList.toggle('active');
-        navToggle.classList.toggle('active');
+        navToggle.classList.toggle('active'); // This line enables the CSS for the X animation
     });
 
     // Close mobile menu when clicking on links
@@ -217,59 +216,121 @@ function initFormHandling() {
 }
 
 // =======================================================
-// 7. BACKGROUND MUSIC IMPLEMENTATION (Commented out as requested)
+// 7. BACKGROUND MUSIC IMPLEMENTATION (Updated for two tracks and fade-in)
 // =======================================================
-/*
 function initBackgroundMusic() {
-    const music = document.getElementById('backgroundMusic');
+    const music1 = document.getElementById('backgroundMusic1');
+    const music2 = document.getElementById('backgroundMusic2');
     const toggleButton = document.getElementById('musicToggle');
-    let isPlaying = false;
     
-    if (!music || !toggleButton) {
+    if (!music1 || !music2 || !toggleButton) {
+        console.warn('Music elements not found. Skipping music init.');
         return;
     }
-    
-    // Set initial state
-    music.volume = 0.3; // Low volume for background
-    // Use the actual Unicode character for the muted state
-    toggleButton.textContent = '這'; 
-    
-    toggleButton.addEventListener('click', async () => {
+
+    // Configuration
+    const TARGET_VOLUME = 0.4; // 40% volume as requested
+    const FADE_DURATION = 3000; // 3 seconds fade as requested
+    const FADE_INTERVAL = 50; // 50ms interval for smooth fade
+    let isPlaying = false;
+    let currentTrack = music1;
+    let nextTrack = music2;
+    let fadeInterval = null;
+
+    // Set initial volume extremely low
+    music1.volume = 0.0;
+    music2.volume = 0.0;
+    toggleButton.innerHTML = '&#128263;'; // Muted icon
+
+    function startFadeIn(audioElement) {
+        let volume = audioElement.volume;
+        const step = TARGET_VOLUME / (FADE_DURATION / FADE_INTERVAL);
+
+        if (fadeInterval) {
+            clearInterval(fadeInterval);
+        }
+
+        fadeInterval = setInterval(() => {
+            volume += step;
+            if (volume >= TARGET_VOLUME) {
+                volume = TARGET_VOLUME;
+                clearInterval(fadeInterval);
+                fadeInterval = null;
+            }
+            audioElement.volume = volume;
+        }, FADE_INTERVAL);
+    }
+
+    function stopFade() {
+        if (fadeInterval) {
+            clearInterval(fadeInterval);
+            fadeInterval = null;
+        }
+    }
+
+    async function toggleMusic() {
+        stopFade(); // Stop any ongoing fades
+
         try {
             if (isPlaying) {
-                music.pause();
-                toggleButton.textContent = '這';
+                // Pause and reset volume immediately on stop
+                music1.pause();
+                music2.pause();
+                music1.volume = 0.0;
+                music2.volume = 0.0;
+                toggleButton.innerHTML = '&#128263;'; // Muted icon
                 isPlaying = false;
-                console.log('Background music paused');
+                console.log('Background music paused.');
             } else {
-                await music.play();
-                // Use the actual Unicode character for the playing state
-                toggleButton.textContent = '矧'; 
+                // Start the first track
+                await currentTrack.play();
+                startFadeIn(currentTrack);
+                toggleButton.innerHTML = '&#128266;'; // Playing icon
                 isPlaying = true;
-                console.log('Background music playing');
+                console.log('Background music started with smooth fade-in.');
             }
         } catch (error) {
-            console.log('Audio playback failed:', error);
-            // Fallback for browsers that require user interaction
-            toggleButton.textContent = '這';
-            showNotification('Click to enable background music', 'info');
+            console.error('Audio playback failed:', error);
+            toggleButton.innerHTML = '&#128263;';
+            isPlaying = false;
+            showNotification('Click a second time to start music (browser permission required)', 'info');
         }
-    });
+    }
 
-    // Handle audio events
-    music.addEventListener('ended', () => {
-        toggleButton.textContent = '這';
-        isPlaying = false;
-        // Optionally restart music on end
-        // music.play(); 
-    });
+    function switchTracks() {
+        // Swap current and next tracks
+        const temp = currentTrack;
+        currentTrack = nextTrack;
+        nextTrack = temp;
+        
+        // Reset the finished track and prepare the next
+        nextTrack.pause();
+        nextTrack.currentTime = 0;
 
-    music.addEventListener('error', () => {
-        console.log('Audio loading failed - using fallback');
-        toggleButton.style.opacity = '0.5';
-    });
+        // Start playing the new current track with fade in
+        currentTrack.play().then(() => {
+            startFadeIn(currentTrack);
+            console.log(`Switched to track ${currentTrack.dataset.trackId}`);
+        }).catch(e => {
+            console.error('Track switch failed:', e);
+            // Attempt to restart the playlist if switch fails
+            currentTrack = music1;
+            nextTrack = music2;
+            toggleMusic(); 
+        });
+    }
+    
+    // Event listeners for track end to handle cycling
+    music1.addEventListener('ended', switchTracks);
+    music2.addEventListener('ended', switchTracks);
+
+    // Main toggle listener
+    toggleButton.addEventListener('click', toggleMusic);
+    
+    // Handle global errors for audio elements
+    music1.addEventListener('error', () => console.error('Audio track 1 failed to load.'));
+    music2.addEventListener('error', () => console.error('Audio track 2 failed to load.'));
 }
-*/
 
 
 // =======================================================
